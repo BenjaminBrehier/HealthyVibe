@@ -6,13 +6,15 @@
 </head>
 
 <body>
-
+<?php 
+include './res/php/header.php';
+?>
 <section id= "Espace">
     <a class="carre_noir" href="#">
         <h1>Espace Santé</h1>
         <div class="carre_blanc">
             <img class="bordure" src="./res/img/Sante.jpg" alt="image de Santé">
-            <p>Rapport statistique détaillé de votre rythme cardiaque,
+            <p class="rapport">Rapport statistique détaillé de votre rythme cardiaque,
                  température corporelle et exposition sonore (décibelmètre)</p>
         </div>
     </a>  
@@ -21,7 +23,7 @@
         <h1>Espace Environnement</h1>
         <div class="carre_blanc">
             <img class="bordure" src="./res/img/environnement.jpg" alt="image d'environnement">
-            <p>Rapport statistique détaillé de l'exposition 
+            <p class="rapport">Rapport statistique détaillé de l'exposition 
                 au gaz toxique et au monoxyde de carbone </p>
         </div>
     </a>     
@@ -50,6 +52,9 @@
     </a>  
 
 </section>
+<?php 
+include './res/php/footer.php';
+?>
 </body>
 
 </html>

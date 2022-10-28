@@ -4,21 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>HealthyVibe</title>
-    <link rel="stylesheet" href="res/css/index.css">
+    <link rel="stylesheet" href="res/css/accueil.css">
     <script src="res/js/script.js"></script>
 </head>
 
 <body>
-    <header>
-        <div id="ligneVerte"></div>
-        <img src="./res/img/logo.png" alt="Logo de HealthyVibe">
-        <nav>
-            <a href="">Tips ecologiques</a>
-            <a href="">FAQ</a>
-            <a href="" id="co">Se connecter</a>
-            <a href="" id="inscrire">S'inscrire</a>
-        </nav>
-    </header>
+    <?php
+    include './res/php/header.php';
+    ?>
     <section id="presentation">
         <h1>HealthyVibe</h1>
         <div>
@@ -30,9 +23,9 @@
     <section id="fonctions">
 
     </section>
-    <footer>
-        
-    </footer>
+    <?php
+    include './res/php/footer.php';
+    ?>
 </body>
 
 </html>
