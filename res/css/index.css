@@ -58,7 +58,7 @@ header nav #inscrire {
   padding: 0.5em;
 }
 
-section {
+#presentation {
   text-align: center;
   margin-top: 5%;
   font-size: 20px;
@@ -84,4 +84,46 @@ section {
   margin-left: auto;
   width: 50%;
   margin-right: auto;
+}
+
+#fonctions {
+  background-color: #2C3033;
+  height: 800px;
+  color: white;
+  padding: 5%;;
+}
+
+#fonctions .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+#fonctions h1 {
+  font-size: 50px;
+}
+
+#fonctions .container  {
+  margin-top: 2%;
+}
+
+#fonctions .container #left {
+  width: 50%;
+  height: 100%;
+}
+
+#fonctions .container #left p {
+  width: 60%;
+  font-size: 30px;
+}
+
+#fonctions .container #left p strong {
+  color: #DBFD51;
+}
+
+#fonctions #right {
+  background-color: #DBFD51;
+  width: 50%;
+  height: 600px;
 }

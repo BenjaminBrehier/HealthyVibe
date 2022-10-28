@@ -28,7 +28,15 @@
         <img src="./res/img/casque.jpg" alt="Image du casque">
     </section>
     <section id="fonctions">
+        <h1>Des Fonctionnalités inédites</h1>
+        <div class="container">
+            <div id="left">
+                <p><strong>HealthyVibe</strong> a été soigneusement conçu pour veiller à ce que son utilisateur soit dans les meilleures conditions possibles pour sa santé et son bien-être.</p>
+            </div>
+            <div id="right">
 
+            </div>
+        </div>
     </section>
     <?php
     include './res/php/footer.php';
