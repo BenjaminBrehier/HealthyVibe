@@ -1,0 +1,30 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+}
+
+h1 {
+    font-size:20px;
+}
+
+h2 {
+    margin-top:10px;
+    font-size:15px;
+}
+
+h3 {
+    margin-top:10px;
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+
+h4 {
+    margin-top:10px;
+    font-size:12px;
+    font-style: italic;
+}
+p, ul, li, text {
+    justify-content:flex-start;
+    font-size:12px;
+}
