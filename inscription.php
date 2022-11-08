@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>HealthyVibe</title>
+    <title>Inscription</title>
     <link rel="stylesheet" href="res/css/inscription.css">
     <script src="res/js/script.js"></script>
 </head>
@@ -43,11 +43,11 @@
          </div> 
         <div class="champ">         
             <label for="adresse">Adresse:</label>
-            <input type="text" id="Adresse" name="Adresse" required>
+            <input type="text" id="Adresse" name="Adresse">
         </div> 
         <div class="champ"> 
             <label for="CP">Code Postal:</label>
-            <input type="number" id="CP" name="CP" required>
+            <input type="number" id="CP" name="CP">
         </div> 
         <div class="champ"> 
             <label for="mail">Mail:</label>
@@ -55,8 +55,14 @@
         </div> 
         <div class="champ"> 
             <label for="tel">Tel:</label>
-            <input type="number" id="tel" name="Tel" required>
+            <input type="number" id="tel" name="Tel">
         </div> 
+
+        <div class="champ"> 
+            <label for="mdp">Mot de passe:</label>
+            <input type="password" id="mdp" name="mdp" required>
+        </div> 
+
         <div class="checkbox"> 
             <label for="AgeC">Je certifie avoir plus de 15 ans.    </label>
             <input type="checkbox" id="AgeC" required>

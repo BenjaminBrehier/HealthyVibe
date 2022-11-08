@@ -52,25 +52,46 @@ header nav a {
     color: rgba(255, 255, 255, 0.71);
 }
 
+
+
 header h2 {
-    margin-left: auto;
-    margin-right: 3%;
+
     font-size:40px;
     color: #30E87A;
+    padding-left:14%;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: auto;
+    margin-right:auto;
 
 }
 
+
 header img {
   width: 8%;
+}
+
+.espaceConnexion {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border: solid 3px black;
+    border-radius: 5%;
+
+    margin-top: 5%;
+    margin-bottom:12%;
+    margin-left:33%;
+    
+    padding-top: 5%;
+    padding-bottom:5%;
+    width:33%;
+
 }
 
 .titre{
     font-size: 30px;
     display:flex;
     justify-content: center;
-    margin-top:4px;
     margin-bottom: 4px;
 }
 
@@ -84,10 +105,9 @@ form {
     display: flex;
     flex-direction: column;
     align-items:left;
-    width: 30%;
+    width: 75%;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom:50px;
 
 }
 
@@ -98,19 +118,13 @@ form {
     margin-bottom: 5px;
 }
 
-.checkbox {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    font-size:12px;
-}
 
-.boutonSinscrire {
+.boutonConnexion {
     display:flex;
     justify-content:center;
 }
 
-.sinscrire {
+.seConnecter {
     display:flex;
     height:40px;
     width:100px;
