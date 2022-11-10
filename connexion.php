@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
+    <title>Connexion : HealthyVibe</title>
     <link rel="stylesheet" href="res/css/connexion.css">
     <script src="res/js/script.js"></script>
 </head>
@@ -26,11 +26,16 @@
 
 <body>
     <div class="espaceConnexion">
-        <p class="titre"> Espace HealthyVibe</p>
+        <p class="titre">HealthyVibe</p>
+        <img src="./res/img/logo_black.png" alt="Logo de HealthyVibe" id='logo'>
+        <p class="connexion">Connexion</p>
+        <div id='barre'>
+            <hr>
+        </div>
 
         <form>
             <div class="champ"> 
-                <label for="mail">Mail:</label>
+                <label for="mail" font-weight=strong >Mail:</label>
                 <input type="email" id="mail" name="Adresse mail" required>
             </div> 
 

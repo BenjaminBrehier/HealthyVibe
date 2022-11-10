@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Inscription</title>
+    <title>Inscription : HealthyVibe</title>
     <link rel="stylesheet" href="res/css/inscription.css">
     <script src="res/js/script.js"></script>
 </head>
