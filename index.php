@@ -15,8 +15,8 @@
         <nav>
             <a href="">Tips ecologiques</a>
             <a href="">FAQ</a>
-            <a href="" id="co">Se connecter</a>
-            <a href="" id="inscrire">S'inscrire</a>
+            <a href="./connexion.php" id="co">Se connecter</a>
+            <a href="./inscription.php" id="inscrire">S'inscrire</a>
         </nav>
     </header>
     <section id="presentation">

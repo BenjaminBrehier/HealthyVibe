@@ -10,8 +10,8 @@
         </div>
     </div>
     <nav>
-        <a href="" id="données">Vos données</a>
-        <a href="" id="données">Forum</a>
+        <a href="../../vosDonnees.php" id="données">Vos données</a>
+        <a href="../../forum.php" id="données">Forum</a>
         <a href="">FAQ</a>
         <a href="">Tips ecologiques</a>
         <a href="">Nous contacter</a>

@@ -36,7 +36,7 @@
         <form>
             <div class="champ"> 
                 <label for="mail" font-weight=strong >Mail:</label>
-                <input type="email" id="mail" name="Adresse mail" required>
+                <input type="email" id="mail" name="mail" required>
             </div> 
 
             
