@@ -8,7 +8,13 @@ header a {
 }
 
 header h2 {
+    display:flex;
     font-size: 30px;
+    margin-left:auto;
+    margin-right:auto;
+    width: auto;
+    padding-left:2.9%;
+
 }
 
 header {
@@ -18,15 +24,17 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+
 }
 
 header #up {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 98%;
     height: 50%;
-    justify-content: space-between;
+    margin-left:1%;
+    margin-right:1%;
+
 }
 
 header #up #compte {
@@ -38,6 +46,8 @@ header #up #compte {
     background-color: #C0C8CD;
     padding: 2px;
 }
+
+
 
 header #up #compte img {
     width: 30px;
