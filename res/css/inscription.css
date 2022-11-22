@@ -11,7 +11,6 @@ a {
 
 body {
   font-family: 'Source sans Pro', sans-serif;
-  margin-bottom:10px;
 }
 
 header {
@@ -35,6 +34,8 @@ header #ligneVerte {
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    width:95%;
+    justify-content:space-between;
 }
 
 header nav {
@@ -45,6 +46,7 @@ header nav {
 
     justify-content: space-around;
     align-items: center;
+    padding-right:50px;
 
 }
   
@@ -53,9 +55,8 @@ header nav a {
 }
 
 header h2 {
-    margin-left: auto;
-    margin-right: 3%;
-    font-size:40px;
+    padding-left: 18%;
+    font-size:30px;
     color: #30E87A;
     margin-top: auto;
     margin-bottom: auto;
@@ -66,12 +67,31 @@ header img {
   width: 8%;
 }
 
+.espaceInscription {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border: solid 3px black;
+  border-radius: 5%;
+
+  margin-top: 2%;
+  margin-bottom:2%;
+  margin-left:auto;
+  margin-right:auto;
+  
+  padding-top: 1%;
+  padding-bottom:1%;
+  width:30%;
+}
+
 .titre{
-    font-size: 30px;
+    font-size: 25px;
     display:flex;
     justify-content: center;
     margin-top:4px;
-    margin-bottom: 4px;
+    margin-bottom: 15px;
+    font-family: Helvetica, Arial, sans-serif;   
+    font-weight:bold;
 }
 
 .formulaire {
@@ -84,10 +104,12 @@ form {
     display: flex;
     flex-direction: column;
     align-items:left;
-    width: 30%;
+    width: 55%;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom:50px;
+    margin-bottom:20px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:12px;
 
 }
 
@@ -103,6 +125,7 @@ form {
     flex-direction:row;
     align-items:center;
     font-size:12px;
+    font-style:italic;
 }
 
 .boutonSinscrire {
@@ -117,7 +140,7 @@ form {
     justify-content:center;
     font-size:15px;
     margin-top:20px;
-    margin-bottom:20px;
+    margin-bottom:0px;
     background-color:#2c30335e;
     border-radius: 10%;
     border-width: 0px;
