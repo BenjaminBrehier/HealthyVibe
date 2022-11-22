@@ -1,3 +1,8 @@
+<?php 
+    if(isset($_GET['reponse'])) {
+        
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +33,7 @@
 
     <p class="titre"> Formulaire d'inscription</p>
 
-    <form>
+    <form action="./accueil.php?&type=inscription" method="POST">
         <div class="champ">
             <label for="fname">Nom:</label>
             <input type="text" id="fname" name="fname" required>
@@ -43,7 +48,7 @@
          </div> 
         <div class="champ">         
             <label for="adresse">Adresse:</label>
-            <input type="text" id="Adresse" name="Adresse">
+            <input type="text" id="Adresse" name="adresse">
         </div> 
         <div class="champ"> 
             <label for="CP">Code Postal:</label>
@@ -51,11 +56,11 @@
         </div> 
         <div class="champ"> 
             <label for="mail">Mail:</label>
-            <input type="email" id="mail" name="Adresse mail" required>
+            <input type="email" id="mail" name="mail" required>
         </div> 
         <div class="champ"> 
             <label for="tel">Tel:</label>
-            <input type="number" id="tel" name="Tel">
+            <input type="number" id="tel" name="tel">
         </div> 
 
         <div class="champ"> 
@@ -73,7 +78,7 @@
             <input type="checkbox" id="cguC" required>
         </div>
         <div class="boutonSinscrire">
-            <input type="button" id="Sinscrire" name="S'inscrire" value="S'inscrire" class="sinscrire">
+            <input type="submit" id="Sinscrire" name="S'inscrire" value="S'inscrire" class="sinscrire">
         </div>
     </form>
 
