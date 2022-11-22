@@ -1,6 +1,7 @@
 <!-- Script pour l'inscription ou connexion de l'utilisateur -->
 <?php 
     require_once './res/php/config.php';
+    session_start();
     if (isset($_GET['type'])) {
         if ($_GET['type'] == 'inscription') {
             $nom = $_POST['fname'];
@@ -18,11 +19,13 @@
             $mdp = $_POST['mdp'];
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            $result = $co->query("INSERT INTO UTILISATEUR(nomm, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
             if (!$result) {
-                header("inscription.php?reponse=Erreur");
+                header("Location: ./inscription.php?reponse=Erreur");
                 exit();
             } else {
+                $_SESSION['nom'] = $nom;
+                $_SESSION['prenom'] = $prenom;
             }
         }
         else if ($_GET['type'] == 'connexion') {

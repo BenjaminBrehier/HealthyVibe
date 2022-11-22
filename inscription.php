@@ -1,8 +1,3 @@
-<?php 
-    if(isset($_GET['reponse'])) {
-        
-    }
-?>
 <!DOCTYPE html>
 <html>
 
@@ -34,6 +29,7 @@
         <p class="titre"> Formulaire d'inscription</p>
 
         <form action="./accueil.php?&type=inscription" method="POST">
+            <p id="erreur"><?php if(isset($_GET['reponse'])) {echo 'Erreur lors de l\'inscription. Merci de réessayer ou contacter le support si le problème persiste.';} ?></p>
             <div class="champ">
                 <label for="fname">Nom:</label>
                 <input type="text" id="fname" name="fname" required>
