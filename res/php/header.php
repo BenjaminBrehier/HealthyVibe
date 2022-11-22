@@ -9,6 +9,7 @@
             <p>Thomas Dubois</p>
         </div>
     </div>
+
     <nav>
         <a href="../../vosDonnees.php" id="données">Vos données</a>
         <a href="../../forum.php" id="données">Forum</a>
