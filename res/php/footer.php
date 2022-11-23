@@ -2,7 +2,7 @@
 <footer>
     <img src="./res/img/Infinite_measures_1-removebg-preview.png" alt="logo Infinite Measures">
     <div id="infos">
-        <p>Copyright 2023 Infinite Measures.inc</p>
+        <p>Copyright <?php echo date("Y")?> Infinite Measures.inc</p>
         <p>
             <a href="">Engagement de confidentialité</a> |
             <a href="">Conditions d'utilisation</a> |

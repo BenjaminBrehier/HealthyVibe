@@ -32,7 +32,8 @@
             <hr>
         </div>
 
-        <form>
+        <form action="./accueil.php?&type=connexion" method="POST">
+        <p id="erreur"><?php if(isset($_GET['reponse'])) {echo 'Erreur lors de la connexion. Merci de réessayer ou contacter le support si le problème persiste.';} ?></p>
             <div class="champ"> 
                 <label for="mail" font-weight=strong >Mail:</label>
                 <input type="email" id="mail" name="mail" required>
@@ -50,7 +51,7 @@
                 </div>
 
                 <div class="boutonConnexion">
-                    <input type="button" class="seConnecter" name="seConnecter" value="Se connecter" class="seConnecter">
+                    <input type="submit" class="seConnecter" name="seConnecter" value="Se connecter" class="seConnecter">
                 </div>
             </div>
 

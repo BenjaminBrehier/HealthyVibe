@@ -1,39 +1,47 @@
 <!-- Script pour l'inscription ou connexion de l'utilisateur -->
 <?php 
-    require_once './res/php/config.php';
+    require_once './res/php/fonctions.php';
     session_start();
     if (isset($_GET['type'])) {
-        if ($_GET['type'] == 'inscription') {
-            $nom = $_POST['fname'];
-            $prenom = $_POST['lname'];
-            $dateNaissance = $_POST['DTN'];
+        if (htmlspecialchars($_GET['type']) == 'inscription') {
+            $nom = htmlspecialchars($_POST['fname']);
+            $prenom = htmlspecialchars($_POST['lname']);
+            $dateNaissance = htmlspecialchars($_POST['DTN']);
             $adresse = "";
             $codePostal = "";
             if (isset($_POST['adresse']))
-                $adresse = $_POST['adresse'];
+                $adresse = htmlspecialchars($_POST['adresse']);
             if (isset($_POST['CP']))
-                $codePostal = $_POST['CP'];
+                $codePostal = htmlspecialchars($_POST['CP']);
 
-            $mail = $_POST['mail'];
-            $tel = $_POST['tel'];
-            $mdp = $_POST['mdp'];
+            $mail = htmlspecialchars($_POST['mail']);
+            $tel = htmlspecialchars($_POST['tel']);
+            $mdp = htmlspecialchars($_POST['mdp']);
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
             $result = $co->query("INSERT INTO UTILISATEUR(nomm, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
-            if (!$result) {
+            if ($result) {
+                login($mail, $mdp);
+            } else {
                 header("Location: ./inscription.php?reponse=Erreur");
                 exit();
-            } else {
-                $_SESSION['nom'] = $nom;
-                $_SESSION['prenom'] = $prenom;
             }
         }
         else if ($_GET['type'] == 'connexion') {
-            
+            $mail = htmlspecialchars($_POST['mail']);
+            $mdp = htmlspecialchars($_POST['mdp']);
+            login($mail, $mdp);
         } 
         else {
-
+            //! Url de connexion incorrect 
+            header("Location: ./connexion.php?reponse=Erreur");
+            exit();
         }
+    }
+    else {
+        //! Url de connexion incorrect
+        header("Location: ./connexion.php?reponse=Erreur");
+        exit();
     }
 ?>
 

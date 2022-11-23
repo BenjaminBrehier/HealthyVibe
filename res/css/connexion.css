@@ -97,6 +97,10 @@ header img {
     width:28%;
 }
 
+#erreur {
+  color: red;
+}
+
 .titre{
  
     display:flex;

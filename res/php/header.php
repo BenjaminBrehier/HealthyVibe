@@ -6,7 +6,7 @@
         <h2>Bienvenue dans votre espace personnel</h2>
         <div id="compte">
             <img src="./res/img/user.png" alt="">
-            <p>Thomas Dubois</p>
+            <p><?php echo $_SESSION["prenom"].' '.$_SESSION["nom"]; ?></p>
         </div>
     </div>
 
