@@ -8,14 +8,17 @@ define('DB_NAME', 'HealthyVibe');
 
 function login($mail, $mdp) {
     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-    $result = $co->query("SELECT * FROM Utilisateur WHERE email = '$mail' AND mdp = '$mdp'");
-    if (!$result) {
-        header("Location: ./connexion.php?reponse=Erreur");
-        exit();
-    } else {
-        $row = $result->fetch_object();
+
+    $mail = mysqli_escape_string($co, $mail);
+    $mdp = mysqli_escape_string($co, $mdp);
+    $result = $co->query("SELECT * FROM Utilisateur WHERE email = '$mail' AND mdp = '$mdp' LIMIT 1");  
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_object ();
         $_SESSION['nom'] = $row->nom;
         $_SESSION['prenom'] = $row->prenom;
         $_SESSION['id'] = $row->idUtilisateur;
+    } else {
+        header ("Location: ./connexion.php?reponse=Erreur");
+        exit();
     }
 }

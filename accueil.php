@@ -13,13 +13,15 @@
                 $adresse = htmlspecialchars($_POST['adresse']);
             if (isset($_POST['CP']))
                 $codePostal = htmlspecialchars($_POST['CP']);
+            if (isset($_POST['tel'])) {
+                $tel = htmlspecialchars($_POST['tel']);
+            }
 
             $mail = htmlspecialchars($_POST['mail']);
-            $tel = htmlspecialchars($_POST['tel']);
             $mdp = htmlspecialchars($_POST['mdp']);
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("INSERT INTO UTILISATEUR(nomm, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
             if ($result) {
                 login($mail, $mdp);
             } else {

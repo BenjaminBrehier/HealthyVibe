@@ -38,6 +38,15 @@
                 <label for="lname">Prénom:</label>
                 <input type="text" id="lname" name="lname" required>
             </div>
+            <div class="champ"> 
+                <label for="mail">Mail:</label>
+                <input type="email" id="mail" name="mail" required>
+            </div>
+            <div class="champ"> 
+                <label for="mdp">Mot de passe:</label>
+                <input type="password" id="mdp" name="mdp" required>
+            </div> 
+
             <div class="champ">
                 <label for="DTN">Date de naissance:</label>
                 <input type="date" id="DTN" name="DTN" required>
@@ -49,19 +58,10 @@
             <div class="champ"> 
                 <label for="CP">Code Postal:</label>
                 <input type="number" id="CP" name="CP">
-            </div> 
-            <div class="champ"> 
-                <label for="mail">Mail:</label>
-                <input type="email" id="mail" name="mail" required>
-            </div> 
+            </div>  
             <div class="champ"> 
                 <label for="tel">Tel:</label>
                 <input type="number" id="tel" name="tel">
-            </div> 
-
-            <div class="champ"> 
-                <label for="mdp">Mot de passe:</label>
-                <input type="password" id="mdp" name="mdp" required>
             </div> 
 
             <div class="checkbox"> 
