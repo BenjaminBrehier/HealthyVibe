@@ -146,3 +146,8 @@ nav {
     background: grey;
     text-decoration : none;
 }
+
+a{
+  text-decoration:none;
+  color:white;
+}
