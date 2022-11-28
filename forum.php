@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Forum</title>
-    <link rel="stylesheet" href="res/css/inscription.css">
+    <link rel="stylesheet" href="">
     <script src="res/js/script.js"></script>
 </head>
 

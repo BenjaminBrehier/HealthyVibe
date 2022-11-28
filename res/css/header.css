@@ -3,59 +3,12 @@
     margin: 0;
 }
 
-header a {
-    text-decoration: none;
-}
-
-header h2 {
-    display:flex;
-    font-size: 30px;
-    margin-left:auto;
-    margin-right:auto;
-    width: auto;
-    padding-left:2.9%;
-
-}
+/* PARTIE SET UP DU HEADER */
 
 header {
     width: 100%;
     height: 50%;
     background-color: #2C3033;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-}
-
-header #up {
-    display: flex;
-    flex-direction: row;
-    width: 98%;
-    height: 50%;
-    margin-left:1%;
-    margin-right:1%;
-
-}
-
-header #up #compte {
-    display: flex;
-    width: 10%;
-    height: fit-content;
-    align-items: center;
-    margin-top: 1%;
-    background-color: #C0C8CD;
-    padding: 2px;
-}
-
-
-
-header #up #compte img {
-    width: 30px;
-    height: 50%;
-}
-
-header #up #compte p {
-    margin-left: 3px;
 }
 
 header #ligneVerte {
@@ -64,29 +17,132 @@ header #ligneVerte {
     background-color: #30E87A;
 }
 
-header img {
-    width: 6%;
-}
-
-header h2 {
-    margin-left: auto;
-    margin-right: auto;
-    color: #30E87A;
-    margin-top: 1%;
-
-}
-
-header nav {
-    display: flex;
+header #up{
+    display : flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    width: 50vw;
-    margin-left: auto;
-    margin-right: auto;
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    margin-left: 2px;
+    margin-right: 2px;
+    height: 70px;
 }
 
-header nav a {
-    color: rgba(255, 255, 255, 0.71);
+
+/* PARTIE TITRE DU HEADER*/
+
+#h2box {
+    display:flex;
+    flex-direction:column;
+    padding-top: auto;
+    padding-bottom: auto;
+    justify-content: center;
+    height: auto;
+
+}
+
+h2{
+    color:#30E87A;
+    font-size: 29px;   
+}
+
+
+/* PARTIE BASSE DU HEADER ("Vos Données", "Forum", etc.) */
+
+#main{
+    display:flex;
+    width:100%;
+    justify-content: center;
+}
+header #menu_horizontal {
+    display: flex;                /* Transformation en flexbox */                   /* Suppression des marges internes */
+    background-color: #2C3033;       /* Ajout de la couleur d'arrière-plan */
+    justify-content: space-around;/* Alignements des liens dans le menu */
+    justify-content: center;
+}
+
+header #menu_horizontal li {
+    list-style-type: none ;       /* Suppression des puces */
+    margin-right: 10%;
+}
+header #menu_horizontal a {
+    display:block;                /* Transformation en block */
+    min-width: 120px;             /* Largeur minimale des liens */   
+    margin-bottom: 1rem;               /* Marges externes */
+    padding: 0.4rem 0;            /* Marges internes */
+    text-align: center;           /* Centrage du texte */   
+    background-color: #2c3033;    /* Arrière-plan */
+    color: #fff;                  /* Couleur du texte */
+    text-decoration: none;        /* Suppression du soulignement */
+    border-radius: 4px;           /* Arrondis des bordures */
+    transition: all 1s;            /* Ajout des effets de transition */
+    font-family: "source sans pro";
+}
+header #menu_horizontal a.actif {    
+    background-color: #000 ; 
+    color: #1ABC9C ;
+    border-color: #1ABC9C ;
+}
+
+header #menu_horizontal a:hover{
+    background-color: #aaaaaa;
+}
+
+
+/* PARTIE MENU DÉROULANT */ /* PAS TERMINÉ !!! */
+
+nav {
+  text-align: center;
+  text-decoration : none;
+}
+.menu {
+  display: inline-block;
+  text-decoration: none;
+}
+.menu > li {
+  float: left;
+  color: white;
+  width: 140px;
+  height: 40px;
+  line-height: 39px;
+  background: #2C3033;
+  cursor: pointer;
+  font-size: 17px;
+  list-style: none;
+  text-decoration: none;
+}
+.sous-menu {
+  transform: scale(0);
+  transform-origin: top center;
+  transition: all 300ms ease-in-out;
+}
+.sous-menu li {
+  font-size: 14px;
+  background: rgba(121, 121, 121, 0.8);
+  color: rgb(223, 38, 38);
+  transform: scale(0);
+  transform-origin: top center;
+  transition: all 300ms ease-in-out;
+  list-style: none;
+  text-decoration:none;
+}
+.sous-menu li:last-child {
+  border-bottom: 0;
+  text-decoration : none;
+}
+.sous-menu li:hover {
+  background: grey;
+  text-decoration : none;
+}
+.menu > li:hover .sous-menu li {
+  transform: scale(1);
+  text-decoration : none;
+}
+.menu > li:hover .sous-menu {
+  transform: scale(1);
+  text-decoration : none;
+}
+
+.menu > li:hover{
+    background: grey;
+    text-decoration : none;
 }

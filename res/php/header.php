@@ -1,20 +1,32 @@
 <link rel="stylesheet" href="res/css/header.css">
 <header>
-    <div id="ligneVerte"></div>
+    <div id="ligneVerte">
+    </div>
     <div id="up">
         <img src="./res/img/logo.png" alt="Logo de HealthyVibe">
-        <h2>Bienvenue dans votre espace personnel</h2>
-        <div id="compte">
-            <img src="./res/img/user.png" alt="">
-            <p>Thomas Dubois</p>
+        <div  id='h2box'>
+            <h2>Bienvenue dans votre espace personnel</h2>
         </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Thomas Dubois</a>
+                    <ul class="sous-menu">
+                        <li><a href="#"> Profil </a></li>
+                        <li><a href="#"> Se déconnecter </a></li>
+                    </ul>
+                </li>
+            </ul>
+        <nav>
     </div>
 
-    <nav>
-        <a href="../../vosDonnees.php" id="données">Vos données</a>
-        <a href="../../forum.php" id="données">Forum</a>
-        <a href="">FAQ</a>
-        <a href="">Tips ecologiques</a>
-        <a href="">Nous contacter</a>
+    <nav id='main'>
+    <ul id="menu_horizontal">
+        <li><a href="../../vosDonnees.php" id="données">Vos données</a></li>
+        <li><a href="../../forum.php" id="données">Forum</a></li>
+        <li><a href="">FAQ</a></li>
+        <li><a href="">Tips ecologiques</a></li>
+        <li><a href="">Nous contacter</a></li>
+    </ul>
     </nav>
+
 </header>
