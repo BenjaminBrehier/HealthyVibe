@@ -1,3 +1,52 @@
+<!-- Script pour l'inscription ou connexion de l'utilisateur -->
+<?php 
+    require_once './res/php/fonctions.php';
+    session_start();
+    if (isset($_GET['type'])) {
+        if (htmlspecialchars($_GET['type']) == 'inscription') {
+            $nom = htmlspecialchars($_POST['fname']);
+            $prenom = htmlspecialchars($_POST['lname']);
+            $dateNaissance = htmlspecialchars($_POST['DTN']);
+            $adresse = "";
+            $codePostal = "";
+            if (isset($_POST['adresse']))
+                $adresse = htmlspecialchars($_POST['adresse']);
+            if (isset($_POST['CP']))
+                $codePostal = htmlspecialchars($_POST['CP']);
+            if (isset($_POST['tel'])) {
+                $tel = htmlspecialchars($_POST['tel']);
+            }
+
+            $mail = htmlspecialchars($_POST['mail']);
+            $mdp = htmlspecialchars($_POST['mdp']);
+
+            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            if ($result) {
+                login($mail, $mdp);
+            } else {
+                header("Location: ./inscription.php?reponse=Erreur");
+                exit();
+            }
+        }
+        else if ($_GET['type'] == 'connexion') {
+            $mail = htmlspecialchars($_POST['mail']);
+            $mdp = htmlspecialchars($_POST['mdp']);
+            login($mail, $mdp);
+        } 
+        else {
+            //! Url de connexion incorrect 
+            header("Location: ./connexion.php?reponse=Erreur");
+            exit();
+        }
+    }
+    else {
+        //! Url de connexion incorrect
+        header("Location: ./connexion.php?reponse=Erreur");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 

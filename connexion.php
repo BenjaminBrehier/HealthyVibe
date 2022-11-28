@@ -13,7 +13,7 @@
         <div class="barre">
             <img src="./res/img/logo.png" alt="Logo de HealthyVibe">
 
-            <h2>Connexion à votre espace HealthyVibe</h2>
+            <h2>HealthyVibe</h2>
 
             <nav>
                 <a href="">Tips ecologiques</a>
@@ -26,14 +26,14 @@
 
 <body>
     <div class="espaceConnexion">
-        <p class="titre">HealthyVibe</p>
         <img src="./res/img/logo_black.png" alt="Logo de HealthyVibe" id='logo'>
         <p class="connexion">Connexion</p>
-        <div id='barre'>
+        <div id='barres'>
             <hr>
         </div>
 
-        <form>
+        <form action="./accueil.php?&type=connexion" method="POST">
+        <p id="erreur"><?php if(isset($_GET['reponse'])) {echo 'Erreur lors de la connexion. Merci de réessayer ou contacter le support si le problème persiste.';} ?></p>
             <div class="champ"> 
                 <label for="mail" font-weight=strong >Mail:</label>
                 <input type="email" id="mail" name="mail" required>
@@ -42,13 +42,19 @@
             
             <div class="champ"> 
                 <label for="mdp">Mot de passe:</label>
-                <input type="password" id="mdp" name="mdp" required>
+                <input type="text" id="mdp" name="mdp" required>
             </div> 
 
+            <div class="boutons">
+                <div class="boutonConnexion">
+                    <input type="button" class="seConnecter" name="seConnecter" value="S'incrire" class="seConnecter">
+                </div>
 
-            <div class="boutonConnexion">
-                <input type="button" id="seConnecter" name="seConnecter" value="Se connecter" class="seConnecter">
+                <div class="boutonConnexion">
+                    <input type="submit" class="seConnecter" name="seConnecter" value="Se connecter" class="seConnecter">
+                </div>
             </div>
+
         </form>
     </div>
 
