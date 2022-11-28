@@ -9,10 +9,10 @@
         </div>
         <nav>
             <ul class="menu">
-                <li><a href="#">Thomas Dubois</a>
+                <li><a href="#"><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']?></a>
                     <ul class="sous-menu">
-                        <li><a href="#"> Profil </a></li>
-                        <li><a href="#"> Se déconnecter </a></li>
+                        <li><a href="./profil.php">Profil</a></li>
+                        <li><a href="./res/php/disconnect.php">Se déconnecter</a></li>
                     </ul>
                 </li>
             </ul>
@@ -21,8 +21,9 @@
 
     <nav id='main'>
     <ul id="menu_horizontal">
-        <li><a href="../../vosDonnees.php" id="données">Vos données</a></li>
-        <li><a href="../../forum.php" id="données">Forum</a></li>
+        <li><a href="./accueil.php?type=connexion" id="données">Acceuil</a></li>
+        <li><a href="./vosDonnees.php" id="données">Vos données</a></li>
+        <li><a href="./forum.php" id="données">Forum</a></li>
         <li><a href="">FAQ</a></li>
         <li><a href="">Tips ecologiques</a></li>
         <li><a href="">Nous contacter</a></li>
