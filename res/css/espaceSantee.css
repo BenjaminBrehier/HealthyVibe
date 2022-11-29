@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+#spaceHolder {
+    height: 1000px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    background: linear-gradient(black, white);
+}
+#calendrier{
+    background-color: white;
+    height:275px;
+    padding-top: 50px;
+    padding-bottom: 130px; 
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#liens{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 70px;
+    font-size: large;
+    
+}
+#liens a{
+    text-decoration: none;
+    background-color: #CCCCCC;
+    color: black;
+    padding-left: 5px;
+}
+.bouttontemps{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.enSavoirPlus{
+    background-color: #DBFD51;
+    border: 0;
+    font-style: bold;
+    border-radius: 50px;
+    font-size: larger;
+    width: 50%;
+    font-family: "source sans pro";
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+}
+#carreblanc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+}
+.icone{
+    width: 50px;
+    height: 50px;
+    margin-left: 40px;
+}
+#pres{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+}
+p{
+    font-size:x-large;
+    margin-left: 20px;
+    font-style: bold;
+    font-family: "source sans pro";
+}   
+.btn{
+    margin-top: 20px;
+    margin-left: 60px;
+    color: white;
+    background-color: #30E87A;
+    border: 0;
+    border-radius: 50px;
+    width: 50%;
+    font-size: larger;
+    font-family: "source sans pro";
+
+}
