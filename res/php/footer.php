@@ -5,7 +5,7 @@
         <p>Copyright <?php echo date("Y")?> Infinite Measures.inc</p>
         <p>
             <a href="">Engagement de confidentialité</a> |
-            <a href="">Conditions d'utilisation</a> |
+            <a href="./CGU.php">Conditions d'utilisation</a> |
             <a href="">A propos de Unitech</a>
         </p>
     </div>
