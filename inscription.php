@@ -46,6 +46,11 @@
                 <label for="mdp">Mot de passe:</label>
                 <input type="password" id="mdp" name="mdp" required>
             </div> 
+            <div class="champ"> 
+                <label for="nCasque">Numéro de casque:</label>
+                <input type="number" id="nCasque" name="nCasque" required>
+            </div> 
+
 
             <div class="champ">
                 <label for="DTN">Date de naissance:</label>
