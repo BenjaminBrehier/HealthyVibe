@@ -30,9 +30,11 @@
             }
         }
         else if ($_GET['type'] == 'connexion') {
-            $mail = htmlspecialchars($_POST['mail']);
-            $mdp = htmlspecialchars($_POST['mdp']);
-            login($mail, $mdp);
+            if (!isset($_SESSION['id'])) {
+                $mail = htmlspecialchars($_POST['mail']);
+                $mdp = htmlspecialchars($_POST['mdp']);
+                login($mail, $mdp);
+            }
         } 
         else {
             //! Url de connexion incorrect 
