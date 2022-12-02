@@ -9,7 +9,6 @@ session_start();
     <meta charset="UTF-8">
     <title>HealthyVibe : Profil</title>
     <link rel="stylesheet" href="./res/css/profil.css">
-    <script src=profil.js></script>
 </head>
 
 <body>
