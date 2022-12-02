@@ -11,8 +11,8 @@
             <ul class="menu">
                 <li><a href="#"><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']?></a>
                     <ul class="sous-menu">
-                        <li><a href="./profil.php">Profil</a></li>
-                        <li><a href="./res/php/disconnect.php">Se déconnecter</a></li>
+                        <a href="./profil.php"><li>Profil</li></a>
+                        <a href="./res/php/disconnect.php"><li>Se déconnecter</li></a>
                     </ul>
                 </li>
             </ul>
