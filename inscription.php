@@ -18,6 +18,7 @@
             <nav>
                 <a href="">Tips ecologiques</a>
                 <a href="">FAQ</a>
+                <a href="./index.php">Accueil</a>
             </nav>
         </div>
 
