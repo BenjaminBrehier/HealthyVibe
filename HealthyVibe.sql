@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.POST (
 );
 
 CREATE USER IF NOT EXISTS 'adminHealthyVibe'@'localhost' IDENTIFIED BY 'adminHealthyVibe';
-GRANT ALL PRIVILEGES ON HeathyVibe . * TO 'adminHealthyVibe'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON HealthyVibe.* TO 'adminHealthyVibe'@'localhost'
 
 INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
 (1, 'AdminNom', 'Admin', 'admin@gmail.com', 'admin', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
