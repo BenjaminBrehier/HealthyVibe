@@ -84,7 +84,7 @@
     flex-direction:row;
     align-items: center;
 }
-p{
+#spaceHolder p{
     font-size:x-large;
     margin-left: 20px;
     font-style: bold;
