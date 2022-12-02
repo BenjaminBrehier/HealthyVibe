@@ -70,15 +70,9 @@
     height:500px;
     margin-right: 10px;
 }
-#graph1{
-    margin-left: 50px;
-}
-#graph2{
-    margin-left: 50px;
-}
-#graph3{
-    margin-left: 50px;
-    margin-right: 50px;
+#graph{
+    margin-left: 200px;
+    margin-right: 200px;
 }
 .icone{
     width: 50px;
@@ -107,4 +101,23 @@ p{
     font-size: larger;
     font-family: "source sans pro";
 
+}
+#savoir{
+    color: white;
+    border:5px solid black;
+    border-radius: 10px;
+    background-color: black;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 25px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+#savoir h1{
+    text-align: center;
+}
+#savoir hr{
+    width: 220px;
+    margin-left: 35px;
+    margin-right: 35px;
 }
