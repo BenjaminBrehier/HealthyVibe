@@ -13,7 +13,7 @@ session_start();
     include './res/php/header.php';
     ?>
     <section id= "Espace">
-        <a class="carre_noir" href="#">
+        <a class="carre_noir" href="./espaceSantee.php">
             <h1>Espace Santé</h1>
             <div class="carre_blanc">
                 <img class="bordure" src="./res/img/Sante.jpg" alt="image de Santé">
@@ -22,7 +22,7 @@ session_start();
             </div>
         </a>  
 
-        <a class="carre_noir" href="#">
+        <a class="carre_noir" href="./espaceEnvironnement.php">
             <h1>Espace Environnement</h1>
             <div class="carre_blanc">
                 <img class="bordure" src="./res/img/environnement.jpg" alt="image d'environnement">
