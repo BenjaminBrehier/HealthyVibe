@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-a:not(.lien_image) {
+a {
   text-decoration: none;
 }
 
@@ -67,8 +67,7 @@ header img {
   width: 8%;
 }
 
-
-.espaceInscription {
+.espaceProfil {
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -124,6 +123,10 @@ form {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+.champ img{
+  width: 150px;
+  height: 150px;
+}
 
 .checkbox {
     display:flex;
@@ -135,6 +138,7 @@ form {
 
 .boutonSinscrire {
     display:flex;
+    flex-direction: row;
     justify-content:center;
 }
 
@@ -147,7 +151,6 @@ form {
     margin-top:20px;
     margin-bottom:0px;
     background-color:#2c30335e;
-    border-radius: 10px;
+    border-radius: 10%;
     border-width: 0px;
-
 }

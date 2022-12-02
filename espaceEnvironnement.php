@@ -5,7 +5,7 @@
     
     <meta charset="UTF-8">
     <title>HealthyVibe</title>
-    <link rel="stylesheet" href="res/css/espaceSantee.css">
+    <link rel="stylesheet" href="res/css/espaceEnvironnement.css">
     <script src="res/js/script.js"></script>
 </head>
 
@@ -14,10 +14,10 @@
     include './res/php/header.php';
     ?>
     <div id="spaceHolder">
-    <div id="calendrier">
-        <div id="liens">
+        <div id="calendrier">
+         <div id="liens">
          <a href="./accueil.php">Accueil</a>
-         <a href="./vosDonnees.php">Santé</a> 
+         <a href="./vosDonnees.php">Environnement</a> 
         </div>
             <table>
             <tr>
@@ -41,32 +41,21 @@
             </div>
         </div>
         <div id=carreblanc>
-        <div id="graph1">
-            <img src="./res/img/graph.png" alt="graph 1">
+        <div id="graph">
+            <img src="./res/img/graph.png" alt="graph">
            <div id="pres">
-            <img class=icone src="./res/img/temperature.png" alt="idéogramme thermomètre">
-            <p><strong>37°C</strong></p>
+            <img class=icone src="./res/img/bouteille-de-gaz.png" alt="idéogramme bouteille de gaz">
+            <p><strong>34%</strong></p>
             </div>
             <input type="button" class="btn" value="Tableau">
         </div>
-        <div id="graph2">
-            <img src="./res/img/graph.png" alt="graph 2">
-            <div id="pres">
-            <img class=icone src="./res/img/headphones.png" alt="idéogramme casque">
-            <p><strong>79Db</strong></p>
-            </div>
-            <input type="button" class="btn" value="Tableau">
-        </div>
-        <div id="graph3">
-            <img src="./res/img/graph.png" alt="graph 3">
-            <div id="pres">
-            <img class=icone src="./res/img/heart.png" alt="idéogramme coeur">
-            <p><strong>85 BPM</strong></p>
-            </div>
-            <input type="button" class="btn" value="Tableau">
+        <div id=savoir>
+            <h1>Le Saviez-vous ? </h1><br>
+            <hr><br>
+            <p> Le niveau de CO dans l’air est favorisé par une mauvaise ventilation en milieu clos <br><br>Le CO peut provoquer des affections bénignes (vertiges, maux de tête), des problèmes cardiovasculaires ou neurologiques et peut même entrainer des comas ou la mort pour les cas les plus sévères. 
+            </p>
         </div>
         </div>
-    
     </div>
     <?php
     include './res/php/footer.php';
