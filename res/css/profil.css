@@ -68,10 +68,8 @@ form {
     flex-direction: column;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-.champ img{
-  width: 150px;
-  height: 150px;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .checkbox {

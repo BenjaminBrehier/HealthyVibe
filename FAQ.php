@@ -12,6 +12,7 @@
 <?php
     include './res/php/header.php';
     ?>
+<<<<<<< HEAD
     <div id='espaceRecherche'>
         <input type='text' value='Rechercher une question' id='barreRecherche'>
         <div id='listeQuestions'>
@@ -28,6 +29,8 @@
         </div>
 
     </div>
+=======
+>>>>>>> 03770500094ef2ce493715998f723fc717498895
 
 
 
