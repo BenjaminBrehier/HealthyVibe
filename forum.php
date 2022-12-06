@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("./res/php/fonctions.php")
 ?>
 
 <!DOCTYPE html>
@@ -25,22 +26,19 @@ session_start();
             <div id="left">
                 <input type="text" placeholder="Rechercher un sujet">
                 <div id="contenu">
-                    <div class="topic" onclick="console.log('test')">
-                        <h2>Pourquoi les abeilles volent ? [Résolu]</h2>
-                        <p>Par Michel le <?php echo date("d/m/Y") ?> - 2 posts</p>
-                    </div>
-                    <div class="topic">
-                        <h2>Pourquoi les pigeons volent ?</h2>
-                        <p>Par Kevin le <?php echo date("d/m/Y") ?> - 40 posts</p>
-                    </div>
-                    <div class="topic">
-                        <h2>Pourquoi les oiseaux volent ?</h2>
-                        <p>Par AlexandreDu78 le <?php echo date("d/m/Y") ?> - 32 posts</p>
-                    </div>
-                    <div class="topic">
-                        <h2>Pourquoi les poissons volent ?</h2>
-                        <p>Par Theo le <?php echo date("d/m/Y") ?> - pas de posts</p>
-                    </div>
+                    <?php
+                    $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                    //! Requete récupérant chaque sujet du forum ainsi que le nombre de posts de celui-ci et son auteur (pour l'instant son nom)
+                    $result = $co->query("SELECT S.idSujet, titre, datecreation, datemodification, status, U.nom, (SELECT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P NATURAL JOIN UTILISATEUR U;"); 
+                    while ($row = $result->fetch_object()) {
+                        ?>
+                        <div class="topic" onclick="console.log(<?php echo $row->idSujet; ?> )">
+                            <h2><?php echo $row->titre; if($row->status) {echo " [Résolu]";} ?></h2>
+                            <p>Par <?php echo $row->nom;?> le <?php echo $row->datecreation; ?> - <?php echo $row->nbPost; ?> posts</p>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div id="right">
