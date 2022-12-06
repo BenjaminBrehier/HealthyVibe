@@ -67,7 +67,7 @@
         <h1>HealthyVibe</h1>
         <div>
             <p>Le nouveau casque économique de bien être</p>
-            <a href="" id="acheter">Acheter ></a>
+            <a href="acheter.php" id="acheter">Acheter ></a>
         </div>
         <img src="./res/img/casque.jpg" alt="Image du casque">
     </section>
