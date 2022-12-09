@@ -28,15 +28,43 @@
         <img src="./res/img/casque.jpg" alt="Image du casque">
     </section>
     <section id="fonctions">
-        <h1>Des Fonctionnalités inédites</h1>
+        
         <div class="container">
-            <div id="left">
+            <div>
+                <h1>Des fonctionnalités inédites</h1>
                 <p><strong>HealthyVibe</strong> a été soigneusement conçu pour veiller à ce que son utilisateur soit dans les meilleures conditions possibles pour sa santé et son bien-être.</p>
             </div>
-            <div id="right">
-
+            <img src="./res/img/fonctionnalite_5.jpg">
+        </div> 
+        <div class="container">
+         
+                <img src="./res/img/fonctionnalite_1.png">
+            <div>
+                <h1>Pour votre santé </h1>
+                <p><strong>HealthyVibe</strong> vous permet de visualiser votre rythme cardiaque par des graphiques clairs mais 
+                aussi du débit sonore. </p>
             </div>
         </div>
+        <div class="container">
+            <div>
+                <h1>Pour le bien de notre environnement </h1>
+                <p>Parce que l’environnement est une priorité pour <strong>HealthyVibe</strong>.
+                 Notre casque récolte en temps réel les données environnementales qui vous entoure. </p>
+            </div>
+                <img src="./res/img/fonctionnalite_2.png">   
+        </div>
+        <div class="container">
+      
+                <img src="./res/img/fonctionnalite_4.jpg">
+            <div>
+                <h1>Pour votre sécurité </h1>
+                <p>Notre casque <strong>HealthyVibe</strong>, peut vous avertir d’un danger lié à une présence 
+                trop élevé de monoxyde de carbone à proximité de votre localisation, grâce à nos capteurs performants.</p>
+            </div>   
+           
+        </div>
+
+
     </section>
     <?php
     include './res/php/footer.php';

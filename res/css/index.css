@@ -87,10 +87,11 @@ header nav #inscrire {
 }
 
 #fonctions {
-  background-color: #2C3033;
-  height: 800px;
+  display: flex;
+  flex-direction: column;
+  height: 1700px;
   color: white;
-  padding: 5%;;
+  margin-bottom: 12%;
 }
 
 #fonctions .container {
@@ -105,25 +106,46 @@ header nav #inscrire {
 }
 
 #fonctions .container  {
+  display: flex;
   margin-top: 2%;
+  height: 250px;
+  margin-bottom: 5%;
+  justify-content: space-between;
+  height:40%;
+  padding: 40px ;
+
+
 }
 
-#fonctions .container #left {
-  width: 50%;
-  height: 100%;
+#fonctions .container p strong{
+  color: #2bae3f;
 }
-
-#fonctions .container #left p {
-  width: 60%;
+#fonctions .container  p {
+  width: 100%;
   font-size: 30px;
+  
+  
+}
+#fonctions .container  div  {
+width:40%;
+height: 250px;
+color:black;
+
+
 }
 
-#fonctions .container #left p strong {
-  color: #DBFD51;
+
+#fonctions .container  img{
+width:40%;
+height: 300px;
+
+
 }
 
-#fonctions #right {
-  background-color: #DBFD51;
-  width: 50%;
-  height: 600px;
+.container:nth-child(odd) {
+  background-color:gray;
+  justify-content: space-between;
+  font:white;
+  
+  
 }
