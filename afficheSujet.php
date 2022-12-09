@@ -11,6 +11,8 @@ else {
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $result = $co->query("SELECT * FROM Sujet WHERE idSujet = $idSujet"); 
 $row = $result->fetch_object();
+$titreSujet = $row->titre;
+$statusSujet = $row->status;
 
 ?>
 
@@ -35,7 +37,7 @@ $row = $result->fetch_object();
             <p>></p>
             <a href="./forum.php">Forum</a>
             <p>></p>
-            <p><?php echo $row->titre;?></p>
+            <p><?php echo $titreSujet;?></p>
         </div>
         <div class="container">
             <?php 
