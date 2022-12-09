@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+ /*Structure principale */
+
+#contenu {
+    display:flex;
+    width:100%;
+}
+
+#partieGauche {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width:60%;
+}
+
+#partieDroite {
+    display:flex;
+    width:40%;
+    background-color: aqua;
+}
+
+.tips {
+    display:flex;
+    background-image: linear-gradient(#30E87A,white);
+    width: 350px;
+    height:350px;
+    border: solid #30E87A 1px;
+    border-radius: 10px;
+
+    margin:30px;
+    padding:30px;
+}

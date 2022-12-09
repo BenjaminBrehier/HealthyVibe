@@ -25,7 +25,7 @@
         <li><a href="./vosDonnees.php" id="données">Vos données</a></li>
         <li><a href="./forum.php" id="données">Forum</a></li>
         <li><a href="./FAQ.php">FAQ</a></li>
-        <li><a href="">Tips ecologiques</a></li>
+        <li><a href="./tipsEcologiques.php">Tips ecologiques</a></li>
         <li><a href="">Nous contacter</a></li>
     </ul>
     </nav>

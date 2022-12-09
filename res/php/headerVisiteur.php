@@ -12,7 +12,7 @@
         <div id="ligneVerte"></div>
         <img src="/HealthyVibe/res/img/logo.png" alt="Logo de HealthyVibe">
         <nav>
-            <a href="">Tips ecologiques</a>
+            <a href="./tipsEcologiques.php">Tips ecologiques</a>
             <a href="./FAQ.php">FAQ</a>
             <a href="/HealthyVibe/connexion.php" id="co">Se connecter</a>
             <a href="/HealthyVibe/inscription.php" id="inscrire">S'inscrire</a>
