@@ -32,7 +32,7 @@
     flex-direction: column;
     width:80%;
 }
-
+ 
 .Question {
     display:flex;
     min-height: 35px;
@@ -45,7 +45,7 @@
     padding-left: 2px;
 
 }
-
+ 
 #decoImage {
     display:flex;
     flex-direction:column;
@@ -58,4 +58,58 @@
     height:auto;
 }
 
+/* Menu déroulant pour chaque question on click */
 
+.QA > li {
+    float: left;
+    color: white;
+    width: 140px;
+    height: 40px;
+    line-height: 39px;
+    background: #2C3033;
+    cursor: pointer;
+    font-size: 17px;
+    list-style: none;
+    text-decoration: none;
+  }
+  .partieReponse {
+    transform: scale(0);
+    transform-origin: top center;
+    transition: all 300ms ease-in-out;
+  }
+  .partieReponse li {
+    font-size: 14px;
+    background: rgba(121, 121, 121, 0.8);
+    color: white;
+    transform: scale(0);
+    transform-origin: top center;
+    transition: all 300ms ease-in-out;
+    list-style: none;
+    text-decoration:none;
+  }
+  .partieReponse li:last-child { 
+    border-bottom: 0;
+    text-decoration : none;
+  }
+  .partieReponseli:hover {
+    background: grey;
+    text-decoration : none;
+  }
+  .QA > li:hover .partieReponse li {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  .QA > li:hover .partieReponse {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  
+  .QA > .Reponse :hover{
+      background: grey;
+      text-decoration : none;
+  }
+  
+  #up nav .QA a {
+    text-decoration:none;
+    color:white;
+  }
