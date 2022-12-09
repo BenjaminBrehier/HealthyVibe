@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <title>HealthyVibe : Profil</title>
     <link rel="stylesheet" href="./res/css/profil.css">
+    <script src="res/js/script.js"></script>
 </head>
 
 <body>
@@ -25,22 +26,6 @@ session_start();
                     <input type="file" name="picture" onchange="previewPicture(this)" required >
                 </form>
                 <img src="#" alt="" id="image" style="max-width: 500px; margin-top: 20px;" >
-                <script type="text/javascript" >
-                // L'image img#image
-                var image = document.getElementById("image");
- 
-                // La fonction previewPicture
-                var previewPicture  = function (e) {
-                     // e.files contient un objet FileList
-                     const [picture] = e.files
-
-                    // "picture" est un objet File
-                    if (picture) {
-                        // On change l'URL de l'image
-                         image.src = URL.createObjectURL(picture)
-                    }
-                } 
-                </script>
             </div>
             <div class="champ">
                 <label for="fname">Nom:</label>
