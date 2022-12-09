@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <title>HealthyVibe : Profil</title>
     <link rel="stylesheet" href="./res/css/profil.css">
+    <script src="res/js/script.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,10 @@ session_start();
 
         <form action="./accueil.php?&type=inscription" method="POST">
             <div class="champ">
-                <input type="file" name="fileToUpload" id="fileToUpload">
+                <form method="post" url="/upload-picture" enctype="multipart/form-data" >
+                    <input type="file" name="picture" onchange="previewPicture(this)" required >
+                </form>
+                <img src="#" alt="" id="image" style="max-width: 500px; margin-top: 20px;" >
             </div>
             <div class="champ">
                 <label for="fname">Nom:</label>
