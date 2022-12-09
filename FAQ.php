@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -12,25 +13,27 @@
 <?php
     include './res/php/header.php';
     ?>
-<<<<<<< HEAD
-    <div id='espaceRecherche'>
-        <input type='text' value='Rechercher une question' id='barreRecherche'>
-        <div id='listeQuestions'>
-            <ul>
-                <li> Question 1</li>
-                <li> Question 1</li>
-                <li> Question 1</li>
-                <li> Question 1</li>
-            </ul>
+
+    <div id='contenu'>
+        <div id='espaceRecherche'>
+            <input type='text' value='Rechercher une question' id='barreRecherche'>
+            <div id='listeQuestions'>
+                <ul>
+                    <li class='Question'>Comment créer une compte client?</li>
+                    <li class='Question'>Comment contacter le service client ? </li>
+                    <li class='Question'>Quel est le numéro de téléphone de HealthyVibe</li>
+                    <li class='Question'>Est-ce que je peux commander un deuxième casque ?</li>
+                    <li class='Question'>Est-ce que le casque est résistant à l'eau (waterproof)?</li>
+                </ul>
+            </div>
         </div>
 
         <div id='decoImage'>
-            <img src='./casque.jpeg'>
+            <img src="./res/img/casque.jpg" id="casque" alt="casque">
         </div>
+    </div>
 
     </div>
-=======
->>>>>>> 03770500094ef2ce493715998f723fc717498895
 
 
 
