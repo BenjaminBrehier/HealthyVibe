@@ -56,7 +56,6 @@
     <meta charset="UTF-8">
     <title>HealthyVibe</title>
     <link rel="stylesheet" href="res/css/accueil.css">
-    <script src="res/js/script.js"></script>
 </head>
 
 <body>

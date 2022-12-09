@@ -22,6 +22,7 @@ function login($mail, $mdp) {
         $_SESSION['adresse'] = $row->adresse;
         $_SESSION['codepostal'] = $row->codepostal;
         $_SESSION['datenaissance'] = $row->datenaissance;
+        $_SESSION['role'] = $row->role;
 
     } else {
         header ("Location: ./connexion.php?reponse=Erreur");
