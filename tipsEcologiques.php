@@ -13,28 +13,34 @@
             include './res/php/header.php';
             ?>
         <div id='contenu'>
-            <div id='partieGauche'> 
-                <div id='tips'>
-                    <p>Manger</p>
+            <div id='partieGauche'>
+                <div id='Slogan'> 
+                    <p>Adoptons les bons gestes ! </p>
                 </div>
-                <div id='tips'>
-                    <p>tips2</p>
-                </div>
-                <div id='tips'>
-                    <p>tips2</p>
-                </div>
-                <div id='tips'>
-                    <p>tips2</p>
-                </div>
-                <div id='tips'>
-                    <p>tips2</p>
-                </div>
-                <div id='tips'>
-                    <p>tips2</p>
+
+                <div id="gallerieTips">
+                    <div class='tips'>
+                        <p>Manger</p>
+                    </div>
+                    <div class='tips'>
+                        <p>tips2</p>
+                    </div>
+                    <div class='tips'>
+                        <p>tips2</p>
+                    </div>
+                    <div class='tips'>
+                        <p>tips2</p>
+                    </div>
+                    <div class='tips'>
+                        <p>tips2</p>
+                    </div>
+                    <div class='tips'>
+                        <p>tips2</p>
+                    </div>
                 </div>
             </div>
             <div id='partieDroite'> 
-                <im src="">
+                <img src=".\res\img\bitmoji.jpg" id="PhotoDroite">
             </div>
 
         </div>
