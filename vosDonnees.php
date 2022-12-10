@@ -36,19 +36,19 @@ session_start();
             <div class="carre_blanc">
                 <div>
                     <img class="icone" src="./res/img/heart.png" alt="image d'un coeur">
-                    <p>...BPM</p>
+                    <p><strong>78 BPM<strong></p>
                 </div>
                 <div>
                     <img class="icone" src="./res/img/temperature.png" alt="image d'un thermomètre">
-                    <p>...°C</p>
+                    <p><stronf>36.8 °C<strong></p>
                 </div>
                 <div>
                     <img class="icone" src="./res/img/headphones.png" alt="image d'un casque">
-                    <p>...dB</p>
+                    <p><strong>81 dB<strong></p>
                 </div>
                 <div>
                     <img class="icone" src="./res/img/bouteille-de-gaz.png" alt="image d'une bouteille de gaz">
-                    <p>...ppm</p>
+                    <p><strong>837 ppm<strong></p>
                 </div>
                 </div>
             </div>
