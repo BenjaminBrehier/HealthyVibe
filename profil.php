@@ -9,7 +9,6 @@ session_start();
     <meta charset="UTF-8">
     <title>HealthyVibe : Profil</title>
     <link rel="stylesheet" href="./res/css/profil.css">
-    <script src="res/js/script.js"></script>
 </head>
 
 <body>
@@ -72,6 +71,7 @@ session_start();
     <?php
     include './res/php/footer.php';
     ?>
+    <script src="res/js/script.js"></script>
 </body>
 
 </html>
