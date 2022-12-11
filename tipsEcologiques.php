@@ -23,19 +23,19 @@
                         <p>Manger</p>
                     </div>
                     <div class='tips'>
-                        <p>tips2</p>
+                        <p>Faîtes le tri de vos déchets pour faciliter le recyclage</p>
                     </div>
                     <div class='tips'>
-                        <p>tips2</p>
+                        <p>Utiliser plu les transports en commun</p>
                     </div>
                     <div class='tips'>
-                        <p>tips2</p>
+                        <p>Se mettre à la marche ou au vélo pour vos courses</p>
                     </div>
                     <div class='tips'>
-                        <p>tips2</p>
+                        <p>Transformer les eaux inutilisées pour le maraîchage  </p>
                     </div>
                     <div class='tips'>
-                        <p>tips2</p>
+                        <p>Dimunuons notre consommation d'énergie en usant des lampes à basses consommation</p>
                     </div>
                 </div>
             </div>
