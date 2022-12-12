@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="res/css/footer.css">
+<link rel="stylesheet" href="./res/css/footer.css">
 <footer>
     <img src="./res/img/Infinite_measures_1-removebg-preview.png" alt="logo Infinite Measures">
     <div id="infos">

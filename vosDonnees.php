@@ -5,6 +5,8 @@ session_start();
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <title>Vos Données</title>
     <link rel="stylesheet" href="res/css/vosDonnees.css">
 </head>
 
@@ -12,7 +14,7 @@ session_start();
     <?php 
     include './res/php/header.php';
     ?>
-    <section id= "Espace">
+    <section id="Espace">
         <a class="carre_noir" href="./espaceSantee.php">
             <h1>Espace Santé</h1>
             <div class="carre_blanc">
