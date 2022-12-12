@@ -20,13 +20,13 @@
 
                 <div id="gallerieTips">
                     <div class='tips'>
-                        <p>Manger</p>
+                        <p>Consommer des produits locaux pour réduire les émissions de CO2</p>
                     </div>
                     <div class='tips'>
-                        <p>Faîtes le tri de vos déchets pour faciliter le recyclage</p>
+                        <p>Trier vos déchets pour faciliter le recyclage</p>
                     </div>
                     <div class='tips'>
-                        <p>Utiliser plu les transports en commun</p>
+                        <p>Favoriser l'utilisation des transports en commun</p>
                     </div>
                     <div class='tips'>
                         <p>Se mettre à la marche ou au vélo pour vos courses</p>
@@ -35,7 +35,7 @@
                         <p>Transformer les eaux inutilisées pour le maraîchage  </p>
                     </div>
                     <div class='tips'>
-                        <p>Dimunuons notre consommation d'énergie en usant des lampes à basses consommation</p>
+                        <p>Diminuer votre consommation d'énergie en utilisant des lampes à basses consommation</p>
                     </div>
                 </div>
             </div>
