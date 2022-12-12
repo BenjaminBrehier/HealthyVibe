@@ -11,12 +11,13 @@ section {
 section .liens {
     display: flex;
     flex-direction: row;
-    background-color: #C0C8CD;
-    width: 8%;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-section .liens a {
-    margin-right: 15%;;
+section .liens a,section .liens p {
+    font-weight: bolder;
+    padding: 1%;
 }
 
 section a {

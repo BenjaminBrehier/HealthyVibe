@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once("./res/php/fonctions.php")
+require_once("./res/php/fonctions.php");
+$sujets = array();
+
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +12,7 @@ require_once("./res/php/fonctions.php")
     <meta charset="UTF-8">
     <title>Forum</title>
     <link rel="stylesheet" href="./res/css/forum.css">
+    <script src="res/js/script.js"></script>
 </head>
 
 <body>
@@ -19,8 +22,9 @@ require_once("./res/php/fonctions.php")
 
     <section>
         <div class="liens">
-            <a href="">Acceuil </a>
-            <a href="">Forum</a>
+            <a href="./accueil.php?type=connexion">Acceuil </a>
+            <p>></p>
+            <a href="./forum.php">Forum</a>
         </div>
         <div class="container">
             <div id="left">
@@ -28,16 +32,37 @@ require_once("./res/php/fonctions.php")
                 <div id="contenu">
                     <?php
                     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                    //! Requete récupérant chaque sujet du forum ainsi que le nombre de posts de celui-ci et son auteur (pour l'instant son nom)
-                    $result = $co->query("SELECT S.idSujet, titre, datecreation, datemodification, status, U.nom, (SELECT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P NATURAL JOIN UTILISATEUR U;"); 
-                    while ($row = $result->fetch_object()) {
-                        ?>
-                        <div class="topic" onclick="console.log(<?php echo $row->idSujet; ?> )">
-                            <h2><?php echo $row->titre; if($row->status) {echo " [Résolu]";} ?></h2>
-                            <p>Par <?php echo $row->nom;?> le <?php echo $row->datecreation; ?> - <?php echo $row->nbPost; ?> posts</p>
-                        </div>
-                        <?php
+                    //! On vérifie qu'il y a au moins 1 post dans la BDD
+                    $result = $co->query("SELECT * FROM POST LIMIT 1");
+                    if ($result->num_rows > 0) {
+                        //! Requete récupérant chaque sujets du forum ainsi que le nombre de posts de celui-ci et son auteur (pour l'instant son nom)
+                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.nom, (SELECT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P NATURAL JOIN UTILISATEUR U ORDER BY datecreation;"); 
+                        while ($row = $result->fetch_object()) {
+                            $sujets[$row->titre.'|||'.$row->idSujet] = $row->nbPost; 
+                            $date = date("d-m-Y", strtotime($row->datecreation));  
+                            ?>
+                            <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
+                                <h2><?php echo $row->titre; if($row->status) {echo " [Résolu]";} ?></h2>
+                                <p>Par <?php echo $row->nom;?> le <?php echo $date; ?> - <?php echo $row->nbPost; ?> posts</p>
+                            </div>
+                            <?php
+                        }
                     }
+                    else {
+                        //! Requete récupérant chaque sujets du forum et l'auteur
+                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.nom FROM `SUJET` S NATURAL JOIN UTILISATEUR U ORDER BY datecreation;"); 
+                        while ($row = $result->fetch_object()) {
+                            $sujets[$row->titre.'|||'.$row->idSujet] = 0; 
+                            $date = date("d-m-Y", strtotime($row->datecreation));  
+                            ?>
+                            <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
+                                <h2><?php echo $row->titre; if($row->status) {echo " [Résolu]";} ?></h2>
+                                <p>Par <?php echo $row->nom;?> le <?php echo $date; ?> - 0 posts</p>
+                            </div>
+                            <?php
+                        }
+                    }
+                    
                     ?>
                 </div>
             </div>
@@ -46,13 +71,19 @@ require_once("./res/php/fonctions.php")
                     <a href="">Creer un topic</a>
                 </div>
                 <div id="trend">
-                    <h2>Tendances du moment</h2>
+                    <h2>Les plus mouvementés</h2>
                     <ul>
-                        <a href=""><li>Les pigeons - 20 posts</li></a>
-                        <a href=""><li>Oiseaux</li></a>
-                        <a href=""><li>Développement</li></a>
-                        <a href=""><li>Cables</li></a>
-                        <a href=""><li>Casque</li></a>
+                        <?php
+                        array_multisort($sujets, SORT_DESC, SORT_NUMERIC, $sujets);
+                        foreach ($sujets as $sujet => $nbPost) {
+                            $tab = explode('|||', $sujet); //? "exemple de sujet|||idSujet"
+                            $titre = $tab[0];
+                            $id = $tab[1];
+                            ?>
+                            <a href="./afficheSujet.php?idSujet=<?php echo $id?>"><li><?php echo $titre.' - '.$nbPost.' posts';?></li></a>
+                            <?php
+                        }
+                        ?>        
                     </ul>
                 </div>
             </div>

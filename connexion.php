@@ -16,8 +16,8 @@
             <h2>HealthyVibe</h2>
 
             <nav>
-                <a href="">Tips ecologiques</a>
-                <a href="">FAQ</a>
+                <a href="./tipsEcologiques.php">Tips ecologiques</a>
+                <a href="./FAQ.php">FAQ</a>
             </nav>
         </div>
 
@@ -42,7 +42,7 @@
             
             <div class="champ"> 
                 <label for="mdp">Mot de passe:</label>
-                <input type="text" id="mdp" name="mdp" required>
+                <input type="password" id="mdp" name="mdp" required>
             </div> 
 
             <div class="boutons">

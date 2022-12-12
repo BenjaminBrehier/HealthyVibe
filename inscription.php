@@ -16,8 +16,8 @@
             <h2>Rejoignez l'aventure HealthyVibe !</h2>
 
             <nav>
-                <a href="">Tips ecologiques</a>
-                <a href="">FAQ</a>
+                <a href="./tipsEcologiques.php">Tips ecologiques</a>
+                <a href="./FAQ.php">FAQ</a>
                 <a href="./index.php">Accueil</a>
             </nav>
         </div>

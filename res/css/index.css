@@ -87,13 +87,19 @@ header nav #inscrire {
 }
 
 #fonctions {
-  background-color: #2C3033;
-  height: 800px;
+  display: flex;
+  flex-direction: column;
+  height: 1700px;
   color: white;
-  padding: 5%;;
 }
 
-#fonctions .container {
+#fonctions .container1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#fonctions .container2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -104,26 +110,69 @@ header nav #inscrire {
   font-size: 50px;
 }
 
-#fonctions .container  {
-  margin-top: 2%;
+.container1, .container2{
+  display: flex;
+  height: 400px;
+  justify-content: space-between;
 }
 
-#fonctions .container #left {
-  width: 50%;
-  height: 100%;
+#fonctions .container1 p strong{
+  color: #2bae3f;
+}
+#fonctions .container2 p strong{
+  color: #2bae3f;
 }
 
-#fonctions .container #left p {
-  width: 60%;
-  font-size: 30px;
+#fonctions .container1 p {
+  width: 100%;
+  font-size: 30px; 
+}
+#fonctions .container2 p {
+  width: 100%;
+  font-size: 30px; 
 }
 
-#fonctions .container #left p strong {
-  color: #DBFD51;
+#fonctions .container1  div  {
+  width:40%;
+  height: 250px;
+  color:white;
+  margin-left:40px;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+#fonctions .container2  div  {
+  width:40%;
+  height: 250px;
+  color:black;
+  margin-right:40px;
+  margin-top:auto;
+  margin-bottom:auto;
+  }
+
+
+#fonctions .container1  img{
+width:auto;
+height: 90%;
+margin-top:auto;
+margin-bottom:auto;
+margin-right:20px;
+}
+#fonctions .container2  img{
+  width:auto;
+  height: 90%;
+  margin-top:auto;
+  margin-bottom:auto;
+  margin-left:20px;
+  }
+
+.container1:nth-child(odd) {
+  background-color:#2C3033;
+  justify-content: space-between;
+  font:white;
 }
 
-#fonctions #right {
-  background-color: #DBFD51;
-  width: 50%;
-  height: 600px;
+.container2:nth-child(odd) {
+  background-color:#ffffff;
+  justify-content: space-between;
+  font: #2c3033;;
 }
