@@ -26,7 +26,7 @@
         <li><a href="./forum.php" id="données">Forum</a></li>
         <li><a href="./FAQ.php">FAQ</a></li>
         <li><a href="./tipsEcologiques.php">Tips ecologiques</a></li>
-        <li><a href="">Nous contacter</a></li>
+        <li><a href="./nousContacter.php">Nous contacter</a></li>
     </ul>
     </nav>
 

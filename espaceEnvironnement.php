@@ -16,12 +16,14 @@
 <?php
     include './res/php/header.php';
     ?>
-    <div id="spaceHolder">
-        <div id="calendrier">
-         <div id="liens">
-         <a href="./accueil.php">Accueil</a>
-         <a href="./vosDonnees.php">Environnement</a> 
-        </div>
+<div id="liens">
+         <a href="./accueil.php?type=connexion">Accueil</a>
+         <p>></p>
+         <a href="./vosDonnees.php">Vos Données</a> 
+    </div>
+<div id="spaceHolder">    
+    <div id="calendrier">
+         
             <table>
             <tr>
             <th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th><th>D</th>

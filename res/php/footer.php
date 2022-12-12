@@ -6,7 +6,7 @@
         <p>
             <a href="">Engagement de confidentialité</a> |
             <a href="./CGU.php">Conditions d'utilisation</a> |
-            <a href="">A propos de Unitech</a>
+            <a href="">A propos d'Infinite Measures</a>
         </p>
     </div>
 </footer>
