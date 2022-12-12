@@ -20,22 +20,22 @@
     margin-left: 10px;
 
 }
-#liens{
-    width: 10cm;
-    top: 5px;
+#liens {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: large;
+    width: 100%;
 }
-#liens a, #liens p{
-    text-decoration: none;
+
+#liens a,#liens p {
     font-weight: bolder;
     padding: 1%;
-    color: black;
-    padding-left: 5px;
+
+}
+
+ a {
+    text-decoration: none;
+    color: inherit;
 }
 .bouttontemps{
     position: relative;
