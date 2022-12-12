@@ -60,6 +60,28 @@
 
 /* Menu déroulant pour chaque question on click */
 
+/*.menu1 {
+  display: inline-block;
+  text-decoration: none;
+}
+.menu2 {
+  display: inline-block;
+  text-decoration: none;
+}
+.menu3 {
+  display: inline-block;
+  text-decoration: none;
+}
+.menu4 {
+  display: inline-block;
+  text-decoration: none;
+}
+.menu5 {
+  display: inline-block;
+  text-decoration: none;
+}*/
+
+
 .QA > li {
     float: left;
     color: white;
@@ -71,45 +93,136 @@
     font-size: 17px;
     list-style: none;
     text-decoration: none;
+    border: 2px;
   }
   .partieReponse {
     transform: scale(0);
     transform-origin: top center;
     transition: all 300ms ease-in-out;
+    border: 2px;
   }
   .partieReponse li {
     font-size: 14px;
-    background: rgba(121, 121, 121, 0.8);
-    color: white;
+    background: rgba(170, 168, 168, 0.8);
+    color: rgb(0, 0, 0);
     transform: scale(0);
     transform-origin: top center;
     transition: all 300ms ease-in-out;
     list-style: none;
     text-decoration:none;
+    border: 2px;
   }
   .partieReponse li:last-child { 
     border-bottom: 0;
     text-decoration : none;
+    border: 2px;
   }
-  .partieReponseli:hover {
+  .partieReponseli:checked {
     background: grey;
     text-decoration : none;
+    border: 2px;
   }
-  .QA > li:hover .partieReponse li {
+
+  /* PARTIE MENU DÉROULANT Nb 1 */
+  .menu1 > li:checked .partieReponse li {
+    transform: scale(1);
+    text-decoration : none;
+    border: 2px;
+  }
+  .menu1 > li:checked .partieReponse {
+    transform: scale(1);
+    text-decoration : none;
+    border: 2px;
+  }
+  
+  .menu1 > .Reponse :checked{
+      /*background: grey;*/
+      text-decoration : none;
+      border: 2px;
+  }
+  
+  nav .menu1 a {
+    text-decoration:none;
+    color:white;
+    border: 2px;
+  }
+
+  /* PARTIE MENU DÉROULANT Nb 2 */
+  .menu2 > li:hover .partieReponse li {
     transform: scale(1);
     text-decoration : none;
   }
-  .QA > li:hover .partieReponse {
+  .menu2 > li:hover .partieReponse {
     transform: scale(1);
     text-decoration : none;
   }
   
-  .QA > .Reponse :hover{
+  .menu2 > .Reponse :hover{
       background: grey;
       text-decoration : none;
   }
   
-  #up nav .QA a {
+  nav .menu2 a {
+    text-decoration:none;
+    color:white;
+  }
+  
+  /* PARTIE MENU DÉROULANT Nb 3 */
+  .menu3 > li:hover .partieReponse li {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  .menu3 > li:hover .partieReponse {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  
+  .menu3 > .Reponse :hover{
+      background: grey;
+      text-decoration : none;
+  }
+  
+  nav .menu3 a {
+    text-decoration:none;
+    color:white;
+  }
+  
+  /* PARTIE MENU DÉROULANT Nb 4 */
+  .menu4 > li:hover .partieReponse li {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  .menu4 > li:hover .partieReponse {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  
+  .menu4 > .Reponse :hover{
+      /*background: grey;*/
+      text-decoration : none;
+  }
+  
+  nav .menu4 a {
+    text-decoration:none;
+    color:white;
+  }
+  
+  /* PARTIE MENU DÉROULANT Nb 5 */
+  .menu5 > li:hover .partieReponse li {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  .menu5 > li:hover .partieReponse {
+    transform: scale(1);
+    text-decoration : none;
+  }
+  
+  .menu5 > .Reponse :hover{
+      /*background: grey;*/
+      text-decoration : none;
+  }
+  
+  nav .menu5 a {
     text-decoration:none;
     color:white;
   }
