@@ -61,6 +61,7 @@
 #carreblanc{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     width: 80%;
     align-items: center;
     background-color: white;
