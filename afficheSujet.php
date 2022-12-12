@@ -61,7 +61,13 @@ $statusSujet = $row->status;
                         <p><?php echo $row->contenu;?></p>
                     </div>
                     <div class="items">
-                        <button>Répondre</button>
+                        <?php
+                        if (!$statusSujet) {
+                            ?>
+                            <button>Répondre</button>
+                            <?php
+                        }
+                        ?>
                         <?php
                         if ($_SESSION['role'] == 1) {
                             ?>
@@ -75,9 +81,17 @@ $statusSujet = $row->status;
             }
 
             if ($i == 0) {
-                echo "<div class=\"alert alert-danger\">Aucun post dans ce suejt pour le moment.</div>";
+                echo "<div class=\"alert alert-danger\">Aucun post dans ce sujet pour le moment.</div>";
             }
-            
+            if (!$statusSujet) {
+                ?>
+
+                <form action="">
+
+                </form>
+                
+                <?php
+            }
             ?>
         </div>    
     </section>

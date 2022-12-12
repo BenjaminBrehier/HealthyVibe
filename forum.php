@@ -61,6 +61,9 @@ $sujets = array();
                             </div>
                             <?php
                         }
+                        if (sizeof($sujets) < 1) {
+                            echo "Aucun sujets pour le moments";
+                        }
                     }
                     
                     ?>
@@ -68,7 +71,7 @@ $sujets = array();
             </div>
             <div id="right">
                 <div id="topicCreation">
-                    <a href="">Creer un topic</a>
+                    <a href="./createSujet.php">Creer un sujet</a>
                 </div>
                 <div id="trend">
                     <h2>Les plus mouvementés</h2>
