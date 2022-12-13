@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./res/css/footer.css">
 <footer>
-    <img src="./res/img/Infinite_measures_1-removebg-preview.png" alt="logo Infinite Measures">
+    <img src="./res/img/infinite_measures.png" alt="logo Infinite Measures">
     <div id="infos">
         <p>Copyright <?php echo date("Y")?> Infinite Measures.inc</p>
         <p>
