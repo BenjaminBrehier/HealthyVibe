@@ -119,9 +119,9 @@ Address {
     font-size:15px;
     margin-top:20px;
     margin-bottom:20px;
-    background-color:#171717;
+    background-color:#30E87A;
     border-radius: 10px;
-    border: solid 2px #30E87A;
-    color:#30E87A;
+    border: solid 1px black;
+    color:black;
 
 }
