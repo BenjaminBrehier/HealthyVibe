@@ -1,8 +1,17 @@
+section{
+    padding: 1%;
+    margin-bottom: 423px;
+}
+h1{
+    font-size: xx-large;
+    font-style: underline;
+}
 table {
+    margin-top: 50px;
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    border: 3px solid black;
+    border: 1px solid black;
   }
 
 table th, td{
@@ -16,4 +25,8 @@ tbody tr:nth-child(odd) {
   
   tbody tr:nth-child(even) {
     background-color: white;
+  }
+  table a{
+    text-decoration: none;
+    color: red;
   }
