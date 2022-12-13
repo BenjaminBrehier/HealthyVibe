@@ -77,3 +77,29 @@ section .container .post button {
     margin-top: 1%;
     margin-right: 2%;
 }
+
+section form {
+    display: flex;
+    flex-direction: column;
+}
+
+section form label {
+    padding: 1%;
+    font-size: large;
+}
+
+section form input[type="text"] {
+    width: 20%;
+    padding: 2px;
+    font-family: "monospace";
+}
+
+section form textarea {
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+section form input[type="submit"] {
+    width: 20%;
+    padding: 2px;
+}
