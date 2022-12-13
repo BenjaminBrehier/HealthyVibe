@@ -39,7 +39,15 @@ header h2{
     font-size: 29px;   
 }
 
+#h2box {
+  display:flex;
+  flex-direction:column;
+  padding-top: auto;
+  padding-bottom: auto;
+  justify-content: center;
+  height: auto;
 
+}
 /* PARTIE BASSE DU HEADER ("Vos Données", "Forum", etc.) */
 
 #main{
