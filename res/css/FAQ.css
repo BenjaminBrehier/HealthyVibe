@@ -121,6 +121,9 @@
     border: 2px;
   }
 
+  .Reponse {
+    padding-left:20px;
+  }
   /* PARTIE MENU DÉROULANT Nb 1 */
   .menu1 > li:checked .partieReponse li {
     transform: scale(1);
