@@ -1,0 +1,19 @@
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid black;
+  }
+
+table th, td{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+tbody tr:nth-child(odd) {
+    background-color: whitesmoke;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: white;
+  }
