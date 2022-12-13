@@ -94,9 +94,12 @@ $idUtilisateur = $row->idUtilisateur;
             }
             if (!$statusSujet) {
                 ?>
-
-                <form action="">
-
+                <br>
+                <hr>
+                <br>
+                <form id="form" action="./res/php/newPost.php?idSujet=<?php echo $idSujet;?>" method="post">
+                    <textarea name="contenu" placeholder="Nouveau post" cols="40" rows="10" required></textarea>
+                    <input type="submit" value="Publier post">
                 </form>
                 
                 <?php

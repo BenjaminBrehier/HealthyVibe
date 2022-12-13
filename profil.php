@@ -1,4 +1,4 @@
-<!-- Script pour l'inscription ou connexion de l'utilisateur -->
+<!-- Script pour l'inscription ou connexion de l'utilisateur -->  
 <?php 
     require_once './res/php/fonctions.php';
     session_start();
@@ -9,6 +9,10 @@
             $dateNaissance = htmlspecialchars($_POST['DTN']);
             $adresse = "";
             $codePostal = "";
+            $tel = "";
+            $mail = htmlspecialchars($_POST['mail']);
+            $mdp = htmlspecialchars($_POST['mdp']);
+           
             if (isset($_POST['adresse']))
                 $adresse = htmlspecialchars($_POST['adresse']);
             if (isset($_POST['CP']))
@@ -17,21 +21,19 @@
                 $tel = htmlspecialchars($_POST['tel']);
             }
 
-            $mail = htmlspecialchars($_POST['mail']);
-            $mdp = htmlspecialchars($_POST['mdp']);
-
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("UPDATE UTILISATEUR SET(nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            $result = $co->query("UPDATE UTILISATEUR SET (nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni)  VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
             if ($result) {
                 login($mail, $mdp);
             } 
+            
             else {
-                header("Location: ./profil.php?reponse=Erreur");
-                exit();
-            }
+                header("Location: S./inscription.php?reponse=Erreur");
+                exit();}
         }
     }
-?>    
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +47,7 @@
 
 <body>
     <?php
-    include './res/php/header.php';
+    include './res/php/header.php'; 
     ?>
 
     <div class='espaceProfil'>

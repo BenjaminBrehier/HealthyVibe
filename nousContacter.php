@@ -15,12 +15,12 @@ session_start();
 <body>  
     <?php
     include './res/php/header.php';
-    ?>
+    ?> 
 
     <div id='boxenvoi'>
                 <p id='description'>Nous sommes à votre écoute. Veuillez écrire votre message dans l'espace ci-dessous</p>
                 <form>
-                    <input type='text' class='message' max-length="2000" placeholder="message">
+                    <input type='text' class='message' max-length="2000" placeholder="Message">
 
                     <input type='button' value='Envoyer' id='boutton'>
                 </form>
