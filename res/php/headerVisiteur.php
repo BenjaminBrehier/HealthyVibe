@@ -10,12 +10,12 @@
 <body>
     <header>
         <div id="ligneVerte"></div>
-        <img src="/HealthyVibe/res/img/logo.png" alt="Logo de HealthyVibe">
+        <a href="./index.php"><img src="/HealthyVibe/res/img/logo.png" alt="Logo de HealthyVibe"></a>
         <nav>
             <a href="./tipsEcologiques.php">Tips ecologiques</a>
             <a href="./FAQ.php">FAQ</a>
-            <a href="/HealthyVibe/connexion.php" id="co">Se connecter</a>
-            <a href="/HealthyVibe/inscription.php" id="inscrire">S'inscrire</a>
+            <a href="./connexion.php" id="co">Se connecter</a>
+            <a href="./inscription.php" id="inscrire">S'inscrire</a>
         </nav>
     </header>
     

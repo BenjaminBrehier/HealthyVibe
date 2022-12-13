@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
 }
 
 section {
@@ -25,6 +24,11 @@ section a {
     color: inherit;
 }
 
+section > button {
+    padding: 1px;
+    float: right;
+}
+
 section .container {
     margin-top: 2%;
     display: flex;
@@ -36,7 +40,6 @@ section .container .post {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    /* background-color: aquamarine; */
     border: 1px solid black;
     margin-top: 1%;
     padding: 1%;

@@ -9,6 +9,7 @@
             $dateNaissance = htmlspecialchars($_POST['DTN']);
             $adresse = "";
             $codePostal = "";
+            $tel = "";
             if (isset($_POST['adresse']))
                 $adresse = htmlspecialchars($_POST['adresse']);
             if (isset($_POST['CP']))

@@ -8,24 +8,14 @@
     <script src="res/js/script.js"></script>
 </head>
 
-<header>
-        <div id="ligneVerte"></div>
-        <div class="barre">
-            <img src="./res/img/logo.png" alt="Logo de HealthyVibe">
-
-            <h2>Rejoignez l'aventure HealthyVibe !</h2>
-
-            <nav>
-                <a href="./tipsEcologiques.php">Tips ecologiques</a>
-                <a href="./FAQ.php">FAQ</a>
-                <a href="./index.php">Accueil</a>
-            </nav>
-        </div>
-
-</header>
-
-
 <body>
+<?php
+    if (isset($_SESSION['id'])) {
+        include './res/php/header.php';
+    } else {
+        include './res/php/headerVisiteur.php';
+    }
+    ?>
     <div class='espaceInscription'>
         <p class="titre"> Formulaire d'inscription</p>
 
