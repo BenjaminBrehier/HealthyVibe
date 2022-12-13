@@ -16,7 +16,6 @@
         include './res/php/headerVisiteur.php';
     }
     ?>
-    <h2>Rejoignez l'aventure HealthyVibe !</h2>
     <div class='espaceInscription'>
         <p class="titre"> Formulaire d'inscription</p>
 

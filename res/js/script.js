@@ -14,12 +14,18 @@ var previewPicture = function (e) {
 }
 
 
-function afficher(x) {
-    window.location.href = "./afficheSujet.php?idSujet=" + x;
+function afficher(idSujet) {
+    window.location.href = "./afficheSujet.php?idSujet=" + idSujet;
 }
 
-function deletePost(x, idSujet) {
-    if (confirm("Voulez vous vraiment supprimer ?") == true) {
-        window.location.href = "./res/php/deletePost.php?idPost=" + x+"&idSujet="+idSujet;
+function deletePost(idPost, idSujet) {
+    if (confirm("Voulez vous vraiment supprimer (action irréversible) ?") == true) {
+        window.location.href = "./res/php/deletePost.php?idPost=" + idPost+"&idSujet="+idSujet;
+    }
+}
+
+function closeSubject(idSujet, idUtilisateur) {
+    if (confirm("Voulez vous vraiment fermer le sujet (action irréversible) ?") == true) {
+        window.location.href = "./res/php/closeSubject.php?idSujet=" +idSujet+"&idUtilisateur="+idUtilisateur;
     }
 }

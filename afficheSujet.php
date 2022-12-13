@@ -13,6 +13,7 @@ $result = $co->query("SELECT * FROM Sujet WHERE idSujet = $idSujet");
 $row = $result->fetch_object();
 $titreSujet = $row->titre;
 $statusSujet = $row->status;
+$idUtilisateur = $row->idUtilisateur;
 
 ?>
 
@@ -37,12 +38,20 @@ $statusSujet = $row->status;
             <p>></p>
             <a href="./forum.php">Forum</a>
             <p>></p>
-            <p><?php echo $titreSujet;?></p>
+            <p><?php echo $titreSujet; if($statusSujet) {echo ' [Résolu]';}?></p>
         </div>
+        <?php 
+        //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture
+            if (($idUtilisateur == $_SESSION['id'] || $_SESSION['role']) && !$statusSujet) {
+                ?>
+                <button onclick="closeSubject(<?php echo $idSujet.','.$idUtilisateur;?>)">Fermer le sujet</button>
+                <?php
+            }
+            ?>
         <div class="container">
             <?php 
             $i = 0;
-            $result = $co->query("SELECT idPost, date, contenu, U.prenom FROM POST P INNER JOIN SUJET S ON S.idSujet = P.idSujet INNER JOIN UTILISATEUR U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
+            $result = $co->query("SELECT idPost, date, contenu, U.prenom, P.idUtilisateur FROM POST P INNER JOIN SUJET S ON S.idSujet = P.idSujet INNER JOIN UTILISATEUR U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
             while ($row = $result->fetch_object()) {
                 $i++;
                 ?>
@@ -69,7 +78,7 @@ $statusSujet = $row->status;
                         }
                         ?>
                         <?php
-                        if ($_SESSION['role'] == 1) {
+                        if ($_SESSION['role'] || $_SESSION['id'] == $row->idUtilisateur) {
                             ?>
                             <button onclick="deletePost(<?php echo $row->idPost.','.$idSujet; ?>)">Supprimer</button>
                             <?php
