@@ -1,6 +1,37 @@
-<?php
-session_start();
-?>
+<!-- Script pour l'inscription ou connexion de l'utilisateur -->
+<?php 
+    require_once './res/php/fonctions.php';
+    session_start();
+    if (isset($_GET['type'])) {
+        if (htmlspecialchars($_GET['type']) == 'inscription') {
+            $nom = htmlspecialchars($_POST['fname']);
+            $prenom = htmlspecialchars($_POST['lname']);
+            $dateNaissance = htmlspecialchars($_POST['DTN']);
+            $adresse = "";
+            $codePostal = "";
+            if (isset($_POST['adresse']))
+                $adresse = htmlspecialchars($_POST['adresse']);
+            if (isset($_POST['CP']))
+                $codePostal = htmlspecialchars($_POST['CP']);
+            if (isset($_POST['tel'])) {
+                $tel = htmlspecialchars($_POST['tel']);
+            }
+
+            $mail = htmlspecialchars($_POST['mail']);
+            $mdp = htmlspecialchars($_POST['mdp']);
+
+            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            $result = $co->query("UPDATE UTILISATEUR SET(nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            if ($result) {
+                login($mail, $mdp);
+            } 
+            else {
+                header("Location: ./profil.php?reponse=Erreur");
+                exit();
+            }
+        }
+    }
+?>    
 
 <!DOCTYPE html>
 <html>
@@ -9,6 +40,7 @@ session_start();
     <meta charset="UTF-8">
     <title>HealthyVibe : Profil</title>
     <link rel="stylesheet" href="./res/css/profil.css">
+    
 </head>
 
 <body>
@@ -20,11 +52,11 @@ session_start();
         <p class="titre"> Mon profil</p>
 
         <form action="./accueil.php?&type=inscription" method="POST">
-            <div class="champ">
+            <div class="photoprofil">
                 <form method="post" url="/upload-picture" enctype="multipart/form-data" >
                     <input type="file" name="picture" onchange="previewPicture(this)" required >
-                </form>
-                <img src="#" alt="" id="image" style="max-width: 500px; margin-top: 20px;" >
+                </form><br>
+                <img src="#" alt="" id="image" width="190px" height="200px">
             </div>
             <div class="champ">
                 <label for="fname">Nom:</label>

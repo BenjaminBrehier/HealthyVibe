@@ -11,7 +11,11 @@
 
 <body>
 <?php
-    include './res/php/header.php';
+    if (isset($_SESSION['id'])) {
+        include './res/php/header.php';
+    } else {
+        include './res/php/headerVisiteur.php';
+    }
     ?>
 
     <div id='contenu'>
