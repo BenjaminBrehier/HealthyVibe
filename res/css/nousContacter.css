@@ -5,31 +5,27 @@
     flex-direction:column;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom:50px;
-    margin-top:50px;
+    margin-bottom:20px;
+    margin-top:20px;
 
-    padding-top: 2%;
-    padding-bottom:2%;
     padding-left:2%;
     padding-right:2%;
 
     align-items:center;
-    width:600px;
-    border: solid 3px black;
-    border-radius: 5%;
-    box-shadow:solid #30E87A 2px;
+    width:800px;
+
 }
     
 .message { 
     display: flex;
-    flex-direction:column;
     margin-left:auto;
     margin-right:auto;
     margin-top:20px;
     margin-bottom:20px;
-    width:500px;
+    width:700px;
     height: 400px;
     border-radius:10px;
+    padding:5px;
 }
 
 #boutton {
@@ -40,19 +36,19 @@
     width:100px;
     justify-content:center;
     font-size:15px;
-    margin-top:20px;
-    margin-bottom:20px;
-    background-color:#171717;
+    margin-top:10px;
+    margin-bottom:15px;
+    background-color:#30E87A;
     border-radius: 10px;
-    border: solid 2px #30E87A;
-    color:#30E87A;
+    border: solid 1px black;
+    color:black;
 
 }
 
 #indication {
     font-style:italic;
-    font-size:12px;
-    margin-top: 10px;
+    font-size:15px;
+    margin-top: 5px;
     text-align:center,
 
 }
