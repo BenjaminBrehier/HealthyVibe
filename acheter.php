@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -8,16 +11,13 @@
     <script src="res/js/script.js"></script>
 </head>
 
-<header>
-        <div id="ligneVerte"></div>
-        <img src="./res/img/logo.png" alt="Logo de HealthyVibe">
-        <nav>
-            <a href="./tipsEcologiques.php">Tips ecologiques</a>
-            <a href="./FAQ.php">FAQ</a>
-            <a href="./connexion.php" id="co">Se connecter</a>
-            <a href="./inscription.php" id="inscrire">S'inscrire</a>
-        </nav>
-</header>
+<?php
+    if (isset($_SESSION['id'])) {
+        include './res/php/header.php';
+    } else {
+        include './res/php/headerVisiteur.php';
+    }
+    ?>
 
 <body>
     <div id='boxAchat'>
@@ -36,7 +36,7 @@
                     <input type='mail'>
                 </div>
 
-                <input type='button' value='Commander' id='boutton'>
+                <input type='submit' value='Commander' id='boutton'>
             </form>
             <p id='lieu'>Lieu d'achat du casque: <Address>10 Rue de Vanves, 92130 Issy-les-Moulineaux, France</address> </p>
             <p id='indication'>Vous pourrez créer un compte <strong>HealthyVibe</strong> avec votre numéro de casque qui vous sera fourni à sa réception.</p>

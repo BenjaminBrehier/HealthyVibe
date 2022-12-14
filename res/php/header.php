@@ -12,6 +12,13 @@
                 <li><a href="#"><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']?></a>
                     <ul class="sous-menu">
                         <a href="./profil.php"><li>Profil</li></a>
+                        <?php 
+                        if ($_SESSION['role']) {
+                            ?>
+                            <a href="./adminPanel.php"><li>Panel Admin</li></a>
+                            <?php
+                        }
+                        ?>
                         <a href="./res/php/disconnect.php"><li>Se déconnecter</li></a>
                     </ul>
                 </li>
