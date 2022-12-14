@@ -1,26 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
-#spaceHolder {
-    height: 700px;
+#SpaceHolder {
+    display:flex;
+    flex-direction:row;
+    width:100%;
+}
+
+/*======================================Colonne gauche=================================================================*/
+#colonneGauche {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    width: 20%;
     align-items: center;
-    margin-top: 10px;
     background: white;
+    padding-top:10px;
+    padding-left:5px;
 }
 #calendrier{
     background-color: white;
-    width: 20%;
-    height:500px;
-    padding-top: 5px;
-    padding-bottom: 50px; 
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-right: 10px;
-    margin-left: 10px;
-
+    margin-top: 25px;
+    margin-bottom: 50px; 
 }
-#liens {
+
+table {
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+    align-content:center;
+}
+
+table td{
+    padding:7px;
+    font-size:15px;
+}
+
+#liens { 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -29,7 +42,7 @@
 
 #liens a,#liens p {
     font-weight: bolder;
-    padding: 1%;
+    padding: 5px;
 
 }
 
@@ -38,53 +51,62 @@
     color: inherit;
 }
 .bouttontemps{
-    position: relative;
-    bottom: 2%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width:100%;
 }
 .enSavoirPlus{
     background-color: #DBFD51;
     border: 0;
     font-style: bold;
-    border-radius: 50px;
-    font-size: larger;
-    width: 50%;
-    font-family: "source sans pro";
+    font-size: 15px;
     margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
+    width:100px;
     align-items: center;
+    padding:5px;
 }
-#carreblanc{
+/*======================================Colonne droite=================================================================*/
+#colonneDroite{
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    width: 80%;
-    align-items: center;
-    background-color: white;
-    padding-left: 50px;
-    padding-top: 5px;
-    padding-bottom: 50px;
-    padding-right: 50px;
-    height:500px;
-    margin-right: 10px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 79%;
+    padding-top: 25px;
+    padding-bottom: 100px;
+    padding-left:10px;
 }
+
 #graph{
-    margin-left: 200px;
-    margin-right: 200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
+
+.graph1 {
+    display:flex;
+    width:300px;
+    height:300px;
+    margin-bottom:25px;
+}
+
 .icone{
     width: 50px;
     height: 50px;
-    margin-left: 40px;
+
 }
 #pres{
     display: flex;
     flex-direction:row;
     align-items: center;
+    justify-content: space-around;
+    padding-right:50px;
+}
+
+#pres p{
+    font-size:25px;
 }
 #spaceHolder p{
     font-size:x-large;
@@ -95,35 +117,37 @@
 .btn{
     margin-top: 20px;
     margin-left: 60px;
-    color: white;
+    padding-top:5px;
+    padding-bottom:5px;
+    color: black;
     background-color: #30E87A;
     border: 0;
     border-radius: 50px;
     width: 50%;
-    font-size: larger;
-    font-family: "source sans pro";
+    font-size: 17px;
 
 }
+
+/*Le Saviez-Vous*/
 #savoir{
     color: white;
     border:5px solid black;
     border-radius: 10px;
     background-color: black;
-    width: 300px;
-    margin-top: 10px;
-    margin-left: 25px;
+    width: 250px;
     padding-top: 5px;
-    padding-bottom: 20px;
-    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 #savoir h1{
     text-align: center;
 }
 #savoir hr{
-    width: 220px;
-    margin-left: 35px;
-    margin-right: 35px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 #savoir p{
-    font-size: smaller;
+    font-size: 15px;
 }

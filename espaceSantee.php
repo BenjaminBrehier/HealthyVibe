@@ -53,7 +53,7 @@ session_start();
             </div>
         </div>
 
-        <div id=colonneDroite>
+        <div id="colonneDroite">
             <div id="graph1">
                 <img class="graph" src="./res/img/graph.png" alt="graph 1">
                 <div id="pres">
