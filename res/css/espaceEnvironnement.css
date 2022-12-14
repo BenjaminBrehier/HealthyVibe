@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
-#SpaceHolder {
+#spaceHolder {
     display:flex;
     flex-direction:row;
     width:100%;
@@ -38,11 +38,13 @@ table td{
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    align-content:center;
 }
 
 #liens a,#liens p {
     font-weight: bolder;
     padding: 5px;
+    align-content:center;
 
 }
 
@@ -96,7 +98,7 @@ table td{
     width: 50px;
     height: 50px;
 
-}
+} 
 #pres{
     display: flex;
     flex-direction:row;
@@ -129,14 +131,17 @@ table td{
 }
 
 /*Le Saviez-Vous*/
+
 #savoir{
+    display:flex;
+    flex-direction:column;
     color: white;
     border:5px solid black;
     border-radius: 10px;
     background-color: black;
     width: 250px;
     padding-top: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-right: 5px;
     padding-left: 5px;
 }
@@ -149,5 +154,5 @@ table td{
     margin-right: auto;
 }
 #savoir p{
-    font-size: 15px;
+    font-size: 17px;
 }

@@ -50,7 +50,7 @@
                     <input type="button" class="enSavoirPlus" name="enSavoirPlus" value="Semaine" class="enSavoirPlus">
                     <input type="button" class="enSavoirPlus" name="enSavoirPlus" value="Mois" class="enSavoirPlus">
                 </div>
-            </div>
+            </div> 
         </div>
   
         <div id="colonneDroite">
@@ -62,6 +62,7 @@
                 </div>
                 <input type="button" class="btn" value="Tableau">
             </div>
+
             <div id='savoir'>
                 <h1>Le Saviez-vous ? </h1><br>
                 <hr><br>
@@ -69,6 +70,7 @@
                 </p>
             </div>
         </div>
+
     </div>
     <?php
         include './res/php/footer.php';
