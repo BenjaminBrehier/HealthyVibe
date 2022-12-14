@@ -6,7 +6,7 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <title>Vos Données</title>
+    <title>HealthyVibe : Vos Données</title>
     <link rel="stylesheet" href="res/css/vosDonnees.css">
 </head>
 
@@ -55,7 +55,7 @@ session_start();
                 </div>
             </div>
         </a>  
-
+ 
     </section>
     <?php 
     include './res/php/footer.php';

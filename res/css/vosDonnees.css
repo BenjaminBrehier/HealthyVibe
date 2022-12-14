@@ -71,11 +71,11 @@
 
 }
 
-.carre_noir h1 {
-  color: white;
-  text-decoration-line: none;
-}
 
+h1 {
+  color:white;
+  font-style: normal;
+}
 
 
 @media (max-width: 1200px) {
