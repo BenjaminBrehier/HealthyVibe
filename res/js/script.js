@@ -55,7 +55,10 @@ function repondre(idPost) {
     divReponse.style.display = 'flex';
     contenuReponse.style.borderLeft = '3px solid ' + profil.children[0].style["color"];
     contenuReponse.innerHTML = profil.innerHTML + contenu.innerHTML;
-    contenuReponse.getElementsByClassName('reponse')[0].remove();
+    var reponseToDelete = contenuReponse.getElementsByClassName('reponse')[0];
+    if (reponseToDelete != null) {
+        reponseToDelete.remove();
+    }
     document.getElementById('idPost').setAttribute('value', idPost);
 }
 
