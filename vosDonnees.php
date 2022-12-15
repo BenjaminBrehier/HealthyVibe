@@ -26,7 +26,7 @@ session_start();
                 <div class="carre_blanc">
                     <img class="bordure" src="./res/img/Sante.jpg" alt="image de Santé">
                     <p class="rapport">Rapport statistique détaillé de votre rythme cardiaque,
-                        température corporelle et exposition sonore (décibelmètre)</p>
+                        température corporelle et exposition sonore (sonomètre)</p>
                 </div>
             </a>
 
