@@ -22,7 +22,7 @@ $sujets = array();
 
     <section>
         <div class="liens">
-            <a href="./accueil.php?type=connexion">Acceuil </a>
+            <a href="./accueil.php?type=connexion">Accueil </a>
             <p>></p>
             <a href="./forum.php">Forum</a>
         </div>

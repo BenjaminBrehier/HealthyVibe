@@ -2,6 +2,24 @@ section{
     padding: 1%;
     margin-bottom: 423px;
 }
+
+section .liens {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+section .liens a,section .liens p {
+  font-weight: bolder;
+  padding: 1%;
+}
+
+section a {
+  text-decoration: none;
+  color: inherit;
+}
+
 h1{
     font-size: xx-large;
     font-style: underline;

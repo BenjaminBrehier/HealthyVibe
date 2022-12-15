@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 
+section {
+    padding: 1%;
+}
+
+section .liens {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+section .liens a,section .liens p {
+    font-weight: bolder;
+    padding: 1%;
+}
+
+section a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #boxenvoi {
     display:flex;
     flex-direction:column;

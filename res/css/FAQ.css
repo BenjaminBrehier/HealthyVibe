@@ -5,6 +5,27 @@
     flex-direction:row;
     padding-top:20px;
     justify-content:space-around;
+  }
+  
+section {
+  padding: 1%;
+}
+
+section .liens {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+section .liens a,section .liens p {
+  font-weight: bolder;
+  padding: 1%;
+}
+
+section a {
+  text-decoration: none;
+  color: inherit;
 }
 
 #espaceRecherche {

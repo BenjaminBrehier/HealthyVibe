@@ -18,6 +18,11 @@ require_once("./res/php/fonctions.php");
     include './res/php/header.php';
     ?>
     <section>
+        <div class="liens">
+            <a href="./accueil.php">Accueil </a>
+            <p>></p>
+            <a href="">Panel Admin</a>
+        </div>
         <h1>Liste des utilisateurs</h1>
         <table>
             <tr>

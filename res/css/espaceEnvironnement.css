@@ -5,6 +5,22 @@
     width:100%;
 }
 
+section {
+    padding: 1%;
+}
+
+#liens {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#liens a, #liens p {
+    font-weight: bolder;
+    padding: 1%;
+}
+
 /*======================================Colonne gauche=================================================================*/
 #colonneGauche {
     display: flex;
@@ -31,21 +47,6 @@ table {
 table td{
     padding:7px;
     font-size:15px;
-}
-
-#liens { 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    align-content:center;
-}
-
-#liens a,#liens p {
-    font-weight: bolder;
-    padding: 5px;
-    align-content:center;
-
 }
 
  a {

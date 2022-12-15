@@ -11,9 +11,14 @@ else {
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $result = $co->query("SELECT * FROM Sujet WHERE idSujet = $idSujet"); 
 $row = $result->fetch_object();
+if ($row == null) {
+    header("Location:./forum.php");
+    exit();
+}
 $titreSujet = $row->titre;
 $statusSujet = $row->status;
 $idUtilisateur = $row->idUtilisateur;
+$posts = array();
 
 ?>
 
@@ -24,7 +29,6 @@ $idUtilisateur = $row->idUtilisateur;
     <meta charset="UTF-8">
     <title>Forum</title>
     <link rel="stylesheet" href="./res/css/afficheSujet.css">
-    <script src="res/js/script.js"></script>
 </head>
 
 <body>
@@ -34,14 +38,19 @@ $idUtilisateur = $row->idUtilisateur;
 
     <section>
         <div class="liens">
-            <a href="./accueil.php">Acceuil </a>
+            <a href="./accueil.php">Accueil </a>
             <p>></p>
             <a href="./forum.php">Forum</a>
             <p>></p>
-            <p><?php echo $titreSujet; if($statusSujet) {echo ' [Résolu]';}?></p>
+            <a href=""><?php echo $titreSujet; if($statusSujet) {echo ' [Résolu]';}?></a>
         </div>
         <?php 
-        //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture
+            if (($_SESSION['role'])) {
+                ?>
+                <button onclick="deleteSubject(<?php echo $idSujet;?>)">Supprimer le sujet</button>
+                <?php
+            }
+            //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture
             if (($idUtilisateur == $_SESSION['id'] || $_SESSION['role']) && !$statusSujet) {
                 ?>
                 <button onclick="closeSubject(<?php echo $idSujet.','.$idUtilisateur;?>)">Fermer le sujet</button>
@@ -51,29 +60,36 @@ $idUtilisateur = $row->idUtilisateur;
         <div class="container">
             <?php 
             $i = 0;
-            $result = $co->query("SELECT idPost, date, contenu, U.prenom, P.idUtilisateur FROM POST P INNER JOIN SUJET S ON S.idSujet = P.idSujet INNER JOIN UTILISATEUR U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
+            $result = $co->query("SELECT idPost, date, contenu, U.prenom, P.idUtilisateur, idReponse FROM POST P INNER JOIN SUJET S ON S.idSujet = P.idSujet INNER JOIN UTILISATEUR U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
             while ($row = $result->fetch_object()) {
                 $i++;
+                $posts[$row->idPost] = $row->prenom.'|'.$row->date.'|'.$row->contenu;
                 ?>
-                <div class="post">
+                <div class="post" id="<?php echo $row->idPost; ?>" style="border-left: 3px solid <?php echo getColor($row->prenom);?>;">
                     <div class="profil">
-                        <?php 
-                        $md = md5($row->prenom);
-                        $hex = "#" . substr($md, 0, 6);
-                        list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
-                        $color = 'rgb(' . $r . ', ' . $g . ', ' . $b . ', 1)';
-                        ?>
-                        <p style="color: <?php echo $color;?>;"><?php echo $row->prenom;?></p>
+                        <p style="color: <?php echo getColor($row->prenom);?>;"><?php echo $row->prenom;?></p>
                     </div>
                     <div class="contenu">
-                        <p id="date"><?php echo $row->date;?></p>
+                        <p class="date"><?php echo $row->date;?></p>
+                        <?php 
+                        if ($row->idReponse != null) {
+                            $tab = explode('|', $posts[$row->idReponse]);
+                            ?>
+                            <div class="reponse" style="border-left: 3px solid <?php echo getColor($tab[0]);?>;">
+                                <p style="color: <?php echo getColor($tab[0]);?>;"><?php echo $tab[0]?></p>
+                                <p><?php echo $tab[1]?></p>
+                                <p><?php echo $tab[2]?></p>
+                            </div>
+                            <?php
+                        }
+                        ?>
                         <p><?php echo $row->contenu;?></p>
                     </div>
                     <div class="items">
                         <?php
                         if (!$statusSujet) {
                             ?>
-                            <button>Répondre</button>
+                            <button onclick="repondre(<?php echo $row->idPost;?>)">Répondre</button>
                             <?php
                         }
                         ?>
@@ -90,7 +106,7 @@ $idUtilisateur = $row->idUtilisateur;
             }
 
             if ($i == 0) {
-                echo "<div class=\"alert alert-danger\">Aucun post dans ce sujet pour le moment.</div>";
+                echo "<div>Aucun post dans ce sujet pour le moment.</div>";
             }
             if (!$statusSujet) {
                 ?>
@@ -98,6 +114,11 @@ $idUtilisateur = $row->idUtilisateur;
                 <hr>
                 <br>
                 <form id="form" action="./res/php/newPost.php?idSujet=<?php echo $idSujet;?>" method="post">
+                    <div id="divReponse">
+                        <input type="button" onclick="nonRepondre()" value="Ne plus répondre" formnovalidate>
+                        <div id="contenuReponse"></div>
+                    </div>
+                    <input id="idPost" type="hidden" name="idPost" value="null">
                     <textarea name="contenu" placeholder="Nouveau post" cols="40" rows="10" required></textarea>
                     <input type="submit" value="Publier post">
                 </form>
@@ -112,4 +133,5 @@ $idUtilisateur = $row->idUtilisateur;
         include './res/php/footer.php';
     ?>
 </body>
+<script src="res/js/script.js"></script>
 </html>
