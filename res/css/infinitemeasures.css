@@ -2,58 +2,89 @@
 
  /*Structure principale */
 
- .infinite h1{
-    margin-top: 1cm;
-    font-family: Segoe UI, 'Tahoma', Geneva, Verdana, sans-serif;
-    font-size: larger;
-    margin-left: 40%;
+  h1 {
+   font-size: 25px;
+   text-align: center;
+   background-color: aquamarine;
  }
+ #fonctions {
+   display: flex;
+   flex-direction: column;
+   color: white;
+ 
+ }
+ 
+ #fonctions .infinites1 {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+ }
+ 
+ #fonctions .infinites2 {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+ }
+ 
+ 
+ 
+ .infinites1, .infinites2{
+   display: flex;
+   height: 400px;
+   justify-content: space-between;
+ }
+ 
+ #fonctions .infinites1 p {
+   width: 100%;
+   font-size: 30px; 
+ }
+ #fonctions .infinites2 p {
+   width: 100%;
+   font-size: 30px; 
+ }
+ 
+ #fonctions .infinites1  div  {
+   width:40%;
+   height: 250px;
+   color:white;
+   margin-left:40px;
+   margin-top:auto;
+   margin-bottom:auto;
+ }
+ #fonctions .infinites2  div  {
+   width:40%;
+   height: 250px;
+   color:black;
+   margin-right:40px;
+   margin-top:auto;
+   margin-bottom:auto;
+   }
+ 
+ 
+ #fonctions .infinites1  img{
+ width:auto;
+ height: 90%;
+ margin-top:auto;
+ margin-bottom:auto;
+ margin-right:20px;
+ }
+ #fonctions .infinites2  img{
+   width:auto;
+   height: 90%;
+   margin-top:auto;
+   margin-bottom:auto;
+   margin-left:20px;
+   }
 
- .infinites4{
-    margin-top: 4cm;
- }
 
- .infinites4 img{
-    float: left;
-    width: 450px;
-    height:400px;
- }
-
-
- .infinites1 img{
-    float: right;
-    width: 450px;
-    height:400px;
- }
-
- .infinites2 img{
-    float: left;
-    width: 450px;
-    height:400px;
- }
- .infinites3 img{
-    float: right;
-    width: 450px;
-    height:400px;
- }
-
- .infinites4 p{
-    float: right;
- }
-
- .infinites1 p{
-    float: left;
- }
-
- .infinites2 p{
-    float: right;
- }
-
- .infinites3 p{
-    float: left;
- }
-
- .up p{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 35px;
- }
+   .infinites1:nth-child(odd) {
+      background-color:#2C3033;
+      justify-content: space-between;
+      font:white;
+    }
+    
+    .infinites2:nth-child(odd) {
+      background-color:#ffffff;
+      justify-content: space-between;
+      font: #2c3033;;
+    }
