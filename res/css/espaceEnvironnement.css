@@ -106,16 +106,15 @@ table td{
     align-items: center;
     justify-content: space-around;
     padding-right:50px;
+    margin-right: 50px;
 }
 
 #pres p{
-    font-size:25px;
+    padding-right: 20px;
 }
 #spaceHolder p{
     font-size:x-large;
     margin-left: 20px;
-    font-style: bold;
-    font-family: "source sans pro";
 }   
 .btn{
     margin-top: 20px;
