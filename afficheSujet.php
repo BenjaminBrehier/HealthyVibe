@@ -11,6 +11,7 @@ else {
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $result = $co->query("SELECT * FROM Sujet WHERE idSujet = $idSujet"); 
 $row = $result->fetch_object();
+//! Si la requete n'a renvoyé aucune ligne, on redirige vers le forum
 if ($row == null) {
     header("Location:./forum.php");
     exit();
@@ -64,13 +65,14 @@ $posts = array();
             while ($row = $result->fetch_object()) {
                 $i++;
                 $posts[$row->idPost] = $row->prenom.'|'.$row->date.'|'.$row->contenu;
+                $date = date("d-m-Y H:i:s", strtotime($row->date));
                 ?>
                 <div class="post" id="<?php echo $row->idPost; ?>" style="border-left: 3px solid <?php echo getColor($row->prenom);?>;">
                     <div class="profil">
                         <p style="color: <?php echo getColor($row->prenom);?>;"><?php echo $row->prenom;?></p>
                     </div>
                     <div class="contenu">
-                        <p class="date"><?php echo $row->date;?></p>
+                        <p class="date"><?php echo $date;?></p>
                         <?php 
                         if ($row->idReponse != null) {
                             $tab = explode('|', $posts[$row->idReponse]);

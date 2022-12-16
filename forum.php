@@ -36,7 +36,7 @@ $sujets = array();
                     $result = $co->query("SELECT * FROM POST LIMIT 1");
                     if ($result->num_rows > 0) {
                         //! Requete récupérant chaque sujets du forum ainsi que le nombre de posts de celui-ci et son auteur (pour l'instant son nom)
-                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, (SELECT U.nom FROM UTILISATEUR U WHERE U.idUtilisateur = S.idUtilisateur) as username, (SELECT DISTINCT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P ORDER BY datecreation;"); 
+                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, (SELECT U.username FROM UTILISATEUR U WHERE U.idUtilisateur = S.idUtilisateur) as username, (SELECT DISTINCT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P ORDER BY datecreation DESC;"); 
                         while ($row = $result->fetch_object()) {
                             if($row->status) {
                                 $titre = $row->titre . " [Résolu]";
@@ -48,7 +48,7 @@ $sujets = array();
                             ?>
                             <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
                                 <h2><?php echo $titre;?></h2>
-                                <p>Par <?php echo $row->username;?> le <?php echo $date; ?> - <?php echo $row->nbPost; ?> posts</p>
+                                <p>Créer par <?php echo $row->username;?> le <?php echo $date; ?> - <?php echo $row->nbPost; ?> posts</p>
                             </div>
                             <?php
                         }
