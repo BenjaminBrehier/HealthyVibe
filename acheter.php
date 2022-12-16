@@ -36,7 +36,7 @@ session_start();
                     <input type='mail'>
                 </div>
 
-                <input type='submit' value='Commander' id='boutton'>
+                <input type='submit' value='Réserver' id='boutton'>
             </form>
             <p id='lieu'>Lieu d'achat du casque: <Address>10 Rue de Vanves, 92130 Issy-les-Moulineaux, France</address> </p>
             <p id='indication'>Vous pourrez créer un compte <strong>HealthyVibe</strong> avec votre numéro de casque qui vous sera fourni à sa réception.</p>
