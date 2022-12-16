@@ -11,20 +11,28 @@ function login($mail, $mdp) {
 
     $mail = mysqli_escape_string($co, $mail);
     $mdp = mysqli_escape_string($co, $mdp);
-    $result = $co->query("SELECT * FROM Utilisateur WHERE email = '$mail' AND mdp = '$mdp' LIMIT 1");  
-    if ($result && $result->num_rows > 0) {
+    $result = $co->query("SELECT * FROM Utilisateur WHERE email = '$mail' LIMIT 1");  
+    if ($result->num_rows > 0) {
         $row = $result->fetch_object ();
-        $_SESSION['nom'] = $row->nom;
-        $_SESSION['prenom'] = $row->prenom;
-        $_SESSION['id'] = $row->idUtilisateur;
-        $_SESSION['email'] = $row->email;
-        $_SESSION['tel'] = $row->tel;
-        $_SESSION['adresse'] = $row->adresse;
-        $_SESSION['codepostal'] = $row->codepostal;
-        $_SESSION['datenaissance'] = $row->datenaissance;
-        $_SESSION['role'] = $row->role;
-
-    } else {
+        $hash = $row->mdp;
+        if (password_verify($mdp, $hash)) {
+            $_SESSION['nom'] = $row->nom;
+            $_SESSION['prenom'] = $row->prenom;
+            $_SESSION['username'] = $row->username;
+            $_SESSION['id'] = $row->idUtilisateur;
+            $_SESSION['email'] = $row->email;
+            $_SESSION['tel'] = $row->tel;
+            $_SESSION['adresse'] = $row->adresse;
+            $_SESSION['codepostal'] = $row->codepostal;
+            $_SESSION['datenaissance'] = $row->datenaissance;
+            $_SESSION['role'] = $row->role;
+        }
+        else {
+            header ("Location: ./connexion.php?reponse=Erreur");
+            exit();
+        }
+    } 
+    else {
         header ("Location: ./connexion.php?reponse=Erreur");
         exit();
     }

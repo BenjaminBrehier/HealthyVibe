@@ -30,7 +30,7 @@ require_once("./res/php/fonctions.php");
                 <th>nom</th>
                 <th>prenom</th>
                 <th>email</th>
-                <th>mdp</th>
+                <th>username</th>
                 <th>tel</th>
                 <th>adresse</th>
                 <th>codepostal</th>
@@ -48,7 +48,7 @@ require_once("./res/php/fonctions.php");
                     <td><?php echo $row->nom; ?></td>
                     <td><?php echo $row->prenom; ?></td>
                     <td><?php echo $row->email; ?></td>
-                    <td><?php echo $row->mdp; ?></td>
+                    <td><?php echo $row->username; ?></td>
                     <td><?php echo $row->tel; ?></td>
                     <td><?php echo $row->adresse; ?></td>
                     <td><?php echo $row->codepostal; ?></td>

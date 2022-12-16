@@ -7,9 +7,9 @@
             $nom = htmlspecialchars($_POST['fname']);
             $prenom = htmlspecialchars($_POST['lname']);
             $dateNaissance = htmlspecialchars($_POST['DTN']);
-            $adresse = "";
-            $codePostal = "";
-            $tel = "";
+            $adresse = null;
+            $codePostal = null;
+            $tel = null;
             if (isset($_POST['adresse']))
                 $adresse = htmlspecialchars($_POST['adresse']);
             if (isset($_POST['CP']))
@@ -17,12 +17,13 @@
             if (isset($_POST['tel'])) {
                 $tel = htmlspecialchars($_POST['tel']);
             }
-
+            $username = htmlspecialchars($_POST['username']);
             $mail = htmlspecialchars($_POST['mail']);
             $mdp = htmlspecialchars($_POST['mdp']);
+            $hashedmdp = password_hash($mdp, PASSWORD_ARGON2ID);
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, username, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$username', '$mail','$hashedmdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
             if ($result) {
                 login($mail, $mdp);
             } else {
@@ -30,7 +31,7 @@
                 exit();
             }
         }
-        else if ($_GET['type'] == 'connexion') {
+        else if (htmlspecialchars($_GET['type']) == 'connexion') {
             if (!isset($_SESSION['id'])) {
                 $mail = htmlspecialchars($_POST['mail']);
                 $mdp = htmlspecialchars($_POST['mdp']);

@@ -29,6 +29,10 @@
                 <label for="lname">Prénom:</label>
                 <input type="text" id="lname" name="lname" required>
             </div>
+            <div class="champ">     
+                <label for="lname">Username:</label>
+                <input type="text" id="uname" name="username" required>
+            </div>
             <div class="champ"> 
                 <label for="mail">Mail:</label>
                 <input type="email" id="mail" name="mail" required>
