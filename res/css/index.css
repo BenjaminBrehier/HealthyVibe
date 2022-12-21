@@ -89,8 +89,8 @@ header nav #inscrire {
 #fonctions {
   display: flex;
   flex-direction: column;
-  height: 1700px;
   color: white;
+
 }
 
 #fonctions .container1 {

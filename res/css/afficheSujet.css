@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
 }
 
 section {
@@ -25,6 +24,12 @@ section a {
     color: inherit;
 }
 
+section > button {
+    padding: 1px;
+    margin-left: 1%;
+    float: right;
+}
+
 section .container {
     margin-top: 2%;
     display: flex;
@@ -36,13 +41,19 @@ section .container .post {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    /* background-color: aquamarine; */
-    border: 1px solid black;
-    margin-top: 1%;
+    margin-top: 2%;
+    border: 1px solid white;
     padding: 1%;
 }
 
-section .container .post .profil {
+section .container .post:hover {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    transition: 1s;
+}
+
+section .profil {
     display: flex;
     flex-direction: column;
     width: 10%;
@@ -57,8 +68,17 @@ section .container .post .contenu {
     font-size: large;
 }
 
-section .container .post .contenu #date {
+section .container .post .contenu .date {
     font-size: small;
+}
+
+section .container .post .contenu .reponse {
+    display: flex;
+    flex-direction: row;
+    font-size: small;
+    padding: 1%;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 section .container .post .items {
@@ -73,4 +93,55 @@ section .container .post button {
     padding: 1px;
     margin-top: 1%;
     margin-right: 2%;
+}
+
+section form {
+    display: flex;
+    flex-direction: column;
+}
+
+section form #divReponse {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+section form #contenuReponse {
+    display: flex;
+    width: 95%;
+    flex-direction: row;
+    padding: 1%;
+    margin-bottom: 5px;
+}
+
+section form #contenuReponse p, section .container .post .contenu .reponse p {
+    margin-right: 1%;
+}
+
+section form #divReponse input[type=button] {
+    width: fit-content;
+    padding: 1px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+section form label {
+    padding: 1%;
+    font-size: large;
+}
+
+section form input[type="text"] {
+    width: 20%;
+    padding: 2px;
+    font-family: "monospace";
+}
+
+section form textarea {
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+section form input[type="submit"] {
+    width: 20%;
+    padding: 2px;
 }

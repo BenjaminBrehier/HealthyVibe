@@ -26,17 +26,12 @@ header #up{
     height: 70px;
 }
 
+header  #up > a {
+  width: 8%;
+}
 
-/* PARTIE TITRE DU HEADER*/
-
-#h2box {
-    display:flex;
-    flex-direction:column;
-    padding-top: auto;
-    padding-bottom: auto;
-    justify-content: center;
-    height: auto;
-
+header img {
+  width: 100%;
 }
 
 header h2{
@@ -44,7 +39,15 @@ header h2{
     font-size: 29px;   
 }
 
+#h2box {
+  display:flex;
+  flex-direction:column;
+  padding-top: auto;
+  padding-bottom: auto;
+  justify-content: center;
+  height: auto;
 
+}
 /* PARTIE BASSE DU HEADER ("Vos Données", "Forum", etc.) */
 
 #main{

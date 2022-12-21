@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    padding: 1%;
+}
+
+section .liens {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+section .liens a,section .liens p {
+    font-weight: bolder;
+    padding: 1%;
+}
+
+section a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section form {
+    display: flex;
+    flex-direction: column;
+}
+
+section form label {
+    padding: 1%;
+    font-size: large;
+}
+
+section form input[type="text"] {
+    width: 20%;
+    padding: 2px;
+    font-family: "monospace";
+}
+
+section form textarea {
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+section form input[type="submit"] {
+    width: 20%;
+    padding: 2px;
+}

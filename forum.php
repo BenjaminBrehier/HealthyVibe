@@ -22,7 +22,7 @@ $sujets = array();
 
     <section>
         <div class="liens">
-            <a href="./accueil.php?type=connexion">Acceuil </a>
+            <a href="./accueil.php?type=connexion">Accueil </a>
             <p>></p>
             <a href="./forum.php">Forum</a>
         </div>
@@ -36,14 +36,19 @@ $sujets = array();
                     $result = $co->query("SELECT * FROM POST LIMIT 1");
                     if ($result->num_rows > 0) {
                         //! Requete récupérant chaque sujets du forum ainsi que le nombre de posts de celui-ci et son auteur (pour l'instant son nom)
-                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.nom, (SELECT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P NATURAL JOIN UTILISATEUR U ORDER BY datecreation;"); 
+                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, (SELECT U.nom FROM UTILISATEUR U WHERE U.idUtilisateur = S.idUtilisateur) as username, (SELECT DISTINCT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P ORDER BY datecreation;"); 
                         while ($row = $result->fetch_object()) {
-                            $sujets[$row->titre.'|||'.$row->idSujet] = $row->nbPost; 
+                            if($row->status) {
+                                $titre = $row->titre . " [Résolu]";
+                            } else {
+                                $titre = $row->titre;
+                            }
+                            $sujets[$titre.'|||'.$row->idSujet] = $row->nbPost; 
                             $date = date("d-m-Y", strtotime($row->datecreation));  
                             ?>
                             <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
-                                <h2><?php echo $row->titre; if($row->status) {echo " [Résolu]";} ?></h2>
-                                <p>Par <?php echo $row->nom;?> le <?php echo $date; ?> - <?php echo $row->nbPost; ?> posts</p>
+                                <h2><?php echo $titre;?></h2>
+                                <p>Par <?php echo $row->username;?> le <?php echo $date; ?> - <?php echo $row->nbPost; ?> posts</p>
                             </div>
                             <?php
                         }
@@ -52,14 +57,22 @@ $sujets = array();
                         //! Requete récupérant chaque sujets du forum et l'auteur
                         $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.nom FROM `SUJET` S NATURAL JOIN UTILISATEUR U ORDER BY datecreation;"); 
                         while ($row = $result->fetch_object()) {
-                            $sujets[$row->titre.'|||'.$row->idSujet] = 0; 
+                            if($row->status) {
+                                $titre = $row->titre . " [Résolu]";
+                            } else {
+                                $titre = $row->titre;
+                            }
+                            $sujets[$titre.'|||'.$row->idSujet] = 0; 
                             $date = date("d-m-Y", strtotime($row->datecreation));  
                             ?>
                             <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
-                                <h2><?php echo $row->titre; if($row->status) {echo " [Résolu]";} ?></h2>
+                                <h2><?php echo $titre;?></h2>
                                 <p>Par <?php echo $row->nom;?> le <?php echo $date; ?> - 0 posts</p>
                             </div>
                             <?php
+                        }
+                        if (sizeof($sujets) < 1) {
+                            echo "Aucun sujets pour le moments";
                         }
                     }
                     
@@ -68,7 +81,7 @@ $sujets = array();
             </div>
             <div id="right">
                 <div id="topicCreation">
-                    <a href="">Creer un topic</a>
+                    <a href="./createSujet.php">Creer un sujet</a>
                 </div>
                 <div id="trend">
                     <h2>Les plus mouvementés</h2>
