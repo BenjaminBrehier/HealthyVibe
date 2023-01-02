@@ -6,7 +6,8 @@
         <p>
             <a href="">Engagement de confidentialité</a> |
             <a href="./CGU.php">Conditions d'utilisation</a> |
-            <a href="./infinitemeasures.php">A propos d'Infinite Measures</a>
+            <a href="./infinitemeasures.php">A propos d'Infinite Measures</a> |
+            <a href="">Nous contacter : 01.23.45.67.89 &nbsp &nbsp testContact@gmail.com</a> |
         </p>
     </div>
 </footer>
