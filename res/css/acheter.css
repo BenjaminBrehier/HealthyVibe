@@ -42,6 +42,7 @@
     margin-bottom:10px;
     text-align:center;
     font-size:17px;
+    font-family:'Times New Roman', Times, serif;
 }
 
 
@@ -52,17 +53,26 @@
 
 }
 
-Address {
-    font-size:14px;
-    text-decoration: underline;
-}
 #indication {
     color:red;
     font-style:italic;
     font-size:15px;
     margin-top: 10px;
-    text-align:center,
+    text-align:center;
+    font-family:'Times New Roman', Times, serif;
 
+}
+
+.info {
+    display:flex;
+    flex-direction:column;
+    margin-bottom:10px;
+    
+}
+
+legend {
+    font-family:'Times New Roman', Times, serif;
+    font-size:16Px;
 }
 
 #boutton {
@@ -80,4 +90,10 @@ Address {
     border: solid 1px black;
     color:black;
 
+}
+
+#CGU {
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top:10px;
 }

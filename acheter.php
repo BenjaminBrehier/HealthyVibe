@@ -1,5 +1,6 @@
-<?php 
+<?php
 session_start();
+require_once("./res/php/fonctions.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,9 +41,27 @@ session_start();
                     <input type='number'>
                 </div>
 
+                <div class='info'>
+                    <legend>Lieu d'achat</legend>
+                    <select name="lieu">
+                        <?php
+                            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                            $result = $co->query("SELECT * FROM lieuvente");
+                            while ($row = $result->fetch_object()) {
+                            ?>
+                                <option value=""><?php echo $row->lieu; ?></option>
+                            <?php
+                            }
+                            ?>
+                    </select>
+                </div>
+                
+                <div class='info'>
+                    <a href="CGU.php" id='CGU'>Veuillez consultez les conditions d'utilisation du casque. pour toute réservation faite, nous considérons que vous avez accepté ces conditions. </a>
+                </div>
+
                 <input type='submit' value='Réserver' id='boutton'>
             </form>
-            <p id='lieu'>Lieu d'achat du casque: <Address>10 Rue de Vanves, 92130 Issy-les-Moulineaux, France</address> </p>
             <p id='indication'>Vous pourrez créer un compte <strong>HealthyVibe</strong> avec votre numéro de casque qui vous sera fourni à sa réception.</p>
     </div>
 

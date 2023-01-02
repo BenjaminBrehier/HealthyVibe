@@ -109,3 +109,31 @@ INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `email`, 
 (1, 'AdminNom', 'Admin', 'admin@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$S1JiYlZ0ZnRvTVlTcEFBcQ$5SSvDGbtYY4CJ8CYITT2WOgb4zsGCd/jmUIm3k1PLOc', '192168', '1 rue du Web', 192, '1970-01-01', 1, 0);
 INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
 (2, 'UserNom', 'user', 'user@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
+
+DROP TABLE IF EXISTS `lieuvente`;
+CREATE TABLE IF NOT EXISTS `lieuvente` (
+  `lieu` varchar(100) NOT NULL,
+  `idLieu` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idLieu`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `lieuvente`
+--
+
+INSERT INTO `lieuvente` (`lieu`, `idLieu`) VALUES
+('10 Rue de Vanves, Issy-les-Moulineaux, 92130', 1),
+('28 Rue Notre-Dame des Champs, Paris, 75006', 2),
+('15 Rue Linois, Paris, 75015', 3);
+
+DROP TABLE IF EXISTS `commandes`;
+CREATE TABLE IF NOT EXISTS `commandes` (
+  `idReservation` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(25) NOT NULL,
+  `Prenom` varchar(25) NOT NULL,
+  `Mail` varchar(50) NOT NULL,
+  `Tel` int(10) NOT NULL,
+  `lieu` varchar(20) NOT NULL,
+  `DateDeReservation` date NOT NULL,
+  PRIMARY KEY (`idReservation`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
