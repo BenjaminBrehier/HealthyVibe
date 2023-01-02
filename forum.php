@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once("./res/php/fonctions.php");
+//! Vérfication que l'user est connecté
+if (!isset($_SESSION['id'])) {
+    header("Location: ./index.php");
+    exit();
+} 
 $sujets = array();
 
 ?>
@@ -22,7 +27,7 @@ $sujets = array();
 
     <section>
         <div class="liens">
-            <a href="./accueil.php?type=connexion">Accueil </a>
+            <a href="./index.php">Accueil </a>
             <p>></p>
             <a href="./forum.php">Forum</a>
         </div>
