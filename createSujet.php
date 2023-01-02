@@ -1,7 +1,12 @@
 <?php
 session_start();
 require_once("./res/php/fonctions.php");
-if (isset($_POST['nomSujet']) && isset($_POST['contenu']) && isset($_SESSION['id'])) {
+//! Vérfication que l'user est connecté
+if (!isset($_SESSION['id'])) {
+    header("Location: ./index.php");
+    exit();
+} 
+if (isset($_POST['nomSujet']) && isset($_POST['contenu'])) {
     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
     $nomSujet = mysqli_escape_string($co, htmlspecialchars($_POST['nomSujet']));
     $contenu = mysqli_escape_string($co, htmlspecialchars($_POST['contenu']));
@@ -37,7 +42,7 @@ if (isset($_POST['nomSujet']) && isset($_POST['contenu']) && isset($_SESSION['id
 
     <section>
         <div class="liens">
-            <a href="./accueil.php?type=connexion">Acceuil </a>
+            <a href="./index.php">Acceuil </a>
             <p>></p>
             <a href="./forum.php">Forum</a>
             <p>></p>

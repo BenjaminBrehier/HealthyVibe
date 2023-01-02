@@ -85,8 +85,8 @@ header #menu_horizontal a.actif {
     border-color: #1ABC9C ;
 }
 
-header #menu_horizontal a:hover{
-    background-color: #aaaaaa;
+header #menu_horizontal a:hover, header #menu_horizontal .selected {
+    background-color: #898989;
 }
 
 

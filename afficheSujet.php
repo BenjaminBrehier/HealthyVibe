@@ -1,5 +1,10 @@
 <?php
 session_start();
+//! Vérfication que l'user est connecté
+if (!isset($_SESSION['id'])) {
+    header("Location: ./index.php");
+    exit();
+} 
 require_once("./res/php/fonctions.php");
 if (isset($_GET['idSujet'])) {
     $idSujet = $_GET['idSujet'];
@@ -39,7 +44,7 @@ $posts = array();
 
     <section>
         <div class="liens">
-            <a href="./accueil.php">Accueil </a>
+            <a href="./index.php">Accueil </a>
             <p>></p>
             <a href="./forum.php">Forum</a>
             <p>></p>

@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +19,7 @@
             ?>
         <section>
             <div class="liens">
-                <a href="./accueil.php">Accueil </a>
+                <a href="./index.php">Accueil </a>
                 <p>></p>
                 <a href="">Tips Ecologiques</a>
             </div>
