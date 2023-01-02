@@ -41,13 +41,14 @@
     display:flex;
     margin-bottom:10px;
     text-align:center;
+    font-size:17px;
 }
 
 
 #lieu {
     justify-content: center;
     margin-top:20px;
-    font-size:12px;
+    font-size:15px;
 
 }
 
@@ -58,7 +59,7 @@ Address {
 #indication {
     color:red;
     font-style:italic;
-    font-size:12px;
+    font-size:15px;
     margin-top: 10px;
     text-align:center,
 

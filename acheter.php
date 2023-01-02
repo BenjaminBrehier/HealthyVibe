@@ -35,6 +35,10 @@ session_start();
                     <legend>Mail</legend>
                     <input type='mail'>
                 </div>
+                <div class='info'>
+                    <legend>Tel</legend>
+                    <input type='number'>
+                </div>
 
                 <input type='submit' value='Réserver' id='boutton'>
             </form>

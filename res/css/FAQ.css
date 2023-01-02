@@ -136,7 +136,7 @@ section a {
     text-decoration : none;
     border: 2px;
   }
-  .partieReponseli:checked {
+  .partieReponseli:hover {
     background: grey;
     text-decoration : none;
     border: 2px;
@@ -146,18 +146,18 @@ section a {
     padding-left:20px;
   }
   /* PARTIE MENU DÉROULANT Nb 1 */
-  .menu1 > li:checked .partieReponse li {
+  .menu1 > li:hover .partieReponse li {
     transform: scale(1);
     text-decoration : none;
     border: 2px;
   }
-  .menu1 > li:checked .partieReponse {
+  .menu1 > li:hover .partieReponse {
     transform: scale(1);
     text-decoration : none;
     border: 2px;
   }
   
-  .menu1 > .Reponse :checked{
+  .menu1 > .Reponse :hover{
       /*background: grey;*/
       text-decoration : none;
       border: 2px;
