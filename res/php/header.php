@@ -3,7 +3,7 @@
     <div id="ligneVerte">
     </div>
     <div id="up">
-        <a href="./accueil.php?type=connexion"><img src="./res/img/logo.png" alt="Logo de HealthyVibe"></a>
+        <a href="./index.php"><img src="./res/img/logo.png" alt="Logo de HealthyVibe"></a>
         <div  id='h2box'>
             <h2>Bienvenue dans votre espace personnel</h2>
         </div>
@@ -28,7 +28,7 @@
 
     <nav id='main'>
     <ul id="menu_horizontal">
-        <li><a href="./accueil.php?type=connexion" id="données">Accueil</a></li>
+        <li><a href="./index.php" id="données">Accueil</a></li>
         <li><a href="./vosDonnees.php" id="données">Vos données</a></li>
         <li><a href="./forum.php" id="données">Forum</a></li>
         <li><a href="./FAQ.php">FAQ</a></li>

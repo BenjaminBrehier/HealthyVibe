@@ -13,7 +13,7 @@ body {
   font-family: 'Source sans Pro', sans-serif;
 }
 
-header {
+/* header {
   width: 100%;
   height: 50%;
   background-color: #2C3033;
@@ -56,7 +56,7 @@ header nav #inscrire {
   background-color: #30E87A;
   color: black;
   padding: 0.5em;
-}
+} */
 
 #presentation {
   text-align: center;

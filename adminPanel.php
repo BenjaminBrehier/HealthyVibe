@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once("./res/php/fonctions.php");
+if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
+    header("Location: ./index.php");
+    exit();
+} 
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +23,7 @@ require_once("./res/php/fonctions.php");
     ?>
     <section>
         <div class="liens">
-            <a href="./accueil.php">Accueil </a>
+            <a href="./index.php">Accueil </a>
             <p>></p>
             <a href="">Panel Admin</a>
         </div>

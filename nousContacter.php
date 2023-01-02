@@ -1,5 +1,10 @@
 <?php
 session_start();
+//! Vérfication que l'user est connecté
+if (!isset($_SESSION['id'])) {
+    header("Location: ./index.php");
+    exit();
+} 
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +23,7 @@ session_start();
     ?> 
     <section>
         <div class="liens">
-            <a href="./accueil.php">Accueil </a>
+            <a href="./index.php">Accueil </a>
             <p>></p>
             <a href="">Nous contacter</a>
         </div>

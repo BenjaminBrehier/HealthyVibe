@@ -23,7 +23,7 @@
             <hr>
         </div>
 
-        <form action="./accueil.php?type=connexion" method="POST">
+        <form action="./index.php?type=connexion" method="POST">
         <p id="erreur"><?php if(isset($_GET['reponse'])) {echo 'Erreur lors de la connexion. Merci de réessayer ou contacter le support si le problème persiste.';} ?></p>
             <div class="champ"> 
                 <label for="mail" font-weight=strong >Mail:</label>

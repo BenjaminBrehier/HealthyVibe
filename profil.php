@@ -2,6 +2,11 @@
 <?php 
     require_once './res/php/fonctions.php';
     session_start();
+    //! Vérfication que l'user est connecté
+    if (!isset($_SESSION['id'])) {
+        header("Location: ./index.php");
+        exit();
+    } 
     if (isset($_GET['type'])) {
         if (htmlspecialchars($_GET['type']) == 'inscription') {
             $nom = htmlspecialchars($_POST['fname']);
@@ -51,7 +56,7 @@
     ?>
     <section>
         <div class="liens">
-            <a href="./accueil.php">Accueil </a>
+            <a href="./index.php">Accueil </a>
             <p>></p>
             <a href="">Tips Ecologiques</a>
         </div>

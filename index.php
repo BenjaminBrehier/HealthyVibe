@@ -1,3 +1,54 @@
+<?php 
+    require_once './res/php/fonctions.php';
+    session_start();
+    if (isset($_GET['type'])) {
+        if (htmlspecialchars($_GET['type']) == 'inscription') {
+            $nom = htmlspecialchars($_POST['fname']);
+            $prenom = htmlspecialchars($_POST['lname']);
+            $dateNaissance = htmlspecialchars($_POST['DTN']);
+            $adresse = null;
+            $codePostal = null;
+            $tel = null;
+            if (isset($_POST['adresse']))
+                $adresse = htmlspecialchars($_POST['adresse']);
+            if (isset($_POST['CP']))
+                $codePostal = htmlspecialchars($_POST['CP']);
+            if (isset($_POST['tel'])) {
+                $tel = htmlspecialchars($_POST['tel']);
+            }
+            $username = htmlspecialchars($_POST['username']);
+            $mail = htmlspecialchars($_POST['mail']);
+            $mdp = htmlspecialchars($_POST['mdp']);
+            $hashedmdp = password_hash($mdp, PASSWORD_ARGON2ID);
+
+            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, username, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$username', '$mail','$hashedmdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            if ($result) {
+                login($mail, $mdp);
+            } else {
+                header("Location: ./inscription.php?reponse=Erreur");
+                exit();
+            }
+        }
+        else if (htmlspecialchars($_GET['type']) == 'connexion') {
+            if (!isset($_SESSION['id'])) {
+                $mail = htmlspecialchars($_POST['mail']);
+                $mdp = htmlspecialchars($_POST['mdp']);
+                login($mail, $mdp);
+            }
+        } 
+        else {
+            //! Url de connexion incorrect 
+            header("Location: ./connexion.php?reponse=Erreur");
+            exit();
+        }
+    }
+    // else {
+    //     //! Url de connexion incorrect
+    //     header("Location: ./connexion.php?reponse=Erreur");
+    //     exit();
+    // }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -9,16 +60,13 @@
 </head>
 
 <body>
-    <header>
-        <div id="ligneVerte"></div>
-        <img src="./res/img/logo.png" alt="Logo de HealthyVibe">
-        <nav>
-            <a href="./tipsEcologiquesVisiteur">Tips ecologiques</a>
-            <a href="./FAQVisiteur.php">FAQ</a>
-            <a href="./connexion.php" id="co">Se connecter</a>
-            <a href="./inscription.php" id="inscrire">S'inscrire</a>
-        </nav>
-    </header>
+    <?php
+    if (isset($_SESSION['id'])) {
+        include './res/php/header.php';
+    } else {
+        include './res/php/headerVisiteur.php';
+    }
+    ?>
     <section id="presentation">
         <h1>HealthyVibe</h1>
         <div>
