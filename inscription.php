@@ -69,11 +69,6 @@
                 <label for="tel">Tel:</label>
                 <input type="number" id="tel" name="tel">
             </div> 
-
-            <div class="checkbox"> 
-                <label for="AgeC">Je certifie avoir plus de 15 ans.    </label>
-                <input type="checkbox" id="AgeC" required>
-            </div> 
             
             <div class="checkbox"> 
                 <label for="cguC">Je certifie avoir lu et approuvé les CGU et la politique de confidentialité.    </label>

@@ -66,9 +66,8 @@
     
             <form action="./accueil.php?&type=inscription" method="POST">
                 <div class="photoprofil">
-                    <form method="post" url="/upload-picture" enctype="multipart/form-data" >
-                        <input type="file" name="picture" onchange="previewPicture(this)" required >
-                    </form><br>
+                    <input type="file" id="img" name="picture" onchange="previewPicture(this)" required >
+                    <br>
                     <img src="#" alt="" id="image" width="190px" height="200px">
                 </div>
                 <div class="champ">
