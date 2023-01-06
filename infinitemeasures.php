@@ -4,15 +4,19 @@ session_start();
 <!DOCTYPE html>
 <html>
 
-<head>
+<head> 
     <meta charset="UTF-8">
     <title>Infinite measures</title>
     <link rel="stylesheet" href="res/css/infinitemeasures.css">
 </head>
 <body>
     <?php
-    include './res/php/header.php';
-    ?>
+        if (isset($_SESSION['id'])) {
+            include './res/php/header.php';
+        } else {
+            include './res/php/headerVisiteur.php';
+        }
+        ?>
     <h1> A propos de INFINITE MEASURE</h1>
     <section id="fonctions">
     <div class="infinites1">
