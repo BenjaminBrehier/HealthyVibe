@@ -31,12 +31,13 @@ header  #up > a {
 }
 
 header img {
-  width: 100%;
+  width: 90px;
 }
 
 header h2{
     color:#30E87A;
-    font-size: 29px;   
+    font-size: 29px; 
+    margin-left:  20px;  
 }
 
 #h2box {
@@ -56,15 +57,18 @@ header h2{
     justify-content: center;
 }
 header #menu_horizontal {
+  width: 100%;
     display: flex;                /* Transformation en flexbox */                   /* Suppression des marges internes */
     background-color: #2C3033;       /* Ajout de la couleur d'arrière-plan */
-    justify-content: space-around;/* Alignements des liens dans le menu */
+    justify-content: space-between;/* Alignements des liens dans le menu */
     justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 header #menu_horizontal li {
     list-style-type: none ;       /* Suppression des puces */
-    margin-right: 10%;
+    margin-right: 5%;
 }
 header #menu_horizontal a {
     display:block;                /* Transformation en block */
@@ -154,4 +158,20 @@ nav {
   text-decoration:none;
   color:white;
   font-family: "source sans pro";
+}
+
+@media (max-width: 1200px) {
+
+  #up img{
+    width: 60px;
+
+   
+  }
+  #up h2{
+    font-size: 20px;
+    text-align: center;
+  }
+  
+
+
 }
