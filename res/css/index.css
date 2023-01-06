@@ -90,6 +90,7 @@ header nav #inscrire {
   display: flex;
   flex-direction: column;
   color: white;
+  min-width:1000px;
 
 }
 
