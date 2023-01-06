@@ -4,15 +4,19 @@ session_start();
 <!DOCTYPE html>
 <html>
 
-<head>
+<head> 
     <meta charset="UTF-8">
     <title>Infinite measures</title>
     <link rel="stylesheet" href="res/css/infinitemeasures.css">
 </head>
 <body>
     <?php
-    include './res/php/header.php';
-    ?>
+        if (isset($_SESSION['id'])) {
+            include './res/php/header.php';
+        } else {
+            include './res/php/headerVisiteur.php';
+        }
+        ?>
     <h1> A propos de INFINITE MEASURE</h1>
     <section id="fonctions">
     <div class="infinites1">
@@ -26,14 +30,14 @@ session_start();
             <img src="./res/img/infinites_sys.jpg" alt="infinites_sys" class="image">
              <div>
                 <p>Nous sommes une sociéte innovante, ayant pour but d'améliorer la vie de demain. 
-                    Nous allons donc apporter des solutions pour le bien de nos clients.</p>
+                    Nous apportons des solutions pour le bien de nos clients.</p>
             </div>
     </div> 
 
     <div class="infinites1"> 
          <div>
              <p>Infinite measures cherche constamment à satisfaire les besoins des utilisateurs, et 
-                permet de mettre en place des solutions adéquatss pour répondre aux besoins </p>
+                permet de mettre en place des solutions adéquates pour répondre aux besoins </p>
          </div>
             <img src="./res/img/infinites_elec.jpg" alt="infinites_elec" class="image">>
     </div>
