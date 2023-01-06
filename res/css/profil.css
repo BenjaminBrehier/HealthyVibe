@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -20,7 +21,7 @@ section .liens {
   width: 100%;
 }
 
-section .liens a,section .liens p {
+section .liens a, section .liens p {
   font-weight: bolder;
   padding: 1%;
 }
@@ -32,92 +33,99 @@ section a {
 
 .espaceProfil {
   font-family: 'Source sans Pro', sans-serif;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: solid 3px black;
   border-radius: 5%;
 
   margin-top: 2%;
-  margin-bottom:2%;
-  margin-left:auto;
-  margin-right:auto;
-  
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+
   padding-top: 1%;
-  padding-bottom:1%;
-  width:30%;
+  padding-bottom: 1%;
+  width: 30%;
 }
 
 #erreur {
   color: red;
 }
 
-.titre{
-    font-size: 25px;
-    display:flex;
-    justify-content: center;
-    margin-top:4px;
-    margin-bottom: 15px;
-    font-family: Helvetica, Arial, sans-serif;   
-    font-weight:bold;
+.titre {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 15px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 
 .formulaire {
-    display:flex;
-    flex-wrap:auto;
-    align-items:center;
+  display: flex;
+  flex-wrap: auto;
+  align-items: center;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 55%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:20px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size:12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
 
+form .champ input:not(#img) {
+  margin-top: 2%;
+  width: 100%;
+  height: 30px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding-left: 5px;
 }
 
 
 .champ {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 25%;
-    margin-right: 25%;
-    
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
 }
 
-.photoprofil input{
-  display:flex;
+.photoprofil input {
+  display: flex;
   flex-direction: column;
   margin-top: 5px;
   margin-bottom: 5px;
-  width:100%;
-  
+  width: 100%;
+
 }
 
 
 .boutonSinscrire {
-    display:flex;
-    flex-direction: row;
-    justify-content:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .sinscrire {
-    height:40px;
-    width:100px;
-    justify-content:center;
-    font-size:15px;
-    margin-top:20px;
-    margin-bottom:0px;
-    background-color:#2c30335e;
-    border-radius: 5%;
-    border-width: 0px;
-    margin-right: 2%;
+  height: 40px;
+  width: 100px;
+  justify-content: center;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  background-color: #2c30335e;
+  border-radius: 5%;
+  border-width: 0px;
+  margin-right: 2%;
 }
