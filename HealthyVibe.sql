@@ -152,3 +152,10 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.COMMANDE (
   PRIMARY KEY (`idReservation`),
   FOREIGN KEY (lieu) REFERENCES HealthyVibe.LIEUVENTE(idLieu) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO HealthyVibe.FAQ (`idFaq`, `question`, `réponse`) VALUES
+(1, 'Comment créer une compte client?', 'Aller dans l\'onglet en haut à droite puis cliquer sur \"S\'inscrire\".\r\nEnsuite, remplir le formulaire comme indiqué.'),
+(2, 'Comment contacter le service client ?', 'Nos coordonnées sont indiquées dans en bas de page. Vous pouvez également utiliser l\'onglet \'Nous contacter\' dans la barre de menu'),
+(3, 'Est-ce que le casque est résistant à l\'eau (Waterproof) ?', 'Non, notre casque n\'est pas encore étanche, mais notre équipe de recherche travaille sur une version du casque résistante à l\'eau.'),
+(4, 'Est-ce que je peux commander un deuxième casque ?', 'Oui, mais à chaque compte ne peut être associé qu\'un seul casque. Vous pouvez acheter et changer de casque tout en gardant le même compte. Pour cela, contacter l\'administrateur.');
+COMMIT;
