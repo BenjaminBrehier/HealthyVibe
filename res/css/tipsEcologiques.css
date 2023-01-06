@@ -16,6 +16,7 @@ section .liens {
 section .liens a,section .liens p {
     font-weight: bolder;
     padding: 1%;
+    font-size:17px;
 }
 
 section a {
@@ -92,3 +93,9 @@ section a {
     width: 450px;
     margin-top: 0px;
 }
+
+.tips:hover {
+    transform: scale(1.2);
+    transition: 1s;
+  }
+
