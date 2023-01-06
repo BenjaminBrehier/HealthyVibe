@@ -42,6 +42,9 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
                 <th>Adresse</th>
                 <th>Code postal</th>
                 <th>Date de naissance</th>
+                <th></th>
+                <th>Date début Banissement</th>
+                <th>Date Fin Banissement</th>
                 <th>Désactiver</th>
             </tr>
             <?php
@@ -59,6 +62,9 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
                     <td><?php echo $row->adresse; ?></td>
                     <td><?php echo $row->codepostal; ?></td>
                     <td><?php echo $row->datenaissance; ?></td>
+                    <td></td>
+                    <td><?php echo $row->dateBanDebut; ?></td>
+                    <td><?php echo $row->dateBanFin; ?></td>
                     <td><input type="button" value="<?php if($row->banni) {echo 'activer" onclick="reactiverCompte('.$row->idUtilisateur.')';} else {echo 'désactiver" onclick="desactiverCompte('.$row->idUtilisateur.')';} ?>"></td>
                 </tr>
             <?php

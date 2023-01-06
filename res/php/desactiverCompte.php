@@ -9,12 +9,12 @@ if ($_SESSION['role']) {
         $dateFin = htmlspecialchars($_GET['dateFin']);
         $now = date("Y-m-d");
         $req = $co->query("UPDATE Utilisateur SET banni = 1, dateBanFin = '$dateFin', dateBanDebut = '$now' WHERE idUtilisateur = $idUtilisateur");
-        header("Location: ../../adminPanel.php");
+        header("Location: ../../adminPanel.php?onglet=Utilisateurs");
         exit();
     }
     else {
         $req = $co->query("UPDATE Utilisateur SET banni = 1 WHERE idUtilisateur = $idUtilisateur"); 
-        header("Location: ../../adminPanel.php");
+        header("Location: ../../adminPanel.php?onglet=Utilisateurs");
         exit();
     }
 }

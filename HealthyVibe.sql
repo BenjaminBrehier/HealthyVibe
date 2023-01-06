@@ -70,6 +70,12 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.FAQ (
   réponse TEXT
 );
 
+CREATE TABLE IF NOT EXISTS HealthyVibe.TIPSECO (
+  idTips INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  contenu TEXT,
+  lienVideo DEFAULT NULL
+);
+
 CREATE TABLE IF NOT EXISTS HealthyVibe.QUIZ (
   idQuiz INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nom VARCHAR(42)
@@ -118,28 +124,11 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.POST (
   FOREIGN KEY (idReponse) REFERENCES HealthyVibe.POST(idPost) ON DELETE SET NULL ON UPDATE NO ACTION
 );
 
-CREATE USER IF NOT EXISTS 'adminHealthyVibe'@'localhost' IDENTIFIED BY 'adminHealthyVibe';
-GRANT SELECT, INSERT, UPDATE, DELETE ON `healthyvibe`.* TO 'adminHealthyVibe'@'localhost';
-
-INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
-(1, 'AdminNom', 'AdminP', 'AdminU', 'admin@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$S1JiYlZ0ZnRvTVlTcEFBcQ$5SSvDGbtYY4CJ8CYITT2WOgb4zsGCd/jmUIm3k1PLOc', '192168', '1 rue du Web', 192, '1970-01-01', 1, 0);
-INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
-(2, 'UserNom', 'UserP', 'UserU', 'user@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
-
 CREATE TABLE IF NOT EXISTS HealthyVibe.LIEUVENTE (
   `idLieu` int(11) NOT NULL AUTO_INCREMENT,
   `lieu` varchar(100) NOT NULL,
   PRIMARY KEY (`idLieu`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `lieuvente`
---
-
-INSERT INTO HealthyVibe.LIEUVENTE (lieu) VALUES
-('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
-('28 Rue Notre-Dame des Champs, Paris, 75006'),
-('15 Rue Linois, Paris, 75015');
 
 CREATE TABLE IF NOT EXISTS HealthyVibe.COMMANDE (
   `idReservation` int(11) NOT NULL AUTO_INCREMENT,
@@ -153,9 +142,23 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.COMMANDE (
   FOREIGN KEY (lieu) REFERENCES HealthyVibe.LIEUVENTE(idLieu) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+CREATE USER IF NOT EXISTS 'adminHealthyVibe'@'localhost' IDENTIFIED BY 'adminHealthyVibe';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `healthyvibe`.* TO 'adminHealthyVibe'@'localhost';
+
+INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
+(1, 'AdminNom', 'AdminP', 'AdminU', 'admin@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$S1JiYlZ0ZnRvTVlTcEFBcQ$5SSvDGbtYY4CJ8CYITT2WOgb4zsGCd/jmUIm3k1PLOc', '192168', '1 rue du Web', 192, '1970-01-01', 1, 0);
+INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
+(2, 'UserNom', 'UserP', 'UserU', 'user@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
+
+
+INSERT INTO HealthyVibe.LIEUVENTE (lieu) VALUES
+('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
+('28 Rue Notre-Dame des Champs, Paris, 75006'),
+('15 Rue Linois, Paris, 75015');
+
 INSERT INTO HealthyVibe.FAQ (`idFaq`, `question`, `réponse`) VALUES
 (1, 'Comment créer une compte client?', 'Aller dans l\'onglet en haut à droite puis cliquer sur \"S\'inscrire\".\r\nEnsuite, remplir le formulaire comme indiqué.'),
 (2, 'Comment contacter le service client ?', 'Nos coordonnées sont indiquées dans en bas de page. Vous pouvez également utiliser l\'onglet \'Nous contacter\' dans la barre de menu'),
 (3, 'Est-ce que le casque est résistant à l\'eau (Waterproof) ?', 'Non, notre casque n\'est pas encore étanche, mais notre équipe de recherche travaille sur une version du casque résistante à l\'eau.'),
 (4, 'Est-ce que je peux commander un deuxième casque ?', 'Oui, mais à chaque compte ne peut être associé qu\'un seul casque. Vous pouvez acheter et changer de casque tout en gardant le même compte. Pour cela, contacter l\'administrateur.');
-COMMIT;
+
