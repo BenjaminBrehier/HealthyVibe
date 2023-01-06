@@ -86,13 +86,14 @@ form input:not(#cguC) {
     flex-direction: column;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 15px;
 }
 
 .checkbox {
     display:flex;
     flex-direction:row;
     align-items:center;
-    font-size:12px;
+    font-size:13px;
     font-style:italic;
 }
 
