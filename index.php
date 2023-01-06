@@ -22,7 +22,7 @@
             $hashedmdp = password_hash($mdp, PASSWORD_ARGON2ID);
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, username, email, mdp, tel, adresse, codepostal, datenaissance, role, banni) VALUES ('$nom','$prenom','$username', '$mail','$hashedmdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
+            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, username, email, mdp, tel, adresse, codepostal, datenaissance) VALUES ('$nom','$prenom','$username', '$mail','$hashedmdp','$tel','$adresse',$codePostal,'$dateNaissance');");
             if ($result) {
                 login($mail, $mdp);
             } else {

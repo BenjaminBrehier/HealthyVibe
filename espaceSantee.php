@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['id'])) {
     header("Location: ./index.php");
     exit();
-} 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,23 +22,26 @@ if (!isset($_SESSION['id'])) {
     include './res/php/header.php';
     ?>
     <section>
-        
-
+        <div id="test">
+            <div id="liens">
+                <a href="./index.php">Accueil</a>
+                <p>></p>
+                <a href="./vosDonnees.php">Vos Données</a>
+                <p>></p>
+                <a href="./espaceSantee.php">Espace Santé</a>
+            </div>
+        </div>
         <div id="SpaceHolder">
             <div id='partie1'>
-                <div id="liens">
-                    <a href="./index.php">Accueil</a>
-                    <p>></p>
-                    <a href="./vosDonnees.php">Vos Données</a>
-                    <p>></p>
-                    <a href="./espaceSantee.php">Espace Santé</a>
+                <div class="bouttontemps">
+                    <label for="période">
+                        <p>Choisissez une période</p>
+                    </label>
+                    <input type="date" class="date" placeholder='Date de début'>
+                    <p>à</p>
+                    <input type="date" class="date" placeholder='Date de fin'>
+                    <input type="button" class="enSavoirPlus" name="enSavoirPlus" value="Afficher les statistiques">
                 </div>
-                    <div class="bouttontemps">
-                        <input type="date" class="date" placeholder='Date de début'>
-                        <input type="date"  class="date" placeholder='Date de fin'>
-                        <input type="button" class="enSavoirPlus" name="enSavoirPlus" value="Afficher les statistiques">
-                    </div>
-                
             </div>
 
             <div id="partie2">

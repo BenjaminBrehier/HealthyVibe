@@ -67,3 +67,17 @@ function nonRepondre() {
     divReponse.style.display = 'none';
     document.getElementById('idPost').setAttribute('value', null);
 }
+
+//Fonction permettant de désactiver le commpte d'un utilisateur
+function desactiverCompte(idUtilisateur) {
+    if (confirm("Voulez vous vraiment ce compte ?") == true) {
+        window.location.href = "./res/php/desactiverCompte.php?idUtilisateur=" + idUtilisateur;
+    }
+}
+
+//Fonction permettant de réactiver le compte d'un utilisateur
+function reactiverCompte(idUtilisateur) {
+    if (confirm("Voulez vous vraiment réactiver ce compte ?") == true) {
+        window.location.href = "./res/php/reactiverCompte.php?idUtilisateur=" + idUtilisateur;
+    }
+}
