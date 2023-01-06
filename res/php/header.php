@@ -5,7 +5,7 @@
     <div id="up">
         <a href="./index.php"><img src="./res/img/logo.png" alt="Logo de HealthyVibe"></a>
         <div  id='h2box'>
-            <h2>Bienvenue dans votre espace personnel</h2>
+            <h2>HealthyVibe</h2>
         </div>
         <nav>
             <ul class="menu">
