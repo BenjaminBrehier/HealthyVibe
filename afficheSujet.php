@@ -51,15 +51,16 @@ $posts = array();
             <a href=""><?php echo $titreSujet; if($statusSujet) {echo ' [Résolu]';}?></a>
         </div>
         <?php 
-            if (($_SESSION['role'])) {
-                ?>
-                <button onclick="deleteSubject(<?php echo $idSujet;?>)">Supprimer le sujet</button>
-                <?php
-            }
             //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture
             if (($idUtilisateur == $_SESSION['id'] || $_SESSION['role']) && !$statusSujet) {
                 ?>
                 <button onclick="closeSubject(<?php echo $idSujet.','.$idUtilisateur;?>)">Fermer le sujet</button>
+                <?php
+            }
+            //! Si l'utilisateur est l'admin, on lui permet d'accéder au bouton de suppression
+            if (($_SESSION['role'])) {
+                ?>
+                <button onclick="deleteSubject(<?php echo $idSujet;?>)">Supprimer le sujet</button>
                 <?php
             }
             ?>

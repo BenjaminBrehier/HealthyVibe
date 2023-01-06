@@ -7,11 +7,20 @@
 }
 
 
+section {
+    padding: 1%;
+}
+
 #liens {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+}
+
+#liens a {
+    text-decoration: none;
+    color: inherit;
 }
 
 #liens a, #liens p {

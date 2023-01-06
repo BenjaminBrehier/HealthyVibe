@@ -31,22 +31,21 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         <table>
             <tr>
                 <th>idUtilisateur</th>
-                <th>nom</th>
-                <th>prenom</th>
-                <th>email</th>
-                <th>username</th>
-                <th>tel</th>
-                <th>adresse</th>
-                <th>codepostal</th>
-                <th>datenaissance</th>
-                <th>role</th>
-                <th>banni</th>
-                <th>supprimer</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Tel</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Date de naissance</th>
+                <th>Désactiver</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
             $result = $co->query("SELECT * FROM utilisateur");
             while ($row = $result->fetch_object()) {
+                if($row->role == 1) continue;
             ?> <tr>
                     <td><?php echo $row->idUtilisateur; ?></td>
                     <td><?php echo $row->nom; ?></td>
@@ -57,9 +56,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
                     <td><?php echo $row->adresse; ?></td>
                     <td><?php echo $row->codepostal; ?></td>
                     <td><?php echo $row->datenaissance; ?></td>
-                    <td><?php echo $row->role; ?></td>
-                    <td><?php echo $row->banni; ?></td>
-                    <td><a href="./<?php echo $row->idUtilisateur; ?>">X</a></td>
+                    <td><input type="button" value="<?php if($row->banni) {echo 'activer" onclick="reactiverCompte('.$row->idUtilisateur.')';} else {echo 'désactiver" onclick="desactiverCompte('.$row->idUtilisateur.')';} ?>"></td>
                 </tr>
             <?php
             }

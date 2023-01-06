@@ -19,7 +19,7 @@
     <div class='espaceInscription'>
         <p class="titre"> Formulaire d'inscription</p>
 
-        <form action="./index.php" method="POST">
+        <form action="./index.php?type=inscription" method="POST">
             <p id="erreur"><?php if(isset($_GET['reponse'])) {echo 'Erreur lors de l\'inscription. Merci de réessayer ou contacter le support si le problème persiste.';} ?></p>
             <div class="champ">
                 <label for="fname">Nom:</label>
@@ -48,8 +48,14 @@
 
 
             <div class="champ">
+                <?php 
+                //Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
+                $date = new DateTime();
+                $date->sub(new DateInterval('P15Y'));
+                $dateMax = $date->format('Y-m-d');
+                ?>
                 <label for="DTN">Date de naissance:</label>
-                <input type="date" id="DTN" name="DTN" required>
+                <input type="date" id="DTN" name="DTN" max="<?php echo $dateMax;?>" required>
             </div> 
             <div class="champ">         
                 <label for="adresse">Adresse:</label>

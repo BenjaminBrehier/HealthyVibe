@@ -1,5 +1,19 @@
 CREATE DATABASE IF NOT EXISTS HealthyVibe;
 
+DROP TABLE IF EXISTS HealthyVibe.commande;
+DROP TABLE IF EXISTS HealthyVibe.lieuVente;
+DROP TABLE IF EXISTS HealthyVibe.POST;
+DROP TABLE IF EXISTS HealthyVibe.MESSAGEDIRECT;
+DROP TABLE IF EXISTS HealthyVibe.COMPOSE;
+DROP TABLE IF EXISTS HealthyVibe.QUESTION;
+DROP TABLE IF EXISTS HealthyVibe.COMPLETE;
+DROP TABLE IF EXISTS HealthyVibe.QUIZ;
+DROP TABLE IF EXISTS HealthyVibe.FAQ;
+DROP TABLE IF EXISTS HealthyVibe.DONNEE;
+DROP TABLE IF EXISTS HealthyVibe.CAPTEUR;
+DROP TABLE IF EXISTS HealthyVibe.CASQUE;
+DROP TABLE IF EXISTS HealthyVibe.SUJET;
+DROP TABLE IF EXISTS HealthyVibe.UTILISATEUR;
 CREATE TABLE IF NOT EXISTS HealthyVibe.UTILISATEUR (
   idUtilisateur INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nom VARCHAR(42),
@@ -11,8 +25,10 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.UTILISATEUR (
   adresse VARCHAR(42),
   codepostal INT,
   datenaissance DATE,
-  role BOOLEAN,
-  banni BOOLEAN
+  role BOOLEAN DEFAULT 0,
+  banni BOOLEAN DEFAULT 0,
+  dateBanDebut DATE DEFAULT NULL,
+  dateBanFin DATE DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS HealthyVibe.SUJET (
@@ -105,15 +121,14 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.POST (
 CREATE USER IF NOT EXISTS 'adminHealthyVibe'@'localhost' IDENTIFIED BY 'adminHealthyVibe';
 GRANT SELECT, INSERT, UPDATE, DELETE ON `healthyvibe`.* TO 'adminHealthyVibe'@'localhost';
 
-INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
-(1, 'AdminNom', 'Admin', 'admin@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$S1JiYlZ0ZnRvTVlTcEFBcQ$5SSvDGbtYY4CJ8CYITT2WOgb4zsGCd/jmUIm3k1PLOc', '192168', '1 rue du Web', 192, '1970-01-01', 1, 0);
-INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
-(2, 'UserNom', 'user', 'user@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
+INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
+(1, 'AdminNom', 'AdminP', 'AdminU', 'admin@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$S1JiYlZ0ZnRvTVlTcEFBcQ$5SSvDGbtYY4CJ8CYITT2WOgb4zsGCd/jmUIm3k1PLOc', '192168', '1 rue du Web', 192, '1970-01-01', 1, 0);
+INSERT INTO HealthyVibe.UTILISATEUR (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
+(2, 'UserNom', 'UserP', 'UserU', 'user@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
 
-DROP TABLE IF EXISTS `lieuvente`;
-CREATE TABLE IF NOT EXISTS `lieuvente` (
-  `lieu` varchar(100) NOT NULL,
+CREATE TABLE IF NOT EXISTS HealthyVibe.LIEUVENTE (
   `idLieu` int(11) NOT NULL AUTO_INCREMENT,
+  `lieu` varchar(100) NOT NULL,
   PRIMARY KEY (`idLieu`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -121,19 +136,19 @@ CREATE TABLE IF NOT EXISTS `lieuvente` (
 -- Déchargement des données de la table `lieuvente`
 --
 
-INSERT INTO `lieuvente` (`lieu`, `idLieu`) VALUES
-('10 Rue de Vanves, Issy-les-Moulineaux, 92130', 1),
-('28 Rue Notre-Dame des Champs, Paris, 75006', 2),
-('15 Rue Linois, Paris, 75015', 3);
+INSERT INTO HealthyVibe.LIEUVENTE (lieu) VALUES
+('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
+('28 Rue Notre-Dame des Champs, Paris, 75006'),
+('15 Rue Linois, Paris, 75015');
 
-DROP TABLE IF EXISTS `commandes`;
-CREATE TABLE IF NOT EXISTS `commandes` (
+CREATE TABLE IF NOT EXISTS HealthyVibe.COMMANDE (
   `idReservation` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(25) NOT NULL,
   `Prenom` varchar(25) NOT NULL,
   `Mail` varchar(50) NOT NULL,
   `Tel` int(10) NOT NULL,
-  `lieu` varchar(20) NOT NULL,
+  `lieu` INT NOT NULL,
   `DateDeReservation` date NOT NULL,
-  PRIMARY KEY (`idReservation`)
+  PRIMARY KEY (`idReservation`),
+  FOREIGN KEY (lieu) REFERENCES HealthyVibe.LIEUVENTE(idLieu) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
