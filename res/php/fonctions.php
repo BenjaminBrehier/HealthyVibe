@@ -21,8 +21,9 @@ function login($mail, $mdp) {
                     header ("Location: ./connexion.php?erreur=Banni&reponse=Vous avez été banni de notre site. Si vous pensez que c'est une erreur, veuillez contacter un administrateur.");
                     exit();
                 }
-                if ($row->dateBanFin < date("Y-m-d H:i:s")) {
-                    $co->query("UPDATE Utilisateur SET banni = 0 WHERE idUtilisateur = $row->idUtilisateur");
+                if ("$row->dateBanFin" <= date("Y-m-d")) {
+                    $co->query("UPDATE Utilisateur SET banni = 0, dateBanDebut = NULL, dateBanFin = NULL WHERE idUtilisateur = $row->idUtilisateur");
+
                 }
                 else {
                     header ("Location: ./connexion.php?erreur=Banni&reponse=Vous êtes banni de notre site du $row->dateBanDebut au $row->dateBanFin. Si vous pensez que c'est une erreur, veuillez contacter un administrateur.");
