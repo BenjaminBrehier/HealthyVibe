@@ -51,3 +51,14 @@ table a {
   text-decoration: none;
   color: red;
 }
+
+.boutonModification {
+  display:flex;
+  padding:3px;
+  margin:5px;
+  background-color:rgb(192, 192, 192);
+  color:black;
+  width:400px;
+  font-size:18px;
+  border-radius:8px;
+}

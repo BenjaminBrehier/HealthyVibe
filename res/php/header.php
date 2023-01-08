@@ -48,7 +48,7 @@
                 <li><a href="./adminPanel.php?onglet=Utilisateurs" id="données" <?php if($page == "./adminPanel.php?onglet=Utilisateurs") {echo 'class="selected"';}?>>Utilisateurs</a></li>
                 <li><a href="./adminPanel.php?onglet=Casques" id="données" <?php if($page == "./adminPanel.php?onglet=Casques.php") {echo 'class="selected"';}?>>Casques</a></li>
                 <li><a href="./adminPanel.php?onglet=Forum" id="données" <?php if($page == "./adminPanel.php?onglet=FOrum") {echo 'class="selected"';}?>>Forum</a></li>
-                <li><a href="./FAQ.php" <?php if($page == "FAQ.php") {echo 'class="selected"';}?>>FAQ</a></li>
+                <li><a href="./adminPanel.php?onglet=FAQ" <?php if($page == "./adminPanel.php?onglet=FAQ") {echo 'class="selected"';}?>>FAQ</a></li>
                 <li><a href="./tipsEcologiques.php" <?php if($page == "tipsEcologiques.php") {echo 'class="selected"';}?>>Tips ecologiques</a></li>
                 <li><a href="./adminPanel.php?onglet=Lieux" <?php if($page == "./adminPanel.php?onglet=Lieux") {echo 'class="selected"';}?>>Lieux de vente</a></li>
             <?php
