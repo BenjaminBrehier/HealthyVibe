@@ -27,7 +27,7 @@
                         <?php 
                         if ($_SESSION['role']) {
                             ?>
-                            <a href="./adminPanel.php"><li>Panel Admin</li></a>
+                            <a href="./adminPanel.php?onglet=Utilisateurs"><li>Panel Admin</li></a>
                             <?php
                         }
                         ?>
