@@ -14,6 +14,8 @@ DROP TABLE IF EXISTS HealthyVibe.CAPTEUR;
 DROP TABLE IF EXISTS HealthyVibe.CASQUE;
 DROP TABLE IF EXISTS HealthyVibe.SUJET;
 DROP TABLE IF EXISTS HealthyVibe.UTILISATEUR;
+DROP TABLE IF EXISTS HealthyVibe.TIPSECO;
+
 CREATE TABLE IF NOT EXISTS HealthyVibe.UTILISATEUR (
   idUtilisateur INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nom VARCHAR(42),
@@ -161,3 +163,11 @@ INSERT INTO HealthyVibe.FAQ (`idFaq`, `question`, `réponse`) VALUES
 (2, 'Comment contacter le service client ?', 'Nos coordonnées sont indiquées dans en bas de page. Vous pouvez également utiliser l\'onglet \'Nous contacter\' dans la barre de menu'),
 (3, 'Est-ce que le casque est résistant à l\'eau (Waterproof) ?', 'Non, notre casque n\'est pas encore étanche, mais notre équipe de recherche travaille sur une version du casque résistante à l\'eau.'),
 (4, 'Est-ce que je peux commander un deuxième casque ?', 'Oui, mais à chaque compte ne peut être associé qu\'un seul casque. Vous pouvez acheter et changer de casque tout en gardant le même compte. Pour cela, contacter l\'administrateur.');
+
+INSERT INTO HealthyVibe.TIPSECO (idTips,contenu,lienVideo ) VALUES
+(1, 'Consommer des produits locaux pour réduire les émissions de CO2',NULL),
+(2, 'Triez vos déchets pour faciliter le recyclage',NULL),
+(3, 'Favoriser l\'utilisation des transports en commun',NULL),
+(4, 'Se mettre à la marche ou au vélo pour vos courses',NULL),
+(5, 'Transformer les eaux inutilisées pour le maréchage',NULL),
+(6, 'Diminuer votre consommation d\'énergie en utilisant des lampes à basse consommation',NULL);
