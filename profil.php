@@ -1,4 +1,4 @@
-<!-- Script pour l'inscription ou connexion de l'utilisateur -->  
+<!-- Script pour la modification des données de l'utilisateur -->  
 <?php 
     require_once './res/php/fonctions.php';
     session_start();
@@ -18,25 +18,28 @@
             $mail = htmlspecialchars($_POST['mail']);
             $mdp = htmlspecialchars($_POST['mdp']);
            
-            if (isset($_POST['adresse']))
+            if (isset($_POST['adresse'])) {
                 $adresse = htmlspecialchars($_POST['adresse']);
-            if (isset($_POST['CP']))
+            }
+            if (isset($_POST['CP'])){
                 $codePostal = htmlspecialchars($_POST['CP']);
+            }
             if (isset($_POST['tel'])) {
                 $tel = htmlspecialchars($_POST['tel']);
             }
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("UPDATE UTILISATEUR SET (nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni)  VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
-            if ($result) {
+            $result = "UPDATE UTILISATEUR SET nom ='$nom' , prenom = ='$prenom' , email ='$mail', mdp ='$mdp', tel ='$tel', adresse ='$adresse', codepostal ='$codePostal, datenaissance ='$dateNaissance' WHERE email = $mail";
+            if ($conn->query($result) === TRUE){
                 login($mail, $mdp);
-            } 
-            
-            else {
-                header("Location: S./inscription.php?reponse=Erreur");
-                exit();}
+            }
         }
-    }
+        
+        else{
+            header("Location: S./inscription.php?reponse=Erreur");
+            exit();}
+        }
+    
 
 ?>
 
@@ -107,7 +110,7 @@
     
                 <div class="boutonSinscrire">
                     <input type="button" class="sinscrire" name="S'inscrire" value="Annuler" class="sinscrire">
-                    <input type="submit" class="sinscrire" name="S'inscrire" value="Modifier" class="sinscrire">
+                    <input type="button" class="sinscrire" name="S'inscrire" value="Modifier" class="sinscrire">
                 </div>
     
             </form>
