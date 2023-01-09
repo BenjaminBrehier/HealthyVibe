@@ -1,4 +1,5 @@
 <?php session_start();
+require_once("./res/php/fonctions.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,30 +32,25 @@
                     </div>
     
                     <div id="gallerieTips">
+                        <?php
+                        $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                        $result = $co->query("SELECT * FROM TIPSECO");
+                        while ($row = $result->fetch_object()) {
+                        ?> 
                         <div class='tips'>
-                            <p>Consommer des produits locaux pour réduire les émissions de CO2</p>
+                            <p><?php echo $row->contenu?></p>
+                            <a href=<?php echo $row->lienVideo?>></a>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=rNwtMO_Hay4"><div class='tips'>
-                            <p>Trier vos déchets pour faciliter le recyclage</p>
-                        </div></a>
-                        <div class='tips' >
-                            <p>Favoriser l'utilisation des transports en commun</p>
-                        </div>
-                        <div class='tips'>
-                            <p>Se mettre à la marche ou au vélo pour vos courses</p>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=bpUiwa0ei9A"><div class='tips'>
-                            <p>Transformer les eaux inutilisées pour le maraîchage  </p>
-                        </div></a>
-                        <a href="https://www.youtube.com/watch?v=E331tTmy0Hw"><div class='tips'>
-                            <p>Diminuer votre consommation d'énergie en utilisant des lampes à basses consommation</p>
-                        </div></a>
+                        <?php
+                        }
+                        ?> 
+ 
                     </div>
                 </div>
+
                 <div id='partieDroite'> 
                     <img src=".\res\img\bitmoji.jpg" id="PhotoDroite">
                 </div>
-    
             </div>
         </section>
 
