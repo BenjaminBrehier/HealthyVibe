@@ -10,11 +10,11 @@
 
             if ($page=="adminPanel.php") {
                 ?>
-                <h2>Espace administrateur</h2>
+                <h2>Administrateur</h2>
                 <?php
                 }
             else {
-                ?><h2>Espace personnel HealthyVibe</h2>
+                ?><h2>HealthyVibe</h2>
             <?php
             }
             ?>
