@@ -69,9 +69,8 @@
     
             <form action="./accueil.php?&type=inscription" method="POST">
                 <div class="photoprofil">
-                    <form method="post" url="/upload-picture" enctype="multipart/form-data" >
-                        <input type="file" name="picture" onchange="previewPicture(this)" required >
-                    </form><br>
+                    <input type="file" id="img" name="picture" onchange="previewPicture(this)" required >
+                    <br>
                     <img src="#" alt="" id="image" width="190px" height="200px">
                 </div>
                 <div class="champ">
@@ -90,10 +89,16 @@
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" id="mdp" name="mdp" required>
                 </div>
-    
+                   
                 <div class="champ">
+                    <?php 
+                        //Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
+                        $date = new DateTime();
+                        $date->sub(new DateInterval('P15Y'));
+                        $dateMax = $date->format('Y-m-d');
+                        ?>
                     <label for="DTN">Date de naissance:</label>
-                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['datenaissance']?>" required>
+                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['datenaissance']?>" max="<?php echo $dateMax;?>" required>
                 </div>
                 <div class="champ">
                     <label for="adresse">Adresse:</label>

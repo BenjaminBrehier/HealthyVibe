@@ -67,3 +67,25 @@ function nonRepondre() {
     divReponse.style.display = 'none';
     document.getElementById('idPost').setAttribute('value', null);
 }
+
+//Fonction permettant de désactiver le commpte d'un utilisateur
+function desactiverCompte(idUtilisateur) {
+    var date = prompt("Veuillez saisir une date jusqu'a laquelle le compte sera désactivé (format: AAAA-MM-JJ) ou saisissez 0 pour une durée indeterminée");
+    if (date != null) {
+        var regex = new RegExp("^[0-9]{4}-[0-9]{2}-[0-9]{2}$");
+        if (regex.test(date)) {
+            window.location.href = "./res/php/desactiverCompte.php?idUtilisateur=" + idUtilisateur + "&dateFin=" + date;
+        } else if (date == 0) {
+            window.location.href = "./res/php/desactiverCompte.php?idUtilisateur=" + idUtilisateur;
+        } else {
+            alert("La date n'est pas au bon format");
+        }
+    }
+}
+
+//Fonction permettant de réactiver le compte d'un utilisateur
+function reactiverCompte(idUtilisateur) {
+    if (confirm("Voulez vous vraiment réactiver ce compte ?") == true) {
+        window.location.href = "./res/php/reactiverCompte.php?idUtilisateur=" + idUtilisateur;
+    }
+}

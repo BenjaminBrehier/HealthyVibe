@@ -16,6 +16,20 @@ function login($mail, $mdp) {
         $row = $result->fetch_object ();
         $hash = $row->mdp;
         if (password_verify($mdp, $hash)) {
+            if ($row->banni) {
+                if ($row->dateBanFin == NULL) {
+                    header ("Location: ./connexion.php?erreur=Banni&reponse=Vous avez été banni de notre site. Si vous pensez que c'est une erreur, veuillez contacter un administrateur.");
+                    exit();
+                }
+                if ("$row->dateBanFin" <= date("Y-m-d")) {
+                    $co->query("UPDATE Utilisateur SET banni = 0, dateBanDebut = NULL, dateBanFin = NULL WHERE idUtilisateur = $row->idUtilisateur");
+
+                }
+                else {
+                    header ("Location: ./connexion.php?erreur=Banni&reponse=Vous êtes banni de notre site du $row->dateBanDebut au $row->dateBanFin. Si vous pensez que c'est une erreur, veuillez contacter un administrateur.");
+                    exit();
+                }
+            }
             $_SESSION['nom'] = $row->nom;
             $_SESSION['prenom'] = $row->prenom;
             $_SESSION['username'] = $row->username;
@@ -28,12 +42,12 @@ function login($mail, $mdp) {
             $_SESSION['role'] = $row->role;
         }
         else {
-            header ("Location: ./connexion.php?reponse=Erreur");
+            header ("Location: ./connexion.php?erreur=Erreur");
             exit();
         }
     } 
     else {
-        header ("Location: ./connexion.php?reponse=Erreur");
+        header ("Location: ./connexion.php?erreur=Erreur");
         exit();
     }
 }

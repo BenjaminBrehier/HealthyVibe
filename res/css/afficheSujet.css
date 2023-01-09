@@ -27,7 +27,6 @@ section a {
 section > button {
     padding: 1px;
     margin-left: 1%;
-    float: right;
 }
 
 section .container {
@@ -144,4 +143,12 @@ section form textarea {
 section form input[type="submit"] {
     width: 20%;
     padding: 2px;
+}
+
+.boutonModification {
+    display:flex;
+    padding:3px;
+    margin:5px;
+    background-color:grey;
+    color:black;
 }

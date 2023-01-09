@@ -21,6 +21,7 @@ section .liens {
 section .liens a,section .liens p {
   font-weight: bolder;
   padding: 1%;
+  font-size:17px;
 }
 
 section a {
