@@ -189,22 +189,23 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         </table>             
             <?php
             }
-               
-        if (isset($_GET['onglet'])&& $_GET['onglet']=='Forum') {
             ?>
-        <h1>Liste des sujets</h1>
+         
+        <?php
+        
+        if (isset($_GET['onglet'])&& $_GET['onglet']=='TipsEcologiques') {
+        ?>
+        <h1>Liste des tips écologiques</h1>
+        <a class='boutonModification' href=''>Ajouter un Tips écologique</a>
         <table>
             <tr>
-                <th>idSujet</th>
-                <th>Titre</th>
-                <th>Date de création</th>
-                <th>Date de modification</th>
-                <th>Statut</th>
-
+                <th>idTips</th>
+                <th>Tips</th>
+                <th>Supprimer</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT * FROM sujet");
+            $result = $co->query("SELECT * FROM tipsEcologiques");
             while ($row = $result->fetch_object()) {
             ?> <tr>
                     <td><?php echo $row->idSujet; ?></td>
@@ -218,7 +219,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         </table>             
             <?php
                 }
-                ?>
+            ?>
 
     </section>
 
