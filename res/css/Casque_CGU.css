@@ -36,26 +36,27 @@
  
  #fonctions .infinites1 p {
    width: 100%;
-   font-size: 30px; 
+   font-size: 20px; 
  }
+
  #fonctions .infinites2 p {
    width: 100%;
-   font-size: 30px; 
+   font-size: 20px; 
  }
  
  #fonctions .infinites1  div  {
    width:40%;
    height: 250px;
    color:white;
-   margin-left:40px;
+   margin-left:20px;
    margin-top:auto;
-   margin-bottom:auto;
+   margin-bottom: auto;
  }
  #fonctions .infinites2  div  {
    width:40%;
    height: 250px;
    color:black;
-   margin-right:40px;
+   margin-right:20px;
    margin-top:auto;
    margin-bottom:auto;
    }

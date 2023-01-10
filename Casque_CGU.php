@@ -13,43 +13,37 @@ session_start();
     <?php
     include './res/php/header.php';
     ?>
-    <h1> A proppos de HealthyVibe </h1>
+    <h1>HealthyVibe</h1>
     <section id="fonctions">
     <div class="infinites1">
-            <div>
-                <p>HealthyVibe est un casque de nouvelles générations aux fonctionalités très importantes pour un meilleur cadre de vie</p>
-            </div>
-            <img src="./res/img/infinite_measures.png" alt="infinites_measures" class="image">
+        <div>
+            <h3>Connexion et appairage</h3>
+            <p>HealthyVibe est un casque non-filaire de dernières  générations aux fonctionalités très importantes pour un meilleur cadre de vie.La première chose à faire après avoir déballé votre casque Bluetooth est d'appuyer sur son bouton d'appairage. Une fois que celui-ci clignote, attrappez votre smartphone et activez le Bluetooth dans les paramètres.Votre casque doit apparaître dans la liste, il suffit de cliquer dessus pour lancer la connexion. Non seulement l'apparairage c'est simple, mais en plus, une fois que c'est fait, plus besoin de naviguer dans les menus de votre smartphone. Il suffit simplement d'activer le bluetooth et d'allumer votre casque.
+        </div>
+        <img src="./res/img/casque.jpg" alt="casque" class="image">
             
     </div> 
     <div class="infinites2">
-            <img src="./res/img/infinites_sys.jpg" alt="infinites_sys" class="image">
-             <div>
-                <p>HealthyVibe est casque qui se connecte à votre téléphone par bluetooth qui vous permet d'échanger avec votre smartphone  afin de communiquer des données qui vont seront visualisées sur un site web.</p>
-            </div>
+        <img src="./res/img/casque&charge.jpg" alt="casque" class="image">
+        <div>
+            <h3>Recharge</h3>
+            <p>HealthyVibe est casque qui vous permet d'échanger avec votre smartphone  afin de communiquer des données qui vont seront visualisées sur un site web une fois connecté au site.Vous pouvez le recharger avec son cable USB C, ce qui sera très rare à cause de sa longue durée d'autonomie</p>
+        </div>
     </div> 
 
     <div class="infinites1"> 
-         <div>
-             <p> L'acquisition des données se fait grâce à des capteurs qui sont installés sur le casque. Ainsi ils prennent des mesures sur la qualité de votre milieu. </p>
-         </div>
-            <img src="./res/img/infinites_elec.jpg" alt="infinites_elec" class="image">>
+        <div>
+            <h3>Données et Usage</h3>
+            <p> L'acquisition des données se fait grâce à des capteurs qui sont installés sur le casque. Ainsi ils prennent des mesures sur la qualité de votre milieu (la température, l'humidité, la fréquence cardiaque, le débit sonore et la teneur en monoxyde de carbone) permettant à l'individu d'apprécier son milieu. En plus, vous pouvez user de votre casque pour écoter tous vos fichiers audios et passer des appels avec un . </p>
+        </div>
+        <img src="./res/img/fonctionnalite_6.jpg" alt="foctionalite6" class="image">
     </div>
-
-    <div class="infinites2">
-       <img src="./res/img/infinites_telecom.jpg" alt="infinite_telecom" class="image">   
-       <div>
-         <p>Nous sommes une sociéte avec de grandes compétences en électronique, informatique, traitement de signal et en télécommunications assurant la bonne mise en place de  nos systèmes </p>
-       </div>
-   </div>
-
-
     </section> 
+
     <?php
     include './res/php/footer.php';
     ?>
-
-    
+     
 </body>
 
 </html>
