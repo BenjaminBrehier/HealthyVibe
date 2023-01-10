@@ -178,7 +178,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
             $result = $co->query("SELECT * FROM FAQ");
             while ($row = $result->fetch_object()) {
             ?> <tr>
-                    <td><?php echo $row->idFAQ; ?></td>
+                    <td><?php echo $row->idFaq; ?></td>
                     <td><?php echo $row->question; ?></td>
                     <td><?php echo $row->réponse; ?></td>
                     <td><a href=''>X</a></td>
@@ -201,18 +201,18 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
             <tr>
                 <th>idTips</th>
                 <th>Tips</th>
+                <th>Lien vidéo</th>
                 <th>Supprimer</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT * FROM tipsEcologiques");
+            $result = $co->query("SELECT * FROM tipsEco");
             while ($row = $result->fetch_object()) {
             ?> <tr>
-                    <td><?php echo $row->idSujet; ?></td>
-                    <td><?php echo $row->titre; ?></td>
-                    <td><?php echo $row->datecreation; ?></td>
-                    <td><?php echo $row->datemodification; ?></td>
-                    <td><?php echo $row->status; ?></td>
+                    <td><?php echo $row->idTips; ?></td>
+                    <td><?php echo $row->contenu; ?></td>
+                    <td><?php echo $row->lienVideo; ?></td>
+                    <td>X</td>
             <?php
             }
             ?> 
