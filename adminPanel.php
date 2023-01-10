@@ -180,7 +180,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
             ?> <tr>
                     <td><?php echo $row->idFaq; ?></td>
                     <td><?php echo $row->question; ?></td>
-                    <td><?php echo $row->réponse; ?></td>
+                    <td><?php echo $row->reponse; ?></td>
                     <td><a href=''>X</a></td>
                 </tr>
             <?php
