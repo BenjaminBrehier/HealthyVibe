@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.DONNEE (
 CREATE TABLE IF NOT EXISTS HealthyVibe.FAQ (
   idFaq INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   question TEXT,
-  réponse TEXT
+  reponse TEXT
 );
 
 CREATE TABLE IF NOT EXISTS HealthyVibe.TIPSECO (
@@ -158,7 +158,7 @@ INSERT INTO HealthyVibe.LIEUVENTE (lieu) VALUES
 ('28 Rue Notre-Dame des Champs, Paris, 75006'),
 ('15 Rue Linois, Paris, 75015');
 
-INSERT INTO HealthyVibe.FAQ (`idFaq`, `question`, `réponse`) VALUES
+INSERT INTO HealthyVibe.FAQ (`idFaq`, `question`, `reponse`) VALUES
 (1, 'Comment créer une compte client?', 'Aller dans l\'onglet en haut à droite puis cliquer sur \"S\'inscrire\".\r\nEnsuite, remplir le formulaire comme indiqué.'),
 (2, 'Comment contacter le service client ?', 'Nos coordonnées sont indiquées dans en bas de page. Vous pouvez également utiliser l\'onglet \'Nous contacter\' dans la barre de menu'),
 (3, 'Est-ce que le casque est résistant à l\'eau (Waterproof) ?', 'Non, notre casque n\'est pas encore étanche, mais notre équipe de recherche travaille sur une version du casque résistante à l\'eau.'),

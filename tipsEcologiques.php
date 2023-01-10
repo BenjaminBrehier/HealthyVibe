@@ -13,7 +13,7 @@ require_once("./res/php/fonctions.php");
     <body>
         <?php
         if (isset($_SESSION['id'])) {
-            include './res/php/header.php';
+            include './res/php/header.php'; 
         } else {
             include './res/php/headerVisiteur.php';
         }
