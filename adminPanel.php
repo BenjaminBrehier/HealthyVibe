@@ -168,10 +168,10 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         <a class='boutonModification' href=''>Ajouter une nouvelle question/réponse</a>
         <table>
             <tr>
-                <th>N° de la question</th>
+                <th class='idChamp'>N° de la question</th>
                 <th>Question</th>
                 <th>Réponse</th>
-                <th>Supprimer</th>
+                <th class="Supprimer">Supprimer</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -199,10 +199,10 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         <a class='boutonModification' href=''>Ajouter un Tips écologique</a>
         <table>
             <tr>
-                <th>idTips</th>
+                <th class='idChamp'>idTips</th>
                 <th>Tips</th>
                 <th>Lien vidéo</th>
-                <th>Supprimer</th>
+                <th class="Supprimer">Supprimer</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
