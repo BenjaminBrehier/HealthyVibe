@@ -6,7 +6,7 @@
     <title>Inscription : HealthyVibe</title>
     <link rel="stylesheet" href="res/css/inscription.css">
     <script src="res/js/script.js"></script>
-</head>
+</head> 
 
 <body>
 <?php
