@@ -83,11 +83,11 @@
                 <h1>Des fonctionnalités inédites</h1>
                 <p><strong>HealthyVibe</strong> a été soigneusement conçu pour veiller à ce que son utilisateur soit dans les meilleures conditions possibles pour sa santé et son bien-être.</p>
             </div>
-            <img src="./res/img/fonctionnalite_5.jpg">
+            <img src="./res/img/casqueEnvironnement.webp">
         </div> 
 
         <div class="container2"> 
-            <img src="./res/img/fonctionnalite_1.png">
+            <img src="./res/img/casqueSport.webp">
             <div>
                 <h1>Pour votre santé </h1>
                 <p><strong>HealthyVibe</strong> vous permet de visualiser votre rythme cardiaque par des graphiques clairs mais 
@@ -105,7 +105,7 @@
         </div>
 
         <div class="container2">
-            <img src="./res/img/fonctionnalite_4.jpg">
+            <img src="./res/img/casqueChantier.jpg">
             <div>
                 <h1>Pour votre sécurité </h1>
                 <p>Notre casque <strong>HealthyVibe</strong>, peut vous avertir d’un danger lié à une présence 

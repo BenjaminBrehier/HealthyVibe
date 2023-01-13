@@ -144,3 +144,11 @@ section form input[type="submit"] {
     width: 20%;
     padding: 2px;
 }
+
+.boutonModification {
+    display:flex;
+    padding:3px;
+    margin:5px;
+    background-color:grey;
+    color:black;
+}

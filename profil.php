@@ -1,4 +1,4 @@
-<!-- Script pour l'inscription ou connexion de l'utilisateur -->  
+<!-- Script pour la modification des données de l'utilisateur -->  
 <?php 
     require_once './res/php/fonctions.php';
     session_start();
@@ -18,25 +18,28 @@
             $mail = htmlspecialchars($_POST['mail']);
             $mdp = htmlspecialchars($_POST['mdp']);
            
-            if (isset($_POST['adresse']))
+            if (isset($_POST['adresse'])) {
                 $adresse = htmlspecialchars($_POST['adresse']);
-            if (isset($_POST['CP']))
+            }
+            if (isset($_POST['CP'])){
                 $codePostal = htmlspecialchars($_POST['CP']);
+            }
             if (isset($_POST['tel'])) {
                 $tel = htmlspecialchars($_POST['tel']);
             }
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("UPDATE UTILISATEUR SET (nom, prenom, email, mdp, tel, adresse, codepostal, datenaissance, role, banni)  VALUES ('$nom','$prenom','$mail','$mdp','$tel','$adresse',$codePostal,'$dateNaissance',0,0);");
-            if ($result) {
+            $result = "UPDATE utilisateur SET nom ='$nom' , prenom = ='$prenom' , email ='$mail', mdp ='$mdp', tel ='$tel', adresse ='$adresse', codepostal ='$codePostal, datenaissance ='$dateNaissance' WHERE $mail= ''";
+            if ($conn->query($result) === TRUE){
                 login($mail, $mdp);
-            } 
-            
-            else {
-                header("Location: S./inscription.php?reponse=Erreur");
-                exit();}
+            }
         }
-    }
+        
+        else{
+            header("Location: S./inscription.php?reponse=Erreur");
+            exit();}
+        }
+    
 
 ?>
 
@@ -66,8 +69,9 @@
     
             <form action="./accueil.php?&type=inscription" method="POST">
                 <div class="photoprofil">
-                    <input type="file" id="img" name="picture" onchange="previewPicture(this)" required >
-                    <br>
+                    <form method="post" url="/upload-picture" enctype="multipart/form-data" >
+                        <input type="file" name="picture" onchange="previewPicture(this)" required >
+                    </form><br>
                     <img src="#" alt="" id="image" width="190px" height="200px">
                 </div>
                 <div class="champ">
@@ -86,16 +90,10 @@
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" id="mdp" name="mdp" required>
                 </div>
-                   
+    
                 <div class="champ">
-                    <?php 
-                        //Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
-                        $date = new DateTime();
-                        $date->sub(new DateInterval('P15Y'));
-                        $dateMax = $date->format('Y-m-d');
-                        ?>
                     <label for="DTN">Date de naissance:</label>
-                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['datenaissance']?>" max="<?php echo $dateMax;?>" required>
+                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['datenaissance']?>" required>
                 </div>
                 <div class="champ">
                     <label for="adresse">Adresse:</label>
@@ -112,7 +110,7 @@
     
                 <div class="boutonSinscrire">
                     <input type="button" class="sinscrire" name="S'inscrire" value="Annuler" class="sinscrire">
-                    <input type="submit" class="sinscrire" name="S'inscrire" value="Modifier" class="sinscrire">
+                    <input type="button" class="sinscrire" name="S'inscrire" value="Modifier" class="sinscrire">
                 </div>
     
             </form>
