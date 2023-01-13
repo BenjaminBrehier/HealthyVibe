@@ -52,7 +52,7 @@
                 <li><a href="./adminPanel.php?onglet=FAQ" <?php if($_GET["onglet"] == "FAQ") {echo 'class="selected"';}?>>FAQ</a></li>
                 <li><a href="./adminPanel.php?onglet=TipsEcologiques" <?php if($_GET["onglet"]== "TipsEcologiques") {echo 'class="selected"';}?>>Tips ecologiques</a></li>
                 <li><a href="./adminPanel.php?onglet=Lieux" <?php if($_GET["onglet"] == "Lieux") {echo 'class="selected"';}?>>Lieux de vente</a></li>
-                
+                <li><a href="./adminPanel.php?onglet=Message" <?php if($_GET["onglet"] == "Message") {echo 'class="selected"';}?>>Messages</a></li>
             <?php
             } 
             else {
