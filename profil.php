@@ -29,7 +29,7 @@
             }
 
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = "UPDATE UTILISATEUR SET nom ='$nom' , prenom = ='$prenom' , email ='$mail', mdp ='$mdp', tel ='$tel', adresse ='$adresse', codepostal ='$codePostal, datenaissance ='$dateNaissance' WHERE email = $mail";
+            $result = "UPDATE utilisateur SET nom ='$nom' , prenom = ='$prenom' , email ='$mail', mdp ='$mdp', tel ='$tel', adresse ='$adresse', codepostal ='$codePostal, datenaissance ='$dateNaissance' WHERE $mail= ''";
             if ($conn->query($result) === TRUE){
                 login($mail, $mdp);
             }
@@ -69,8 +69,9 @@
     
             <form action="./accueil.php?&type=inscription" method="POST">
                 <div class="photoprofil">
-                    <input type="file" id="img" name="picture" onchange="previewPicture(this)" required >
-                    <br>
+                    <form method="post" url="/upload-picture" enctype="multipart/form-data" >
+                        <input type="file" name="picture" onchange="previewPicture(this)" required >
+                    </form><br>
                     <img src="#" alt="" id="image" width="190px" height="200px">
                 </div>
                 <div class="champ">
@@ -89,16 +90,10 @@
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" id="mdp" name="mdp" required>
                 </div>
-                   
+    
                 <div class="champ">
-                    <?php 
-                        //Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
-                        $date = new DateTime();
-                        $date->sub(new DateInterval('P15Y'));
-                        $dateMax = $date->format('Y-m-d');
-                        ?>
                     <label for="DTN">Date de naissance:</label>
-                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['datenaissance']?>" max="<?php echo $dateMax;?>" required>
+                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['datenaissance']?>" required>
                 </div>
                 <div class="champ">
                     <label for="adresse">Adresse:</label>
