@@ -45,12 +45,14 @@
 
           if ($page=="adminPanel.php") {
             ?>
-                <li><a href="./adminPanel.php?onglet=Utilisateurs" id="données" <?php if($page == "./adminPanel.php?onglet=Utilisateurs") {echo 'class="selected"';}?>>Utilisateurs</a></li>
-                <li><a href="./adminPanel.php?onglet=Casques" id="données" <?php if($page == "./adminPanel.php?onglet=Casques.php") {echo 'class="selected"';}?>>Casques</a></li>
-                <li><a href="./adminPanel.php?onglet=Forum" id="données" <?php if($page == "./adminPanel.php?onglet=FOrum") {echo 'class="selected"';}?>>Forum</a></li>
-                <li><a href="./adminPanel.php?onglet=FAQ" <?php if($page == "./adminPanel.php?onglet=FAQ") {echo 'class="selected"';}?>>FAQ</a></li>
-                <li><a href="./adminPanel.php?onglet=TipsEcologiques" <?php if($page == "./adminPanel.php?onglet=TipsEcologiques") {echo 'class="selected"';}?>>Tips ecologiques</a></li>
-                <li><a href="./adminPanel.php?onglet=Lieux" <?php if($page == "./adminPanel.php?onglet=Lieux") {echo 'class="selected"';}?>>Lieux de vente</a></li>
+                <li><a href="./index.php" <?php if($page == "./index.php") {echo 'class="selected"';}?>>Accueil</a></li>
+                <li><a href="./adminPanel.php?onglet=Utilisateurs" id="données" <?php if($_GET["onglet"] == "Utilisateurs") {echo 'class="selected"';}?>>Utilisateurs</a></li>
+                <li><a href="./adminPanel.php?onglet=Casques" id="données" <?php if($_GET["onglet"] == "Casques") {echo 'class="selected"';}?>>Casques</a></li>
+                <li><a href="./adminPanel.php?onglet=Forum" id="données" <?php if($_GET["onglet"]== "Forum") {echo 'class="selected"';}?>>Forum</a></li>
+                <li><a href="./adminPanel.php?onglet=FAQ" <?php if($_GET["onglet"] == "FAQ") {echo 'class="selected"';}?>>FAQ</a></li>
+                <li><a href="./adminPanel.php?onglet=TipsEcologiques" <?php if($_GET["onglet"]== "TipsEcologiques") {echo 'class="selected"';}?>>Tips ecologiques</a></li>
+                <li><a href="./adminPanel.php?onglet=Lieux" <?php if($_GET["onglet"] == "Lieux") {echo 'class="selected"';}?>>Lieux de vente</a></li>
+                <li><a href="./adminPanel.php?onglet=Message" <?php if($_GET["onglet"] == "Message") {echo 'class="selected"';}?>>Messages</a></li>
             <?php
             } 
             else {

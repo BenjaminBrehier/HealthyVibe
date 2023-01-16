@@ -1,0 +1,263 @@
+;*****************************************************************************************************************
+; Fichier de langue pour SendMail v3.2.1
+;*****************************************************************************************************************
+; Ce qu'il faut savoir :
+; - Les lignes commen�ant par le signe ';' sont des commentaires
+; - M�me si tout semble en vrac, le fichier est organis� par fen�tre
+; - Seule la partie situ�e � droite du signe '=' est � traduire
+; - Le signe '&' peut-�tre utilis� pour sp�cifier la touche raccourci
+; - Pour les messages longs, le signe '�' peut-�tre utilis� pour remplacer un retour-chariot
+; - Les '%v' pr�sents dans certains textes sont des valeurs ins�r�es au moment de l'affichage, ne pas les supprimer
+; - Ne pas supprimer ou traduire la ligne '[Traduction]'
+; - C'est tout... pour le moment !
+;*****************************************************************************************************************
+
+[Traduction]
+CodeLangue=9
+;TraductionIncompl�te=The file of selected language is incomplete. You can contribute to the finalization of its translation and send it to the author of this software so that other users can benefit. Thank you in advance!
+
+;*****************************************************************************************************************
+;El�ments communs
+;*****************************************************************************************************************
+btnOk=&OK
+btnAnnuler=Ca&ncel
+
+;*****************************************************************************************************************
+;Fen�tre principale
+;*****************************************************************************************************************
+lblExp�diteur=Sender
+lblDestinataires(0)=To
+lblDestinataires(1)=Cc
+lblDestinataires(2)=Bcc
+lblR�ponse=Answer to
+lblR�ponseInfo=Leave blank if same as sender
+lblObjetMessage=Object
+lblCorpsMessage=Body
+lblFormat=Format
+lblEncodage=Encoding
+lblImportance=Importance
+lblSensibilit�=Sensibility
+lblConfigSMTP=SMTP config.
+lblFichiersJoints=Attachment(s)
+btnAjouter=&Add...
+btnSupprimer=&Remove
+fraOptions=Options
+lblNotification=Notification
+btnRAZ=&Clear
+btnEnvoyer=&Send
+btnQuitter=&Quit
+; menus et items
+mnuFichier=&File
+mnuFichierQuitter={btnQuitter}
+mnuOptions=&Options
+mnuOptionsM�moriserPosition=Remember window &position
+mnuOptionsM�moriserTaille=Remember window &size
+mnuOptionsMinimiserSystray=Mi&nimize in systray
+mnuOptionsToujoursAuDessus=Window always on &top
+mnuOptionsConfiguration=&Configuration...
+mnuAide=&?
+mnuAideAProposDe=&About SendMail...
+mnuSystrayRestaurer=&Restore window
+mnuSystrayAnnuler={btnAnnuler}
+; Textes & messages
+TXT_FORMAT_TEXTE=Text only
+TXT_FORMAT_MIXTE=Text and HTML
+TXT_FORMAT_HTML=HTML only
+TXT_NOTIFICATION_AUCUNE=None
+TXT_NOTIFICATION_AR=Delivery notification
+TXT_NOTIFICATION_AL=Read notification
+TXT_NOTIFICATION_ARL=Delivery and read notification
+TXT_IMPORTANCE_NORMALE=Regular
+TXT_IMPORTANCE_FAIBLE=Low
+TXT_IMPORTANCE_HAUTE=High
+TXT_SENSIBILITE_NORMALE=Regular
+TXT_SENSIBILITE_PERSONNELLE=Personal
+TXT_SENSIBILITE_PRIVEE=Private
+TXT_SENSIBILITE_CONFIDENTIELLE=Confidential
+
+TXT_REPORTING_SENDMAIL=SendMail software notification...
+TXT_FERMETURE_OUTIL=Software will be closed.
+TXT_ABANDON_ENVOI=Sending will be canceled.
+TXT_CHARGER_FICHIER=Load a file...
+TXT_JOINDRE_FICHIER=Join a file...
+TXT_TOUS_FICHIERS=All files
+
+TXT_POPUP_AJOUTER_FIC_DESTINATAIRES=<&Add a file of recipients...>
+TXT_POPUP_EFFACER=<Clear>
+TXT_SEPARATEUR_INFO=Recipients must be separated by a comma.
+
+MSG_ERREUR_ACCES_AD=Unable to access to ActiveDirectory...
+MSG_CONFIGURER_ACCES_AD=Would you change the configuration of access to the ActiveDirectory of this software?
+MSG_ERREUR_RECHERCHE_ROOT_AD=Unable to determine root domain of ActiveDirectory...
+
+MSG_ERREUR_EXPEDITEUR=The field SENDER must be set and contain a fully qualified address (including the '@' character followed by a domain name)... ��Examples:�   � me@fake.com�   � do not reply<noreply@fake.com>
+MSG_ERREUR_DESTINATAIRE=You must specify at least one recipient...
+MSG_ERREUR_OBJET=The field OBJECT has not been set...
+MSG_ERREUR_CORPS=The field BODY has not been set...
+
+MSG_ERREUR_GROUPE_INTROUVABLE=The group '%v' is unknown was not found in the ActiveDirectory... It will be ignored.
+MSG_ERREUR_RECUP_MEMBRES=Unable to connect to ActiveDirectory to retrieve the list of members of the '%v' group...
+MSG_ERREUR_RECUP_MEMBRES2=An error (v%) occurred during retrieving the list of members of the '%v' group...
+MSG_ERREUR_FICHIER_DEST_INTROUVABLE=The recipients file '%v' was not found... It will be ignored.
+MSG_ERREUR_FICHIER_DEST=An error (v%) occurred during retrieving the list of members of the '%v' file...
+MSG_ERREUR_PIECE_JOINTE_INTROUVABLE=The file to join '%v' was not found...
+MSG_ERREUR_AUCUN_DESTINATAIRE=No recipients whom send the message to...
+MSG_ERREUR_ENVOI=The sending ended abnormally :
+MSG_SUCCES_ENVOI=The message '%v' has been sent to %v recipient(s) in %v sending(s)...
+
+MSG_ERREUR=An error (%v) occured during treatment :��%v��Please contact the software's developers if the problem persists...
+MSG_ERREUR_CREATION_OBJET=Impossible to create SMTP object...
+MSG_ERREUR_INITIALISATION=An error (%v) occured during application initialization:��%v��Please contact the software's developers if the problem persists...
+MSG_ERREUR=An error (%v) occured during treatment :��%v��Please contact the software's developers if the problem persists...
+
+;*****************************************************************************************************************
+;Boite de dialogue 'Configuration'
+;*****************************************************************************************************************
+frmConfiguration=Configuration
+tabOnglets(1)=&General
+lblLangue=Language
+lblRequiertRed�marrage=(software requires to restart)
+fraSMTP=SMTP configurations
+btnSMTPAjouter=&Add...
+btnSMTPModifier=&Modify...
+btnSMTPSupprimer=&Remove
+btnSMTPMonter=&Up
+btnSMTPDescendre=&Down
+tabOnglets(2)=D&efault parameters
+lblExp�diteurParD�faut={lblExp�diteur}
+lblR�ponseParD�faut={lblR�ponse}
+lblFormatParD�faut={lblFormat}
+lblEncodageParD�faut={lblEncodage}
+lblImportanceParD�faut={lblImportance}
+lblSensibilit�ParD�faut={lblSensibilit�}
+lblNotificationParD�faut={lblNotification}
+fraDestinatairesParD�faut=Recipient
+lblDestinatairesParD�faut=Recipient(s)
+lblGroupesParD�faut=Group(s)
+lblFichiersDestinatairesParD�faut=File(s)
+lblS�parateurInfo2=Separated by a comma
+tabOnglets(3)=&Sending parameters
+lblSuffixe=Suffix
+lblSuffixeInfo=(to add to addresses without @...)
+fraDestinatairesParEnvoi={fraDestinatairesParD�faut}
+lblNombreDestinatairesMaxi=Max number of recipients (all types) by sending
+lblR�partitionDestinataires=If the total number of recipients (all types) of a mail exceeds the maximum defined by sending:
+optR�partitionDestinataires(0)=Distribute recipients of various types fairly by optimizing the number of items
+optR�partitionDestinataires(1)=Treat each type of recipients in separate sendings
+lblTimeoutSMTP=Timeout when sending messages
+tabOnglets(4)=A&ctiveDirectory access
+chkUtiliserAD=Enable the &research of groups in ActiveDirectory
+optAcc�sAD(0)=The computer is in the domain and I want to use the login account
+optAcc�sAD(1)=The computer is in the domain but I want to use another account that I used to log in
+optAcc�sAD(2)=The computer is not in the domain
+lblAcc�sADDomaine=Domain
+lblAcc�sADDomaineInfo=(possibly name or IP address of a controller)
+lblAcc�sADLogin=Login
+lblAcc�sADLoginInfo=(possibly domain\login or login@domain)
+lblAcc�sADPassword=Password
+lblRequiertRed�marrage2={lblRequiertRed�marrage}
+; Textes & messages
+TXT_AUTHENTIFICATION_AUCUNE=None
+TXT_AUTHENTIFICATION_LOGIN=Login
+TXT_AUTHENTIFICATION_PLAIN=Plain
+TXT_AUTHENTIFICATION_POP3=Pop3
+MSG_ERREUR_CONF_SUFFIXE=The field SUFFIX must be set...
+MSG_ERREUR_CONF_NBDEST=The field MAX NUMBER OF RECIPIENTS must contain an integer numeric value greater than 1...
+MSG_ERREUR_CONF_TIMEOUT=The field TIMEOUT must contain an integer numeric value between 1 and 60...
+MSG_ERREUR_CONF_SMTP=At least one SMTP configuration must be set...
+MSG_ERREUR_CONF_AD_DOMAINE=The field DOMAIN must be set...
+MSG_ERREUR_CONF_AD_LOGIN=The field LOGIN must be set...
+MSG_CHANGEMENT_LANGUE=Language will be changed when software is restarted.
+
+;*****************************************************************************************************************
+;Boite de dialogue 'Configuration SMTP'
+;*****************************************************************************************************************
+frmConfigurationSMTP=SMTP configuration
+lblNom=Name
+lblServeur=Server
+lblSSL=Use SSL
+lblPort=Port (25 by default)
+lblAuthentification=Authentication
+lblUsername=Username
+lblPassword=Password
+lblServeurPOP=POP server
+btnTester=Test...
+; Textes & messages
+TXT_COL_SSL=SSL
+MSG_ERREUR_CONF_SMTP_SERVEUR=The field SMTP SERVER must be set...
+MSG_ERREUR_CONF_SMTP_PORT=The field PORT must contain a numeric integer value between 0 and 65535...
+MSG_ERREUR_CONF_SMTP_USERNAME=The field USERNAME must be filled when this authentication mode is selected...
+MSG_ERREUR_CONF_SMTP_PASSWORD=The field PASSWORD must be filled when this authentication mode is selected...
+MSG_ERREUR_CONF_SMTP_SERVEUR_POP=The field POP SERVER must be filled when this authentication mode is selected...
+MSG_TEST_SMTP_OK=Message successfuly sent...
+MSG_TEST_SMTP_ERREUR=The sending ended abnormally (status: %v)... ��Please check the settings with your administrator.
+
+;*****************************************************************************************************************
+;Boite de dialogue 'Test configuration SMTP'
+;*****************************************************************************************************************
+frmConfigurationSMTPTest=SMTP configuration test
+lblDestinataire=Recipient
+lblObjet=Object
+lblMessage=Message
+; Textes & messages
+TXT_TEST_SMTP_OBJET=[SendMail] SMTP configuration test...
+TXT_TEST_SMTP_MESSAGE=Test! Do not reply to this message!
+
+;*****************************************************************************************************************
+;Boite de dialogue 'A propos de...'
+;*****************************************************************************************************************
+frmApropos=About SendMail
+lblTraduitPar=Translated by Damien... and Google!
+<txtDescription>This tool is designed to send messages independently, ie without using a messaging client (such as
+Thunderbird or Outlook, for example). It can also be used in "windowed" than in "command line" mode (called
+by third party software or script).
+
+Commandline syntax :
+   sendmail [/conf] [/a] [/cc] [/cci] /o (/ct | /ctf) (/ch | chf) [/pj] [/en] [/ar | /al | /arl] [/nde] [/de]
+                  [/rep] [/@] [/iep] [/r] [/l]
+
+Parameters :
+   /conf:NameOfSmtpConf
+   /a:Recipient, fic:RecipientsFile, grp:Group      (recipients "to")
+   /cc:Recipient, fic:RecipientsFile, grp:Group     (recipients "copy")
+   /cci:Recipient, fic:RecipientsFile, grp:Group    (recipients "hidden copy")
+   /o:MessageObject
+   /ct:MessageBody (text format)
+   /ctf:MessageBodyFile (text format)
+   /ch:MessageBody (html format)
+   /chf:MessageBodyFile (html format)
+   /pj:Attachment1, Attachment2 ... AttachmentN
+   /en:Encoding (charset)
+   /ar     (request for acknowledgment of recept)
+   /al     (request for acknowledgment of read)
+   /arl    (request for acknowledgment of receipt and reading)
+   /nde:NumberOfRecipentsBySending
+   /de:Sender
+   /rep:ResponseAddress
+   /@:DefaultRecipientsAddressSuffix
+   /iep (ignore attachments errors, to use with /l or /r to avoid warnings)
+   /r   (reporting errors by mail to the sender)
+   /l[:PathOrFilenameOfLog]    (this option removes the popup window displayed after sending by writing actions
+                                                and errors in the log file specified or, failing that, the SendMail.log file from the
+                                                executable path)
+
+Examples :
+   sendmail /conf:"google" /a:"grp:admins" /o:"Time change" /ctf:"c:\temp\info.txt" /en:"utf-8" /ar /l
+   sendmail /a:"ll213707, cp219639" /cci:"dp203462" /o:"Log..." /ct:"See attachments" /pj:file.log /iep /l
+   sendmail /a:"fh98307, fic:admins.lst" /cc:"fic:resp.lst" /o:"For information..." /chf:"c:\temp\info02.html"
+
+For information, this software uses the OstroSoft's freeware SMTPComponent (http://www.ostrosoft.com)</txtDescription>
+
+;*****************************************************************************************************************
+;Mode ligne de commande
+;*****************************************************************************************************************
+MSG_ERREUR_CMD_CONF=The parameter /conf has been specified but the name that accompanies it was not found in the list of SMTP configurations declared in the application...
+MSG_ERREUR_CMD_DST_MANQUANT=The parameter '%v' has been invoked but no value accompanies...
+MSG_ERREUR_CMD_GRP_SANS_AD=Sending mail to groups is impossible when access to the ActiveDirectory is disabled...
+MSG_ERREUR_CMD_CORPS=The command line can not contain multiple parameters %v or %v...
+MSG_ERREUR_CMD_CORPS_FIC_INTROUVABLE=The file containing the message body ('%v') is not found...
+MSG_ERREUR_CMD_NBDEST=The parameter /n must contain the number of recipients per email, represented by a numeric value greater than zero...
+MSG_ERREUR_CMD_DESTINATAIRE_MANQUANT=No parameter indicating the list of recipients was detected...
+MSG_ERREUR_CMD_CORPS_MANQUANT=No parameter indicating the message body (/ct:, /ctf:, /ch: or /chf :) was detected...
+MSG_ERREUR_CMD_OBJET_MANQUANT=The parameter containing the message subject (/o:) is missing...
+MSG_ERREUR_CMD_PARAM_INCONNU=The parameter '%v' is unknown...

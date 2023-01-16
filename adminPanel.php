@@ -79,6 +79,10 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         if (isset($_GET['onglet'])&& $_GET['onglet']=='Lieux') {
             ?>
         <h1>Lieux de vente des casques HealthyVibe</h1>
+        <div class='ajout'>
+            <input type='text' placeholder='Nouveau lieu de vente' class='inputnew' required>      
+            <a class='boutonModification' href=''>Ajouter un lieu de vente</a>
+        </div>
         <table>
             <tr>
                 <th>Adresse</th>
@@ -172,7 +176,12 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         if (isset($_GET['onglet'])&& $_GET['onglet']=='FAQ') {
             ?>
         <h1>Question / réponses de la FAQ</h1>
-        <a class='boutonModification' href=''>Ajouter une nouvelle question/réponse</a>
+        <div class='ajout'>
+            <textarea type='text' placeholder='Question' class='inputnew' required></textarea>           
+            <textarea type='text' placeholder='Réponse' class="inputnew" required></textarea>      
+            <a class='boutonModification' href=''>Ajouter une nouvelle question/réponse</a>
+        </div>
+
         <table>
             <tr>
                 <th class='idChamp'>N° de la question</th>
@@ -203,7 +212,11 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         if (isset($_GET['onglet'])&& $_GET['onglet']=='TipsEcologiques') {
         ?>
         <h1>Liste des tips écologiques</h1>
-        <a class='boutonModification' href=''>Ajouter un Tips écologique</a>
+        <div class='ajout'>
+            <input type='text' placeholder='Tips' class='inputnew' required>           
+            <input type='text' placeholder='Lien Video' id="Lien">
+            <a class='boutonModification' href=''>Ajouter un Tips écologique</a>
+        </div>
         <table>
             <tr>
                 <th class='idChamp'>idTips</th>
@@ -226,7 +239,33 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         </table>             
             <?php
                 }
+
+        if (isset($_GET['onglet'])&& $_GET['onglet']=='Message') {
             ?>
+        <h1>Messagerie avec les utilisateurs</h1>
+        <table>
+            <tr>
+                <th class='idChamp'>id Utilisateur</th>
+                <th class='idChamp'>Date</th>
+                <th>Contenu</th>
+            </tr>
+            <?php
+            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            $result = $co->query("SELECT * FROM messagedirect");
+            while ($row = $result->fetch_object()) {
+            ?> 
+                <tr>
+                    <td><?php echo $row->idUtilisateur; ?></td>
+                    <td><?php echo $row->date; ?></td>
+                    <td><?php echo $row->contenu; ?></td>
+                </tr>
+            <?php
+            }
+            ?> 
+        </table>             
+            <?php
+                }
+                ?>
 
     </section>
 

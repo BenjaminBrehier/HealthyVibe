@@ -129,3 +129,8 @@ form .champ input:not(#img) {
   border-width: 0px;
   margin-right: 2%;
 }
+
+p.msgErreurMdp{
+  color:red;
+  font-size: larger;
+}

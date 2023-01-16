@@ -4,6 +4,13 @@ session_start();
 if (!isset($_SESSION['id'])) {
     header("Location: ./index.php");
     exit();
+}
+if (isset($_POST['message'])){
+    $dest="healthyvibe.isep@gmail.com";
+    $objet="requete client";
+    $message= $_POST['message'];
+    mail( $dest, $objet, $message);
+    
 } 
 ?>
 <!DOCTYPE html>
@@ -29,9 +36,9 @@ if (!isset($_SESSION['id'])) {
         </div>
         <div id='boxenvoi'>
             <p id='description'>Nous sommes à votre écoute. Veuillez écrire votre message dans l'espace ci-dessous</p>
-            <form>
-                <input type='text' class='message' max-length="2000" placeholder="Message">
-                <input type='button' value='Envoyer' id='boutton'>
+            <form action= "" method= "POST">
+                <input type='text' class='message' max-length="2000" name="message" placeholder="Message">
+                <input type='submit' value='Envoyer' id='boutton'>
             </form>
             <p id='indication'> Notre équipe fait de son mieux pour traiter votre demande dans les plus brefs délais. Merci de votre compréhension.</p>
         </div>

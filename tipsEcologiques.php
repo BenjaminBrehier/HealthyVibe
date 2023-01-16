@@ -39,7 +39,7 @@ require_once("./res/php/fonctions.php");
                         ?> 
                         <div class='tips'>
                             <p><?php echo $row->contenu?></p>
-                            <a href=<?php echo $row->lienVideo?>></a>
+                            <a href="<?php echo $row->lienVideo?>"></a>
                         </div>
                         <?php
                         }

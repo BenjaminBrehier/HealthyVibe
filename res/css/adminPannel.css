@@ -52,20 +52,52 @@ table a {
   color: red;
 }
 
-.boutonModification {
-  display:flex;
-  padding:3px;
-  margin:5px;
-  background-color:rgb(192, 192, 192);
-  color:black;
-  width:400px;
-  font-size:18px;
-  border-radius:8px;
-}
+
 
 .idChamp {
   width:120px;
 }
 .Supprimer {
   width:150px;
+}
+
+
+/*ajout d'une nouvelle information dans la bdd*/
+.ajout {
+  display:flex;
+  flex-direction:row;
+  margin-top:5px;
+}
+
+.ajout .inputnew {
+  display:flex;
+  width:400px;
+  padding-left:5px;
+  padding-top:3px;
+  border-radius:5px;
+  font-family:'Times New Roman', Times, serif;
+  font-size:17px;
+}
+
+.ajout #Lien{
+  display:flex;
+  width:200px;
+  padding-left:5px;
+  border-radius:5px;
+  margin-left:5px;
+  font-family:'Times New Roman', Times, serif;
+  font-size:17px;
+}
+
+
+.boutonModification {
+  display:flex;
+  padding:5px;
+  margin:5px;
+  background-color:rgb(192, 192, 192);
+  color:black;
+  font-size:17px;
+  border-radius:8px;
+  justify-content:center;
+  height:30px;
 }
