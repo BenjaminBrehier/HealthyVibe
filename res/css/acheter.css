@@ -38,6 +38,7 @@
 }
 
 #description {
+    justify-content: center;
     display:flex;
     margin-bottom:10px;
     text-align:center;
@@ -53,14 +54,19 @@
 
 }
 
-#indication {
-    color:red;
+.indication {
+    color:rgb(4, 1, 1);
     font-style:italic;
-    font-size:15px;
-    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 40px;
     text-align:center;
     font-family:'Times New Roman', Times, serif;
 
+}
+
+.casque{
+    color: #30E87A;
+    text-decoration: underline;
 }
 
 .info {
