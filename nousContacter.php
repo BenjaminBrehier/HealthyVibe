@@ -5,13 +5,6 @@ if (!isset($_SESSION['id'])) {
     header("Location: ./index.php");
     exit();
 }
-if (isset($_POST['message'])){
-    $dest="healthyvibe.isep@gmail.com";
-    $objet="requete client";
-    $message= $_POST['message'];
-    mail( $dest, $objet, $message);
-    
-} 
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +33,14 @@ if (isset($_POST['message'])){
                 <input type='text' class='message' max-length="2000" name="message" placeholder="Message">
                 <input type='submit' value='Envoyer' id='boutton'>
             </form>
-            <p id='indication'> Notre équipe fait de son mieux pour traiter votre demande dans les plus brefs délais. Merci de votre compréhension.</p>
+    <?php if (isset($_POST['message'])){
+    $dest="healthyvibe.isep@gmail.com";
+    $objet="requete client";
+    $message= $_POST['message'];
+    mail( $dest, $objet, $message);
+    echo '<p style="color:green;">le mail a bien été envoyé';
+    }?> 
+        <p id='indication'> Notre équipe fait de son mieux pour traiter votre demande dans les plus brefs délais. Merci de votre compréhension.</p>
         </div>
     </section>
     <?php
