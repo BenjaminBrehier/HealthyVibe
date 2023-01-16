@@ -35,15 +35,15 @@ function deletePost(idPost, idSujet) {
     }
 }
 
-function closeSubject(idSujet, idUtilisateur) {
+function closeSubject(idSujet, idUtilisateur, from) {
     if (confirm("Voulez vous vraiment fermer le sujet (action irréversible) ?") == true) {
-        window.location.href = "./res/php/closeSubject.php?idSujet=" + idSujet + "&idUtilisateur=" + idUtilisateur;
+        window.location.href = "./res/php/closeSubject.php?idSujet=" + idSujet + "&idUtilisateur=" + idUtilisateur + "&from=" + from;
     }
 }
 
-function deleteSubject(idSujet) {
+function deleteSubject(idSujet, from) {
     if (confirm("Voulez vous vraiment supprimer le sujet (action irréversible) ?") == true) {
-        window.location.href = "./res/php/deleteSubject.php?idSujet=" + idSujet;
+        window.location.href = "./res/php/deleteSubject.php?idSujet=" + idSujet + "&from=" + from;
     }
 }
 
