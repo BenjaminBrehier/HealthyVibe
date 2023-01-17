@@ -75,7 +75,7 @@
             <form action="./profil.php?type=inscription" method="POST">
                 <div class="photoprofil">
                     <input type="file" name="picture" onchange="previewPicture(this)" required >
-                    <img src="#" alt="" id="image" width="40%">
+                    <img src="#" alt="" id="image" width="50%">
                 </div>
                 <div class="champ">
                     <label for="fname">Nom:</label>
