@@ -73,7 +73,7 @@
             <p>Le nouveau casque économique de bien être</p>
             <a href="./acheter.php" id="acheter">Acheter ></a>
         </div>
-        <img src="./res/img/casque.jpg" alt="Image du casque">
+        <img class='imgCasque' src="./res/img/casque.jpg" alt="Image du casque">
     </section>
 
     <section id="fonctions"> 
