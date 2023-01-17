@@ -197,7 +197,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                     <td><?php echo $row->idFaq; ?></td>
                     <td><?php echo $row->question; ?></td>
                     <td><?php echo $row->reponse; ?></td>
-                    <td><a href=''>X</a></td>
+                    <td><a href='./res/php/admin/supprimer.php?idT=<?php echo $row->idFaq;?>&table=FAQ'>X</a></td>
                 </tr>
             <?php
             }
@@ -232,7 +232,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                     <td><?php echo $row->idTips; ?></td>
                     <td><?php echo $row->contenu; ?></td>
                     <td><?php echo $row->lienVideo; ?></td>
-                    <td>X</td>
+                    <td><a href='./res/php/admin/supprimer.php?idT=<?php echo $row->idTips;?>&table=tipsEco'>X</a></td>
             <?php
             }
             ?> 
