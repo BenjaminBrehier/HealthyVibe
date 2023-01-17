@@ -1,5 +1,5 @@
 <?php 
-    require_once './res/php/fonctions.php';
+    include './res/php/fonctions.php';
     session_start();
     if (isset($_GET['type'])) {
         if (htmlspecialchars($_GET['type']) == 'inscription') {
@@ -31,7 +31,7 @@
             }
         }
         else if (htmlspecialchars($_GET['type']) == 'connexion') {
-            if (!isset($_SESSION['id'])) {
+            if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
                 $mail = htmlspecialchars($_POST['mail']);
                 $mdp = htmlspecialchars($_POST['mdp']);
                 login($mail, $mdp);
@@ -61,7 +61,7 @@
 
 <body>
     <?php
-    if (isset($_SESSION['id'])) {
+    if (isset($_SESSION['utilisateur']) && ($_SESSION['utilisateur'] instanceof Utilisateur)) {
         include './res/php/header.php';
     } else {
         include './res/php/headerVisiteur.php';
@@ -73,7 +73,7 @@
             <p>Le nouveau casque économique de bien être</p>
             <a href="./acheter.php" id="acheter">Acheter ></a>
         </div>
-        <img src="./res/img/casque.jpg" alt="Image du casque">
+        <img class='imgCasque' src="./res/img/casque.jpg" alt="Image du casque">
     </section>
 
     <section id="fonctions"> 

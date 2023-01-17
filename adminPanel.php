@@ -1,7 +1,7 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
-require_once("./res/php/fonctions.php");
-if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
+if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || $_SESSION['utilisateur']->getRole() != 1) {
     header("Location: ./index.php");
     exit();
 } 
@@ -146,18 +146,25 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
                 <th>Date de création</th>
                 <th>Date de modification</th>
                 <th>Statut</th>
+                <th></th>
+                <th>Fermer</th>
+                <th>Supprimer</th>
 
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
             $result = $co->query("SELECT * FROM sujet");
+            $admin = 'admin';
             while ($row = $result->fetch_object()) {
             ?> <tr>
                     <td><?php echo $row->idSujet; ?></td>
                     <td><?php echo $row->titre; ?></td>
                     <td><?php echo $row->datecreation; ?></td>
                     <td><?php echo $row->datemodification; ?></td>
-                    <td><?php echo $row->status; ?></td>
+                    <td><?php if($row->status) {echo 'Résolu';} else {echo 'Non résolu';} ?></td>
+                    <td></td>
+                    <td><?php if(!$row->status) {?><button onclick="closeSubject(<?php echo $row->idSujet.','.$row->idUtilisateur.',0'?>)">Fermer</button><?php } ?></td>
+                    <td><button onclick="deleteSubject(<?php echo $row->idSujet.',0';?>)">X</button></td>
             <?php
             }
             ?> 
@@ -266,5 +273,5 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
     include './res/php/footer.php';
     ?>
 </body>
-
+<script src="./res/js/script.js"></script>
 </html>

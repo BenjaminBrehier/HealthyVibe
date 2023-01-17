@@ -1,6 +1,6 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
-require_once("./res/php/fonctions.php");
 ?>
 
 <?php 
@@ -30,7 +30,7 @@ require_once("./res/php/fonctions.php");
 </head>
 
 <?php
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['utilisateur']) && $_SESSION['utilisateur'] instanceof Utilisateur) {
     include './res/php/header.php';
 } else {
     include './res/php/headerVisiteur.php';
@@ -79,8 +79,11 @@ if (isset($_SESSION['id'])) {
 
                 <input type='submit' value='Réserver' id='boutton'>
         </form>
-            <p id='indication'>Vous pourrez créer un compte <strong>HealthyVibe</strong> avec votre numéro de casque qui vous sera fourni à sa réception.</p>
     </div>
+    <p class ="indication">Vous pourrez créer un compte <strong>HealthyVibe</strong> avec votre numéro de casque qui vous sera fourni à sa réception
+        et consulter ses cas d'utilisation du casque et ses fonctionalités ici:<a href= "Casque_CGU.php" class ="casque"><strong>Usage du casque</strong></a>
+    </p>
+    
 
 
 

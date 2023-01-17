@@ -1,4 +1,5 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -10,14 +11,13 @@ session_start();
     <link rel="stylesheet" href="res/css/Casque_CGU.css">
 </head>
 <body>
-<?php
-if (isset($_SESSION['id'])) {
-    include './res/php/header.php';
-} else {
-    include './res/php/headerVisiteur.php';
-}
-?>
-
+    <?php
+    if (isset($_SESSION['utilisateur']) && ($_SESSION['utilisateur'] instanceof Utilisateur)) {
+        include './res/php/header.php';
+    } else {
+        include './res/php/headerVisiteur.php';
+    }
+    ?>
     <h1>HealthyVibe</h1>
     <section id="fonctions">
     <div class="infinites1">

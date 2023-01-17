@@ -1,8 +1,8 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
-require_once("./res/php/fonctions.php");
 //! Vérfication que l'user est connecté
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
     header("Location: ./index.php");
     exit();
 } 
@@ -10,7 +10,7 @@ if (isset($_POST['nomSujet']) && isset($_POST['contenu'])) {
     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
     $nomSujet = mysqli_escape_string($co, htmlspecialchars($_POST['nomSujet']));
     $contenu = mysqli_escape_string($co, htmlspecialchars($_POST['contenu']));
-    $id = mysqli_real_escape_string($co, $_SESSION['id']);
+    $id = mysqli_real_escape_string($co, $_SESSION['utilisateur']->getRole());
     $date = date("Y-m-d H:i:s");
 
     $req = $co->query("INSERT INTO SUJET (titre, datecreation, datemodification, status, idUtilisateur) VALUES ('$nomSujet', '$date', '$date', 0, $id)"); 
