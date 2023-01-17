@@ -79,8 +79,11 @@ if (isset($_SESSION['utilisateur'])) {
 
                 <input type='submit' value='Réserver' id='boutton'>
         </form>
-            <p id='indication'>Vous pourrez créer un compte <strong>HealthyVibe</strong> avec votre numéro de casque qui vous sera fourni à sa réception.</p>
     </div>
+    <p class ="indication">Vous pourrez créer un compte <strong>HealthyVibe</strong> avec votre numéro de casque qui vous sera fourni à sa réception
+        et consulter ses cas d'utilisation du casque et ses fonctionalités ici:<a href= "Casque_CGU.php" class ="casque"><strong>Usage du casque</strong></a>
+    </p>
+    
 
 
 
