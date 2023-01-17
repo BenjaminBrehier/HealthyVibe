@@ -79,10 +79,10 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
         if (isset($_GET['onglet'])&& $_GET['onglet']=='Lieux') {
             ?>
         <h1>Lieux de vente des casques HealthyVibe</h1>
-        <div class='ajout'>
-            <input type='text' placeholder='Nouveau lieu de vente' class='inputnew' required>      
-            <a class='boutonModification' href=''>Ajouter un lieu de vente</a>
-        </div>
+        <form class='ajout' action='./res/php/admin/ajoutLieu.php' method='post'>
+            <input type='text' name='lieu' placeholder='Nouveau lieu de vente' class='inputnew' required>      
+            <input type='submit' class='boutonModification' value='Ajouter un lieu de vente'>
+        </form>
         <table>
             <tr>
                 <th>Adresse</th>
@@ -176,11 +176,11 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
         if (isset($_GET['onglet'])&& $_GET['onglet']=='FAQ') {
             ?>
         <h1>Question / réponses de la FAQ</h1>
-        <div class='ajout'>
-            <textarea type='text' placeholder='Question' class='inputnew' required></textarea>           
-            <textarea type='text' placeholder='Réponse' class="inputnew" required></textarea>      
-            <a class='boutonModification' href=''>Ajouter une nouvelle question/réponse</a>
-        </div>
+        <form action='./res/php/admin/ajoutFAQ.php' class='ajout' method='post'>
+            <textarea type='text' name='question' placeholder='Question' class='inputnew' required></textarea>           
+            <textarea type='text' name='reponse' placeholder='Réponse' class="inputnew" required></textarea>      
+            <input type='submit' class='boutonModification' value='Ajouter une nouvelle question/réponse' >
+        </form>
 
         <table>
             <tr>
@@ -212,18 +212,18 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
         if (isset($_GET['onglet'])&& $_GET['onglet']=='TipsEcologiques') {
         ?>
         <h1>Liste des tips écologiques</h1>
-        <div class='ajout'>
-            <input type='text' placeholder='Tips' class='inputnew' required>           
-            <input type='text' placeholder='Lien Video' id="Lien">
-            <a class='boutonModification' href=''>Ajouter un Tips écologique</a>
-        </div>
+        <form class='ajout' action='./res/php/admin/ajoutTips.php' method='post'>
+            <input type='text' placeholder='Tips' class='inputnew' name='tips' required>           
+            <input type='text' placeholder='Lien Video' id="Lien" name='lienTips'>
+            <input type='submit' class='boutonModification' value='Ajouter un Tips écologique'>
+        </form>
         <table>
             <tr>
                 <th class='idChamp'>idTips</th>
                 <th>Tips</th>
                 <th>Lien vidéo</th>
                 <th class="Supprimer">Supprimer</th>
-            </tr>
+            </tr> 
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
             $result = $co->query("SELECT * FROM tipsEco");

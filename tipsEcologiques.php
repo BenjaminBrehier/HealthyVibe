@@ -38,10 +38,7 @@
                         $result = $co->query("SELECT * FROM TIPSECO");
                         while ($row = $result->fetch_object()) {
                         ?> 
-                        <div class='tips'>
-                            <p><?php echo $row->contenu?></p>
-                            <a href="<?php echo $row->lienVideo?>"></a>
-                        </div>
+                        <a href="<?php echo $row->lienVideo?>"class='tips'><?php echo $row->contenu?></a>
                         <?php
                         }
                         ?> 
