@@ -1,4 +1,5 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
 ?>
 <!DOCTYPE html>

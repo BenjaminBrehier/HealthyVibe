@@ -1,5 +1,5 @@
 <?php 
-    require_once './res/php/fonctions.php';
+    include './res/php/fonctions.php';
     session_start();
     if (isset($_GET['type'])) {
         if (htmlspecialchars($_GET['type']) == 'inscription') {
@@ -31,7 +31,7 @@
             }
         }
         else if (htmlspecialchars($_GET['type']) == 'connexion') {
-            if (!isset($_SESSION['id'])) {
+            if (!isset($_SESSION['utilisateur'])) {
                 $mail = htmlspecialchars($_POST['mail']);
                 $mdp = htmlspecialchars($_POST['mdp']);
                 login($mail, $mdp);
@@ -61,7 +61,7 @@
 
 <body>
     <?php
-    if (isset($_SESSION['id'])) {
+    if (isset($_SESSION['utilisateur'])) {
         include './res/php/header.php';
     } else {
         include './res/php/headerVisiteur.php';

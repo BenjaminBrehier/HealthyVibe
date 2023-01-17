@@ -1,12 +1,12 @@
 <?php
+include './fonctions.php';
 session_start();
-require_once("./fonctions.php");
 $idSujet = htmlspecialchars($_GET['idSujet']);
 $idUtilisateur = htmlspecialchars($_GET['idUtilisateur']);
 $from = htmlspecialchars($_GET['from']);
 
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-if (($idUtilisateur == $_SESSION['id']) || $_SESSION['role']) {
+if (($idUtilisateur == $_SESSION['utilisateur']->getId()) || $_SESSION['utilisateur']->getRole()) {
     $req = $co->query("UPDATE SUJET SET status = 1 WHERE idSujet = $idSujet"); 
 }
 if ($from == 1) {

@@ -1,7 +1,8 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['utilisateur'])) {
     header("Location: ./index.php");
     exit();
 } 
@@ -52,15 +53,15 @@ $posts = array();
         </div>
         <?php 
             //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture
-            if (($idUtilisateur == $_SESSION['id'] || $_SESSION['role']) && !$statusSujet) {
+            if (($idUtilisateur == $_SESSION['utilisateur']->getId() || $_SESSION['utilisateur']->getRole()) && !$statusSujet) {
                 ?>
-                <button onclick="closeSubject(<?php echo $idSujet.','.$idUtilisateur.',forum';?>)">Fermer le sujet</button>
+                <button onclick="closeSubject(<?php echo $idSujet.','.$idUtilisateur.',1';?>)">Fermer le sujet</button>
                 <?php
             }
             //! Si l'utilisateur est l'admin, on lui permet d'accéder au bouton de suppression
-            if (($_SESSION['role'])) {
+            if (($_SESSION['utilisateur']->getRole())) {
                 ?>
-                <button onclick="deleteSubject(<?php echo $idSujet.',forum';?>)">Supprimer le sujet</button>
+                <button onclick="deleteSubject(<?php echo $idSujet.',1';?>)">Supprimer le sujet</button>
                 <?php
             }
             ?>
@@ -102,7 +103,7 @@ $posts = array();
                         }
                         ?>
                         <?php
-                        if ($_SESSION['role'] || $_SESSION['id'] == $row->idUtilisateur) {
+                        if ($_SESSION['utilisateur']->getRole() || $_SESSION['utilisateur']->getRole() == $row->idUtilisateur) {
                             ?>
                             <button onclick="deletePost(<?php echo $row->idPost.','.$idSujet; ?>)">Supprimer</button>
                             <?php

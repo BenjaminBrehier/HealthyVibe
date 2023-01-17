@@ -1,9 +1,9 @@
 <!-- Script pour la modification des données de l'utilisateur -->  
 <?php 
-    require_once './res/php/fonctions.php';
+    include './res/php/fonctions.php';
     session_start();
     //! Vérfication que l'user est connecté
-    if (!isset($_SESSION['id'])) {
+    if (!isset($_SESSION['utilisateur'])) {
         header("Location: ./index.php");
         exit();
     } 
@@ -32,7 +32,7 @@
             }
             if (strcmp($password1, $password2) == 0) {
                 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                $id = $_SESSION['id'];
+                $id = $_SESSION['utilisateur'];
                 $result = $co->query("UPDATE utilisateur SET nom ='$nom' , prenom = '$prenom' , email ='$mail', mdp ='$hashedmdp', tel ='$tel', adresse ='$adresse', codepostal ='$codePostal', datenaissance ='$dateNaissance' WHERE idUtilisateur = $id;");
             }else{
             $testvar = "Les mots de passe ne sont pas identiques. Veuillez rééssayer.";
@@ -79,15 +79,15 @@
                 </div>
                 <div class="champ">
                     <label for="fname">Nom:</label>
-                    <input type="text" id="fname" name="fname" value="<?php echo $_SESSION['nom']?>" placeholder="<?php echo $_SESSION['nom']?>" required>
+                    <input type="text" id="fname" name="fname" value="<?php echo $_SESSION['utilisateur']->getNom();?>" placeholder="<?php echo $_SESSION['utilisateur']->getNom();?>" required>
                 </div>
                 <div class="champ">
                     <label for="lname">Prénom:</label>
-                    <input type="text" id="lname" name="lname" value="<?php echo $_SESSION['prenom']?>" placeholder="<?php echo $_SESSION['prenom']?>" required>
+                    <input type="text" id="lname" name="lname" value="<?php echo $_SESSION['utilisateur']->getPrenom();?>" placeholder="<?php echo $_SESSION['utilisateur']->getPrenom();?>" required>
                 </div>
                 <div class="champ">
                     <label for="mail">Mail:</label>
-                    <input type="email" id="mail" name="mail" value="<?php echo $_SESSION['email']?>" placeholder="<?php echo $_SESSION['email']?>" required>
+                    <input type="email" id="mail" name="mail" value="<?php echo $_SESSION['utilisateur']->getMail();?>" placeholder="<?php echo $_SESSION['utilisateur']->getMail();?>" required>
                 </div>
                 <div class="champ">
                     <label for="mdp">Mot de passe:</label>
@@ -108,7 +108,7 @@
                 ?>
                 <div class="champ">
                     <label for="DTN">Date de naissance:</label>
-                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['datenaissance']?>" required>
+                    <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['utilisateur']->getDateNaissance();?>" required>
                 </div>
                 <?php 
                         //Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
@@ -118,15 +118,15 @@
                         ?>
                 <div class="champ">
                     <label for="adresse">Adresse:</label>
-                    <input type="text" id="Adresse" value="<?php echo $_SESSION['adresse']?>" placeholder="<?php echo $_SESSION['adresse']?>" name="adresse">
+                    <input type="text" id="Adresse" value="<?php echo $_SESSION['utilisateur']->getAdresse();?>" placeholder="<?php echo $_SESSION['utilisateur']->getAdresse();?>" name="adresse">
                 </div>
                 <div class="champ">
                     <label for="CP">Code Postal:</label>
-                    <input type="number" id="CP" name="CP" value="<?php echo $_SESSION['codepostal']?>" placeholder="<?php echo $_SESSION['codepostal']?>" >
+                    <input type="number" id="CP" name="CP" value="<?php echo $_SESSION['utilisateur']->getCodePostal();?>" placeholder="<?php echo $_SESSION['utilisateur']->getCodePostal();?>" >
                 </div>
                 <div class="champ">
                     <label for="tel">Tel:</label>
-                    <input type="number" id="tel" name="tel" value="<?php echo $_SESSION['tel']?>" placeholder="<?php echo $_SESSION['tel']?>">
+                    <input type="number" id="tel" name="tel" value="<?php echo $_SESSION['utilisateur']->getTel();?>" placeholder="<?php echo $_SESSION['utilisateur']->getTel();?>">
                 </div>
     
                 <div class="boutonSinscrire">

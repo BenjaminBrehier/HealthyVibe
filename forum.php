@@ -1,8 +1,8 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
-require_once("./res/php/fonctions.php");
 //! Vérfication que l'user est connecté
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['utilisateur'])) {
     header("Location: ./index.php");
     exit();
 } 

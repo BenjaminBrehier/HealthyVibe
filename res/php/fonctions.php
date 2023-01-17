@@ -1,4 +1,10 @@
 <?php
+if (file_exists("./res/php/Utilisateur.php")) {
+    include("./res/php/Utilisateur.php");
+}
+else {
+    include("./Utilisateur.php");
+}
 
 define('DB_USERNAME', 'adminHealthyVibe');
 define('DB_PASSWORD', 'adminHealthyVibe');
@@ -30,16 +36,7 @@ function login($mail, $mdp) {
                     exit();
                 }
             }
-            $_SESSION['nom'] = $row->nom;
-            $_SESSION['prenom'] = $row->prenom;
-            $_SESSION['username'] = $row->username;
-            $_SESSION['id'] = $row->idUtilisateur;
-            $_SESSION['email'] = $row->email;
-            $_SESSION['tel'] = $row->tel;
-            $_SESSION['adresse'] = $row->adresse;
-            $_SESSION['codepostal'] = $row->codepostal;
-            $_SESSION['datenaissance'] = $row->datenaissance;
-            $_SESSION['role'] = $row->role;
+            $_SESSION['utilisateur'] = new Utilisateur($row->idUtilisateur);
         }
         else {
             header ("Location: ./connexion.php?erreur=Erreur");

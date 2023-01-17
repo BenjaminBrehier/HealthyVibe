@@ -10,7 +10,7 @@
 
 <body>
 <?php
-    if (isset($_SESSION['id'])) {
+    if (isset($_SESSION['utilisateur'])) {
         include './res/php/header.php';
     } else {
         include './res/php/headerVisiteur.php';
