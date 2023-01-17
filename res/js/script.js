@@ -29,9 +29,9 @@ function afficher(idSujet) {
     window.location.href = "./afficheSujet.php?idSujet=" + idSujet;
 }
 
-function deletePost(idPost, idSujet) {
+function deletePost(idPost, idSujet, idUtilisateur) {
     if (confirm("Voulez vous vraiment supprimer (action irréversible) ?") == true) {
-        window.location.href = "./res/php/deletePost.php?idPost=" + idPost + "&idSujet=" + idSujet;
+        window.location.href = "./res/php/deletePost.php?idPost=" + idPost + "&idSujet=" + idSujet + "&idUtilisateur=" + idUtilisateur;
     }
 }
 

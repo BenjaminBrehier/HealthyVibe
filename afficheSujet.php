@@ -2,7 +2,7 @@
 include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté
-if (!isset($_SESSION['utilisateur'])) {
+if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
     header("Location: ./index.php");
     exit();
 } 
@@ -105,7 +105,7 @@ $posts = array();
                         <?php
                         if ($_SESSION['utilisateur']->getRole() || $_SESSION['utilisateur']->getRole() == $row->idUtilisateur) {
                             ?>
-                            <button onclick="deletePost(<?php echo $row->idPost.','.$idSujet; ?>)">Supprimer</button>
+                            <button onclick="deletePost(<?php echo $row->idPost.','.$idSujet.','.$row->idUtilisateur; ?>)">Supprimer</button>
                             <?php
                         }
                         ?>

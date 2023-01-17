@@ -6,6 +6,10 @@ $idSujet = mysqli_escape_string($co, htmlspecialchars($_GET['idSujet']));
 $contenu = mysqli_escape_string($co, htmlspecialchars($_POST['contenu']));
 $idPostReponse = mysqli_escape_string($co, htmlspecialchars($_POST['idPost']));
 
+if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
+    header("Location: ./index.php");
+    exit();
+} 
 $idUtilisateur = $_SESSION['utilisateur']->getId();
 
 $date = date('Y-m-d H:i:s');

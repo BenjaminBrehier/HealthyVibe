@@ -12,7 +12,11 @@ session_start();
 </head>
 <body>
     <?php
-    include './res/php/header.php';
+    if (isset($_SESSION['utilisateur']) && ($_SESSION['utilisateur'] instanceof Utilisateur)) {
+        include './res/php/header.php';
+    } else {
+        include './res/php/headerVisiteur.php';
+    }
     ?>
     <h1>HealthyVibe</h1>
     <section id="fonctions">
