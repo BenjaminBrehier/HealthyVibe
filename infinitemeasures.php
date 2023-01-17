@@ -1,4 +1,5 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -11,7 +12,7 @@ session_start();
 </head>
 <body>
     <?php
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['utilisateur'])) {
             include './res/php/header.php';
         } else {
             include './res/php/headerVisiteur.php';

@@ -1,7 +1,7 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
-require_once("./res/php/fonctions.php");
-if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
+if (!isset($_SESSION['utilisateur']) || $_SESSION['utilisateur']->getRole() != 1) {
     header("Location: ./index.php");
     exit();
 } 

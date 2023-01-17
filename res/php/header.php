@@ -21,11 +21,11 @@
         </div>
         <nav>
             <ul class="menu">
-                <li><a href="#"><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']?></a>
+                <li><a href="#"><?php echo $_SESSION['utilisateur']->getPrenom().' '.$_SESSION['utilisateur']->getNom()?></a>
                     <ul class="sous-menu">
                         <a href="./profil.php"><li>Profil</li></a>
                         <?php 
-                        if ($_SESSION['role']) {
+                        if ($_SESSION['utilisateur']->getRole()) {
                             ?>
                             <a href="./adminPanel.php?onglet=Utilisateurs"><li>Panel Admin</li></a>
                             <?php
