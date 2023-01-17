@@ -84,7 +84,7 @@ $posts = array();
                         if ($row->idReponse != null) {
                             $tab = explode('|', $posts[$row->idReponse]);
                             ?>
-                            <div class="reponse" style="border-left: 3px solid <?php echo getColor($tab[0]);?>;">
+                            <div class="reponse" name="<?php echo $row->idReponse;?>" style="border-left: 3px solid <?php echo getColor($tab[0]);?>;">
                                 <p style="color: <?php echo getColor($tab[0]);?>;"><?php echo $tab[0]?></p>
                                 <p><?php echo $tab[1]?></p>
                                 <p><?php echo $tab[2]?></p>
@@ -103,7 +103,7 @@ $posts = array();
                         }
                         ?>
                         <?php
-                        if ($_SESSION['utilisateur']->getRole() || $_SESSION['utilisateur']->getRole() == $row->idUtilisateur) {
+                        if ($_SESSION['utilisateur']->getRole() || $_SESSION['utilisateur']->getId() == $row->idUtilisateur) {
                             ?>
                             <button onclick="deletePost(<?php echo $row->idPost.','.$idSujet.','.$row->idUtilisateur; ?>)">Supprimer</button>
                             <?php
