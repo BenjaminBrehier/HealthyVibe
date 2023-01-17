@@ -74,7 +74,7 @@ if (isset($_SESSION['utilisateur']) && $_SESSION['utilisateur'] instanceof Utili
             </div>
                 
                 <div class='info'>
-                    <a href="CGU.php" id='CGU'>Veuillez consultez les conditions d'utilisation du casque. pour toute réservation faite, nous considérons que vous avez accepté ces conditions. </a>
+                    <a href="Casque_CGU.php" id='CGU'>Veuillez consultez les conditions d'utilisation du casque. pour toute réservation faite, nous considérons que vous avez accepté ces conditions. </a>
                 </div>
 
                 <input type='submit' value='Réserver' id='boutton'>
