@@ -172,6 +172,8 @@ padding:30px;
     width: 100%;
     margin-bottom: 50px;
     font-size: 25px; 
+    text-align: justify;
+    padding-right:15px;
     
   }
 
@@ -179,6 +181,7 @@ padding:30px;
     width: 100%;
     margin-bottom: 25px;
     font-size: 25px; 
+    text-align: justify;
   }
   
   #fonctions .container1 img {
