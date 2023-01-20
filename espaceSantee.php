@@ -115,19 +115,19 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                 type: 'line'
             },
             title: {
-                text: ''
+                text: 'Rythme cardiaque'
             },
             xAxis: {
                 categories: ['temps (en heure)']
             },
             yAxis: {
                 title: {
-                    text: 'taux en Co2'
+                    text: 'battemment par min'
                 }
             },
             series: [{
-                name: 'Co2',
-                data: [22, 16, 20]
+                name: 'BPM',
+                data: [70, 76, 78]
             }]
         });
     });</script></div>
