@@ -87,7 +87,7 @@
             <form action="./profil.php?type=inscription" method="POST" enctype="multipart/form-data">
                 <div class="photoprofil">
                     <input type="file" name="picture" value="" onchange="previewPicture(this)" required >
-                    <img src="./res/img/profil/<?php echo $_SESSION['utilisateur']->getId();?>.png" alt="Image de profil" id="image" width="190px" height="200px">
+                    <img src="./res/img/profil/<?php echo $_SESSION['utilisateur']->getId();?>.png" alt="Image de profil" id="image" width="50%">
                 </div>
                 <div class="champ">
                     <label for="fname">Nom:</label>
