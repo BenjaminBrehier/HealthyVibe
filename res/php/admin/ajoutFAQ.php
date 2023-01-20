@@ -18,6 +18,6 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
 } 
 
 $req = $co->query("INSERT INTO FAQ(question,reponse) VALUES('$question','$reponse')"); 
-header("Location: ../../adminPanel.php?onglet=FAQ");
+header("Location: ../../../adminPanel.php?onglet=FAQ");
 exit();
 ?>
