@@ -2,6 +2,9 @@
 if (file_exists("./res/php/Utilisateur.php")) {
     include("./res/php/Utilisateur.php");
 }
+else if (file_exists("../Utilisateur.php")) {
+    include("../Utilisateur.php");
+}
 else {
     include("./Utilisateur.php");
 }
