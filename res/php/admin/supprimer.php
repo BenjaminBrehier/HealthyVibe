@@ -19,7 +19,7 @@ if ($table=='tipsEco'){
 
 else if ($table=='FAQ'){
     $req = $co->query("DELETE FROM $table WHERE idFAQ=$idT"); 
-    header("Location: ../../../adminPanel.php?onglet=FAQ");
+    header("Location: ../../../../adminPanel.php?onglet=FAQ");
 }
 
 
