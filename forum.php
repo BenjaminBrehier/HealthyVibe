@@ -33,7 +33,7 @@ $sujets = array();
         </div>
         <div class="container">
             <div id="left">
-                <input type="text" placeholder="Rechercher un sujet">
+                <input list="forumList" type="text" oninput="getSuggestions(1)" id="search" placeholder="Rechercher un sujet">
                 <div id="contenu">
                     <?php
                     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -60,7 +60,7 @@ $sujets = array();
                     }
                     else {
                         //! Requete récupérant chaque sujets du forum et l'auteur
-                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.nom FROM `SUJET` S NATURAL JOIN UTILISATEUR U ORDER BY datecreation;"); 
+                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.username FROM `SUJET` S NATURAL JOIN UTILISATEUR U ORDER BY datecreation;"); 
                         while ($row = $result->fetch_object()) {
                             if($row->status) {
                                 $titre = $row->titre . " [Résolu]";
@@ -72,7 +72,7 @@ $sujets = array();
                             ?>
                             <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
                                 <h2><?php echo $titre;?></h2>
-                                <p>Par <?php echo $row->nom;?> le <?php echo $date; ?> - 0 posts</p>
+                                <p>Par <?php echo $row->username;?> le <?php echo $date; ?> - 0 posts</p>
                             </div>
                             <?php
                         }
@@ -112,4 +112,5 @@ $sujets = array();
         include './res/php/footer.php';
     ?>
 </body>
+<script src="./res/js/autoComplete.js"></script>
 </html>

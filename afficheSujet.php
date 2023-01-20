@@ -6,7 +6,6 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     header("Location: ./index.php");
     exit();
 } 
-require_once("./res/php/fonctions.php");
 if (isset($_GET['idSujet'])) {
     $idSujet = $_GET['idSujet'];
 }
@@ -68,15 +67,15 @@ $posts = array();
         <div class="container">
             <?php 
             $i = 0;
-            $result = $co->query("SELECT idPost, date, contenu, U.prenom, P.idUtilisateur, idReponse FROM POST P INNER JOIN SUJET S ON S.idSujet = P.idSujet INNER JOIN UTILISATEUR U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
+            $result = $co->query("SELECT idPost, date, contenu, U.username, P.idUtilisateur, idReponse FROM POST P INNER JOIN SUJET S ON S.idSujet = P.idSujet INNER JOIN UTILISATEUR U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
             while ($row = $result->fetch_object()) {
                 $i++;
-                $posts[$row->idPost] = $row->prenom.'|'.$row->date.'|'.$row->contenu;
+                $posts[$row->idPost] = $row->username.'|'.$row->date.'|'.$row->contenu;
                 $date = date("d-m-Y H:i:s", strtotime($row->date));
                 ?>
-                <div class="post" id="<?php echo $row->idPost; ?>" style="border-left: 3px solid <?php echo getColor($row->prenom);?>;">
+                <div class="post" id="<?php echo $row->idPost; ?>" style="border-left: 3px solid <?php echo getColor($row->username);?>;">
                     <div class="profil">
-                        <p style="color: <?php echo getColor($row->prenom);?>;"><?php echo $row->prenom;?></p>
+                        <p style="color: <?php echo getColor($row->username);?>;"><?php echo $row->username;?></p>
                     </div>
                     <div class="contenu">
                         <p class="date"><?php echo $date;?></p>
