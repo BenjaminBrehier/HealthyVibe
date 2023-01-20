@@ -67,6 +67,7 @@ table a {
   display:flex;
   flex-direction:row;
   margin-top:5px;
+  height:100px;
 }
 
 .ajout .inputnew {

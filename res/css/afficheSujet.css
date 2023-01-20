@@ -45,13 +45,6 @@ section .container .post {
     padding: 1%;
 }
 
-section .container .post:hover {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    transition: 1s;
-}
-
 section .profil {
     display: flex;
     flex-direction: column;
@@ -78,6 +71,7 @@ section .container .post .contenu .reponse {
     padding: 1%;
     margin-top: 1px;
     margin-bottom: 1px;
+    cursor: pointer;
 }
 
 section .container .post .items {
@@ -92,6 +86,7 @@ section .container .post button {
     padding: 1px;
     margin-top: 1%;
     margin-right: 2%;
+    cursor: pointer;
 }
 
 section form {

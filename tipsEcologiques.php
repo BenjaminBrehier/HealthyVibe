@@ -1,5 +1,6 @@
-<?php session_start();
-require_once("./res/php/fonctions.php");
+<?php
+    include './res/php/fonctions.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@ require_once("./res/php/fonctions.php");
 
     <body>
         <?php
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['utilisateur']) && $_SESSION['utilisateur'] instanceof Utilisateur) {
             include './res/php/header.php'; 
         } else {
             include './res/php/headerVisiteur.php';
@@ -37,10 +38,7 @@ require_once("./res/php/fonctions.php");
                         $result = $co->query("SELECT * FROM TIPSECO");
                         while ($row = $result->fetch_object()) {
                         ?> 
-                        <div class='tips'>
-                            <p><?php echo $row->contenu?></p>
-                            <a href="<?php echo $row->lienVideo?>"></a>
-                        </div>
+                        <a href="<?php echo $row->lienVideo?>"class='tips'><?php echo $row->contenu?></a>
                         <?php
                         }
                         ?> 

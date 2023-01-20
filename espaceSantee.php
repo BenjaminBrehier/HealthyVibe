@@ -1,7 +1,8 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
     header("Location: ./index.php");
     exit();
 }

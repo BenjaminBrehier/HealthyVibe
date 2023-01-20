@@ -1,7 +1,7 @@
 <?php
+include './res/php/fonctions.php';
 session_start();
-require_once("./res/php/fonctions.php");
-if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
+if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || $_SESSION['utilisateur']->getRole() != 1) {
     header("Location: ./index.php");
     exit();
 } 
@@ -79,10 +79,10 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         if (isset($_GET['onglet'])&& $_GET['onglet']=='Lieux') {
             ?>
         <h1>Lieux de vente des casques HealthyVibe</h1>
-        <div class='ajout'>
-            <input type='text' placeholder='Nouveau lieu de vente' class='inputnew' required>      
-            <a class='boutonModification' href=''>Ajouter un lieu de vente</a>
-        </div>
+        <form class='ajout' action='./res/php/admin/ajoutLieu.php' method='post'>
+            <input type='text' name='lieu' placeholder='Nouveau lieu de vente' class='inputnew' required>      
+            <input type='submit' class='boutonModification' value='Ajouter un lieu de vente'>
+        </form>
         <table>
             <tr>
                 <th>Adresse</th>
@@ -114,18 +114,18 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
                 <th>Nom utilisateur</th>
                 <th>Prénom utilisateur</th>
                 <th>Date d'achat</th>
-                <th>Etat</th>
+                <th>Actif</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT nom,prenom,idCasque,dateachat FROM utilisateur INNER JOIN casque ON utilisateur.idUtilisateur=casque.idUtilisateur");
+            $result = $co->query("SELECT nom,prenom,idCasque,dateachat, actif FROM Utilisateur INNER JOIN casque ON utilisateur.idUtilisateur=casque.idUtilisateur");
             while ($row = $result->fetch_object()) {
             ?> <tr>
                     <td><?php echo $row->idCasque; ?></td>
                     <td><?php echo $row->nom; ?></td>
                     <td><?php echo $row->prenom; ?></td>
                     <td><?php echo $row->dateachat; ?></td>
-                    <td><?php echo $row->dateachat; ?></td>
+                    <td><?php if($row->actif) { ?> <button onclick="window.location.href = './res/php/desactiverCasque.php?actif=0&idCasque=<?php echo $row->idCasque;?>'">Oui</button> <?php } else { ?> <button onclick="window.location.href = './res/php/desactiverCasque.php?actif=1&idCasque=<?php echo $row->idCasque;?>'">Non</button> <?php } ?></td>
                 </tr>
             <?php
             }
@@ -176,11 +176,11 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         if (isset($_GET['onglet'])&& $_GET['onglet']=='FAQ') {
             ?>
         <h1>Question / réponses de la FAQ</h1>
-        <div class='ajout'>
-            <textarea type='text' placeholder='Question' class='inputnew' required></textarea>           
-            <textarea type='text' placeholder='Réponse' class="inputnew" required></textarea>      
-            <a class='boutonModification' href=''>Ajouter une nouvelle question/réponse</a>
-        </div>
+        <form action='./res/php/admin/ajoutFAQ.php' class='ajout' method='post'>
+            <textarea type='text' name='question' placeholder='Question' class='inputnew' required></textarea>           
+            <textarea type='text' name='reponse' placeholder='Réponse' class="inputnew" required></textarea>      
+            <input type='submit' class='boutonModification' value='Ajouter une nouvelle question/réponse' >
+        </form>
 
         <table>
             <tr>
@@ -197,7 +197,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
                     <td><?php echo $row->idFaq; ?></td>
                     <td><?php echo $row->question; ?></td>
                     <td><?php echo $row->reponse; ?></td>
-                    <td><a href=''>X</a></td>
+                    <td><a href='./res/php/admin/supprimer.php?idT=<?php echo $row->idFaq;?>&table=FAQ'>X</a></td>
                 </tr>
             <?php
             }
@@ -212,18 +212,18 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
         if (isset($_GET['onglet'])&& $_GET['onglet']=='TipsEcologiques') {
         ?>
         <h1>Liste des tips écologiques</h1>
-        <div class='ajout'>
-            <input type='text' placeholder='Tips' class='inputnew' required>           
-            <input type='text' placeholder='Lien Video' id="Lien">
-            <a class='boutonModification' href=''>Ajouter un Tips écologique</a>
-        </div>
+        <form class='ajout' action='./res/php/admin/ajoutTips.php' method='post'>
+            <input type='text' placeholder='Tips' class='inputnew' name='tips' required>           
+            <input type='text' placeholder='Lien Video' id="Lien" name='lienTips'>
+            <input type='submit' class='boutonModification' value='Ajouter un Tips écologique'>
+        </form>
         <table>
             <tr>
                 <th class='idChamp'>idTips</th>
                 <th>Tips</th>
                 <th>Lien vidéo</th>
                 <th class="Supprimer">Supprimer</th>
-            </tr>
+            </tr> 
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
             $result = $co->query("SELECT * FROM tipsEco");
@@ -232,7 +232,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] != 1) {
                     <td><?php echo $row->idTips; ?></td>
                     <td><?php echo $row->contenu; ?></td>
                     <td><?php echo $row->lienVideo; ?></td>
-                    <td>X</td>
+                    <td><a href='./res/php/admin/supprimer.php?idT=<?php echo $row->idTips;?>&table=tipsEco'>X</a></td>
             <?php
             }
             ?> 
