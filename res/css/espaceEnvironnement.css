@@ -76,28 +76,25 @@ section {
 }
 
 /*=====================================Partie 2=================================================================*/
+#partie2-LSV{
+    display: flex;
+    flex-direction: row;
+}
 #partie2{
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    width: 70%;
     padding-top: 25px;
     padding-bottom: 100px;
     padding-left:10px;
 }
 
-#graph{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.graph1 {
-    display:flex;
-    width:300px;
-    height:300px;
-    margin-bottom:25px;
+#graphique{
+    margin-left: 50px;
+    width:50%; 
+    height:400px;
 }
 
 .icone{
@@ -109,9 +106,8 @@ section {
     display: flex;
     flex-direction:row;
     align-items: center;
-    justify-content: space-around;
     padding-right:50px;
-    margin-right: 50px;
+    margin-left: 270px;
 }
 
 #pres p{
@@ -128,14 +124,14 @@ section {
 } 
 .btn{
     margin-top: 20px;
-    margin-left: 60px;
+    margin-left: 280px;
     padding-top:5px;
     padding-bottom:5px;
     color: black;
     background-color: #30E87A;
     border: 0;
     border-radius: 50px;
-    width: 50%;
+    width: 10%;
     font-size: 17px;
 
 }

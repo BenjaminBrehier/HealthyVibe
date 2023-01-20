@@ -15,6 +15,7 @@ if (!isset($_SESSION['id'])) {
     <title>HealthyVibe</title>
     <link rel="stylesheet" href="res/css/espaceEnvironnement.css">
     <script src="res/js/script.js"></script>
+    <script src="res/js/code/highcharts.js"></script>
 </head>
 
 <body>
@@ -42,9 +43,32 @@ if (!isset($_SESSION['id'])) {
                     <input type="button" class="enSavoirPlus" name="enSavoirPlus" value="Afficher les statistiques">
                 </div>
             </div>
+            <div id="partie2-LSV">
             <div id="partie2">
-                <div id="graph">
-                    <img src="./res/img/graph.png" alt="graph1" class='graph1'>
+
+                <div id="graphique">
+                    <script>document.addEventListener('DOMContentLoaded', function () {
+        const chart = Highcharts.chart('graphique', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Taux de Co2 autour de vous'
+            },
+            xAxis: {
+                categories: ['temps (en heure)']
+            },
+            yAxis: {
+                title: {
+                    text: 'taux en Co2'
+                }
+            },
+            series: [{
+                name: 'Co2',
+                data: [22, 16, 20]
+            }]
+        });
+    });</script></div>
                     <div id="pres">
                         <img class=icone src="./res/img/bouteille-de-gaz.png" alt="idéogramme bouteille de gaz">
                         <p><strong>34%</strong></p>
@@ -59,8 +83,7 @@ if (!isset($_SESSION['id'])) {
                     </p>
                 </div>
             </div>
-
-        </div>
+</div>
     </section>
     <?php
     include './res/php/footer.php';

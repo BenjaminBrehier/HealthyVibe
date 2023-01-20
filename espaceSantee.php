@@ -15,6 +15,7 @@ if (!isset($_SESSION['id'])) {
     <title>Espace Santé : HealthyVibe</title>
     <link rel="stylesheet" href="res/css/espaceSantee.css">
     <script src="res/js/script.js"></script>
+    <script src="res/js/code/highcharts.js"></script>
 </head>
 
 <body>
@@ -46,7 +47,29 @@ if (!isset($_SESSION['id'])) {
 
             <div id="partie2">
                 <div id="graph1">
-                    <img class="graph" src="./res/img/graph.png" alt="graph 1">
+                <div id="graphique1">
+                    <script>document.addEventListener('DOMContentLoaded', function () {
+        const chart = Highcharts.chart('graphique1', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Température'
+            },
+            xAxis: {
+                categories: ['temps (en heure)']
+            },
+            yAxis: {
+                title: {
+                    text: 'température (en °C)'
+                }
+            },
+            series: [{
+                name: 'température',
+                data: [8, 6, 3]
+            }]
+        });
+    });</script></div>
                     <div id="pres">
                         <img class=icone src="./res/img/temperature.png" alt="idéogramme thermomètre">
                         <p><strong>37°C</strong></p>
@@ -54,7 +77,29 @@ if (!isset($_SESSION['id'])) {
                     <input type="button" class="btn" value="Tableau">
                 </div>
                 <div id="graph2">
-                    <img class="graph" src="./res/img/graph.png" alt="graph 2">
+                <div id="graphique2">
+                    <script>document.addEventListener('DOMContentLoaded', function () {
+        const chart = Highcharts.chart('graphique2', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Niveau sonore'
+            },
+            xAxis: {
+                categories: ['temps (en heure)']
+            },
+            yAxis: {
+                title: {
+                    text: 'niveau (en Db)'
+                }
+            },
+            series: [{
+                name: 'Db',
+                data: [68, 85, 79]
+            }]
+        });
+    });</script></div>
                     <div id="pres">
                         <img class=icone src="./res/img/headphones.png" alt="idéogramme casque">
                         <p><strong>79 db</strong></p>
@@ -62,7 +107,29 @@ if (!isset($_SESSION['id'])) {
                     <input type="button" class="btn" value="Tableau">
                 </div>
                 <div id="graph3">
-                    <img class="graph" src="./res/img/graph.png" alt="graph 3">
+                <div id="graphique3">
+                    <script>document.addEventListener('DOMContentLoaded', function () {
+        const chart = Highcharts.chart('graphique3', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['temps (en heure)']
+            },
+            yAxis: {
+                title: {
+                    text: 'taux en Co2'
+                }
+            },
+            series: [{
+                name: 'Co2',
+                data: [22, 16, 20]
+            }]
+        });
+    });</script></div>
                     <div id="pres">
                         <img class=icone src="./res/img/heart.png" alt="idéogramme coeur">
                         <p><strong>85 BPM</strong></p>
