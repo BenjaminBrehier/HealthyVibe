@@ -36,6 +36,26 @@ class Utilisateur {
         $this->dateBanFin = $row->dateBanFin;
     }
 
+    public function update() {
+        $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        $result = $co->query("SELECT * FROM utilisateur WHERE idUtilisateur = $this->id");
+        $row = $result->fetch_object();
+        $this->id = $row->idUtilisateur;
+        $this->nom = $row->nom;
+        $this->prenom = $row->prenom;
+        $this->username = $row->username;
+        $this->mail = $row->email;
+        $this->mdp = $row->mdp;
+        $this->role = $row->role;
+        $this->tel = $row->tel;
+        $this->adresse = $row->adresse;
+        $this->codepostal = $row->codepostal;
+        $this->datenaissance = $row->datenaissance;
+        $this->banni = $row->banni;
+        $this->dateBanDebut = $row->dateBanDebut;
+        $this->dateBanFin = $row->dateBanFin;
+    }
+
     public function getId() {
         return $this->id;
     }

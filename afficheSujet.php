@@ -103,7 +103,7 @@ $posts = array();
                         }
                         ?>
                         <?php
-                        if ($_SESSION['utilisateur']->getRole() || $_SESSION['utilisateur']->getId() == $row->idUtilisateur) {
+                        if ($_SESSION['utilisateur']->getRole() || ($_SESSION['utilisateur']->getId() == $row->idUtilisateur && !$statusSujet)) {
                             ?>
                             <button onclick="deletePost(<?php echo $row->idPost.','.$idSujet.','.$row->idUtilisateur; ?>)">Supprimer</button>
                             <?php

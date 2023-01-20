@@ -132,3 +132,10 @@ function reactiverCompte(idUtilisateur) {
         window.location.href = "./res/php/reactiverCompte.php?idUtilisateur=" + idUtilisateur;
     }
 }
+
+//!Fonction permettant de rendre inactif un casque
+function rendreInactif(idCasque) {
+    if (confirm("Voulez vous vraiment rendre inactif ce casque ?") == true) {
+        window.location.href = "./res/php/rendreInactif.php?idCasque=" + idCasque;
+    }
+}

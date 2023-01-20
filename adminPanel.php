@@ -114,18 +114,18 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                 <th>Nom utilisateur</th>
                 <th>Prénom utilisateur</th>
                 <th>Date d'achat</th>
-                <th>Etat</th>
+                <th>Actif</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT nom,prenom,idCasque,dateachat FROM utilisateur INNER JOIN casque ON utilisateur.idUtilisateur=casque.idUtilisateur");
+            $result = $co->query("SELECT nom,prenom,idCasque,dateachat, actif FROM Utilisateur INNER JOIN casque ON utilisateur.idUtilisateur=casque.idUtilisateur");
             while ($row = $result->fetch_object()) {
             ?> <tr>
                     <td><?php echo $row->idCasque; ?></td>
                     <td><?php echo $row->nom; ?></td>
                     <td><?php echo $row->prenom; ?></td>
                     <td><?php echo $row->dateachat; ?></td>
-                    <td><?php echo $row->dateachat; ?></td>
+                    <td><?php if($row->actif) { ?> <button onclick="window.location.href = './res/php/desactiverCasque.php?actif=0&idCasque=<?php echo $row->idCasque;?>'">Oui</button> <?php } else { ?> <button onclick="window.location.href = './res/php/desactiverCasque.php?actif=1&idCasque=<?php echo $row->idCasque;?>'">Non</button> <?php } ?></td>
                 </tr>
             <?php
             }

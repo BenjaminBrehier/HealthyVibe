@@ -32,12 +32,24 @@
             }
             if (strcmp($password1, $password2) == 0) {
                 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                $id = $_SESSION['utilisateur'];
+                $id = $_SESSION['utilisateur']->getId();
                 $result = $co->query("UPDATE utilisateur SET nom ='$nom' , prenom = '$prenom' , email ='$mail', mdp ='$hashedmdp', tel ='$tel', adresse ='$adresse', codepostal ='$codePostal', datenaissance ='$dateNaissance' WHERE idUtilisateur = $id;");
+                $co->close();
+                //Enregistrer l'image de profil dans le dossier img/profil/idUtilisateur.jpg si une image comporte le même nom, la remplacer par la nouvelle image
+                if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {
+                    if ($_FILES['picture']['size'] <= 1000000) {
+                        $infosfichier = pathinfo($_FILES['picture']['name']);
+                        $extension_upload = $infosfichier['extension'];
+                        $extensions_autorisees = array('jpg', 'jpeg', 'png');
+                        if (in_array($extension_upload, $extensions_autorisees)) {
+                            move_uploaded_file($_FILES['picture']['tmp_name'], './res/img/profil/' . $id . '.' . $extension_upload);
+                        }
+                    }
+                }
+                $_SESSION['utilisateur']->update();
             }else{
-            $testvar = "Les mots de passe ne sont pas identiques. Veuillez rééssayer.";
+                $testvar = "Les mots de passe ne sont pas identiques. Veuillez rééssayer.";
             }
-    
         }
         
         else{
@@ -72,10 +84,10 @@
         <div class='espaceProfil'>
             <p class="titre"> Mon profil</p>
     
-            <form action="./profil.php?type=inscription" method="POST">
+            <form action="./profil.php?type=inscription" method="POST" enctype="multipart/form-data">
                 <div class="photoprofil">
-                    <input type="file" name="picture" onchange="previewPicture(this)" required >
-                    <img src="#" alt="" id="image" width="190px" height="200px">
+                    <input type="file" name="picture" value="" onchange="previewPicture(this)" required >
+                    <img src="./res/img/profil/<?php echo $_SESSION['utilisateur']->getId();?>.png" alt="Image de profil" id="image" width="190px" height="200px">
                 </div>
                 <div class="champ">
                     <label for="fname">Nom:</label>
