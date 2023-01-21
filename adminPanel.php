@@ -31,7 +31,8 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
         if (isset($_GET['onglet'])&& $_GET['onglet']=='Utilisateurs') {
             ?>
         <h1>Liste des utilisateurs</h1>
-        <table>
+        <input type="text" oninput="getSuggestions(2)" id="searchUtilisateur" placeholder="Rechercher un utilisateur par son nom">
+        <table id="Utilisateurs">
             <tr>
                 <th>idUtilisateur</th>
                 <th>Nom</th>
@@ -65,7 +66,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                     <td></td>
                     <td><?php echo $row->dateBanDebut; ?></td>
                     <td><?php echo $row->dateBanFin; ?></td>
-                    <td><input type="button" value="<?php if($row->banni) {echo 'activer" onclick="reactiverCompte('.$row->idUtilisateur.')';} else {echo 'désactiver" onclick="desactiverCompte('.$row->idUtilisateur.')';} ?>"></td>
+                    <td><input class="supp" type="button" value="<?php if($row->banni) {echo 'activer" onclick="reactiverCompte('.$row->idUtilisateur.')';} else {echo 'désactiver" onclick="desactiverCompte('.$row->idUtilisateur.')';} ?>"></td>
                 </tr>
             <?php
             }
@@ -76,7 +77,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                 ?>
 
         <?php 
-        if (isset($_GET['onglet'])&& $_GET['onglet']=='Lieux') {
+        if (isset($_GET['onglet'])&& $_GET['onglet']=='lieuvente') {
             ?>
         <h1>Lieux de vente des casques HealthyVibe</h1>
         <form class='ajout' action='./res/php/admin/ajoutLieu.php' method='post'>
@@ -90,11 +91,11 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT * FROM lieuvente");
+            $result = $co->query("SELECT * FROM lieuvente ORDER BY lieu DESC");
             while ($row = $result->fetch_object()) {
             ?> <tr>
                     <td><?php echo $row->lieu; ?></td>
-                    <td><a href="<?php echo $row->idLieu; ?>">X</a></td>
+                    <td><a class="supp" href='./res/php/admin/supprimer.php?idT=<?php echo $row->idLieu;?>&table=lieuvente'>X</a></td>
                 </tr>
             <?php
             }
@@ -139,13 +140,14 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
         if (isset($_GET['onglet'])&& $_GET['onglet']=='Forum') {
             ?>
         <h1>Liste des sujets</h1>
-        <table>
+        <input type="text" oninput="getSuggestions(3)" id="searchForum" placeholder="Rechercher un sujet par son titre">
+        <table id="Sujets">
             <tr>
                 <th>idSujet</th>
                 <th>Titre</th>
                 <th>Date de création</th>
-                <th>Date de modification</th>
                 <th>Statut</th>
+                <th>Nombre de post</th>
                 <th></th>
                 <th>Fermer</th>
                 <th>Supprimer</th>
@@ -153,18 +155,17 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT * FROM sujet");
-            $admin = 'admin';
+            $result = $co->query("SELECT S.idSujet, S.titre, S.datecreation, S.status, S.idUtilisateur, (SELECT DISTINCT COUNT(*) FROM post P WHERE P.idSujet = S.idSujet) as nbPost FROM sujet S ORDER BY S.datecreation DESC");
             while ($row = $result->fetch_object()) {
             ?> <tr>
                     <td><?php echo $row->idSujet; ?></td>
                     <td><?php echo $row->titre; ?></td>
                     <td><?php echo $row->datecreation; ?></td>
-                    <td><?php echo $row->datemodification; ?></td>
                     <td><?php if($row->status) {echo 'Résolu';} else {echo 'Non résolu';} ?></td>
+                    <td><?php echo $row->nbPost; ?></td>
                     <td></td>
                     <td><?php if(!$row->status) {?><button onclick="closeSubject(<?php echo $row->idSujet.','.$row->idUtilisateur.',0'?>)">Fermer</button><?php } ?></td>
-                    <td><button onclick="deleteSubject(<?php echo $row->idSujet.',0';?>)">X</button></td>
+                    <td><button class="supp" onclick="deleteSubject(<?php echo $row->idSujet.',0';?>)">X</button></td>
             <?php
             }
             ?> 
@@ -197,7 +198,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                     <td><?php echo $row->idFaq; ?></td>
                     <td><?php echo $row->question; ?></td>
                     <td><?php echo $row->reponse; ?></td>
-                    <td><a href='./res/php/admin/supprimer.php?idT=<?php echo $row->idFaq;?>&table=FAQ'>X</a></td>
+                    <td><a class="supp" href='./res/php/admin/supprimer.php?idT=<?php echo $row->idFaq;?>&table=FAQ'>X</a></td>
                 </tr>
             <?php
             }
@@ -232,7 +233,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                     <td><?php echo $row->idTips; ?></td>
                     <td><?php echo $row->contenu; ?></td>
                     <td><?php echo $row->lienVideo; ?></td>
-                    <td><a href='./res/php/admin/supprimer.php?idT=<?php echo $row->idTips;?>&table=tipsEco'>X</a></td>
+                    <td><a class="supp" href='./res/php/admin/supprimer.php?idT=<?php echo $row->idTips;?>&table=tipsEco'>X</a></td>
             <?php
             }
             ?> 
@@ -245,18 +246,20 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
         <h1>Messagerie avec les utilisateurs</h1>
         <table>
             <tr>
-                <th class='idChamp'>id Utilisateur</th>
-                <th class='idChamp'>Date</th>
+                <th class='idChamp'>id Message</th>
+                <th>Date</th>
+                <th>Mail</th>
                 <th>Contenu</th>
             </tr>
             <?php
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT * FROM messagedirect");
+            $result = $co->query("SELECT M.idMessage, M.date, M.contenu, (SELECT email FROM utilisateur U WHERE U.idUtilisateur = M.idUtilisateur) AS email FROM messagedirect M");
             while ($row = $result->fetch_object()) {
             ?> 
                 <tr>
-                    <td><?php echo $row->idUtilisateur; ?></td>
+                    <td><?php echo $row->idMessage; ?></td>
                     <td><?php echo $row->date; ?></td>
+                    <td><a href="mailto:<?php echo $row->email; ?>"><?php echo $row->email; ?></a></td>
                     <td><?php echo $row->contenu; ?></td>
                 </tr>
             <?php
@@ -274,4 +277,5 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     ?>
 </body>
 <script src="./res/js/script.js"></script>
+<script src="./res/js/autoComplete.js"></script>
 </html>

@@ -54,7 +54,7 @@ $posts = array();
             //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture
             if (($idUtilisateur == $_SESSION['utilisateur']->getId() || $_SESSION['utilisateur']->getRole()) && !$statusSujet) {
                 ?>
-                <button onclick="closeSubject(<?php echo $idSujet.','.$idUtilisateur.',1';?>)">Fermer le sujet</button>
+                <button onclick="closeSubject(<?php echo $idSujet.',1';?>)">Fermer le sujet</button>
                 <?php
             }
             //! Si l'utilisateur est l'admin, on lui permet d'accéder au bouton de suppression

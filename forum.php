@@ -33,7 +33,7 @@ $sujets = array();
         </div>
         <div class="container">
             <div id="left">
-                <input list="forumList" type="text" oninput="getSuggestions(1)" id="search" placeholder="Rechercher un sujet">
+                <input type="text" oninput="getSuggestions(1)" id="search" placeholder="Rechercher un sujet">
                 <div id="contenu">
                     <?php
                     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);

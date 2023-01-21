@@ -74,9 +74,9 @@ function deletePost(idPost, idSujet, idUtilisateur) {
     }
 }
 
-function closeSubject(idSujet, idUtilisateur, from) {
+function closeSubject(idSujet, from) {
     if (confirm("Voulez vous vraiment fermer le sujet (action irréversible) ?") == true) {
-        window.location.href = "./res/php/closeSubject.php?idSujet=" + idSujet + "&idUtilisateur=" + idUtilisateur + "&from=" + from;
+        window.location.href = "./res/php/closeSubject.php?idSujet=" + idSujet + "&from=" + from;
     }
 }
 

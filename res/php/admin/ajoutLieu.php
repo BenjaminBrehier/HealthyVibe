@@ -16,6 +16,6 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
 } 
 
 $req = $co->query("INSERT INTO lieuvente(lieu) VALUES('$lieu')"); 
-header("Location: ../../../adminPanel.php?onglet=Lieux");
+header("Location: ../../../adminPanel.php?onglet=lieuvente");
 exit();
 ?>

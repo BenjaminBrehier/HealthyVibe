@@ -8,7 +8,7 @@
             <a href="./CGU.php">Conditions d'utilisation</a> |
             <a href="./infinitemeasures.php">A propos d'Infinite Measures</a> |
             <a> Nous contacter : 01.23.45.67.89</a> |
-            <a> Email : testContact@gmail.com </a> |
+            Email : <a href="mailto:testContact@gmail.com">testContact@gmail.com</a> |
         </p>
     </div>
 </footer>

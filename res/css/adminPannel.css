@@ -25,6 +25,15 @@ h1 {
   font-style: underline;
 }
 
+input[type=text] {
+  margin-top: 1%;
+  width: 20%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.8em;
+}  
+
 table {
   margin-top: 50px;
   table-layout: fixed;
@@ -39,15 +48,15 @@ table th, td {
   text-align: center;
 }
 
-tbody tr:nth-child(odd) {
+table tr:nth-child(odd) {
   background-color: whitesmoke;
 }
 
-tbody tr:nth-child(even) {
+table tr:nth-child(even) {
   background-color: white;
 }
 
-table a {
+table .supp {
   text-decoration: none;
   color: red;
 }
