@@ -39,9 +39,9 @@ session_start();
     <div class="infinites1"> 
         <div class='info1'>
             <h3>Données et Usage</h3>
-            <p> L'acquisition des données se fait grâce à des capteurs qui sont installés sur le casque. Ainsi ils prennent des mesures sur la qualité de votre milieu (la température, l'humidité, la fréquence cardiaque, le débit sonore et la teneur en monoxyde de carbone) permettant à l'individu d'apprécier son milieu. En plus, vous pouvez user de votre casque pour écoter tous vos fichiers audios et passer des appels avec un . </p>
+            <p> L'acquisition des données se fait grâce à des capteurs qui sont installés sur le casque. Ainsi ils prennent des mesures sur la qualité de votre milieu (la température, l'humidité, la fréquence cardiaque, le débit sonore et la teneur en monoxyde de carbone) permettant à l'individu d'apprécier son milieu. En plus, vous pouvez user de votre casque pour écouter tous vos fichiers audios et passer des appels avec. </p>
         </div>
-        <img src="./res/img/fonctionnalite_6.jpg" alt="foctionalite6" class="image">
+        <img src="./res/img/fonctionnalite_6.jpg" alt="fonctionalite6" class="image">
     </div>
     </section> 
 
