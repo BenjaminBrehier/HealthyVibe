@@ -24,7 +24,7 @@ h2 {
 }
 
 .espaceInscription {
-  display:flex;
+  display:flex; 
   flex-direction:column;
   justify-content:center;
   border: solid 3px black;
@@ -42,6 +42,8 @@ h2 {
 
 #erreur {
   color: red;
+  font-size:16px;
+  text-align:justify;
 }
 
 .titre{
@@ -93,8 +95,14 @@ form input:not(#cguC) {
     display:flex;
     flex-direction:row;
     align-items:center;
-    font-size:13px;
+    font-size:14px;
     font-style:italic;
+    text-align:left;
+}
+
+#cgutext {
+  padding-top: 8px;
+  padding-bottom:8px;
 }
 
 .boutonSinscrire {
@@ -115,3 +123,9 @@ form input:not(#cguC) {
     border-width: 0px;
 
 }
+
+#DTN {
+  font-family:'Times New Roman', Times, serif;
+  font-size:15px;
+}
+
