@@ -37,6 +37,9 @@ $co->close();
     <link rel="stylesheet" href="res/css/espaceSantee.css">
     <script src="res/js/script.js"></script>
     <script src="res/js/code/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 </head>
 
 <body>
@@ -67,34 +70,31 @@ $co->close();
 
             <div id="partie2">
                 <div id="graph1">
-                    <div id="graphique1">
-                        <!-- Contient le graphique -->
-                    </div>
                     <div id="pres">
                         <img class=icone src="./res/img/temperature.png" alt="idéogramme thermomètre">
                         <p><strong><?php echo $temperature ;?> °C</strong></p>
                     </div>
-                    <input type="button" class="btn" value="Tableau">
-                </div>
-                <div id="graph2">
-                    <div id="graphique2">
+                    <div id="graphique1">
                         <!-- Contient le graphique -->
                     </div>
+                </div>
+                <div id="graph2">
                     <div id="pres">
                         <img class=icone src="./res/img/headphones.png" alt="idéogramme casque">
                         <p><strong><?php echo $decibel ;?> db</strong></p>
                     </div>
-                    <input type="button" class="btn" value="Tableau">
-                </div>
-                <div id="graph3">
-                    <div id="graphique3">
+                    <div id="graphique2">
                         <!-- Contient le graphique -->
                     </div>
+                </div>
+                <div id="graph3">
                     <div id="pres">
                         <img class=icone src="./res/img/heart.png" alt="idéogramme coeur">
                         <p><strong><?php echo $pouls ;?> BPM</strong></p>
                     </div>
-                    <input type="button" class="btn" value="Tableau">
+                    <div id="graphique3">
+                        <!-- Contient le graphique -->
+                    </div>
                 </div>
             </div>
         </div>
