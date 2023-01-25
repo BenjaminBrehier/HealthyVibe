@@ -3,98 +3,154 @@
  /*Structure principale */
 
   h1 {
-   font-size: 30px;
+   font-size: 25px;
    text-align: center;
    background-color: aquamarine;
  }
+
+ h3{
+  font-size: 30px;
+ }
  #fonctions {
-   display: flex;
-   flex-direction: column;
-   color: white;
+  display: flex;
+  width: 100%;
+  color: white;
+  justify-content: space-between;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
  
  }
  
  #fonctions .infinites1 {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
  }
  
  #fonctions .infinites2 {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
  }
  
  
  
  .infinites1, .infinites2{
-   display: flex;
-   height: 400px;
-   justify-content: space-between;
-   align-items:center;
- }
-
- h3 {
-  font-size:27px;
+  display: flex;
+  flex-direction:row;
+  width:100%;
+  justify-content: space-between;
  }
  
- #fonctions .infinites1 p {
-   width: 100%;
-   font-size: 24px; 
-   text-align: justify;
+ #fonctions .infinites1 div p {
+  width: 100%;
+  font-size: 22px; 
+  margin-bottom:25px;
+  margin-right:100px;
  }
-
- #fonctions .infinites2 p {
-   width: 100%;
-   font-size: 24px; 
-   text-align: justify;
+ #fonctions .infinites2 div p {
+  width: 100%;
+  font-size: 22px;
+  margin-bottom:25px; 
+  margin-right:100px;
  }
  
- #fonctions .infinites1  .info1  {
-   width:50%;
-   color:white;
-   margin-left:25px;
-   margin-top:25px;
-   margin-bottom: 25px;
-   justify-content:center;
-   align-items:center;
+ #fonctions .infinites1  div  {
+  width:600px;
+  height: 300px;
+  color:white;
+  margin-top:auto;
+  margin-bottom:auto;
+  padding-left: 75px;
  }
- #fonctions .infinites2  .info2  {
-   width:50%;
-   color:black;
-   margin-right:25px;
-   margin-top:25px;
-   margin-bottom: 25px;
-   }
+ #fonctions .infinites2  div  {
+  width:600px;
+  height: 250px;
+  color:black;
+  margin-top:auto;
+  margin-bottom:auto;
+  padding-right: 100px;
+  padding-left:30px;
+  }
  
  
  #fonctions .infinites1  img{
-  width:auto;
-  height: 90%;
-  margin-top:auto;
-  margin-bottom:auto;
+  width:400px;
+  min-width: 150px;
+  margin-top:25px;
+  margin-bottom:25px;
   margin-right:20px;
+  padding:30px;
  }
-
-
  #fonctions .infinites2  img{
-   width:auto;
-   height: 90%;
-   margin-top:auto;
-   margin-bottom:auto;
-   margin-left:20px;
+  width:400px;
+  min-width: 150px;
+  margin-top:25px;
+  margin-bottom:25px;
+  margin-left:20px;
+  padding:30px;
    }
 
 
    .infinites1:nth-child(odd) {
-      background-color:#2C3033;
-      justify-content: space-between;
-      font:white;
+    background-color:#2C3033;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    font:white;
+    height: fit-content;
     }
     
     .infinites2:nth-child(odd) {
-      background-color:#ffffff;
-      justify-content: space-between;
-      font: #2c3033;;
+    background-color:#ffffff;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    font: #2c3033;
+    height: fit-content;
     }
+
+
+  
+@media (max-width:800px){
+
+  #fonctions .infinites1 div p {
+    width: 90%;
+    margin-top: 20px;
+    font-size: 20px; 
+    text-align: justify;
+    margin-right:10px;
+    
+  }
+
+  #fonctions .infinites2 div p {
+    width: 90%;
+    margin-bottom: 25px;
+    font-size: 20px; 
+    text-align: justify;
+    margin-right:100px;
+  }
+  
+  #fonctions .infinites1 img {
+    width: 80%;
+  }
+
+  #fonctions .infinites2 img {
+    width: 80%;
+    
+  }
+  #fonctions .infinites2  div {
+    justify-content: center;
+    padding-right:10px;
+   
+
+  }
+
+  #fonctions .infinites1  div {
+    justify-content: center;
+    padding-left:10px;
+
+  }
+
+}
