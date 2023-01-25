@@ -156,9 +156,11 @@ INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username
 INSERT INTO HealthyVibe.casque (dateachat, idUtilisateur, actif) VALUES('2023-01-17 15:00:00', 1, 1);
 
 -- Insertion de capteurs "température", "pouls" et "gaz" dans la table Capteurs
-INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature', 1);
+INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature corporelle', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('pouls', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('gaz', 1);
+INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('decibel', 1);
+INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature extérieur', 1);
 
 -- Insertion de données dans la table Donnees
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.5, '2023-01-17 15:00:00', 1);
@@ -169,9 +171,17 @@ INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2023-01-17
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (78, '2023-01-17 15:01:00', 2);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2023-01-17 15:02:00', 2);
 
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (0.5, '2023-01-17 15:00:00', 3);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (0.6, '2023-01-17 15:01:00', 3);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (0.7, '2023-01-17 15:02:00', 3);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (553, '2023-01-17 15:00:00', 3);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (721, '2023-01-17 15:01:00', 3);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (639, '2023-01-17 15:02:00', 3);
+
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2023-01-17 15:00:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2023-01-17 15:01:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2023-01-17 15:02:00', 4);
+
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (16.5, '2023-01-17 15:00:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (15.8, '2023-01-17 15:01:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20.2, '2023-01-17 15:02:00', 5);
 
 INSERT INTO HealthyVibe.lieuvente (lieu) VALUES
 ('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
@@ -186,8 +196,8 @@ INSERT INTO HealthyVibe.faq (`idFaq`, `question`, `reponse`) VALUES
 
 INSERT INTO HealthyVibe.tipseco (idTips,contenu,lienVideo ) VALUES
 (1, 'Consommer des produits locaux pour réduire les émissions de CO2',NULL),
-(2, 'Triez vos déchets pour faciliter le recyclage',NULL),
+(2, 'Triez vos déchets pour faciliter le recyclage', 'https://www.youtube.com/watch?v=rNwtMO_Hay4'),
 (3, 'Favoriser l\'utilisation des transports en commun',NULL),
 (4, 'Se mettre à la marche ou au vélo pour vos courses',NULL),
-(5, 'Transformer les eaux inutilisées pour le maréchage',NULL),
-(6, 'Diminuer votre consommation d\'énergie en utilisant des lampes à basse consommation',NULL);
+(5, 'Transformer les eaux inutilisées pour le maréchage', 'https://www.youtube.com/watch?v=bpUiwa0ei9A'),
+(6, 'Diminuer votre consommation d\'énergie en utilisant des lampes à basse consommation', 'https://www.youtube.com/watch?v=E331tTmy0Hw');
