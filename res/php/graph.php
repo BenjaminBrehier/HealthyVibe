@@ -1,10 +1,10 @@
 <?php
 include './fonctions.php';
 session_start();
-if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || empty($_GET["dateDebut"]) || empty($_GET["dateFin"])) {
-    header("Location: ../../index.php");
-    exit();
-}
+// if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || empty($_GET["dateDebut"]) || empty($_GET["dateFin"])) {
+//     header("Location: ../../index.php");
+//     exit();
+// }
 $dateDebut = $_GET["dateDebut"];
 $dateFin = $_GET["dateFin"];
 $from = $_GET["from"];
@@ -14,13 +14,14 @@ if ($from == "espaceSantee") {
     $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE (capteur.type = 'temperature corporelle' OR capteur.type = 'pouls' OR capteur.type = 'decibel') AND casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." AND donnee.date BETWEEN '$dateDebut' AND '$dateFin' ORDER BY date");
 }
 else {
-    $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE (capteur.type = 'temperature extérieure' OR capteur.type = 'gaz') AND casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." AND donnee.date BETWEEN '$dateDebut' AND '$dateFin' ORDER BY date");
+    $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE (capteur.type = 'temperature extérieure' OR capteur.type = 'gaz' OR capteur.type = 'décibel extérieur') AND casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." AND donnee.date BETWEEN '$dateDebut' AND '$dateFin' ORDER BY date");
 }
 $pouls = array();
 $temperatureCorp = array();
 $decibel = array();
 $gaz = array();
 $temperatureExt = array();
+$decibelExt = array();
 while ($row = $result->fetch_object()) {
     $row->date = date("d-m-Y H:i:s", strtotime($row->date));
     $row->valeur = $row->valeur.'&'.$row->date;
@@ -38,6 +39,9 @@ while ($row = $result->fetch_object()) {
     }
     else if ($row->type == "temperature extérieure") {
         array_push($temperatureExt, $row->valeur);
+    }
+    else if ($row->type == "décibel extérieur") {
+        array_push($decibelExt, $row->valeur);
     }
 }
 
@@ -72,6 +76,13 @@ else {
 
 if (count($gaz) > 0) {
     array_push($array, implode(';',$gaz));
+}
+else {
+    array_push($array, "0");
+}
+
+if (count($decibelExt) > 0) {
+    array_push($array, implode(';',$decibelExt));
 }
 else {
     array_push($array, "0");

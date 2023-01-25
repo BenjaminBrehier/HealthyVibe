@@ -37,6 +37,9 @@ $co->close();
     <link rel="stylesheet" href="res/css/espaceSantee.css">
     <script src="res/js/script.js"></script>
     <script src="res/js/code/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 </head>
 
 <body>
@@ -67,104 +70,31 @@ $co->close();
 
             <div id="partie2">
                 <div id="graph1">
-                    <div id="graphique1">
-                        <!-- Contient le graphique -->
-                    </div>
                     <div id="pres">
                         <img class=icone src="./res/img/temperature.png" alt="idéogramme thermomètre">
                         <p><strong><?php echo $temperature ;?> °C</strong></p>
                     </div>
-                    <input type="button" class="btn" value="Tableau">
-                    <table>
-                <tr>
-                    <th>température sur la surface de la peau</th>
-                    <th>température extérieur</th>
-                    <th>date</th>
-                </tr>
-                <?php
-            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("SELECT valeur, date, type  FROM `donnee` inner join `capteur` on donnee.idCapteur = capteur.idCapteur inner join casque on casque.idCasque = capteur.idCapteur inner join utilisateur on utilisateur.idUtilisateur = casque.idUtilisateur");
-            $temperatureCorps = array();
-            $temperatureExt = array();
-            while ($row = $result->fetch_object()){ 
-                if($row->type == 1) {
-                    array_push($temperatureCorps, $row->valeur);
-                }
-                else if ($row->type == 5){
-                    array_push($temperatureExt, $row->valeur);
-                }
-                for ($i = 0; $i < count($temperatureCorps); $i++){
-                for ($i = 0; $i < count($temperatureExt); $i++){
-            ?>
-                <tr>
-                <td><?php echo $temperatureCorps[$i]; ?></td>
-                    <td><?php echo $temperatureExt[$i]; ?></td>
-                    <td><?php echo $row->date; ?></td>
-                </tr>
-                <?php
-            }}}
-            ?>
-            </table>
-                </div>
-                <div id="graph2">
-                    <div id="graphique2">
+                    <div id="graphique1">
                         <!-- Contient le graphique -->
                     </div>
+                </div>
+                <div id="graph2">
                     <div id="pres">
                         <img class=icone src="./res/img/headphones.png" alt="idéogramme casque">
                         <p><strong><?php echo $decibel ;?> db</strong></p>
                     </div>
-                    <input type="button" class="btn" value="Tableau">
-                    <table>
-                    <tr>
-                        <th>niveau sonore dans le casque</th>
-                        <th>niveau sonore ambiant</th>
-                        <th>date</th>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>37</td>
-                        <td>10/12/2020</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>36</td>
-                        <td>11/12/2020</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>35</td>
-                        <td>12/12/2020</td>
-                    </tr>
-                </table>
-                </div>
-                <div id="graph3">
-                    <div id="graphique3">
+                    <div id="graphique2">
                         <!-- Contient le graphique -->
                     </div>
+                </div>
+                <div id="graph3">
                     <div id="pres">
                         <img class=icone src="./res/img/heart.png" alt="idéogramme coeur">
                         <p><strong><?php echo $pouls ;?> BPM</strong></p>
                     </div>
-                    <input type="button" class="btn" value="Tableau">
-                    <table>
-                <tr>
-                    <th>rythme cardiaque</th>
-                    <th>date</th>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>10/12/2020</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>11/12/2020</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>12/12/2020</td>
-                </tr>
-            </table>
+                    <div id="graphique3">
+                        <!-- Contient le graphique -->
+                    </div>
                 </div>
             </div>
         </div>

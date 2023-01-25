@@ -71,7 +71,7 @@
             </div> 
             
             <div class="checkbox"> 
-                <label for="cguC">Je certifie avoir lu et approuvé les CGU et la politique de confidentialité.    </label>
+                <label for="cguC" id="cgutext">Je certifie avoir lu et approuvé les CGU et la politique de confidentialité.    </label>
                 <input type="checkbox" id="cguC" required>
             </div>
             <div class="boutonSinscrire">
