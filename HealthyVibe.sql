@@ -167,21 +167,67 @@ INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.5, '2023-01-
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (35.8, '2023-01-17 15:01:00', 1);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.6, '2023-01-17 15:02:00', 1);
 
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2023-01-17 15:00:00', 2);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (78, '2023-01-17 15:01:00', 2);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2023-01-17 15:02:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2022-12-17 15:00:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (78, '2022-12-17 15:05:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:10:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:15:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:20:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (68, '2022-12-18 15:25:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (65, '2022-12-18 15:30:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (68, '2022-12-18 15:35:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-18 15:40:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (73, '2022-12-18 15:45:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-19 15:50:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-19 20:00:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (71, '2022-12-19 20:05:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2022-12-19 20:10:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (120, '2022-12-19 20:15:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (118, '2022-12-20 20:20:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (119, '2022-12-20 15:25:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (119, '2022-12-20 15::00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (120, '2022-12-21 15:02:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2022-12-21 15:02:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2022-12-21 15:02:00', 2);
 
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (553, '2023-01-17 15:00:00', 3);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (721, '2023-01-17 15:01:00', 3);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (639, '2023-01-17 15:02:00', 3);
 
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2023-01-17 15:00:00', 4);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2023-01-17 15:01:00', 4);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2023-01-17 15:02:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2022-12-17 15:00:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:05:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2022-12-17 15:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (110, '2022-12-18 16:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (109, '2022-12-18 17:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (60, '2022-12-18 18:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (65, '2022-12-19 15:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2022-12-19 16:20:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (85, '2022-12-19 17:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (95, '2022-12-20 17:25:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (90, '2022-12-20 17:45:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (65, '2022-12-20 17:55:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (45, '2022-12-21 10:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20, '2022-12-21 10:15:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20, '2022-12-21 10:20:00', 4);
 
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (16.5, '2023-01-17 15:00:00', 5);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (15.8, '2023-01-17 15:01:00', 5);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20.2, '2023-01-17 15:02:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (23, '2022-12-17 15:00:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (10, '2022-12-17 15:05:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (12, '2022-12-17 15:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (10, '2022-12-18 16:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (5, '2022-12-18 17:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (6, '2022-12-18 18:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (4, '2022-12-19 15:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (7, '2022-12-19 16:20:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (13, '2022-12-19 17:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (2, '2022-12-20 17:25:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (2, '2022-12-20 17:45:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (3, '2022-12-20 17:55:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (1, '2022-12-21 10:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (3, '2022-12-21 10:15:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (2, '2022-12-21 10:20:00', 5);
+
 
 INSERT INTO HealthyVibe.lieuvente (lieu) VALUES
 ('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
