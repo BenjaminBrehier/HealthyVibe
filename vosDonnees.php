@@ -6,6 +6,30 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     header("Location: ./index.php");
     exit();
 } 
+$co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY date DESC");
+$pouls = "Pas de données";
+$temperature = "Pas de données";
+$decibel = "Pas de données";
+$gaz = "Pas de données";
+while ($row = $result->fetch_object()) {
+    if ($row->type == "pouls") {
+        $pouls = $row->valeur;
+    }
+    else if ($row->type == "temperature") {
+        $temperature = $row->valeur;
+    }
+    else if ($row->type == "decibel") {
+        $decibel = $row->valeur;
+    }
+    else if ($row->type == "gaz") {
+        $gaz = $row->valeur;
+    }
+    if ($pouls != "Pas de données" && $temperature != "Pas de données" && $decibel != "Pas de données" && $gaz != "Pas de données") {
+        break;
+    }
+}
+$co->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,19 +74,19 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                 <div class="carre_blanc">
                     <div>
                         <img class="icone" src="./res/img/heart.png" alt="image d'un coeur">
-                        <p><strong>78 BPM</strong></p>
+                        <p><strong><?php echo $pouls ;?> BPM</strong></p>
                     </div>
                     <div>
                         <img class="icone" src="./res/img/temperature.png" alt="image d'un thermomètre">
-                        <p><strong>36.8 °C</strong></p>
+                        <p><strong><?php echo $temperature ;?> °C</strong></p>
                     </div>
                     <div>
                         <img class="icone" src="./res/img/headphones.png" alt="image d'un casque">
-                        <p><strong>81 dB</strong></p>
+                        <p><strong><?php echo $decibel ;?> dB</strong></p>
                     </div>
                     <div>
                         <img class="icone" src="./res/img/bouteille-de-gaz.png" alt="image d'une bouteille de gaz">
-                        <p><strong>837 ppm</strong></p>
+                        <p><strong><?php echo $gaz ;?> ppm</strong></p>
                     </div>
                 </div>
             </a>

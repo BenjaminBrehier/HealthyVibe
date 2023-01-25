@@ -6,6 +6,26 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     header("Location: ./index.php");
     exit();
 }
+$co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY date DESC");
+$pouls = "Pas de données";
+$temperature = "Pas de données";
+$decibel = "Pas de données";
+while ($row = $result->fetch_object()) {
+    if ($row->type == "pouls") {
+        $pouls = $row->valeur;
+    }
+    else if ($row->type == "temperature corporelle") {
+        $temperature = $row->valeur;
+    }
+    else if ($row->type == "decibel") {
+        $decibel = $row->valeur;
+    }
+    if ($pouls != "Pas de données" && $temperature != "Pas de données" && $decibel != "Pas de données") {
+        break;
+    }
+}
+$co->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,101 +59,40 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                     <label for="période">
                         <p>Choisissez une période</p>
                     </label>
-                    <input type="date" class="date" placeholder='Date de début'>
+                    <input type="date" id="dateDebut" class="date" onchange="reload('espaceSantee')" placeholder='Date de début'>
                     <p>à</p>
-                    <input type="date" class="date" placeholder='Date de fin'>
-                    <input type="button" class="enSavoirPlus" name="enSavoirPlus" value="Afficher les statistiques">
+                    <input type="date" id="dateFin" class="date" onchange="reload('espaceSantee')" placeholder='Date de fin'>
                 </div>
             </div>
 
             <div id="partie2">
                 <div id="graph1">
-                <div id="graphique1">
-                    <script>document.addEventListener('DOMContentLoaded', function () {
-        const chart = Highcharts.chart('graphique1', {
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Température'
-            },
-            xAxis: {
-                categories: ['temps (en heure)']
-            },
-            yAxis: {
-                title: {
-                    text: 'température (en °C)'
-                }
-            },
-            series: [{
-                name: 'température',
-                data: [8, 6, 3]
-            }]
-        });
-    });</script></div>
+                    <div id="graphique1">
+                        <!-- Contient le graphique -->
+                    </div>
                     <div id="pres">
                         <img class=icone src="./res/img/temperature.png" alt="idéogramme thermomètre">
-                        <p><strong>37°C</strong></p>
+                        <p><strong><?php echo $temperature ;?> °C</strong></p>
                     </div>
                     <input type="button" class="btn" value="Tableau">
                 </div>
                 <div id="graph2">
-                <div id="graphique2">
-                    <script>document.addEventListener('DOMContentLoaded', function () {
-        const chart = Highcharts.chart('graphique2', {
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Niveau sonore'
-            },
-            xAxis: {
-                categories: ['temps (en heure)']
-            },
-            yAxis: {
-                title: {
-                    text: 'niveau (en Db)'
-                }
-            },
-            series: [{
-                name: 'Db',
-                data: [68, 85, 79]
-            }]
-        });
-    });</script></div>
+                    <div id="graphique2">
+                        <!-- Contient le graphique -->
+                    </div>
                     <div id="pres">
                         <img class=icone src="./res/img/headphones.png" alt="idéogramme casque">
-                        <p><strong>79 db</strong></p>
+                        <p><strong><?php echo $decibel ;?> db</strong></p>
                     </div>
                     <input type="button" class="btn" value="Tableau">
                 </div>
                 <div id="graph3">
-                <div id="graphique3">
-                    <script>document.addEventListener('DOMContentLoaded', function () {
-        const chart = Highcharts.chart('graphique3', {
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Rythme cardiaque'
-            },
-            xAxis: {
-                categories: ['temps (en heure)']
-            },
-            yAxis: {
-                title: {
-                    text: 'battemment par min'
-                }
-            },
-            series: [{
-                name: 'BPM',
-                data: [70, 76, 78]
-            }]
-        });
-    });</script></div>
+                    <div id="graphique3">
+                        <!-- Contient le graphique -->
+                    </div>
                     <div id="pres">
                         <img class=icone src="./res/img/heart.png" alt="idéogramme coeur">
-                        <p><strong>85 BPM</strong></p>
+                        <p><strong><?php echo $pouls ;?> BPM</strong></p>
                     </div>
                     <input type="button" class="btn" value="Tableau">
                 </div>
@@ -144,5 +103,8 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     include './res/php/footer.php';
     ?>
 </body>
-
+<script src="res/js/graph.js"></script>
+<script>
+    reload("espaceSantee");
+</script>
 </html>

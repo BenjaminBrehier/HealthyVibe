@@ -24,7 +24,7 @@ function adminForum() {
         var table = document.getElementById("Sujets");
         var input = document.getElementById("searchForum");
         var tab = xhr.responseText.split("|");
-        var entete = "<th>idSujet</th><th>Titre</th><th>Date de création</th><th>Statut</th><th>Nombre de post</th><th></th><th>Fermer</th><th>Supprimer</th>"
+        var entete = "<th>idSujet</th><th>Titre</th><th>Date de création</th><th>Statut</th><th>Nombre de posts</th><th></th><th>Fermer</th><th>Supprimer</th>"
         table.innerHTML = entete;
         for (var i = 0; i < tab.length; i++) {
             var closed = false;
