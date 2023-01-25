@@ -28,21 +28,25 @@ function getGraphSante() {
                 text: 'Température corporelle'
             },
             xAxis: {
-                categories: ['temps (en heure)']
+                categories: ['temps (en heure)'],
+                title: {
+                    text: 'Dates'
+                }
             },
             yAxis: {
                 title: {
-                    text: 'température (en °C)'
+                    text: 'Température (en °C)'
                 }
             },
             series: [{
-                name: 'température corporelle',
+                name: 'Température corporelle',
                 type: 'column',
                 data: []
             },
             {
-                name: 'moy',
+                name: 'moyenne',
                 type: 'line',
+                visible: false,
                 data: []
             }]
         });
@@ -54,19 +58,23 @@ function getGraphSante() {
                 text: 'Décibel'
             },
             xAxis: {
-                categories: ['temps (en heure)']
+                categories: ['temps (en heure)'],
+                title: {
+                    text: 'Dates'
+                }
             },
             yAxis: {
                 title: {
-                    text: 'décibel (en dB)'
+                    text: 'Décibel (en dB)'
                 }
             },
             series: [{
-                name: 'décibel',
+                name: 'Décibel',
                 data: []
             },
             {
-                name: 'moy',
+                name: 'moyenne',
+                visible: false,
                 data: []
             }]
         });
@@ -75,22 +83,26 @@ function getGraphSante() {
                 type: 'line'
             },
             title: {
-                text: 'Poul'
+                text: 'Pouls'
             },
             xAxis: {
-                categories: ['temps (en heure)']
+                categories: ['temps (en heure)'],
+                title: {
+                    text: 'Dates'
+                }
             },
             yAxis: {
                 title: {
-                    text: 'poul (en bpm)'
+                    text: 'Pouls (en bpm)'
                 }
             },
             series: [{
-                name: 'poul',
+                name: 'Pouls',
                 data: []
             },
             {
-                name: 'moy',
+                name: 'moyenne',
+                visible: false,
                 data: []
             }]
         });
@@ -148,7 +160,7 @@ function getGraphSante() {
                 decibelChart.series[1].setData(tabMoys);
             }
         }
-    
+
     }
 }
 
@@ -163,21 +175,25 @@ function getGraphEnv() {
                 text: 'Température extérieure'
             },
             xAxis: {
-                categories: ['temps (en heure)']
+                categories: ['temps (en heure)'],
+                title: {
+                    text: 'Dates'
+                }
             },
             yAxis: {
                 title: {
-                    text: 'température (en °C)'
+                    text: 'Température (en °C)'
                 }
             },
             series: [{
-                name: 'température extérieure',
+                name: 'Température extérieure',
                 type: 'column',
                 data: []
             },
             {
-                name: 'moy',
+                name: 'moyenne',
                 type: 'line',
+                visible: false,
                 data: []
             }]
         });
@@ -189,7 +205,10 @@ function getGraphEnv() {
                 text: 'CO2'
             },
             xAxis: {
-                categories: ['temps (en heure)']
+                categories: ['temps (en heure)'],
+                title: {
+                    text: 'Dates'
+                }
             },
             yAxis: {
                 title: {
@@ -201,7 +220,36 @@ function getGraphEnv() {
                 data: []
             },
             {
-                name: 'moy',
+                name: 'moyenne',
+                visible: false,
+                data: []
+            }]
+        });
+        var decibelExtChart = Highcharts.chart('graphique3', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Décibel extérieur'
+            },
+            xAxis: {
+                categories: ['temps (en heure)'],
+                title: {
+                    text: 'Dates'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Décibel extérieur (en dB)'
+                }
+            },
+            series: [{
+                name: 'Décibel extérieur',
+                data: []
+            },
+            {
+                name: 'moyenne',
+                visible: false,
                 data: []
             }]
         });
@@ -241,7 +289,23 @@ function getGraphEnv() {
                 moy = [tabPoulData.reduce((a, b) => a + b, 0) / tabPoulData.length];
                 const tabMoys = Array(tabPoulData.length).fill(Math.round(moy));
                 gazChart.series[1].setData(tabMoys);
-                console.log(gazChart);
+            }
+
+            if (tab[5] != "0") {
+                var tabPoul = tab[5].split(";");
+                var tabDate = [];
+                var tabPoulData = [];
+                for (var i = 0; i < tabPoul.length; i++) {
+                    var poul = tabPoul[i].split("&");
+                    tabDate.push(poul[1]);
+                    tabPoulData.push(parseFloat(poul[0]));
+                }
+                decibelExtChart.xAxis[0].setCategories(tabDate);
+                decibelExtChart.series[0].setData(tabPoulData);
+
+                moy = [tabPoulData.reduce((a, b) => a + b, 0) / tabPoulData.length];
+                const tabMoys = Array(tabPoulData.length).fill(Math.round(moy));
+                decibelExtChart.series[1].setData(tabMoys);
             }
         }
     }

@@ -161,6 +161,7 @@ INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('pouls', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('gaz', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('decibel', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature extérieure', 1);
+INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('décibel extérieur', 1);
 
 -- Insertion de données dans la table Donnees
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.5, '2022-12-17 09:37:24', 1);
@@ -179,9 +180,27 @@ INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.8, '2022-12-
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.7, '2022-12-21 13:28:24', 1);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (37.5, '2022-12-21 17:08:57', 1);
 
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2023-01-17 15:00:00', 2);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (78, '2023-01-17 15:01:00', 2);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2023-01-17 15:02:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2022-12-17 15:00:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (78, '2022-12-17 15:05:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:10:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:15:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:20:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (68, '2022-12-18 15:25:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (65, '2022-12-18 15:30:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (68, '2022-12-18 15:35:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-18 15:40:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (73, '2022-12-18 15:45:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-19 15:50:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-19 20:00:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (71, '2022-12-19 20:05:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2022-12-19 20:10:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (120, '2022-12-19 20:15:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (118, '2022-12-20 20:20:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (119, '2022-12-20 15:25:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (119, '2022-12-20 15::00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (120, '2022-12-21 15:02:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2022-12-21 15:02:00', 2);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (79, '2022-12-21 15:02:00', 2);
 
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (645, '2022-12-17 16:20:08', 3);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (695, '2022-12-17 21:02:23', 3);
@@ -200,13 +219,46 @@ INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (677, '2022-12-2
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (638, '2022-12-21 16:32:27', 3);
 
 
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2023-01-17 15:00:00', 4);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2023-01-17 15:01:00', 4);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2023-01-17 15:02:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (80, '2022-12-17 15:00:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (70, '2022-12-17 15:05:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2022-12-17 15:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (110, '2022-12-18 16:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (109, '2022-12-18 17:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (60, '2022-12-18 18:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (65, '2022-12-19 15:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2022-12-19 16:20:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (85, '2022-12-19 17:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (95, '2022-12-20 17:25:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (90, '2022-12-20 17:45:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (65, '2022-12-20 17:55:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (45, '2022-12-21 10:10:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20, '2022-12-21 10:15:00', 4);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20, '2022-12-21 10:20:00', 4);
 
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (16.5, '2023-01-17 15:00:00', 5);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (15.8, '2023-01-17 15:01:00', 5);
-INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20.2, '2023-01-17 15:02:00', 5);
+
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20.2, '2022-12-17 15:02:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (23, '2022-12-17 15:00:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (10, '2022-12-17 15:05:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (12, '2022-12-17 15:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (10, '2022-12-18 16:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (5, '2022-12-18 17:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (6, '2022-12-18 18:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (4, '2022-12-19 15:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (7, '2022-12-19 16:20:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (13, '2022-12-19 17:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (2, '2022-12-20 17:25:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (2, '2022-12-20 17:45:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (3, '2022-12-20 17:55:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (1, '2022-12-21 10:10:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (3, '2022-12-21 10:15:00', 5);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (2, '2022-12-21 10:20:00', 5);
+
+
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (90, '2023-01-17 15:00:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (85.8, '2023-01-17 15:01:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (50, '2023-01-17 15:02:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (52, '2023-01-17 15:03:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (50, '2023-01-17 15:04:00', 6);
 
 INSERT INTO HealthyVibe.lieuvente (lieu) VALUES
 ('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
@@ -220,9 +272,9 @@ INSERT INTO HealthyVibe.faq (`idFaq`, `question`, `reponse`) VALUES
 (4, 'Est-ce que je peux commander un deuxième casque ?', 'Oui, mais à chaque compte ne peut être associé qu\'un seul casque. Vous pouvez acheter et changer de casque tout en gardant le même compte. Pour cela, contacter l\'administrateur.');
 
 INSERT INTO HealthyVibe.tipseco (idTips,contenu,lienVideo ) VALUES
-(1, 'Consommer des produits locaux pour réduire les émissions de CO2',NULL),
+(1, 'Consommer des produits locaux pour réduire les émissions de CO2','https://youtu.be/oKL11przvhg'),
 (2, 'Triez vos déchets pour faciliter le recyclage', 'https://www.youtube.com/watch?v=rNwtMO_Hay4'),
-(3, 'Favoriser l\'utilisation des transports en commun',NULL),
-(4, 'Se mettre à la marche ou au vélo pour vos courses',NULL),
+(3, 'Favoriser l\'utilisation des transports en commun,le pedibus ou le vélo','https://youtu.be/29sPmNeS4AQ'),
+(4, 'S\'habiller de manière écologique','https://youtu.be/H9K1R2_N17k'),
 (5, 'Transformer les eaux inutilisées pour le maréchage', 'https://www.youtube.com/watch?v=bpUiwa0ei9A'),
 (6, 'Diminuer votre consommation d\'énergie en utilisant des lampes à basse consommation', 'https://www.youtube.com/watch?v=E331tTmy0Hw');

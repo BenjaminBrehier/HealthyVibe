@@ -16,7 +16,7 @@ while ($row = $result->fetch_object()) {
     if ($row->type == "pouls") {
         $pouls = $row->valeur;
     }
-    else if ($row->type == "temperature") {
+    else if ($row->type == "temperature corporelle") {
         $temperature = $row->valeur;
     }
     else if ($row->type == "decibel") {
