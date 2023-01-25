@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
     header("Location: ./index.php");
     exit();
-} 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,57 +38,55 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                     <label for="période">
                         <p class='text'>Choisissez une période</p>
                     </label>
-                    <input type="date" class="date" placeholder='Date de début'>
+                    <input type="date" class="date" id="dateDebut" onchange="reload('espaceEnv')">
                     <p class='text'>à</p>
-                    <input type="date" class="date" placeholder='Date de fin'>
-                    <input type="button" class="enSavoirPlus" name="enSavoirPlus" value="Afficher les statistiques">
+                    <input type="date" class="date" id="dateFin" onchange="reload('espaceEnv')">
                 </div>
             </div>
             <div id="partie2-LSV">
-            <div id="partie2">
+                <div id="partie2">
+                    <div id="graph1">
+                        <div id="graphique1">
 
-                <div id="graphique">
-                    <script>document.addEventListener('DOMContentLoaded', function () {
-        const chart = Highcharts.chart('graphique', {
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Taux de Co2 autour de vous'
-            },
-            xAxis: {
-                categories: ['temps (en heure)']
-            },
-            yAxis: {
-                title: {
-                    text: 'taux en Co2'
-                }
-            },
-            series: [{
-                name: 'Co2',
-                data: [22, 16, 20]
-            }]
-        });
-    });</script></div>
-                    <div id="pres">
-                        <img class=icone src="./res/img/bouteille-de-gaz.png" alt="idéogramme bouteille de gaz">
-                        <p><strong>34%</strong></p>
+                        </div>
+                        <div class="actu">
+                            <div id="pres">
+                                <img class=icone src="./res/img/temperature.png" alt="idéogramme bouteille de gaz">
+                                <p><strong>34°C</strong></p>
+                            </div>
+                            <input type="button" class="btn" value="Tableau">
+                        </div>
                     </div>
-                    <input type="button" class="btn" value="Tableau">
+                    <div id="graph2">
+                        <div id="graphique2">
+
+                        </div>
+                        <div class="actu">
+                            <div id="pres">
+                                <img class=icone src="./res/img/bouteille-de-gaz.png" alt="idéogramme bouteille de gaz">
+                                <p><strong>34%</strong></p>
+                            </div>
+                            <input type="button" class="btn" value="Tableau">
+                        </div>
+                    </div>
                 </div>
 
                 <div id='savoir'>
                     <h1>Le Saviez-vous ? </h1><br>
                     <hr><br>
-                    <p> Le niveau de CO dans l’air est favorisé par une mauvaise ventilation en milieu clos <br><br>Le CO peut provoquer des affections bénignes (vertiges, maux de tête), des problèmes cardiovasculaires ou neurologiques et peut même entrainer des comas ou la mort pour les cas les plus sévères.
+                    <p> Le niveau de CO2 dans l’air est favorisé par une mauvaise ventilation en milieu clos <br><br>Le CO2 peut provoquer des affections bénignes (vertiges, maux de tête), des problèmes cardiovasculaires ou neurologiques et peut même entrainer des comas ou la mort pour les cas les plus sévères.
                     </p>
                 </div>
             </div>
-</div>
+        </div>
     </section>
     <?php
     include './res/php/footer.php';
     ?>
 </body>
+<script src="res/js/graph.js"></script>
+<script>
+    reload("espaceEnv");
+</script>
 
 </html>

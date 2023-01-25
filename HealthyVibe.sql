@@ -160,7 +160,7 @@ INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature corporelle
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('pouls', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('gaz', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('decibel', 1);
-INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature extérieur', 1);
+INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature extérieure', 1);
 
 -- Insertion de données dans la table Donnees
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.5, '2023-01-17 15:00:00', 1);
