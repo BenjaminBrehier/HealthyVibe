@@ -6,12 +6,12 @@
             $nom = htmlspecialchars($_POST['fname']);
             $prenom = htmlspecialchars($_POST['lname']);
             $dateNaissance = htmlspecialchars($_POST['DTN']);
-            $adresse = null;
-            $codePostal = null;
-            $tel = null;
+            $adresse = 'null';
+            $codePostal = 'null';
+            $tel = 'null';
             if (isset($_POST['adresse']))
                 $adresse = htmlspecialchars($_POST['adresse']);
-            if (isset($_POST['CP']))
+            if (isset($_POST['CP'])) 
                 $codePostal = htmlspecialchars($_POST['CP']);
             if (isset($_POST['tel'])) {
                 $tel = htmlspecialchars($_POST['tel']);
