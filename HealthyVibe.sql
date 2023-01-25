@@ -195,9 +195,9 @@ INSERT INTO HealthyVibe.faq (`idFaq`, `question`, `reponse`) VALUES
 (4, 'Est-ce que je peux commander un deuxième casque ?', 'Oui, mais à chaque compte ne peut être associé qu\'un seul casque. Vous pouvez acheter et changer de casque tout en gardant le même compte. Pour cela, contacter l\'administrateur.');
 
 INSERT INTO HealthyVibe.tipseco (idTips,contenu,lienVideo ) VALUES
-(1, 'Consommer des produits locaux pour réduire les émissions de CO2',NULL),
+(1, 'Consommer des produits locaux pour réduire les émissions de CO2','https://youtu.be/oKL11przvhg'),
 (2, 'Triez vos déchets pour faciliter le recyclage', 'https://www.youtube.com/watch?v=rNwtMO_Hay4'),
-(3, 'Favoriser l\'utilisation des transports en commun',NULL),
-(4, 'Se mettre à la marche ou au vélo pour vos courses',NULL),
+(3, 'Favoriser l\'utilisation des transports en commun,le pedibus ou le vélo','https://youtu.be/29sPmNeS4AQ'),
+(4, 'S\'habiller de manière écologique','https://youtu.be/H9K1R2_N17k'),
 (5, 'Transformer les eaux inutilisées pour le maréchage', 'https://www.youtube.com/watch?v=bpUiwa0ei9A'),
 (6, 'Diminuer votre consommation d\'énergie en utilisant des lampes à basse consommation', 'https://www.youtube.com/watch?v=E331tTmy0Hw');
