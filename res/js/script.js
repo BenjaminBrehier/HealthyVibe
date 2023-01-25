@@ -37,32 +37,34 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
-// L'image img#image
-var image = document.getElementById("image");
 
-// La fonction previewPicture
-var previewPicture = function (e) {
+//! En vue d'une amérlioration de l'upload d'image (permet de prévisualiser l'image avant de valider le formulaire)
+// // L'image img#image
+// var image = document.getElementById("image");
 
-    // e.files contient un objet FileList
-    const [picture] = e.files
+// // La fonction previewPicture
+// var previewPicture = function (e) {
 
-    // "picture" est un objet File
-    if (picture) {
+//     // e.files contient un objet FileList
+//     const [picture] = e.files
 
-        // L'objet FileReader
-        var reader = new FileReader();
+//     // "picture" est un objet File
+//     if (picture) {
 
-        // L'événement déclenché lorsque la lecture est complète
-        reader.onload = function (e) {
-            // On change l'URL de l'image (base64)
-            image.src = e.target.result
-        }
+//         // L'objet FileReader
+//         var reader = new FileReader();
 
-        // On lit le fichier "picture" uploadé
-        reader.readAsDataURL(picture)
+//         // L'événement déclenché lorsque la lecture est complète
+//         reader.onload = function (e) {
+//             // On change l'URL de l'image (base64)
+//             image.src = e.target.result
+//         }
 
-    }
-}
+//         // On lit le fichier "picture" uploadé
+//         reader.readAsDataURL(picture)
+
+//     }
+// }
 
 function afficher(idSujet) {
     window.location.href = "./afficheSujet.php?idSujet=" + idSujet;
@@ -133,9 +135,3 @@ function reactiverCompte(idUtilisateur) {
     }
 }
 
-//!Fonction permettant de rendre inactif un casque
-function rendreInactif(idCasque) {
-    if (confirm("Voulez vous vraiment rendre inactif ce casque ?") == true) {
-        window.location.href = "./res/php/rendreInactif.php?idCasque=" + idCasque;
-    }
-}

@@ -13,8 +13,7 @@ session_start();
             $tel=mysqli_escape_string($co,$_POST["tel"]);
             $lieu=mysqli_escape_string($co, htmlspecialchars($_POST['lieu']));
             $dateResa=mysqli_escape_string($co,date('y-m-d'));
-            echo $nom,$prenom,$mail,$tel,$dateResa, $lieu;
-            $result = $co->query("INSERT INTO commandes(Nom,Prenom,Mail,Tel,lieu, DateDeReservation) VALUES('$nom','$prenom','$mail',6768,'$lieu','2003-12-12');");
+            $result = $co->query("INSERT INTO commande(Nom,Prenom,Mail,Tel,lieu, DateDeReservation) VALUES('$nom','$prenom','$mail',$tel, (SELECT idLieu FROM lieuvente WHERE lieu = '$lieu'),'$dateResa');");
         }
     }
 ?>

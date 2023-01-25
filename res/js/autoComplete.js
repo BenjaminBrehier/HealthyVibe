@@ -77,6 +77,7 @@ function adminUtilisateur() {
         var entete = "<tr><th>idUtilisateur</th><th>Nom</th><th>Prenom</th><th>Email</th><th>Username</th><th>Tel</th><th>Adresse</th><th>Code postal</th><th>Date de naissance</th><th></th><th>Date début Banissement</th><th>Date Fin Banissement</th><th>Désactiver</th></tr>"
         table.innerHTML = entete;
         for (var i = 0; i < tab.length; i++) {
+            var cptNull = 0;
             var row = tab[i].split(";");
             if (!row[1].toLowerCase().includes(input.value.toLowerCase()) || row[12] == 1) {
                 continue;
@@ -86,7 +87,12 @@ function adminUtilisateur() {
                 var td = document.createElement("td");
                 if (row[j] == "null") { 
                     row[j] = ""; 
+                    cptNull++;
                 }
+                if (row[j] == "5000-10-10") {
+                    row[j] = "∞";
+                }
+
                 td.innerHTML = row[j];
                 tr.appendChild(td);
 
@@ -95,8 +101,16 @@ function adminUtilisateur() {
             var button = document.createElement("button");
             button.setAttribute("type", "button");
             button.setAttribute("class", "supp");
-            button.setAttribute("onclick", "window.location.href='./res/php/desactiver.php?idUtilisateur=" + row[0] + "'");
-            button.innerHTML = "Désactiver";
+            console.log(cptNull);
+            if (cptNull < 2) {
+                button.setAttribute("onclick", "reactiverCompte(" + row[0] + ")");
+                button.innerHTML = "Activer";
+            }
+            else {
+                button.setAttribute("onclick", "desactiverCompte(" + row[0] + ")");
+                button.innerHTML = "Désactiver";
+            }
+
             td.appendChild(button);
             tr.appendChild(td);
             table.appendChild(tr);
@@ -125,7 +139,7 @@ function forum() {
                 h2.innerHTML = row[1];
             }
             var p = document.createElement("p");
-            p.innerHTML = "Créer par " + row[6] + " le " + row[2] + " - " + row[4] + " posts";
+            p.innerHTML = "Créé par " + row[6] + " le " + row[2] + " - " + row[4] + " posts";
             div.setAttribute("class", "topic");
             div.setAttribute("onclick", "window.location.href='./afficheSujet.php?idSujet=" + row[0] + "'");
             div.appendChild(h2);

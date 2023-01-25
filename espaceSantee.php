@@ -7,18 +7,18 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     exit();
 }
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY date DESC");
+$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY donnee.idDonnee DESC");
 $pouls = "Pas de données";
 $temperature = "Pas de données";
 $decibel = "Pas de données";
 while ($row = $result->fetch_object()) {
-    if ($row->type == "pouls") {
+    if ($row->type == "pouls" && $pouls == "Pas de données") {
         $pouls = $row->valeur;
     }
-    else if ($row->type == "temperature corporelle") {
+    else if ($row->type == "temperature corporelle" && $temperature == "Pas de données") {
         $temperature = $row->valeur;
     }
-    else if ($row->type == "decibel") {
+    else if ($row->type == "decibel" && $decibel == "Pas de données") {
         $decibel = $row->valeur;
     }
     if ($pouls != "Pas de données" && $temperature != "Pas de données" && $decibel != "Pas de données") {
@@ -62,9 +62,12 @@ $co->close();
                     <label for="période">
                         <p>Choisissez une période</p>
                     </label>
-                    <input type="date" id="dateDebut" class="date" onchange="reload('espaceSantee')" placeholder='Date de début'>
+                    <?php 
+                        $date = date("Y-m-d");
+                    ?>
+                    <input type="date" id="dateDebut" class="date" onchange="reload('espaceSantee')" max="<?php echo $date;?>" placeholder='Date de début'>
                     <p>à</p>
-                    <input type="date" id="dateFin" class="date" onchange="reload('espaceSantee')" placeholder='Date de fin'>
+                    <input type="date" id="dateFin" class="date" onchange="reload('espaceSantee')" max="<?php echo $date;?>" placeholder='Date de fin'>
                 </div>
             </div>
 

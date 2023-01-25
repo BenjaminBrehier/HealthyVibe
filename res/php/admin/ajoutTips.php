@@ -20,6 +20,6 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
 } 
 
 $req = $co->query("INSERT INTO tipseco(contenu, lienVideo) VALUES('$tips','$lienTips')"); 
-header("Location: ../ ../../adminPanel.php?onglet=TipsEcologiques");
+header("Location: ../../../adminPanel.php?onglet=TipsEcologiques");
 exit();
 ?>

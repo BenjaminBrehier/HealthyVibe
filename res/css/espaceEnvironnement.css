@@ -122,19 +122,19 @@ section {
     display: flex;
     flex-direction:row;
     align-items: center;
+    justify-content: space-around;
+    padding-right:100px;
+    width:300px;
 }
 
 #pres p{
-    padding-right: 20px;
     font-size:25px;
-
 }
 
 #spaceHolder p{
     font-size:x-large;
     margin-left: 20px;
     font-style: bold;
-    font-family: "source sans pro";
 } 
 .btn{
     margin-top: 20px;
@@ -199,9 +199,4 @@ section {
 .highcharts-data-table table * {
     border: 1px solid #606060;
     padding: 0.5em;
-}
-
-hr {
-    margin-top: 1%;
-    margin-bottom: 1%;
 }

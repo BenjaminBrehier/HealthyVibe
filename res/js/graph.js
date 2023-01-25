@@ -4,10 +4,23 @@ function reload(from) {
     var dateDebut = document.getElementById("dateDebut").value;
     var dateFin = document.getElementById("dateFin").value;
 
+    if (dateDebut != "") {
+        document.getElementById("dateFin").setAttribute("min", dateDebut);
+    } else {
+        document.getElementById("dateFin").setAttribute("min", "2019-01-01");
+    }
+
+    if (dateFin != "") {
+        document.getElementById("dateDebut").setAttribute("max", dateFin);
+    } else {
+        document.getElementById("dateDebut").setAttribute("max", "3000-12-31");
+    }
+
     if (dateDebut == "" || dateFin == "") {
         var dateDebut = "2019-01-01 00:00:00";
         var dateFin = "3000-12-31 23:59:59";
     }
+
     xhr.open('GET', "./res/php/graph.php?dateDebut=" + dateDebut + " 00:00:00&dateFin=" + dateFin + " 23:59:59&from=" + from, true);
     if (from == "espaceSantee") {
         xhr.addEventListener('readystatechange', getGraphSante);
@@ -31,7 +44,7 @@ function getGraphSante() {
                 categories: ['temps (en heure)'],
                 title: {
                     text: 'Dates'
-                }
+                },
             },
             yAxis: {
                 title: {

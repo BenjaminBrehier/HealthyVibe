@@ -17,7 +17,8 @@ if ($_SESSION['utilisateur']->getRole()) {
         exit();
     }
     else {
-        $req = $co->query("UPDATE Utilisateur SET banni = 1 WHERE idUtilisateur = $idUtilisateur"); 
+        $now = date("Y-m-d");
+        $req = $co->query("UPDATE Utilisateur SET banni = 1, dateBanFin = '5000-10-10', dateBanDebut = '$now' WHERE idUtilisateur = $idUtilisateur"); 
         header("Location: ../../adminPanel.php?onglet=Utilisateurs");
         exit();
     }

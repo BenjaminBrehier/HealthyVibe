@@ -10,15 +10,15 @@ if (isset($_POST['nomSujet']) && isset($_POST['contenu'])) {
     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
     $nomSujet = mysqli_escape_string($co, htmlspecialchars($_POST['nomSujet']));
     $contenu = mysqli_escape_string($co, htmlspecialchars($_POST['contenu']));
-    $id = mysqli_real_escape_string($co, $_SESSION['utilisateur']->getRole());
+    $id = mysqli_real_escape_string($co, $_SESSION['utilisateur']->getId());
     $date = date("Y-m-d H:i:s");
-
-    $req = $co->query("INSERT INTO SUJET (titre, datecreation, datemodification, status, idUtilisateur) VALUES ('$nomSujet', '$date', '$date', 0, $id)"); 
-    $req = $co->query("SELECT idSujet FROM SUJET ORDER BY idSujet DESC LIMIT 1"); 
-    if ($req && $req->num_rows > 0) {
+    
+    $req = $co->query("INSERT INTO sujet (titre, datecreation, datemodification, status, idUtilisateur) VALUES ('$nomSujet', '$date', '$date', 0, $id)"); 
+    $req = $co->query("SELECT idSujet FROM sujet ORDER BY idSujet DESC LIMIT 1"); 
+    if ($req->num_rows > 0) {
         $row = $req->fetch_object();
         $idSujet = $row->idSujet;
-        $req = $co->query("INSERT INTO POST(date, contenu, idUtilisateur, idSujet, idReponse) VALUES ('$date','$contenu', $id, $idSujet, NULL)"); 
+        $req = $co->query("INSERT INTO post(date, contenu, idUtilisateur, idSujet, idReponse) VALUES ('$date','$contenu', $id, $idSujet, NULL)"); 
         header("Location: ./afficheSujet.php?idSujet=$idSujet");
         exit();
     }

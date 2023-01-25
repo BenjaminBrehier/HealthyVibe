@@ -7,22 +7,22 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     exit();
 } 
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY date DESC");
+$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY donnee.idDonnee DESC");
 $pouls = "Pas de données";
 $temperature = "Pas de données";
 $decibel = "Pas de données";
 $gaz = "Pas de données";
 while ($row = $result->fetch_object()) {
-    if ($row->type == "pouls") {
+    if ($row->type == "pouls" && $pouls == "Pas de données") {
         $pouls = $row->valeur;
     }
-    else if ($row->type == "temperature corporelle") {
+    else if ($row->type == "temperature corporelle" && $temperature == "Pas de données") {
         $temperature = $row->valeur;
     }
-    else if ($row->type == "decibel") {
+    else if ($row->type == "decibel" && $decibel == "Pas de données") {
         $decibel = $row->valeur;
     }
-    else if ($row->type == "gaz") {
+    else if ($row->type == "gaz" && $gaz == "Pas de données") {
         $gaz = $row->valeur;
     }
     if ($pouls != "Pas de données" && $temperature != "Pas de données" && $decibel != "Pas de données" && $gaz != "Pas de données") {

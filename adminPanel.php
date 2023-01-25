@@ -65,11 +65,11 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                         <td><?php echo $row->datenaissance; ?></td>
                         <td></td>
                         <td><?php echo $row->dateBanDebut; ?></td>
-                        <td><?php echo $row->dateBanFin; ?></td>
+                        <td><?php if ($row->dateBanFin == '5000-10-10') { echo '∞' ;} else { echo $row->dateBanFin;} ?></td>
                         <td><input class="supp" type="button" value="<?php if ($row->banni) {
-                                                                            echo 'activer" onclick="reactiverCompte(' . $row->idUtilisateur . ')';
+                                                                            echo 'Activer" onclick="reactiverCompte(' . $row->idUtilisateur . ')';
                                                                         } else {
-                                                                            echo 'désactiver" onclick="desactiverCompte(' . $row->idUtilisateur . ')';
+                                                                            echo 'Désactiver" onclick="desactiverCompte(' . $row->idUtilisateur . ')';
                                                                         } ?>"></td>
                     </tr>
                 <?php
@@ -88,6 +88,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
             <table>
                 <tr>
                     <th>N° de casque</th>
+                    <th>Id utilisateur</th>
                     <th>Nom utilisateur</th>
                     <th>Prénom utilisateur</th>
                     <th>Date d'achat</th>
@@ -95,10 +96,11 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                 </tr>
                 <?php
                 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                $result = $co->query("SELECT nom,prenom,idCasque,dateachat, actif FROM Utilisateur INNER JOIN casque ON utilisateur.idUtilisateur=casque.idUtilisateur");
+                $result = $co->query("SELECT nom,prenom,idCasque,dateachat, actif, casque.idUtilisateur FROM casque LEFT JOIN utilisateur ON utilisateur.idUtilisateur=casque.idUtilisateur");
                 while ($row = $result->fetch_object()) {
                 ?> <tr>
                         <td><?php echo $row->idCasque; ?></td>
+                        <td><?php echo $row->idUtilisateur; ?></td>
                         <td><?php echo $row->nom; ?></td>
                         <td><?php echo $row->prenom; ?></td>
                         <td><?php echo $row->dateachat; ?></td>
@@ -144,7 +146,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                             } ?></td>
                         <td><?php echo $row->nbPost; ?></td>
                         <td></td>
-                        <td><?php if (!$row->status) { ?><button onclick="closeSubject(<?php echo $row->idSujet . ',' . $row->idUtilisateur . ',0' ?>)">Fermer</button><?php } ?></td>
+                        <td><?php if (!$row->status) { ?><button onclick="closeSubject(<?php echo $row->idSujet . ',0' ?>)">Fermer</button><?php } ?></td>
                         <td><button class="supp" onclick="deleteSubject(<?php echo $row->idSujet . ',0'; ?>)">X</button></td>
                     <?php
                 }

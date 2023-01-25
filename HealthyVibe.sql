@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.casque (
   idCasque INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   dateachat DATETIME,
   idUtilisateur INT,
+  ancienID INT DEFAULT NULL,
   actif BOOLEAN DEFAULT 1,
   FOREIGN KEY (idUtilisateur) REFERENCES HealthyVibe.utilisateur(idUtilisateur) ON DELETE SET NULL ON UPDATE NO ACTION
 );
@@ -153,7 +154,7 @@ INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username
 INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
 (2, 'UserNom', 'UserP', 'UserU', 'user@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
 
-INSERT INTO HealthyVibe.casque (dateachat, idUtilisateur, actif) VALUES('2023-01-17 15:00:00', 1, 1);
+INSERT INTO HealthyVibe.casque (dateachat, idUtilisateur, actif) VALUES('2023-01-17 15:00:00', 2, 1);
 
 -- Insertion de capteurs "température", "pouls" et "gaz" dans la table Capteurs
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature corporelle', 1);

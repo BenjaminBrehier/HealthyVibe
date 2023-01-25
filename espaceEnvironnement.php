@@ -7,18 +7,18 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     exit();
 }
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY date DESC");
+$result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." ORDER BY donnee.idDonnee DESC");
 $temperature = "Pas de données";
 $gaz = "Pas de données";
 $decibel = "Pas de données";
 while ($row = $result->fetch_object()) {
-    if ($row->type == "temperature extérieure") {
+    if ($row->type == "temperature extérieure" && $temperature == "Pas de données") {
         $temperature = $row->valeur;
     }
-    else if ($row->type == "gaz") {
+    else if ($row->type == "gaz" && $gaz == "Pas de données") {
         $gaz = $row->valeur;
     }
-    else if ($row->type == "décibel extérieur") {
+    else if ($row->type == "décibel extérieur" && $decibel == "Pas de données") {
         $decibel = $row->valeur;
     }
     if ($temperature != "Pas de données" && $gaz != "Pas de données" && $decibel != "Pas de données") {
@@ -67,9 +67,12 @@ $co->close();
                     <label for="période">
                         <p class='text'>Choisissez une période</p>
                     </label>
-                    <input type="date" class="date" id="dateDebut" onchange="reload('espaceEnv')">
+                    <?php 
+                        $date = date("Y-m-d");
+                    ?>
+                    <input type="date" class="date" id="dateDebut" max="<?php echo $date;?>" onchange="reload('espaceEnv')">
                     <p class='text'>à</p>
-                    <input type="date" class="date" id="dateFin" onchange="reload('espaceEnv')">
+                    <input type="date" class="date" id="dateFin" max="<?php echo $date;?>" onchange="reload('espaceEnv')">
                 </div>
             </div>
             <div id="partie2-LSV">

@@ -53,7 +53,7 @@ $sujets = array();
                             ?>
                             <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
                                 <h2><?php echo $titre;?></h2>
-                                <p>Créer par <?php echo $row->username;?> le <?php echo $date; ?> - <?php echo $row->nbPost; ?> posts</p>
+                                <p>Créé par <?php echo $row->username;?> le <?php echo $date; ?> - <?php echo $row->nbPost; ?> posts</p>
                             </div>
                             <?php
                         }
@@ -72,7 +72,7 @@ $sujets = array();
                             ?>
                             <div class="topic" onclick="afficher(<?php echo $row->idSujet; ?>)">
                                 <h2><?php echo $titre;?></h2>
-                                <p>Par <?php echo $row->username;?> le <?php echo $date; ?> - 0 posts</p>
+                                <p>Créé par <?php echo $row->username;?> le <?php echo $date; ?> - 0 posts</p>
                             </div>
                             <?php
                         }

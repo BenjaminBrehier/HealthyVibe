@@ -26,7 +26,7 @@ function login($mail, $mdp) {
         $hash = $row->mdp;
         if (password_verify($mdp, $hash)) {
             if ($row->banni) {
-                if ($row->dateBanFin == NULL) {
+                if ($row->dateBanFin == NULL || $row->dateBanFin == "5000-10-10") {
                     header ("Location: ./connexion.php?erreur=Banni&reponse=Vous avez été banni de notre site. Si vous pensez que c'est une erreur, veuillez contacter un administrateur.");
                     exit();
                 }
