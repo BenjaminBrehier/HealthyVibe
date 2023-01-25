@@ -161,6 +161,7 @@ INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('pouls', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('gaz', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('decibel', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature extérieure', 1);
+INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('décibel extérieur', 1);
 
 -- Insertion de données dans la table Donnees
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.5, '2023-01-17 15:00:00', 1);
@@ -229,6 +230,12 @@ INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (3, '2022-12-21 
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (2, '2022-12-21 10:20:00', 5);
 
 
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (90, '2023-01-17 15:00:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (85.8, '2023-01-17 15:01:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (50, '2023-01-17 15:02:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (52, '2023-01-17 15:03:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (50, '2023-01-17 15:04:00', 6);
+
 INSERT INTO HealthyVibe.lieuvente (lieu) VALUES
 ('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
 ('28 Rue Notre-Dame des Champs, Paris, 75006'),
@@ -241,9 +248,9 @@ INSERT INTO HealthyVibe.faq (`idFaq`, `question`, `reponse`) VALUES
 (4, 'Est-ce que je peux commander un deuxième casque ?', 'Oui, mais à chaque compte ne peut être associé qu\'un seul casque. Vous pouvez acheter et changer de casque tout en gardant le même compte. Pour cela, contacter l\'administrateur.');
 
 INSERT INTO HealthyVibe.tipseco (idTips,contenu,lienVideo ) VALUES
-(1, 'Consommer des produits locaux pour réduire les émissions de CO2',NULL),
+(1, 'Consommer des produits locaux pour réduire les émissions de CO2','https://youtu.be/oKL11przvhg'),
 (2, 'Triez vos déchets pour faciliter le recyclage', 'https://www.youtube.com/watch?v=rNwtMO_Hay4'),
-(3, 'Favoriser l\'utilisation des transports en commun',NULL),
-(4, 'Se mettre à la marche ou au vélo pour vos courses',NULL),
+(3, 'Favoriser l\'utilisation des transports en commun,le pedibus ou le vélo','https://youtu.be/29sPmNeS4AQ'),
+(4, 'S\'habiller de manière écologique','https://youtu.be/H9K1R2_N17k'),
 (5, 'Transformer les eaux inutilisées pour le maréchage', 'https://www.youtube.com/watch?v=bpUiwa0ei9A'),
 (6, 'Diminuer votre consommation d\'énergie en utilisant des lampes à basse consommation', 'https://www.youtube.com/watch?v=E331tTmy0Hw');
