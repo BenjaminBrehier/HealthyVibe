@@ -76,6 +76,36 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                         <p><strong>37°C</strong></p>
                     </div>
                     <input type="button" class="btn" value="Tableau">
+                    <table>
+                <tr>
+                    <th>température sur la surface de la peau</th>
+                    <th>température extérieur</th>
+                    <th>date</th>
+                </tr>
+                <?php
+            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            $result = $co->query("SELECT valeur, date, type  FROM `donnee` inner join `capteur` on donnee.idCapteur = capteur.idCapteur inner join casque on casque.idCasque = capteur.idCapteur inner join utilisateur on utilisateur.idUtilisateur = casque.idUtilisateur");
+            $temperatureCorps = array();
+            $temperatureExt = array();
+            while ($row = $result->fetch_object()){ 
+                if($row->type == 1) {
+                    array_push($temperatureCorps, $row->valeur);
+                }
+                else if ($row->type == 5){
+                    array_push($temperatureExt, $row->valeur);
+                }
+                for ($i = 0; $i < count($temperatureCorps); $i++){
+                for ($i = 0; $i < count($temperatureExt); $i++){
+            ?>
+                <tr>
+                <td><?php echo $temperatureCorps[$i]; ?></td>
+                    <td><?php echo $temperatureExt[$i]; ?></td>
+                    <td><?php echo $row->date; ?></td>
+                </tr>
+                <?php
+            }}}
+            ?>
+            </table>
                 </div>
                 <div id="graph2">
                 <div id="graphique2">
@@ -106,6 +136,28 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                         <p><strong>79 db</strong></p>
                     </div>
                     <input type="button" class="btn" value="Tableau">
+                    <table>
+                    <tr>
+                        <th>niveau sonore dans le casque</th>
+                        <th>niveau sonore ambiant</th>
+                        <th>date</th>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>37</td>
+                        <td>10/12/2020</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>36</td>
+                        <td>11/12/2020</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>35</td>
+                        <td>12/12/2020</td>
+                    </tr>
+                </table>
                 </div>
                 <div id="graph3">
                 <div id="graphique3">
@@ -136,6 +188,24 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                         <p><strong>85 BPM</strong></p>
                     </div>
                     <input type="button" class="btn" value="Tableau">
+                    <table>
+                <tr>
+                    <th>rythme cardiaque</th>
+                    <th>date</th>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>10/12/2020</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>11/12/2020</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>12/12/2020</td>
+                </tr>
+            </table>
                 </div>
             </div>
         </div>
