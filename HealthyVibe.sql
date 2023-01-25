@@ -161,6 +161,7 @@ INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('pouls', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('gaz', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('decibel', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature extérieure', 1);
+INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('décibel extérieur', 1);
 
 -- Insertion de données dans la table Donnees
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (36.5, '2023-01-17 15:00:00', 1);
@@ -182,6 +183,12 @@ INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (75, '2023-01-17
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (16.5, '2023-01-17 15:00:00', 5);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (15.8, '2023-01-17 15:01:00', 5);
 INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (20.2, '2023-01-17 15:02:00', 5);
+
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (90, '2023-01-17 15:00:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (85.8, '2023-01-17 15:01:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (50, '2023-01-17 15:02:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (52, '2023-01-17 15:03:00', 6);
+INSERT INTO HealthyVibe.donnee (valeur, date, idCapteur) VALUES (50, '2023-01-17 15:04:00', 6);
 
 INSERT INTO HealthyVibe.lieuvente (lieu) VALUES
 ('10 Rue de Vanves, Issy-les-Moulineaux, 92130'),
