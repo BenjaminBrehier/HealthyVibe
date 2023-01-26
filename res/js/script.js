@@ -113,7 +113,7 @@ function nonRepondre() {
     document.getElementById('idPost').setAttribute('value', null);
 }
 
-//!Fonction permettant de désactiver le commpte d'un utilisateur
+//!Fonction permettant de désactiver le commpte d'un utilisateur en lui demandant une date de fin
 function desactiverCompte(idUtilisateur) {
     var date = prompt("Veuillez saisir une date jusqu'a laquelle le compte sera désactivé (format: AAAA-MM-JJ) ou saisissez 0 pour une durée indeterminée");
     if (date != null) {

@@ -1,5 +1,6 @@
 var xhr = new XMLHttpRequest();
 
+//! Permet de charger ou recharger les réquetes des donnees en fonction de la page
 function reload(from) {
     var dateDebut = document.getElementById("dateDebut").value;
     var dateFin = document.getElementById("dateFin").value;
@@ -31,8 +32,10 @@ function reload(from) {
     xhr.send(null);
 }
 
+//! Permet de créer les graphique de l'espace santé avec les données reçues
 function getGraphSante() {
     if (xhr.readyState === 4 && xhr.status === 200) {
+        //! Création des graphiques
         var tempChart = Highcharts.chart('graphique1', {
             chart: {
                 type: 'column'
@@ -120,7 +123,8 @@ function getGraphSante() {
             }]
         });
         var tab = xhr.responseText.split("|");
-        //Format des données : 79&17-01-2023 15:02:00;78&17-01-2023 15:01:00;80&17-01-2023 15:00:00|36.6&17-01-2023 15:02:00;35.8&17-01-2023 15:01:00;36.5&17-01-2023 15:00:00|75&17-01-2023 15:02:00;70&17-01-2023 15:01:00;80&17-01-2023 15:00:00
+        //? Exemple de données : 79&17-01-2023 15:02:00;78&17-01-2023 15:01:00;80&17-01-2023 15:00:00|36.6&17-01-2023 15:02:00;35.8&17-01-2023 15:01:00;36.5&17-01-2023 15:00:00|75&17-01-2023 15:02:00;70&17-01-2023 15:01:00;80&17-01-2023 15:00:00
+        //? Format : pouls|températureCorp|décibelInterne|températureExt|gaz|decibelExt
         if (tab.length > 0) {
             if (tab[0] != "0") {
                 var tabPoul = tab[0].split(";");
@@ -134,6 +138,7 @@ function getGraphSante() {
                 poulChart.xAxis[0].setCategories(tabDate);
                 poulChart.series[0].setData(tabPoulData);
 
+                //! Calcul de la moyenne et ajout de la ligne
                 moy = [tabPoulData.reduce((a, b) => a + b, 0) / tabPoulData.length];
                 const tabMoys = Array(tabPoulData.length).fill(Math.round(moy));
                 poulChart.series[1].setData(tabMoys);
@@ -151,6 +156,7 @@ function getGraphSante() {
                 tempChart.xAxis[0].setCategories(tabDate);
                 tempChart.series[0].setData(tabTempData);
 
+                //! Calcul de la moyenne et ajout de la ligne
                 moy = [tabTempData.reduce((a, b) => a + b, 0) / tabTempData.length];
                 const tabMoys = Array(tabTempData.length).fill(Math.round(moy));
                 tempChart.series[1].setData(tabMoys);
@@ -168,6 +174,7 @@ function getGraphSante() {
                 decibelChart.xAxis[0].setCategories(tabDate);
                 decibelChart.series[0].setData(tabDecibelData);
 
+                //! Calcul de la moyenne et ajout de la ligne
                 moy = [tabDecibelData.reduce((a, b) => a + b, 0) / tabDecibelData.length];
                 const tabMoys = Array(tabDecibelData.length).fill(Math.round(moy));
                 decibelChart.series[1].setData(tabMoys);
@@ -177,9 +184,9 @@ function getGraphSante() {
     }
 }
 
+//! Permet de créer les graphique de l'espace environnement avec les données reçues
 function getGraphEnv() {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.responseText);
         var tempExtChart = Highcharts.chart('graphique1', {
             chart: {
                 type: 'column'
@@ -282,6 +289,7 @@ function getGraphEnv() {
                 tempExtChart.xAxis[0].setCategories(tabDate);
                 tempExtChart.series[0].setData(tabTempData);
 
+                //! Calcul de la moyenne et ajout de la ligne
                 moy = [tabTempData.reduce((a, b) => a + b, 0) / tabTempData.length];
                 const tabMoys = Array(tabTempData.length).fill(Math.round(moy));
                 tempExtChart.series[1].setData(tabMoys);
@@ -299,25 +307,27 @@ function getGraphEnv() {
                 gazChart.xAxis[0].setCategories(tabDate);
                 gazChart.series[0].setData(tabPoulData);
 
+                //! Calcul de la moyenne et ajout de la ligne
                 moy = [tabPoulData.reduce((a, b) => a + b, 0) / tabPoulData.length];
                 const tabMoys = Array(tabPoulData.length).fill(Math.round(moy));
                 gazChart.series[1].setData(tabMoys);
             }
 
             if (tab[5] != "0") {
-                var tabPoul = tab[5].split(";");
+                var tabdecibel = tab[5].split(";");
                 var tabDate = [];
-                var tabPoulData = [];
-                for (var i = 0; i < tabPoul.length; i++) {
-                    var poul = tabPoul[i].split("&");
+                var tabdecibelData = [];
+                for (var i = 0; i < tabdecibel.length; i++) {
+                    var decibel = tabdecibel[i].split("&");
                     tabDate.push(poul[1]);
-                    tabPoulData.push(parseFloat(poul[0]));
+                    tabdecibelData.push(parseFloat(decibel[0]));
                 }
                 decibelExtChart.xAxis[0].setCategories(tabDate);
-                decibelExtChart.series[0].setData(tabPoulData);
+                decibelExtChart.series[0].setData(tabdecibelData);
 
-                moy = [tabPoulData.reduce((a, b) => a + b, 0) / tabPoulData.length];
-                const tabMoys = Array(tabPoulData.length).fill(Math.round(moy));
+                //! Calcul de la moyenne et ajout de la ligne
+                moy = [tabdecibelData.reduce((a, b) => a + b, 0) / tabdecibelData.length];
+                const tabMoys = Array(tabdecibelData.length).fill(Math.round(moy));
                 decibelExtChart.series[1].setData(tabMoys);
             }
         }

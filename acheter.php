@@ -1,16 +1,18 @@
 <?php
+//! Page de reservation d'un casque
 include './res/php/fonctions.php';
 session_start();
 ?>
 
 <?php 
     if (isset($_GET['type'])) {
+        //! Insertion d'une commande
         $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
         if (htmlspecialchars($_GET['type']) == 'commandes') {
-            $nom = htmlspecialchars($_POST['fname']);
-            $prenom = htmlspecialchars($_POST['lname']);
-            $mail=mysqli_escape_string( $co,$_POST["mail"]);
-            $tel=mysqli_escape_string($co,$_POST["tel"]);
+            $nom = mysqli_escape_string($co, htmlspecialchars($_POST['fname']));
+            $prenom = mysqli_escape_string($co, htmlspecialchars($_POST['lname']));
+            $mail=mysqli_escape_string($co, htmlspecialchars($_POST['mail']));
+            $tel=mysqli_escape_string($co, htmlspecialchars($_POST['tel']));
             $lieu=mysqli_escape_string($co, htmlspecialchars($_POST['lieu']));
             $dateResa=mysqli_escape_string($co,date('y-m-d'));
             $result = $co->query("INSERT INTO commande(Nom,Prenom,Mail,Tel,lieu, DateDeReservation) VALUES('$nom','$prenom','$mail',$tel, (SELECT idLieu FROM lieuvente WHERE lieu = '$lieu'),'$dateResa');");
@@ -61,6 +63,7 @@ if (isset($_SESSION['utilisateur']) && $_SESSION['utilisateur'] instanceof Utili
                     <legend>Lieu d'achat</legend>
                     <select name="lieu" id='lieu' required>
                         <?php
+                            //! Récupération des différents lieux de vente
                             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
                             $result = $co->query("SELECT * FROM lieuvente");
                             while ($row = $result->fetch_object()) {

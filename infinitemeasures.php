@@ -1,4 +1,5 @@
 <?php
+//! Page de présentation de la société Infinite Measures
 include './res/php/fonctions.php';
 session_start();
 ?>

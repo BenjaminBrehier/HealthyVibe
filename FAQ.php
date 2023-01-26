@@ -1,4 +1,5 @@
 <?php 
+//! Page FAQ où l'on retrouve toutes les questions fréquemment posées
 include './res/php/fonctions.php';
 session_start();
 ?>
@@ -29,11 +30,10 @@ session_start();
 
         <div id='contenu'>
             <div id='espaceRecherche'>
-                <input type='text' placeholder='Rechercher une question' id='barreRecherche'>
                 <div id='listeQuestions'>
                 <?php
                     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                    $result = $co->query("SELECT * FROM FAQ");
+                    $result = $co->query("SELECT * FROM faq");
                     while ($row = $result->fetch_object()) {
                     ?> 
                     <ul class="menu1">

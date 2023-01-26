@@ -1,4 +1,5 @@
 <?php
+//! Affichage des sujets du forum 
 include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté
@@ -38,16 +39,17 @@ $sujets = array();
                     <?php
                     $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
                     //! On vérifie qu'il y a au moins 1 post dans la BDD
-                    $result = $co->query("SELECT * FROM POST LIMIT 1");
+                    $result = $co->query("SELECT * FROM post LIMIT 1");
                     if ($result->num_rows > 0) {
                         //! Requete récupérant chaque sujets du forum ainsi que le nombre de posts de celui-ci et son auteur (pour l'instant son nom)
-                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, (SELECT U.username FROM UTILISATEUR U WHERE U.idUtilisateur = S.idUtilisateur) as username, (SELECT DISTINCT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P ORDER BY datecreation DESC;"); 
+                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, (SELECT U.username FROM utilisateur U WHERE U.idUtilisateur = S.idUtilisateur) as username, (SELECT DISTINCT COUNT(*) FROM post WHERE idSujet = S.idSujet) as nbPost FROM sujet S, post P ORDER BY datecreation DESC;"); 
                         while ($row = $result->fetch_object()) {
                             if($row->status) {
                                 $titre = $row->titre . " [Résolu]";
                             } else {
                                 $titre = $row->titre;
                             }
+                            //! Stockage des valeurs pour éviter une 2e request pour les afficher dans le tableau de droite 
                             $sujets[$titre.'|||'.$row->idSujet] = $row->nbPost; 
                             $date = date("d-m-Y", strtotime($row->datecreation));  
                             ?>
@@ -60,7 +62,7 @@ $sujets = array();
                     }
                     else {
                         //! Requete récupérant chaque sujets du forum et l'auteur
-                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.username FROM `SUJET` S NATURAL JOIN UTILISATEUR U ORDER BY datecreation;"); 
+                        $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, datemodification, status, U.username FROM sujet S NATURAL JOIN utilisateur U ORDER BY datecreation;"); 
                         while ($row = $result->fetch_object()) {
                             if($row->status) {
                                 $titre = $row->titre . " [Résolu]";
@@ -92,6 +94,7 @@ $sujets = array();
                     <h2>Les plus mouvementés</h2>
                     <ul>
                         <?php
+                        //! Tri du tableau des sujets par ordre décroissant du nombre de posts
                         array_multisort($sujets, SORT_DESC, SORT_NUMERIC, $sujets);
                         foreach ($sujets as $sujet => $nbPost) {
                             $tab = explode('|||', $sujet); //? "exemple de sujet|||idSujet"

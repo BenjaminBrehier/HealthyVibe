@@ -1,15 +1,16 @@
 <?php
+//! Récupère les données du casque de l'utilisateur pour les envoyer au graphique (via AJAX)
 include './fonctions.php';
 session_start();
-// if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || empty($_GET["dateDebut"]) || empty($_GET["dateFin"])) {
-//     header("Location: ../../index.php");
-//     exit();
-// }
-$dateDebut = $_GET["dateDebut"];
-$dateFin = $_GET["dateFin"];
-$from = $_GET["from"];
-$array = array();
+if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || empty($_GET["dateDebut"]) || empty($_GET["dateFin"])) {
+    header("Location: ../../index.php");
+    exit();
+}
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$dateDebut = mysqli_escape_string($co, htmlspecialchars($_GET["dateDebut"]));
+$dateFin = mysqli_escape_string($co, htmlspecialchars($_GET["dateFin"]));
+$from = mysqli_escape_string($co, htmlspecialchars($_GET["from"]));
+$array = array();
 if ($from == "espaceSantee") {
     $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE (capteur.type = 'temperature corporelle' OR capteur.type = 'pouls' OR capteur.type = 'decibel') AND casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." AND donnee.date BETWEEN '$dateDebut' AND '$dateFin' ORDER BY date");
 }
@@ -22,6 +23,7 @@ $decibel = array();
 $gaz = array();
 $temperatureExt = array();
 $decibelExt = array();
+//! On parcours les données (valeur et date associées) pour les mettre dans le tableau correspondant
 while ($row = $result->fetch_object()) {
     $row->date = date("d-m-Y H:i:s", strtotime($row->date));
     $row->valeur = $row->valeur.'&'.$row->date;

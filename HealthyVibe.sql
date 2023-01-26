@@ -80,23 +80,24 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.tipseco (
   lienVideo TEXT DEFAULT NULL
 );
 
-CREATE TABLE IF NOT EXISTS HealthyVibe.quiz (
-  idQuiz INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  nom VARCHAR(42)
-);
+--! En vue d'amérlioration du site, on peut imaginer un système de quiz
+-- CREATE TABLE IF NOT EXISTS HealthyVibe.quiz (
+--   idQuiz INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--   nom VARCHAR(42)
+-- );
 
-CREATE TABLE IF NOT EXISTS HealthyVibe.complete (
-  idQuiz INT,
-  idUtilisateur INT,
-  FOREIGN KEY (idQuiz) REFERENCES HealthyVibe.quiz(idQuiz),
-  FOREIGN KEY (idUtilisateur) REFERENCES HealthyVibe.utilisateur(idUtilisateur)
-);
+-- CREATE TABLE IF NOT EXISTS HealthyVibe.complete (
+--   idQuiz INT,
+--   idUtilisateur INT,
+--   FOREIGN KEY (idQuiz) REFERENCES HealthyVibe.quiz(idQuiz),
+--   FOREIGN KEY (idUtilisateur) REFERENCES HealthyVibe.utilisateur(idUtilisateur)
+-- );
 
-CREATE TABLE IF NOT EXISTS HealthyVibe.question (
-  idQuestion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  question TEXT,
-  reponse TEXT
-);
+-- CREATE TABLE IF NOT EXISTS HealthyVibe.question (
+--   idQuestion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--   question TEXT,
+--   reponse TEXT
+-- );
 
 CREATE TABLE IF NOT EXISTS HealthyVibe.compose (
   idQuiz INT,
@@ -162,7 +163,7 @@ INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username
 
 INSERT INTO HealthyVibe.casque (dateachat, idUtilisateur, actif) VALUES('2023-01-17 15:00:00', 2, 1);
 
--- Insertion de capteurs "température", "pouls" et "gaz" dans la table Capteurs
+-- Insertion de capteurs "température", "pouls" et "gaz"… dans la table Capteurs
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('temperature corporelle', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('pouls', 1);
 INSERT INTO HealthyVibe.capteur (type, idCasque) VALUES ('gaz', 1);

@@ -3,6 +3,7 @@ var xhr = new XMLHttpRequest();
 //? from = 2 -> admin Utilisateur
 //? from = 3 -> admin forum
 
+//! Permet de récupérer les suggestions de recherche en fonction de la page
 function getSuggestions(from) {
     if(from == 1) {
         xhr.open('GET', "./res/php/suggestions.php?table="+from, true);
@@ -19,11 +20,14 @@ function getSuggestions(from) {
     xhr.send(null);
 }
 
+//! Permet de récupérer les suggestions de recherche pour le forum sur la page admin
 function adminForum() {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var table = document.getElementById("Sujets");
         var input = document.getElementById("searchForum");
         var tab = xhr.responseText.split("|");
+
+        //! Création du tableau de réponse
         var entete = "<th>idSujet</th><th>Titre</th><th>Date de création</th><th>Statut</th><th>Nombre de posts</th><th></th><th>Fermer</th><th>Supprimer</th>"
         table.innerHTML = entete;
         for (var i = 0; i < tab.length; i++) {
@@ -69,11 +73,14 @@ function adminForum() {
     }
 }
 
+//! Permet de récupérer les suggestions de recherche pour les utilisateurs sur la page admin
 function adminUtilisateur() {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var table = document.getElementById("Utilisateurs");
         var input = document.getElementById("searchUtilisateur");
         var tab = xhr.responseText.split("|");
+
+        //! Création du tableau de réponse
         var entete = "<tr><th>idUtilisateur</th><th>Nom</th><th>Prenom</th><th>Email</th><th>Username</th><th>Tel</th><th>Adresse</th><th>Code postal</th><th>Date de naissance</th><th></th><th>Date début Banissement</th><th>Date Fin Banissement</th><th>Désactiver</th></tr>"
         table.innerHTML = entete;
         for (var i = 0; i < tab.length; i++) {
@@ -103,10 +110,12 @@ function adminUtilisateur() {
             button.setAttribute("class", "supp");
             console.log(cptNull);
             if (cptNull < 2) {
+                //! Si null < 2 alors le compte est désactivé (donc on affiche activer)
                 button.setAttribute("onclick", "reactiverCompte(" + row[0] + ")");
                 button.innerHTML = "Activer";
             }
             else {
+                //! Sinon on affiche désactiver (car dateBanDebut et dateBanFin sont null)
                 button.setAttribute("onclick", "desactiverCompte(" + row[0] + ")");
                 button.innerHTML = "Désactiver";
             }
@@ -118,12 +127,14 @@ function adminUtilisateur() {
     }
 }
 
+//! Permet de récupérer les suggestions de recherche pour le forum sur la page forum
 function forum() {
     var contenu = document.getElementById("contenu");
     contenu.innerHTML = "";
     //? Si le fichier est chargé sans erreur
     if (xhr.readyState === 4 && xhr.status === 200) {
         var tab = xhr.responseText.split("|");
+        //! Injection du contenu dans la page sous la même forme que la page classique
         for (var i = 0; i < tab.length; i++) {
             var input = document.getElementById("search");
             var row = tab[i].split(";");

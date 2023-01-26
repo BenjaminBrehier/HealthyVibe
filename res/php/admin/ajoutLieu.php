@@ -1,5 +1,5 @@
 <?php 
-
+//! Permet d'ajouter un lieu de vente supplémentaire
 include('../fonctions.php');
 session_start();
 if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || !($_SESSION['utilisateur']->getRole())) {

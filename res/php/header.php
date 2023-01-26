@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="res/css/header.css">
+<link rel="stylesheet" href="./res/css/header.css">
 <header>
     <div id="ligneVerte">
     </div>
@@ -42,7 +42,7 @@
     <ul id="menu_horizontal">
         <?php
           $page = basename($_SERVER['PHP_SELF']);
-
+          //! Changement du header en fonction de la page 
           if ($page=="adminPanel.php") {
             ?>
                 <li><a href="./index.php" <?php if($page == "./index.php") {echo 'class="selected"';}?>>Accueil</a></li>

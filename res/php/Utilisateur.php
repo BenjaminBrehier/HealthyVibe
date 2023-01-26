@@ -1,4 +1,5 @@
 <?php 
+//! Classe Utilisateur qui permet de récupérer les données d'un utilisateur depuis la BDD
 class Utilisateur {
     private $id;
     private $nom;

@@ -9,28 +9,19 @@
     } 
     if (isset($_GET['type'])) {
         if (htmlspecialchars($_GET['type']) == 'inscription') {
-            $nom = htmlspecialchars($_POST['fname']);
-            $prenom = htmlspecialchars($_POST['lname']);
-            $dateNaissance = htmlspecialchars($_POST['DTN']);
-            $username = htmlspecialchars($_POST['username']);
-            $adresse = "";
-            $codePostal = "";
-            $tel = "";
-            $mail = htmlspecialchars($_POST['mail']);
-            $mdp = htmlspecialchars($_POST['mdp']);
+            $nom = mysqli_escape_string($co, htmlspecialchars($_POST['fname']));
+            $prenom = mysqli_escape_string($co, htmlspecialchars($_POST['lname']));
+            $dateNaissance = mysqli_escape_string($co, htmlspecialchars($_POST['DTN']));
+            $username = mysqli_escape_string($co, htmlspecialchars($_POST['username']));
+            $mail = mysqli_escape_string($co, htmlspecialchars($_POST['mail']));
+            $mdp = mysqli_escape_string($co, htmlspecialchars($_POST['mdp']));
             $hashedmdp = password_hash($mdp, PASSWORD_ARGON2ID);
             $password1 = $_POST['mdp'];
             $password2 = $_POST['mdpConf'];
-           
-            if (isset($_POST['adresse'])) {
-                $adresse = htmlspecialchars($_POST['adresse']);
-            }
-            if (isset($_POST['CP'])){
-                $codePostal = htmlspecialchars($_POST['CP']);
-            }
-            if (isset($_POST['tel'])) {
-                $tel = htmlspecialchars($_POST['tel']);
-            }
+            $adresse = mysqli_escape_string($co, htmlspecialchars($_POST['adresse']));
+            $codePostal = mysqli_escape_string($co, htmlspecialchars($_POST['CP']));
+            $tel = mysqli_escape_string($co, htmlspecialchars($_POST['tel']));
+
             if (strcmp($password1, $password2) == 0) {
                 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
                 $id = $_SESSION['utilisateur']->getId();
@@ -128,22 +119,22 @@
                     <input type="date" id="DTN" name="DTN" value="<?php echo $_SESSION['utilisateur']->getDateNaissance();?>" required>
                 </div>
                 <?php 
-                        //Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
+                        //! Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
                         $date = new DateTime();
                         $date->sub(new DateInterval('P15Y'));
                         $dateMax = $date->format('Y-m-d');
                         ?>
                 <div class="champ">
                     <label for="adresse">Adresse:</label>
-                    <input type="text" id="Adresse" value="<?php echo $_SESSION['utilisateur']->getAdresse();?>" placeholder="<?php echo $_SESSION['utilisateur']->getAdresse();?>" name="adresse">
+                    <input type="text" id="Adresse" value="<?php echo $_SESSION['utilisateur']->getAdresse();?>" placeholder="<?php echo $_SESSION['utilisateur']->getAdresse();?>" name="adresse" required>
                 </div>
                 <div class="champ">
                     <label for="CP">Code Postal:</label>
-                    <input type="number" id="CP" name="CP" value="<?php echo $_SESSION['utilisateur']->getCodePostal();?>" placeholder="<?php echo $_SESSION['utilisateur']->getCodePostal();?>" >
+                    <input type="number" id="CP" name="CP" value="<?php echo $_SESSION['utilisateur']->getCodePostal();?>" placeholder="<?php echo $_SESSION['utilisateur']->getCodePostal();?>" required>
                 </div>
                 <div class="champ">
                     <label for="tel">Tel:</label>
-                    <input type="number" id="tel" name="tel" value="<?php echo $_SESSION['utilisateur']->getTel();?>" placeholder="<?php echo $_SESSION['utilisateur']->getTel();?>">
+                    <input type="number" id="tel" name="tel" value="<?php echo $_SESSION['utilisateur']->getTel();?>" placeholder="<?php echo $_SESSION['utilisateur']->getTel();?>" required>
                 </div>
     
                 <div class="boutonSinscrire">

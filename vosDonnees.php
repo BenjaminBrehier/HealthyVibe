@@ -12,6 +12,7 @@ $pouls = "Pas de données";
 $temperature = "Pas de données";
 $decibel = "Pas de données";
 $gaz = "Pas de données";
+//! Permet de récupérer les dernières données d'un utilisateur
 while ($row = $result->fetch_object()) {
     if ($row->type == "pouls" && $pouls == "Pas de données") {
         $pouls = $row->valeur;

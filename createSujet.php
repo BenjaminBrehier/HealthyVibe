@@ -1,4 +1,5 @@
 <?php
+//! Page de création d'un sujet et du prémier post
 include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté

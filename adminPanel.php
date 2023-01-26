@@ -1,4 +1,5 @@
 <?php
+//! Page admin 
 include './res/php/fonctions.php';
 session_start();
 if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur) || $_SESSION['utilisateur']->getRole() != 1) {
@@ -28,6 +29,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
             <a href="">Panel Admin</a>
         </div>
         <?php
+        //! En fonction de la variable onglet, on affiche un onglet différent (une table différente)
         if (isset($_GET['onglet']) && $_GET['onglet'] == 'Utilisateurs') {
         ?>
             <h1>Liste des utilisateurs</h1>
@@ -118,6 +120,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
         if (isset($_GET['onglet']) && $_GET['onglet'] == 'Forum') {
         ?>
             <h1>Liste des sujets</h1>
+            <!-- 3 donne l'information à la page suivante de savoir qu'il s'agit de la recherche de sujets -->
             <input type="text" oninput="getSuggestions(3)" id="searchForum" placeholder="Rechercher un sujet par son titre">
             <table id="Sujets">
                 <tr>
@@ -177,13 +180,13 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                 </tr>
                 <?php
                 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                $result = $co->query("SELECT * FROM FAQ");
+                $result = $co->query("SELECT * FROM faq");
                 while ($row = $result->fetch_object()) {
                 ?> <tr>
                         <td><?php echo $row->idFaq; ?></td>
                         <td><?php echo $row->question; ?></td>
                         <td><?php echo $row->reponse; ?></td>
-                        <td><a class="supp" href='./res/php/admin/supprimer.php?idT=<?php echo $row->idFaq; ?>&table=FAQ'>X</a></td>
+                        <td><a class="supp" href='./res/php/admin/supprimer.php?idT=<?php echo $row->idFaq; ?>&table=faq'>X</a></td>
                     </tr>
                 <?php
                 }
@@ -211,13 +214,13 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
                 </tr>
                 <?php
                 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                $result = $co->query("SELECT * FROM tipsEco");
+                $result = $co->query("SELECT * FROM tipseco");
                 while ($row = $result->fetch_object()) {
                 ?> <tr>
                         <td><?php echo $row->idTips; ?></td>
                         <td><?php echo $row->contenu; ?></td>
                         <td><?php echo $row->lienVideo; ?></td>
-                        <td><a class="supp" href='./res/php/admin/supprimer.php?idT=<?php echo $row->idTips; ?>&table=tipsEco'>X</a></td>
+                        <td><a class="supp" href='./res/php/admin/supprimer.php?idT=<?php echo $row->idTips; ?>&table=tipseco'>X</a></td>
                     <?php
                 }
                     ?>

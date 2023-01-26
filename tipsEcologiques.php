@@ -1,4 +1,5 @@
 <?php
+    //! Permet consulter les tips écologiques
     include './res/php/fonctions.php';
     session_start();
 ?>
@@ -7,8 +8,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Tips écologiques : HealthyVibe</title>
-        <link rel="stylesheet" href="res/css/tipsEcologiques.css">
-        <script src="res/js/script.js"></script>
+        <link rel="stylesheet" href="./res/css/tipsEcologiques.css">
+        <script src="./res/js/script.js"></script>
     </head>
 
     <body>
@@ -35,7 +36,7 @@
                     <div id="gallerieTips">
                         <?php
                         $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                        $result = $co->query("SELECT * FROM TIPSECO");
+                        $result = $co->query("SELECT * FROM tipseco");
                         while ($row = $result->fetch_object()) {
                         ?> 
                         <a href="<?php echo $row->lienVideo?>"class='tips'><?php echo $row->contenu?></a>

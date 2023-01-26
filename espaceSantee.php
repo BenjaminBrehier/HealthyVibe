@@ -1,4 +1,5 @@
 <?php
+//! Page permettant de consulter les différents graphiques à partir des données du casque
 include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté
@@ -11,6 +12,7 @@ $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteu
 $pouls = "Pas de données";
 $temperature = "Pas de données";
 $decibel = "Pas de données";
+//! On récupère la dernière valeur de chaque type
 while ($row = $result->fetch_object()) {
     if ($row->type == "pouls" && $pouls == "Pas de données") {
         $pouls = $row->valeur;
@@ -108,6 +110,7 @@ $co->close();
 </body>
 <script src="res/js/graph.js"></script>
 <script>
+    //! Lance la fonction de création des graphiques (AJAX) dans graph.js qui fait appel à graph.php
     reload("espaceSantee");
 </script>
 </html>

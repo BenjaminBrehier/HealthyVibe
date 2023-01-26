@@ -1,8 +1,10 @@
 <?php
+//! Permet de supprimer un post d'un sujet
 include './fonctions.php';
 session_start();
+$co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $idSujet = htmlspecialchars($_GET['idSujet']);
-$idPost = htmlspecialchars($_GET['idPost']);
+$idPost = mysqli_escape_string($co, htmlspecialchars($_GET['idPost']));
 $idUtilisateur = htmlspecialchars($_GET['idUtilisateur']);
 
 if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
@@ -10,8 +12,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     exit();
 } 
 if ($_SESSION['utilisateur']->getId() == $idUtilisateur || $_SESSION['utilisateur']->getRole()) {
-    $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-    $req = $co->query("DELETE FROM POST WHERE idPost = $idPost"); 
+    $req = $co->query("DELETE FROM post WHERE idPost = $idPost"); 
 }
 
 header("Location: ../../afficheSujet.php?idSujet=$idSujet");

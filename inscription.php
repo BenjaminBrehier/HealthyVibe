@@ -49,7 +49,7 @@
 
             <div class="champ">
                 <?php 
-                //Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
+                //! Calculer la date minimal pour que l'utilisateur ait au moins 15 ans
                 $date = new DateTime();
                 $date->sub(new DateInterval('P15Y'));
                 $dateMax = $date->format('Y-m-d');
@@ -59,15 +59,15 @@
             </div> 
             <div class="champ">         
                 <label for="adresse">Adresse:</label>
-                <input type="text" id="Adresse" name="adresse">
+                <input type="text" id="Adresse" name="adresse" required>
             </div> 
             <div class="champ"> 
                 <label for="CP">Code Postal:</label>
-                <input type="number" id="CP" name="CP">
+                <input type="number" id="CP" name="CP" required>
             </div>  
             <div class="champ"> 
                 <label for="tel">Tel:</label>
-                <input type="number" id="tel" name="tel">
+                <input type="number" id="tel" name="tel" required>
             </div> 
             
             <div class="checkbox"> 

@@ -1,4 +1,5 @@
 <?php
+//! Permet d'afficher les posts d'un sujet
 include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté
@@ -14,7 +15,7 @@ else {
     exit();
 }
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-$result = $co->query("SELECT * FROM Sujet WHERE idSujet = $idSujet"); 
+$result = $co->query("SELECT * FROM sujet WHERE idSujet = $idSujet"); 
 $row = $result->fetch_object();
 //! Si la requete n'a renvoyé aucune ligne, on redirige vers le forum
 if ($row == null) {
@@ -51,7 +52,7 @@ $posts = array();
             <a href=""><?php echo $titreSujet; if($statusSujet) {echo ' [Résolu]';}?></a>
         </div>
         <?php 
-            //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture
+            //! Si l'utilisateur est l'auteur du sujet ou l'admin, on lui permet d'accéder au bouton de fermeture si le sujet est encore ouvert
             if (($idUtilisateur == $_SESSION['utilisateur']->getId() || $_SESSION['utilisateur']->getRole()) && !$statusSujet) {
                 ?>
                 <button onclick="closeSubject(<?php echo $idSujet.',1';?>)">Fermer le sujet</button>
@@ -67,9 +68,10 @@ $posts = array();
         <div class="container">
             <?php 
             $i = 0;
-            $result = $co->query("SELECT idPost, date, contenu, U.username, P.idUtilisateur, idReponse FROM POST P INNER JOIN SUJET S ON S.idSujet = P.idSujet INNER JOIN UTILISATEUR U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
+            $result = $co->query("SELECT idPost, date, contenu, U.username, P.idUtilisateur, idReponse FROM post P INNER JOIN sujet S ON S.idSujet = P.idSujet INNER JOIN utilisateur U ON P.idUtilisateur = U.idUtilisateur WHERE P.idSujet = $idSujet ORDER BY date"); 
             while ($row = $result->fetch_object()) {
                 $i++;
+                //! On stocke dans un tableau les valeurs de chaques postes pour pouvoir les afficher en tant que réponse ensuite (ligne 86)
                 $posts[$row->idPost] = $row->username.'|'.$row->date.'|'.$row->contenu;
                 $date = date("d-m-Y H:i:s", strtotime($row->date));
                 ?>

@@ -1,4 +1,5 @@
 <?php 
+    //! Permet d'exporter les données d'une table vers AJAX pour la recherche dynamique
     include './fonctions.php';
     session_start();
     $array = array();
@@ -24,7 +25,7 @@
         //! On vérifie qu'il y a au moins 1 post dans la BDD
         $result = $co->query("SELECT * FROM post LIMIT 1");
         if ($result->num_rows > 0) {
-            $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, status, (SELECT U.username FROM UTILISATEUR U WHERE U.idUtilisateur = S.idUtilisateur) as username, (SELECT DISTINCT COUNT(*) FROM POST WHERE idSujet = S.idSujet) as nbPost FROM `SUJET` S, POST P ORDER BY datecreation DESC;");
+            $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, status, (SELECT U.username FROM utilisateur U WHERE U.idUtilisateur = S.idUtilisateur) as username, (SELECT DISTINCT COUNT(*) FROM post WHERE idSujet = S.idSujet) as nbPost FROM sujet S, POST P ORDER BY datecreation DESC;");
             while ($row = $result->fetch_object()) {
                 //? Changer format date
                 $dateC = date("d-m-Y", strtotime($row->datecreation));
@@ -38,7 +39,7 @@
             }
         }
         else {
-            $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, status, U.username FROM `SUJET` S NATURAL JOIN UTILISATEUR U ORDER BY datecreation;");
+            $result = $co->query("SELECT DISTINCT S.idSujet, titre, datecreation, status, U.username FROM sujet S NATURAL JOIN utilisateur U ORDER BY datecreation;");
             while ($row = $result->fetch_object()) {
                 //? Changer format date
                 $dateC = date("d-m-Y", strtotime($row->datecreation));

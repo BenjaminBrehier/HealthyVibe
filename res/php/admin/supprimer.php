@@ -1,5 +1,5 @@
 <?php 
-
+//! Permet de supprimer un tips ou une question de la FAQ ou un lieu de vente de la BDD
 include('../fonctions.php');
 session_start();
 
@@ -12,12 +12,12 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
     exit();
 } 
 
-if ($table=='tipsEco'){
+if ($table=='tipseco'){
     $req = $co->query("DELETE FROM $table WHERE idTips=$id"); 
     header("Location: ../../../adminPanel.php?onglet=TipsEcologiques");
 }
 
-else if ($table=='FAQ'){
+else if ($table=='faq'){
     $req = $co->query("DELETE FROM $table WHERE idFaq=$id"); 
     header("Location: ../../../adminPanel.php?onglet=FAQ");
 }

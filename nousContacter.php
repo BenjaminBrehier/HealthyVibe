@@ -1,4 +1,5 @@
 <?php
+//! Permet de contacter l'administrateur par mail et messagerie interne
 include './res/php/fonctions.php';
 session_start();
 //! Vérfication que l'user est connecté
@@ -36,7 +37,8 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
             </form>
             <?php if (isset($_POST['message'])) {
                 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-                $result = $co->query("INSERT INTO messagedirect(idUtilisateur, idUtilisateur1, date, contenu) VALUES (" . $_SESSION['utilisateur']->getId() . ", 1, '" . date("Y-m-d h:m:s") . "', '" . $_POST['message'] . "')");
+                $message = mysqli_escape_string($co, $_POST['message']);
+                $result = $co->query("INSERT INTO messagedirect(idUtilisateur, idUtilisateur1, date, contenu) VALUES (" . $_SESSION['utilisateur']->getId() . ", 1, '" . date("Y-m-d h:m:s") . "', '" . $message . "')");
                 $dest = "healthyvibe.isep@gmail.com";
                 $objet = "requete client";
                 $message = $_POST['message'];

@@ -1,4 +1,5 @@
 <?php
+//! Page de conditions générales d'utilisation du casque
 include './res/php/fonctions.php';
 session_start();
 ?>

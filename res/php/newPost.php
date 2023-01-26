@@ -1,4 +1,5 @@
 <?php
+//! Permet de publier un nouveau post
 include('./fonctions.php');
 session_start();
 $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -13,7 +14,7 @@ if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Ut
 $idUtilisateur = $_SESSION['utilisateur']->getId();
 
 $date = date('Y-m-d H:i:s');
-$req = $co->query("INSERT INTO POST(date, contenu, idUtilisateur, idSujet, idReponse) VALUES('$date','$contenu', $idUtilisateur, $idSujet, $idPostReponse)"); 
+$req = $co->query("INSERT INTO post(date, contenu, idUtilisateur, idSujet, idReponse) VALUES('$date','$contenu', $idUtilisateur, $idSujet, $idPostReponse)"); 
 
 header("Location: ../../afficheSujet.php?idSujet=$idSujet#form");
 exit();

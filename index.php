@@ -1,28 +1,23 @@
 <?php 
+    //! Acceuil du siteWeb ainsi que script de connexion et d'inscription d'un utilisateur
     include './res/php/fonctions.php';
     session_start();
     if (isset($_GET['type'])) {
         if (htmlspecialchars($_GET['type']) == 'inscription') {
-            $nom = htmlspecialchars($_POST['fname']);
-            $prenom = htmlspecialchars($_POST['lname']);
-            $dateNaissance = htmlspecialchars($_POST['DTN']);
-            $adresse = 'null';
-            $codePostal = 'null';
-            $tel = 'null';
-            if (isset($_POST['adresse']))
-                $adresse = htmlspecialchars($_POST['adresse']);
-            if (isset($_POST['CP'])) 
-                $codePostal = htmlspecialchars($_POST['CP']);
-            if (isset($_POST['tel'])) {
-                $tel = htmlspecialchars($_POST['tel']);
-            }
-            $username = htmlspecialchars($_POST['username']);
-            $mail = htmlspecialchars($_POST['mail']);
-            $mdp = htmlspecialchars($_POST['mdp']);
+            //! Inscription d'un utilisateur
+            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            $nom = mysqli_escape_string($co, htmlspecialchars($_POST['fname']));
+            $prenom = mysqli_escape_string($co, htmlspecialchars($_POST['lname']));
+            $dateNaissance = mysqli_escape_string($co, htmlspecialchars($_POST['DTN']));
+            $adresse = mysqli_escape_string($co, htmlspecialchars($_POST['adresse']));
+            $codePostal = mysqli_escape_string($co, htmlspecialchars($_POST['CP']));
+            $tel = mysqli_escape_string($co, htmlspecialchars($_POST['tel']));
+            $username = mysqli_escape_string($co, htmlspecialchars($_POST['username']));
+            $mail = mysqli_escape_string($co, htmlspecialchars($_POST['mail']));
+            $mdp = mysqli_escape_string($co, htmlspecialchars($_POST['mdp']));
             $hashedmdp = password_hash($mdp, PASSWORD_ARGON2ID);
 
-            $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-            $result = $co->query("INSERT INTO UTILISATEUR(nom, prenom, username, email, mdp, tel, adresse, codepostal, datenaissance) VALUES ('$nom','$prenom','$username', '$mail','$hashedmdp','$tel','$adresse',$codePostal,'$dateNaissance');");
+            $result = $co->query("INSERT INTO utilisateur(nom, prenom, username, email, mdp, tel, adresse, codepostal, datenaissance) VALUES ('$nom','$prenom','$username', '$mail','$hashedmdp','$tel','$adresse',$codePostal,'$dateNaissance');");
             if ($result) {
                 login($mail, $mdp);
             } else {
@@ -31,9 +26,11 @@
             }
         }
         else if (htmlspecialchars($_GET['type']) == 'connexion') {
+            //! Connexion d'un utilisateur
             if (!isset($_SESSION['utilisateur']) || !($_SESSION['utilisateur'] instanceof Utilisateur)) {
-                $mail = htmlspecialchars($_POST['mail']);
-                $mdp = htmlspecialchars($_POST['mdp']);
+                $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+                $mail = mysqli_escape_string($co, htmlspecialchars($_POST['mail']));
+                $mdp = mysqli_escape_string($co, htmlspecialchars($_POST['mdp']));
                 login($mail, $mdp);
             }
         } 
@@ -43,11 +40,6 @@
             exit();
         }
     }
-    // else {
-    //     //! Url de connexion incorrect
-    //     header("Location: ./connexion.php?reponse=Erreur");
-    //     exit();
-    // }
 ?>
 <!DOCTYPE html>
 <html>
