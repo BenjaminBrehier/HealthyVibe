@@ -20,7 +20,7 @@
         <p class="titre"> Formulaire d'inscription</p>
 
         <form action="./index.php?type=inscription" method="POST">
-            <p id="erreur"><?php if(isset($_GET['reponse'])) {echo 'Erreur lors de l\'inscription. Merci de réessayer ou contacter le support si le problème persiste.';} ?></p>
+            <p id="erreur"><?php if(isset($_GET['reponse']) && $_GET['reponse'] == "Erreur") {echo 'Erreur lors de l\'inscription. Merci de réessayer ou contacter le support si le problème persiste.'; } else if (isset($_GET['reponse']) && $_GET['reponse'] != "Erreur") { echo $_GET['reponse'];} ?></p>
             <div class="champ">
                 <label for="fname">Nom:</label>
                 <input type="text" id="fname" name="fname" required>

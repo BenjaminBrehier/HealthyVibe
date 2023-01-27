@@ -11,7 +11,7 @@ else {
 }
 
 define('DB_USERNAME', 'adminHealthyVibe');
-define('DB_PASSWORD', 'adminHealthyVibe');
+define('DB_PASSWORD', 'j@Q#KFc77KYD!ragbDiC9NR');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'HealthyVibe');
 

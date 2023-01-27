@@ -49,8 +49,9 @@ section a {
   width: 30%;
 }
 
-#erreur {
+.erreur {
   color: red;
+  text-align: center;
 }
 
 .titre {

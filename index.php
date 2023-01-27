@@ -6,14 +6,25 @@
         if (htmlspecialchars($_GET['type']) == 'inscription') {
             //! Inscription d'un utilisateur
             $co = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+            //! Vérification de l'unicité de l'email et du username
+            $mail = mysqli_escape_string($co, htmlspecialchars($_POST['mail']));
+            $result = $co->query("SELECT * FROM utilisateur WHERE email = '$mail' LIMIT 1");
+            if ($result->num_rows > 0) {
+                header("Location: ./inscription.php?reponse=Email déjà utilisé");
+                exit();
+            }
+            $username = mysqli_escape_string($co, htmlspecialchars($_POST['username']));
+            $result = $co->query("SELECT * FROM utilisateur WHERE username = '$username' LIMIT 1");
+            if ($result->num_rows > 0) {
+                header("Location: ./inscription.php?reponse=Username déjà utilisé");
+                exit();
+            }
             $nom = mysqli_escape_string($co, htmlspecialchars($_POST['fname']));
             $prenom = mysqli_escape_string($co, htmlspecialchars($_POST['lname']));
             $dateNaissance = mysqli_escape_string($co, htmlspecialchars($_POST['DTN']));
             $adresse = mysqli_escape_string($co, htmlspecialchars($_POST['adresse']));
             $codePostal = mysqli_escape_string($co, htmlspecialchars($_POST['CP']));
             $tel = mysqli_escape_string($co, htmlspecialchars($_POST['tel']));
-            $username = mysqli_escape_string($co, htmlspecialchars($_POST['username']));
-            $mail = mysqli_escape_string($co, htmlspecialchars($_POST['mail']));
             $mdp = mysqli_escape_string($co, htmlspecialchars($_POST['mdp']));
             $hashedmdp = password_hash($mdp, PASSWORD_ARGON2ID);
 

@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.utilisateur (
   idUtilisateur INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nom VARCHAR(42),
   prenom VARCHAR(42),
-  username VARCHAR(42),
-  email VARCHAR(42),
+  username VARCHAR(42) UNIQUE,
+  email VARCHAR(42) UNIQUE,
   mdp VARCHAR(110),
   tel VARCHAR(13),
   adresse VARCHAR(42),
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.tipseco (
   lienVideo TEXT DEFAULT NULL
 );
 
---! En vue d'amérlioration du site, on peut imaginer un système de quiz
+-- En vue d'amérlioration du site, on peut imaginer un système de quiz
 -- CREATE TABLE IF NOT EXISTS HealthyVibe.quiz (
 --   idQuiz INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 --   nom VARCHAR(42)
@@ -99,13 +99,13 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.tipseco (
 --   reponse TEXT
 -- );
 
-CREATE TABLE IF NOT EXISTS HealthyVibe.compose (
-  idQuiz INT,
-  idQuestion INT,
-  FOREIGN KEY (idQuiz) REFERENCES HealthyVibe.quiz(idQuiz),
-  FOREIGN KEY (idQuestion) REFERENCES HealthyVibe.question(idQuestion),
-  PRIMARY KEY (idQuiz,idQuestion)
-);
+-- CREATE TABLE IF NOT EXISTS HealthyVibe.compose (
+--   idQuiz INT,
+--   idQuestion INT,
+--   FOREIGN KEY (idQuiz) REFERENCES HealthyVibe.quiz(idQuiz),
+--   FOREIGN KEY (idQuestion) REFERENCES HealthyVibe.question(idQuestion),
+--   PRIMARY KEY (idQuiz,idQuestion)
+-- );
 
 CREATE TABLE IF NOT EXISTS HealthyVibe.messagedirect (
   idMessage INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -147,19 +147,20 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.commande (
   FOREIGN KEY (lieu) REFERENCES HealthyVibe.lieuvente(idLieu) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE USER IF NOT EXISTS 'adminHealthyVibe'@'localhost' IDENTIFIED BY 'adminHealthyVibe';
+CREATE USER IF NOT EXISTS 'adminHealthyVibe'@'localhost' IDENTIFIED BY 'j@Q#KFc77KYD!ragbDiC9NR';
 GRANT SELECT, INSERT, UPDATE, DELETE ON `healthyvibe`.* TO 'adminHealthyVibe'@'localhost';
 
 INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
 (1, 'AdminNom', 'AdminP', 'AdminU', 'admin@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$S1JiYlZ0ZnRvTVlTcEFBcQ$5SSvDGbtYY4CJ8CYITT2WOgb4zsGCd/jmUIm3k1PLOc', '192168', '1 rue du Web', 192, '1970-01-01', 1, 0);
 INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
 (2, 'UserNom', 'UserP', 'UserU', 'user@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '192168', '1 rue du Web', 192, '1970-01-01', 0, 0);
-INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
-(3, 'Leroy', 'Chloe', 'cleroy', 'chloe@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '0654567788', '34 Avenue Foch', 75008, '2002-12-01', 0, 0);
-INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
-(4, 'Golder', 'Jean', 'jiji', 'jiji@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bDg5T3hKSGZDRGVpUFRGLg$NKwLCD+XiDQrBvvuoqqeP1EX0SELHbxMnGlhlL1exp0', '0745675345', '1 rue Falret', 92170, '1970-11-23', 0, 0);
 
 
+
+
+
+
+-- DONNEES D'EXEMPLES
 
 INSERT INTO HealthyVibe.casque (dateachat, idUtilisateur, actif) VALUES('2023-01-17 15:00:00', 2, 1);
 
