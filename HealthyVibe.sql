@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS HealthyVibe.commande (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE USER IF NOT EXISTS 'adminHealthyVibe'@'localhost' IDENTIFIED BY 'j@Q#KFc77KYD!ragbDiC9NR';
-GRANT SELECT, INSERT, UPDATE, DELETE ON `healthyvibe`.* TO 'adminHealthyVibe'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `HealthyVibe`.* TO 'adminHealthyVibe'@'localhost';
 
 INSERT INTO HealthyVibe.utilisateur (`idUtilisateur`, `nom`, `prenom`, `username`, `email`, `mdp`, `tel`, `adresse`, `codepostal`, `datenaissance`, `role`, `banni`) VALUES
 (1, 'AdminNom', 'AdminP', 'AdminU', 'admin@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$S1JiYlZ0ZnRvTVlTcEFBcQ$5SSvDGbtYY4CJ8CYITT2WOgb4zsGCd/jmUIm3k1PLOc', '192168', '1 rue du Web', 192, '1970-01-01', 1, 0);
