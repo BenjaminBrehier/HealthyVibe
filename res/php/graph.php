@@ -15,7 +15,7 @@ if ($from == "espaceSantee") {
     $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE (capteur.type = 'temperature corporelle' OR capteur.type = 'pouls' OR capteur.type = 'decibel') AND casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." AND donnee.date BETWEEN '$dateDebut' AND '$dateFin' ORDER BY date");
 }
 else {
-    $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE (capteur.type = 'temperature extérieure' OR capteur.type = 'gaz' OR capteur.type = 'décibel extérieur') AND casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." AND donnee.date BETWEEN '$dateDebut' AND '$dateFin' ORDER BY date");
+    $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteur = capteur.idCapteur INNER JOIN casque ON capteur.idCasque = casque.idCasque WHERE (capteur.type = 'temperature extérieure' OR capteur.type = 'gaz' OR capteur.type = 'humidite') AND casque.idUtilisateur = ".$_SESSION['utilisateur']->getId()." AND donnee.date BETWEEN '$dateDebut' AND '$dateFin' ORDER BY date");
 }
 $pouls = array();
 $temperatureCorp = array();
@@ -42,7 +42,7 @@ while ($row = $result->fetch_object()) {
     else if ($row->type == "temperature extérieure") {
         array_push($temperatureExt, $row->valeur);
     }
-    else if ($row->type == "décibel extérieur") {
+    else if ($row->type == "humidite") {
         array_push($decibelExt, $row->valeur);
     }
 }

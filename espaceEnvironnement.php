@@ -20,7 +20,7 @@ while ($row = $result->fetch_object()) {
     else if ($row->type == "gaz" && $gaz == "Pas de données") {
         $gaz = $row->valeur;
     }
-    else if ($row->type == "décibel extérieur" && $decibel == "Pas de données") {
+    else if ($row->type == "humidite" && $decibel == "Pas de données") {
         $decibel = $row->valeur;
     }
     if ($temperature != "Pas de données" && $gaz != "Pas de données" && $decibel != "Pas de données") {
@@ -93,8 +93,8 @@ $co->close();
                     <div id="graph3">
                         <div class="actu">
                             <div id="pres">
-                                <img class=icone src="./res/img/headphones.png" alt="idéogramme casque">
-                                <p><strong><?php echo $decibel ;?> db</strong></p>
+                                <img class=icone src="./res/img/humidite.png" alt="idéogramme humidite">
+                                <p><strong><?php echo $decibel ;?>% d'humidité</strong></p>
                             </div>
                         </div>
                         <div id="graphique3">

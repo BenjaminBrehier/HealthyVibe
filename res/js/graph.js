@@ -250,7 +250,7 @@ function getGraphEnv() {
                 type: 'line'
             },
             title: {
-                text: 'Décibel extérieur'
+                text: 'Humidité'
             },
             xAxis: {
                 categories: ['temps (en heure)'],
@@ -260,11 +260,11 @@ function getGraphEnv() {
             },
             yAxis: {
                 title: {
-                    text: 'Décibel extérieur (en dB)'
+                    text: 'Humidité (en %)'
                 }
             },
             series: [{
-                name: 'Décibel extérieur',
+                name: 'Humidité',
                 data: []
             },
             {
