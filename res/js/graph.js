@@ -219,7 +219,7 @@ function getGraphEnv() {
         });
         var gazChart = Highcharts.chart('graphique2', {
             chart: {
-                type: 'line'
+                type: 'column'
             },
             title: {
                 text: 'CO2'
@@ -231,13 +231,21 @@ function getGraphEnv() {
                 }
             },
             yAxis: {
+                categories: ['CO2 (en ppm)','TVOC (en ppb)'],
                 title: {
                     text: 'CO2 (en ppm)'
                 }
             },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }},
             series: [{
                 name: 'CO2',
-                data: []
+                data: [],
+            },{
+                name: 'TVOC',
+                data: []  
             },
             {
                 name: 'moyenne',
@@ -329,6 +337,23 @@ function getGraphEnv() {
                 moy = [tabdecibelData.reduce((a, b) => a + b, 0) / tabdecibelData.length];
                 const tabMoys = Array(tabdecibelData.length).fill(Math.round(moy));
                 decibelExtChart.series[1].setData(tabMoys);
+            }
+            if (tab[6] != "0") {
+                var tabtvoc = tab[6].split(";");
+                var tabDate = [];
+                var tabtvocData = [];
+                for (var i = 0; i < tabtvoc.length; i++) {
+                    var tvoc = tabtvoc[i].split("&");
+                    tabDate.push(poul[1]);
+                    tabtvocData.push(parseFloat(tvoc[0]));
+                }
+                gazChart.xAxis[0].setCategories(tabDate);
+                gazChart.series[0].setData(tabtvocData);
+
+                //! Calcul de la moyenne et ajout de la ligne
+                moy = [tabtvocData.reduce((a, b) => a + b, 0) / tabtvocData.length];
+                const tabMoys = Array(tabtvocData.length).fill(Math.round(moy));
+                gazChart.series[1].setData(tabMoys);
             }
         }
     }
