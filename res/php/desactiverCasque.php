@@ -14,8 +14,10 @@ if ($_SESSION['utilisateur']->getRole()) {
     $val = mysqli_escape_string($co, htmlspecialchars($_GET['actif']));
     if ($val == 1) {
         $req = $co->query("UPDATE casque SET actif = $val, idUtilisateur = ancienID WHERE idCasque = $idCasque");
+        file_get_contents("http://projets-tomcat.isep.fr:8080/appService/?ACTION=COMMAND&TEAM=G02A&TRAME=1G02A13071111ON");
     } else {
         $req = $co->query("UPDATE casque SET actif = $val, ancienID = idUtilisateur, idUtilisateur = Null WHERE idCasque = $idCasque");
+        file_get_contents("http://projets-tomcat.isep.fr:8080/appService/?ACTION=COMMAND&TEAM=G02A&TRAME=1G02A13071111OF");
     }
     header("Location: ../../adminPanel.php?onglet=Casques");
     exit();

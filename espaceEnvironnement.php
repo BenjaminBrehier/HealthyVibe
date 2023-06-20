@@ -12,6 +12,7 @@ $result = $co->query("SELECT * FROM donnee INNER JOIN capteur ON donnee.idCapteu
 $temperature = "Pas de données";
 $gaz = "Pas de données";
 $decibel = "Pas de données";
+$tvoc = "Pas de données";
 //! On récupère la dernière valeur de chaque type
 while ($row = $result->fetch_object()) {
     if ($row->type == "temperature extérieure" && $temperature == "Pas de données") {
@@ -22,8 +23,11 @@ while ($row = $result->fetch_object()) {
     }
     else if ($row->type == "humidite" && $decibel == "Pas de données") {
         $decibel = $row->valeur;
+    } 
+    else if ($row->type == "tvoc" && $tvoc == "Pas de données") {
+        $tvoc = $row->valeur;
     }
-    if ($temperature != "Pas de données" && $gaz != "Pas de données" && $decibel != "Pas de données") {
+    if ($temperature != "Pas de données" && $gaz != "Pas de données" && $decibel != "Pas de données" && $tvoc != "Pas de données") {
         break;
     }
 }
@@ -105,7 +109,7 @@ $co->close();
                         <div class="actu">
                             <div id="pres">
                                 <img class=icone src="./res/img/bouteille-de-gaz.png" alt="idéogramme bouteille de gaz">
-                                <p><strong><?php echo $gaz ;?> ppm</strong></p>
+                                <p><strong><?php echo $gaz ;?> ppm et <?php echo $tvoc ;?> ppb</strong></p>
                             </div>
                         </div>
                         <div id="graphique2">

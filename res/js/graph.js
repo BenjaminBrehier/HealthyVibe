@@ -222,7 +222,7 @@ function getGraphEnv() {
                 type: 'column'
             },
             title: {
-                text: 'CO2'
+                text: 'CO2 et Tvoc'
             },
             xAxis: {
                 categories: ['temps (en heure)'],
@@ -231,9 +231,9 @@ function getGraphEnv() {
                 }
             },
             yAxis: {
-                categories: ['CO2 (en ppm)','TVOC (en ppb)'],
+                categories: ['',''],
                 title: {
-                    text: 'CO2 (en ppm)'
+                    text: ''
                 }
             },
             plotOptions: {
@@ -243,7 +243,8 @@ function getGraphEnv() {
             series: [{
                 name: 'CO2',
                 data: [],
-            },{
+            },
+            {
                 name: 'TVOC',
                 data: []  
             },
@@ -318,7 +319,7 @@ function getGraphEnv() {
                 //! Calcul de la moyenne et ajout de la ligne
                 moy = [tabPoulData.reduce((a, b) => a + b, 0) / tabPoulData.length];
                 const tabMoys = Array(tabPoulData.length).fill(Math.round(moy));
-                gazChart.series[1].setData(tabMoys);
+                gazChart.series[2].setData(tabMoys);
             }
 
             if (tab[5] != "0") {
@@ -344,16 +345,16 @@ function getGraphEnv() {
                 var tabtvocData = [];
                 for (var i = 0; i < tabtvoc.length; i++) {
                     var tvoc = tabtvoc[i].split("&");
-                    tabDate.push(poul[1]);
+                    tabDate.push(tvoc[1]);
                     tabtvocData.push(parseFloat(tvoc[0]));
                 }
                 gazChart.xAxis[0].setCategories(tabDate);
-                gazChart.series[0].setData(tabtvocData);
+                gazChart.series[1].setData(tabtvocData);
 
                 //! Calcul de la moyenne et ajout de la ligne
                 moy = [tabtvocData.reduce((a, b) => a + b, 0) / tabtvocData.length];
                 const tabMoys = Array(tabtvocData.length).fill(Math.round(moy));
-                gazChart.series[1].setData(tabMoys);
+                gazChart.series[2].setData(tabMoys);
             }
         }
     }
